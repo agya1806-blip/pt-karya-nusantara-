@@ -1,4 +1,4 @@
-import type { JsonLd } from "@/types";
+import type { JsonLd, JsonLdBreadcrumbList, JsonLdArticle, JsonLdProduct } from "@/types";
 import { siteConfig } from "@/config";
 
 export function createOrganizationSchema(): JsonLd {
@@ -67,5 +67,67 @@ export function createLocalBusinessSchema(): JsonLd {
       closes: hours.close,
       ...(hours.isClosed ? { opens: "", closes: "" } : {}),
     })),
+  };
+}
+
+export function createBreadcrumbSchema(items: { name: string; href?: string }[]): JsonLdBreadcrumbList {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      ...items.map((item, index) => ({
+        "@type": "ListItem" as const,
+        position: index + 2,
+        name: item.name,
+        ...(item.href ? { item: `${siteConfig.url}${item.href}` } : {}),
+      })),
+    ],
+  };
+}
+
+export function createArticleSchema(params: {
+  headline: string;
+  description: string;
+  image: string;
+  datePublished: string;
+  author: string;
+  url: string;
+}): JsonLdArticle {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: params.headline,
+    description: params.description,
+    image: `${siteConfig.url}${params.image}`,
+    datePublished: params.datePublished,
+    dateModified: params.datePublished,
+    author: { "@type": "Person", name: params.author },
+    publisher: {
+      "@type": "Organization",
+      name: siteConfig.name,
+      logo: { "@type": "ImageObject", url: `${siteConfig.url}${siteConfig.logo}` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.url}${params.url}` },
+  };
+}
+
+export function createProjectSchema(params: {
+  name: string;
+  description: string;
+  image: string;
+  category: string;
+  location?: string;
+  year?: string;
+}): JsonLdProduct {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: params.name,
+    description: params.description,
+    image: `${siteConfig.url}${params.image}`,
+    category: params.category,
+    ...(params.location ? { location: params.location } : {}),
+    ...(params.year ? { dateCreated: params.year } : {}),
   };
 }

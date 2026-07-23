@@ -1,4 +1,4 @@
-import { GalleryGrid, InteractiveGallery, VideoShowcase } from "@/sections";
+import { GalleryGrid, InteractiveGallery, VideoShowcase, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { GalleryItem, VideoItem } from "@/sections";
 
@@ -46,6 +46,12 @@ export default function GalleryPage() {
         title="Video Showcase"
         description="Watch our projects come to life through cinematic videography."
         video={showcaseVideo}
+      />
+      <CTADefault
+        title="Inspired by What You See?"
+        description="Let's discuss how we can create something equally remarkable for your project."
+        primaryCta={{ label: "Start a Conversation", href: "/contact" }}
+        secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
       />
     </>
   );

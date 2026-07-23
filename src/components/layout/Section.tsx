@@ -19,10 +19,10 @@ const variantClasses: Record<SectionVariant, string> = {
 };
 
 const spacingClasses: Record<SectionSpacing, string> = {
-  sm: "py-12",
-  md: "py-16 md:py-20",
-  lg: "py-20 md:py-28",
-  xl: "py-28 md:py-36",
+  sm: "py-16",
+  md: "py-20 md:py-24",
+  lg: "py-24 md:py-32",
+  xl: "py-32 md:py-40",
   none: "py-0",
 };
 

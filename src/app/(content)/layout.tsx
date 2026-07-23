@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navigation/Navbar";
 import { Footer } from "@/components/navigation/Footer";
+import { PageWrapper } from "@/components/layout/PageWrapper";
 import { siteConfig } from "@/config";
 
 interface ContentLayoutProps {
@@ -10,7 +11,7 @@ export default function ContentLayout({ children }: ContentLayoutProps) {
   return (
     <>
       <Navbar links={siteConfig.navigation} />
-      <main className="min-h-screen">{children}</main>
+      <PageWrapper>{children}</PageWrapper>
       <Footer
         columns={siteConfig.footer}
         socialLinks={siteConfig.social}

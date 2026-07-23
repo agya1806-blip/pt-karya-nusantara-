@@ -1,4 +1,4 @@
-import { FeaturedProjects, ProjectCategories, StatisticsShowcase, CTADefault } from "@/sections";
+import { FeaturedProjects, ProjectCategories, StatisticsShowcase, CTADefault, SectionHeader } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { PortfolioItem, StatItem } from "@/sections";
 
@@ -26,9 +26,13 @@ const stats: StatItem[] = [
 export default function PortfolioPage() {
   return (
     <>
-      <FeaturedProjects
+      <SectionHeader
         title="Our Portfolio"
         description="A curated collection of our finest work, showcasing the breadth and depth of our architectural expertise."
+      />
+      <FeaturedProjects
+        title="Featured Projects"
+        description="Explore our most remarkable projects across residential, commercial, hospitality, and master planning."
         projects={projects}
       />
       <ProjectCategories

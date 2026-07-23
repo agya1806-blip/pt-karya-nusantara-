@@ -8,7 +8,7 @@ interface PageWrapperProps extends React.HTMLAttributes<HTMLElement> {
 const PageWrapper = forwardRef<HTMLElement, PageWrapperProps>(
   ({ className, offsetNav = true, children, ...props }, ref) => {
     return (
-      <main ref={ref} className={cn("flex-1", offsetNav && "pt-20 md:pt-24", className)} {...props}>
+      <main id="main-content" ref={ref} className={cn("flex-1", offsetNav && "pt-20 md:pt-24", className)} {...props}>
         {children}
       </main>
     );

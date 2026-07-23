@@ -11,17 +11,17 @@ interface TextProps {
 }
 
 const sizeStyles: Record<TextSize, string> = {
-  xs: "text-xs",
-  sm: "text-sm",
-  md: "text-base",
-  lg: "text-lg",
-  xl: "text-xl",
+  xs: "text-caption",
+  sm: "text-body-sm",
+  md: "text-body",
+  lg: "text-body-lg",
+  xl: "text-body-xl",
 };
 
 const colorStyles: Record<TextColor, string> = {
-  default: "text-text",
+  default: "text-text-primary",
   secondary: "text-text-secondary",
-  muted: "text-text-muted",
+  muted: "text-text-tertiary",
 };
 
 export const Text = forwardRef<HTMLElement, TextProps>(
@@ -29,7 +29,7 @@ export const Text = forwardRef<HTMLElement, TextProps>(
     return (
       <Tag
         ref={ref as any}
-        className={cn(sizeStyles[size], colorStyles[color], className)}
+        className={cn("leading-relaxed", sizeStyles[size], colorStyles[color], className)}
         {...rest}
       >
         {children}

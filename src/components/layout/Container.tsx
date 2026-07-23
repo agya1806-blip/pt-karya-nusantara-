@@ -19,7 +19,7 @@ const sizeClasses: Record<ContainerSize, string> = {
 const Container = forwardRef<HTMLDivElement, ContainerProps>(
   ({ className, size = "lg", as: Tag = "div", children, ...props }, ref) => {
     return (
-      <Tag ref={ref} className={cn("mx-auto w-full px-4 sm:px-6 lg:px-8", sizeClasses[size], className)} {...props}>
+      <Tag ref={ref} className={cn("mx-auto w-full px-5 sm:px-8 lg:px-12", sizeClasses[size], className)} {...props}>
         {children}
       </Tag>
     );

@@ -66,21 +66,21 @@ export function HeroSection({
       <div className="container-site relative z-10 flex flex-col justify-center py-24">
         {subtitle && (
           <Fade direction="up" delay={0.1}>
-            <span className="mb-4 inline-block text-caption font-semibold tracking-widest text-neutral-300 uppercase">
+            <span className="mb-6 inline-block text-caption tracking-widest text-neutral-400 uppercase">
               {subtitle}
             </span>
           </Fade>
         )}
         <TextReveal
           text={title}
-          className="text-display-xl font-light tracking-tight text-white"
+          className="text-display-xl font-light leading-tight tracking-tight text-white"
           delay={0.2}
         />
         {description && (
           <Fade direction="up" delay={0.4}>
             <p
               className={cn(
-                "mt-6 max-w-2xl text-body-lg text-neutral-300 leading-relaxed",
+                "mt-8 max-w-2xl text-body-lg text-neutral-400 leading-relaxed",
                 align === "center" && "mx-auto",
               )}
             >
@@ -92,7 +92,7 @@ export function HeroSection({
           <Fade direction="up" delay={0.6}>
             <div
               className={cn(
-                "mt-8 flex flex-wrap gap-4",
+                "mt-10 flex flex-wrap gap-5",
                 align === "center" && "justify-center",
                 align === "right" && "justify-end",
               )}
@@ -102,7 +102,7 @@ export function HeroSection({
                   key={action.label}
                   variant={action.variant ?? "primary"}
                   onClick={action.onClick}
-                  className={action.variant === "primary" ? "bg-white text-neutral-900 hover:bg-neutral-100" : "border-white text-white hover:bg-white/10"}
+                  className={action.variant === "primary" ? "bg-white text-neutral-900 hover:bg-neutral-100" : "border-white/30 text-white hover:bg-white/10"}
                 >
                   {action.icon}
                   {action.label}

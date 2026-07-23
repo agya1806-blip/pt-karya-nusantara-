@@ -24,13 +24,13 @@ export function LogoCloud({
 }: LogoCloudProps) {
   if (variant === "scrolling") {
     return (
-      <div className={cn("overflow-hidden py-8", className)}>
+      <div className={cn("overflow-hidden py-12", className)}>
         {title && (
-          <p className="mb-8 text-center text-caption font-semibold tracking-widest uppercase text-text-muted">
+          <p className="mb-10 text-center text-caption tracking-widest uppercase text-text-tertiary">
             {title}
           </p>
         )}
-        <div className="flex animate-scroll gap-16">
+        <div className="flex animate-scroll gap-20">
           {[...logos, ...logos].map((logo, index) => (
             <div
               key={`${logo.alt}-${index}`}
@@ -39,7 +39,7 @@ export function LogoCloud({
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-80 hover:grayscale-0"
+                className="h-7 w-auto opacity-30 grayscale transition-all duration-500 ease-architectural hover:opacity-70 hover:grayscale-0"
               />
             </div>
           ))}
@@ -51,17 +51,17 @@ export function LogoCloud({
   return (
     <div className={cn("py-16", className)}>
       {title && (
-        <p className="mb-10 text-center text-caption font-semibold tracking-widest uppercase text-text-muted">
+        <p className="mb-12 text-center text-caption tracking-widest uppercase text-text-tertiary">
           {title}
         </p>
       )}
-      <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-12 gap-y-8">
+      <div className="mx-auto flex max-w-4xl flex-wrap items-center justify-center gap-x-16 gap-y-10">
         {logos.map((logo) => (
           <div key={logo.alt} className="flex items-center justify-center">
             <img
               src={logo.src}
               alt={logo.alt}
-              className="h-8 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-80 hover:grayscale-0"
+              className="h-7 w-auto opacity-30 grayscale transition-all duration-500 ease-architectural hover:opacity-70 hover:grayscale-0"
             />
           </div>
         ))}

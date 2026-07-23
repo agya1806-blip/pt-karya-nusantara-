@@ -25,15 +25,15 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
   const rating = testimonial.rating;
 
   return (
-    <div className="flex flex-col rounded-xl border border-border-muted bg-surface p-8 transition-all duration-300 hover:shadow-elevation-3">
+    <div className="flex flex-col rounded-xl border border-border-light bg-surface p-8 transition-all duration-500 ease-architectural hover:border-border-default hover:shadow-elevation-4">
       {rating !== undefined && (
-        <div className="mb-4 flex items-center gap-1">
+        <div className="mb-5 flex items-center gap-1">
           {Array.from({ length: 5 }, (_, i) => (
             <Star
               key={i}
               size={16}
               className={cn(
-                i < rating ? "fill-current text-text" : "text-border",
+                i < rating ? "fill-current text-text" : "text-border-light",
               )}
             />
           ))}
@@ -46,12 +46,12 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
         </p>
       </blockquote>
 
-      <div className="mt-6 flex items-center gap-4">
+      <div className="mt-8 flex items-center gap-4">
         {testimonial.avatar && (
           <img
             src={testimonial.avatar}
             alt={testimonial.name}
-            className="h-12 w-12 rounded-full object-cover"
+            className="h-11 w-11 rounded-full object-cover"
           />
         )}
         <div>
@@ -59,7 +59,7 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
             {testimonial.name}
           </p>
           {(testimonial.role || testimonial.company) && (
-            <p className="text-caption text-text-muted">
+            <p className="text-caption text-text-tertiary">
               {[testimonial.role, testimonial.company]
                 .filter(Boolean)
                 .join(", ")}
@@ -85,17 +85,17 @@ export function Testimonials({
     if (!visible) return null;
 
     return (
-      <section className={cn("py-20", className)}>
+      <section className={cn("py-24 md:py-32", className)}>
         <div className="container-site">
           {(title || description) && (
-            <div className="mx-auto mb-12 max-w-2xl text-center">
+            <div className="mx-auto mb-14 max-w-3xl text-center">
               {title && (
-                <h2 className="text-heading-xl font-light tracking-tight text-text">
+                <h2 className="text-heading-xl font-light leading-tight tracking-tight text-text">
                   {title}
                 </h2>
               )}
               {description && (
-                <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+                <p className="mt-5 text-body-lg leading-relaxed text-text-secondary">
                   {description}
                 </p>
               )}
@@ -106,7 +106,7 @@ export function Testimonials({
             <ReviewCard testimonial={visible} />
 
             {testimonials.length > 1 && (
-              <div className="mt-8 flex items-center justify-center gap-4">
+              <div className="mt-10 flex items-center justify-center gap-4">
                 <button
                   type="button"
                   onClick={() =>
@@ -114,7 +114,7 @@ export function Testimonials({
                       p === 0 ? testimonials.length - 1 : p - 1,
                     )
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors duration-300 hover:bg-surface-muted hover:text-text"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border-light text-text-secondary transition-all duration-300 hover:border-border-default hover:bg-surface-muted hover:text-text"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={18} />
@@ -127,10 +127,10 @@ export function Testimonials({
                       type="button"
                       onClick={() => setCurrent(i)}
                       className={cn(
-                        "h-2 rounded-full transition-all duration-300",
+                        "h-2 rounded-full transition-all duration-500 ease-architectural",
                         i === current
                           ? "w-8 bg-text"
-                          : "w-2 bg-border hover:bg-text-muted",
+                          : "w-2 bg-border-light hover:bg-text-tertiary",
                       )}
                       aria-label={`Go to testimonial ${i + 1}`}
                     />
@@ -144,7 +144,7 @@ export function Testimonials({
                       p === testimonials.length - 1 ? 0 : p + 1,
                     )
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors duration-300 hover:bg-surface-muted hover:text-text"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border-light text-text-secondary transition-all duration-300 hover:border-border-default hover:bg-surface-muted hover:text-text"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight size={18} />
@@ -158,17 +158,17 @@ export function Testimonials({
   }
 
   return (
-    <section className={cn("py-20", className)}>
+    <section className={cn("py-24 md:py-32", className)}>
       <div className="container-site">
         {(title || description) && (
-          <div className="mx-auto mb-12 max-w-2xl text-center">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             {title && (
-              <h2 className="text-heading-xl font-light tracking-tight text-text">
+              <h2 className="text-heading-xl font-light leading-tight tracking-tight text-text">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+              <p className="mt-5 text-body-lg leading-relaxed text-text-secondary">
                 {description}
               </p>
             )}

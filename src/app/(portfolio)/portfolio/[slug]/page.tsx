@@ -1,5 +1,5 @@
 import { ProjectGallery, Awards, FeaturedProjects, ProjectDetailHeader, BeforeAfter, ProjectStatistics, CTADefault } from "@/sections";
-import { createMetadata } from "@/seo";
+import { createMetadata, createProjectSchema, createBreadcrumbSchema, JsonLdScript } from "@/seo";
 import type { GalleryItem, AwardItem, PortfolioItem, StatItem, ProjectItem, MediaItem } from "@/sections";
 
 interface ProjectPageProps {
@@ -195,6 +195,18 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <JsonLdScript data={createProjectSchema({
+        name: project.title,
+        description: project.description,
+        image: project.thumbnail.src,
+        category: project.category,
+        location: project.location,
+        year: project.year,
+      })} id="project-schema" />
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Portfolio", href: "/portfolio" },
+        { name: project.title },
+      ])} id="breadcrumb-schema" />
       <ProjectDetailHeader project={projectItem} />
       <ProjectGallery title={project.title} images={project.images} />
       <BeforeAfter
@@ -210,9 +222,9 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <Awards title="Awards & Recognition" awards={awards} />
       <FeaturedProjects title="Related Projects" description="Explore similar projects from our portfolio." projects={allProjects.filter((p) => p.href !== `/portfolio/${slug}`).slice(0, 3)} />
       <CTADefault
-        title="Start Your Project"
-        description="Ready to create something extraordinary? Let's bring your vision to life."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        title="Inspired by This Project?"
+        description="Let's create something equally remarkable for your space. Share your vision with us."
+        primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
       />
     </>
   );

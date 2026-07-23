@@ -14,11 +14,11 @@ interface StatisticCardProps {
 
 function StatisticCard({ value, label, prefix, suffix, trend, className }: StatisticCardProps) {
   return (
-    <div className={cn("bg-surface rounded-2xl p-6 text-center", className)}>
-      <div className="flex items-baseline justify-center gap-1">
-        {prefix && <span className="text-heading text-text-muted">{prefix}</span>}
+    <div className={cn("bg-surface rounded-xl p-8 text-center", className)}>
+      <div className="flex items-baseline justify-center gap-2">
+        {prefix && <span className="text-heading text-text-tertiary">{prefix}</span>}
         <span className="text-display text-text font-light tracking-tight">{value}</span>
-        {suffix && <span className="text-heading text-text-muted">{suffix}</span>}
+        {suffix && <span className="text-heading text-text-tertiary">{suffix}</span>}
         {trend && trend !== "neutral" && (
           <span
             className={cn(
@@ -30,7 +30,7 @@ function StatisticCard({ value, label, prefix, suffix, trend, className }: Stati
           </span>
         )}
       </div>
-      <p className="text-body-sm text-text-secondary mt-2 tracking-widest">{label}</p>
+      <p className="text-body-sm text-text-secondary mt-3 tracking-widest">{label}</p>
     </div>
   );
 }

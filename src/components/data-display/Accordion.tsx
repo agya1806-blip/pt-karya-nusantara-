@@ -33,7 +33,7 @@ function Accordion({ items, allowMultiple = false, className }: AccordionProps) 
   }
 
   return (
-    <div className={cn("divide-y divide-border-muted", className)}>
+    <div className={cn("divide-y divide-border-light", className)}>
       {items.map((item) => {
         const isOpen = openIds.has(item.id);
         return (
@@ -41,23 +41,23 @@ function Accordion({ items, allowMultiple = false, className }: AccordionProps) 
             <button
               type="button"
               onClick={() => handleToggle(item.id)}
-              className="flex w-full items-center justify-between py-4 text-left text-heading-sm text-text transition-colors duration-300 hover:text-brand-500"
+              className="flex w-full items-center justify-between py-5 text-left text-heading-sm text-text transition-colors duration-300 ease-architectural hover:text-brand-500"
             >
               {item.title}
               {isOpen ? (
-                <Minus className="h-5 w-5 shrink-0 text-text-muted" />
+                <Minus className="h-5 w-5 shrink-0 text-text-tertiary" />
               ) : (
-                <Plus className="h-5 w-5 shrink-0 text-text-muted" />
+                <Plus className="h-5 w-5 shrink-0 text-text-tertiary" />
               )}
             </button>
             <div
               className={cn(
-                "grid transition-[grid-template-rows] duration-300 ease-luxury",
+                "grid transition-[grid-template-rows] duration-400 ease-architectural",
                 isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
               )}
             >
               <div className="overflow-hidden">
-                <div className="pb-4 text-body text-text-secondary leading-relaxed">
+                <div className="pb-6 text-body text-text-secondary leading-relaxed">
                   {item.content}
                 </div>
               </div>

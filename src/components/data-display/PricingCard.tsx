@@ -26,26 +26,26 @@ function PricingCard({
   return (
     <div
       className={cn(
-        "rounded-2xl p-8 transition-all duration-300 ease-luxury",
+        "rounded-xl p-8 transition-all duration-500 ease-architectural",
         highlighted
-          ? "bg-brand-500 text-text-inverse scale-105 shadow-elevation-4"
-          : "bg-surface text-text",
+          ? "bg-brand-500 text-text-inverse shadow-elevation-5"
+          : "bg-surface text-text border border-border-light hover:border-border-default",
         className,
       )}
     >
-      <h3 className="text-heading-sm">{name}</h3>
-      <div className="mt-4 flex items-baseline gap-1">
+      <h3 className="text-heading-sm leading-snug">{name}</h3>
+      <div className="mt-5 flex items-baseline gap-1.5">
         <span className="text-display font-light tracking-tight">{price}</span>
         <span
           className={cn(
             "text-body",
-            highlighted ? "text-text-inverse/80" : "text-text-muted",
+            highlighted ? "text-text-inverse/70" : "text-text-tertiary",
           )}
         >
           /{period}
         </span>
       </div>
-      <ul className="mt-6 space-y-3">
+      <ul className="mt-8 space-y-3">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-3 text-body-sm">
             <Check
@@ -54,7 +54,9 @@ function PricingCard({
                 highlighted ? "text-text-inverse" : "text-brand-500",
               )}
             />
-            {feature}
+            <span className={cn(highlighted ? "text-text-inverse/90" : "text-text-secondary")}>
+              {feature}
+            </span>
           </li>
         ))}
       </ul>

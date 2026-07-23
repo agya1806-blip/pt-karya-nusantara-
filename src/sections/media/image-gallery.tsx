@@ -100,11 +100,13 @@ export function ImageGallery({
             </>
           )}
           <div className="flex max-h-full max-w-full flex-col items-center">
-            <img
-              src={images[lightboxIndex].src}
-              alt={images[lightboxIndex].alt}
-              className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
-            />
+            {lightboxIndex !== null && images[lightboxIndex] && (
+              <img
+                src={images[lightboxIndex]!.src}
+                alt={images[lightboxIndex]!.alt}
+                className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
+              />
+            )}
           </div>
         </div>
       )}

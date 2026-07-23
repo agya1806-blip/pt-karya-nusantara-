@@ -27,7 +27,7 @@ export function GalleryMasonry({
 
   const chunks: MediaItem[][] = Array.from({ length: cols }, () => []);
   images.forEach((img, i) => {
-    chunks[i % cols].push(img);
+    chunks[i % cols]!.push(img);
   });
 
   return (
@@ -50,7 +50,9 @@ export function GalleryMasonry({
           >
             {chunks.map((col, colIdx) => (
               <div key={colIdx} className="flex flex-col gap-4">
-                {col.map((img, imgIdx) => (
+                {col.map((img, imgIdx) => {
+                if (!img) return null;
+                return (
                   <div
                     key={`${colIdx}-${imgIdx}`}
                     className="group relative overflow-hidden rounded-xl bg-surface-muted"
@@ -63,7 +65,8 @@ export function GalleryMasonry({
                       className="w-full transition-transform duration-500 ease-luxury group-hover:scale-105"
                     />
                   </div>
-                ))}
+                );
+              })}
               </div>
             ))}
           </div>

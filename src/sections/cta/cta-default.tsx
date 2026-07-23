@@ -5,7 +5,7 @@ import { Fade } from "@/components/animation/Fade";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-interface CTADefaultProps {
+export interface CTADefaultProps {
   title: string;
   description?: string;
   primaryCta?: { label: string; href: string };

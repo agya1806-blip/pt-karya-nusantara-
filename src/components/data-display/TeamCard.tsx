@@ -12,17 +12,17 @@ interface TeamCardProps {
 function TeamCard({ avatar, name, role, bio, href, className }: TeamCardProps) {
   const shared = (
     <>
-      <div className="overflow-hidden rounded-2xl">
+      <div className="overflow-hidden rounded-xl">
         <img
           src={avatar}
           alt={name}
-          className="aspect-square w-full object-cover transition-transform duration-300 ease-luxury group-hover:scale-105"
+          className="aspect-square w-full object-cover transition-transform duration-500 ease-architectural group-hover:scale-105"
         />
       </div>
-      <div className="mt-4 text-center">
-        <h3 className="text-heading-sm text-text">{name}</h3>
-        <p className="text-body-sm text-brand-500 mt-1">{role}</p>
-        <p className="text-body-sm text-text-secondary mt-2 leading-relaxed">{bio}</p>
+      <div className="mt-6 text-center">
+        <h3 className="text-heading-sm text-text leading-snug">{name}</h3>
+        <p className="text-body-sm text-brand-500 mt-1.5">{role}</p>
+        <p className="text-body-sm text-text-secondary mt-3 leading-relaxed">{bio}</p>
       </div>
     </>
   );

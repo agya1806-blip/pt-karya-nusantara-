@@ -38,9 +38,9 @@ export function Navbar({
   return (
     <nav
       className={cn(
-        "fixed inset-x-0 top-0 z-navbar transition-all duration-300 ease-luxury",
+        "fixed inset-x-0 top-0 z-navbar transition-all duration-500 ease-architectural",
         !isTransparent || isScrolled
-          ? "bg-surface shadow-elevation-2"
+          ? "bg-surface/95 backdrop-blur-md shadow-elevation-1"
           : "bg-transparent",
         className,
       )}
@@ -48,16 +48,16 @@ export function Navbar({
       <div className="container-site flex h-16 items-center justify-between md:h-20">
         <div className="flex-shrink-0">{logo}</div>
 
-        <div className="hidden items-center gap-1 md:flex">
+        <div className="hidden items-center gap-2 md:flex">
           {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "relative px-4 py-2 text-body-sm font-medium tracking-tight transition-colors duration-300",
+                "relative rounded-lg px-4 py-2 text-body-sm font-medium tracking-tight transition-all duration-300",
                 link.active
                   ? "text-text"
-                  : "text-text-secondary hover:text-text",
+                  : "text-text-secondary hover:text-text hover:bg-surface-muted/50",
               )}
             >
               {link.label}
@@ -74,10 +74,11 @@ export function Navbar({
         <button
           type="button"
           onClick={() => setMobileOpen((v) => !v)}
-          className="flex items-center justify-center p-2 text-text-secondary md:hidden"
+          className="flex items-center justify-center rounded-lg p-2.5 text-text-secondary transition-colors duration-300 hover:bg-surface-muted/50 hover:text-text md:hidden"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
+          aria-expanded={mobileOpen}
         >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
       </div>
 
@@ -87,17 +88,19 @@ export function Navbar({
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="overflow-hidden border-t border-border-muted bg-surface md:hidden"
+            className="overflow-hidden border-t border-border-light bg-surface/95 backdrop-blur-md md:hidden"
           >
-            <div className="container-site space-y-1 py-4">
+            <div className="container-site space-y-1 pb-6 pt-4">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
                   className={cn(
-                    "block py-2 text-body-lg font-light tracking-tight transition-colors duration-300",
-                    link.active ? "text-text" : "text-text-secondary",
+                    "block rounded-lg px-4 py-3 text-body-lg font-light tracking-tight transition-colors duration-300",
+                    link.active
+                      ? "text-text bg-surface-muted"
+                      : "text-text-secondary hover:text-text hover:bg-surface-muted/50",
                   )}
                 >
                   {link.label}

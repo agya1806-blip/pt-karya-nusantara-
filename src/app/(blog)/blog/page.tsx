@@ -43,9 +43,9 @@ export default function BlogPage() {
         description="Subscribe to our newsletter for the latest articles, project updates, and design insights."
       />
       <CTADefault
-        title="Have a Project in Mind?"
-        description="Let's discuss how we can bring your architectural vision to life."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        title="Turn Inspiration into Reality"
+        description="Our team is ready to bring your architectural vision to life. Let's start a conversation."
+        primaryCta={{ label: "Begin Your Project", href: "/contact" }}
       />
     </>
   );

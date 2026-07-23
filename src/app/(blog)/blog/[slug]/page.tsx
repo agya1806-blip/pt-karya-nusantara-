@@ -1,5 +1,5 @@
 import { BlogPosts, NewsletterCTA, CTADefault } from "@/sections";
-import { createMetadata } from "@/seo";
+import { createMetadata, createArticleSchema, createBreadcrumbSchema, JsonLdScript } from "@/seo";
 import type { BlogPost } from "@/sections";
 
 interface ArticlePageProps {
@@ -61,6 +61,18 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
 
   return (
     <>
+      <JsonLdScript data={createArticleSchema({
+        headline: article.title,
+        description: article.excerpt,
+        image: article.image.src,
+        datePublished: article.date,
+        author: article.author ?? "PT Karya Nusantara Realty",
+        url: `/blog/${slug}`,
+      })} id="article-schema" />
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Blog", href: "/blog" },
+        { name: article.title },
+      ])} id="breadcrumb-schema" />
       <BlogPosts
         title={article.title}
         description={article.excerpt}
@@ -79,9 +91,9 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
         description="Subscribe to our newsletter for more insights delivered to your inbox."
       />
       <CTADefault
-        title="Start Your Project"
-        description="Ready to turn inspiration into reality? Contact our team today."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        title="Inspired by This Article?"
+        description="Our team of architects is ready to help you apply these ideas to your own project."
+        primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
       />
     </>
   );

@@ -18,19 +18,19 @@ function ProjectCard({ image, title, category, location, year, href, className }
         <img
           src={image}
           alt={title}
-          className="h-64 w-full object-cover transition-transform duration-300 ease-luxury group-hover:scale-105"
+          className="h-72 w-full object-cover transition-transform duration-500 ease-architectural group-hover:scale-105"
         />
         {href && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 ease-luxury group-hover:opacity-100">
+          <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-500 ease-architectural group-hover:opacity-100">
             <ArrowUpRight className="h-8 w-8 text-text-inverse" />
           </div>
         )}
       </div>
-      <div className="p-6">
-        <span className="text-caption tracking-widest text-text-muted">{category}</span>
-        <h3 className="text-heading-sm text-text mt-1 font-light">{title}</h3>
-        <div className="mt-3 flex items-center gap-4 text-body-sm text-text-secondary">
-          <span className="flex items-center gap-1">
+      <div className="p-7">
+        <span className="text-caption tracking-widest text-text-tertiary">{category}</span>
+        <h3 className="text-heading-sm text-text mt-2 leading-snug">{title}</h3>
+        <div className="mt-4 flex items-center gap-4 text-body-sm text-text-secondary">
+          <span className="flex items-center gap-1.5">
             <MapPin className="h-3.5 w-3.5" />
             {location}
           </span>
@@ -45,7 +45,7 @@ function ProjectCard({ image, title, category, location, year, href, className }
       <a
         href={href}
         className={cn(
-          "group block rounded-2xl bg-surface overflow-hidden transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+          "group block rounded-xl bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
           className,
         )}
       >
@@ -57,7 +57,7 @@ function ProjectCard({ image, title, category, location, year, href, className }
   return (
     <div
       className={cn(
-        "group rounded-2xl bg-surface overflow-hidden transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+        "group rounded-xl bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
         className,
       )}
     >

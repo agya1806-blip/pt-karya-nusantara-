@@ -35,32 +35,32 @@ export function HeroSplit({
       >
         <div
           className={cn(
-            "flex flex-col justify-center px-6 py-24 lg:px-16",
+            "flex flex-col justify-center px-6 py-24 lg:px-20",
             reverse ? "lg:order-2" : "lg:order-1",
           )}
         >
           {subtitle && (
             <Fade direction="up" delay={0.1}>
-              <span className="mb-3 block text-caption font-semibold tracking-widest text-text-secondary uppercase">
+              <span className="mb-4 block text-caption tracking-widest text-text-tertiary uppercase">
                 {subtitle}
               </span>
             </Fade>
           )}
           <Fade direction="up" delay={0.2}>
-            <h1 className="text-display-xl font-light tracking-tight text-text-primary">
+            <h1 className="text-display-xl font-light leading-tight tracking-tight text-text-primary">
               {title}
             </h1>
           </Fade>
           {description && (
             <Fade direction="up" delay={0.3}>
-              <p className="mt-6 max-w-xl text-body-lg text-text-secondary leading-relaxed">
+              <p className="mt-8 max-w-xl text-body-lg text-text-secondary leading-relaxed">
                 {description}
               </p>
             </Fade>
           )}
           {actions && actions.length > 0 && (
             <Fade direction="up" delay={0.4}>
-              <div className="mt-8 flex flex-wrap gap-4">
+              <div className="mt-10 flex flex-wrap gap-5">
                 {actions.map((action) => (
                   <Button key={action.label} variant={action.variant ?? "primary"}>
                     {action.icon}

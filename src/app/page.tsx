@@ -58,6 +58,11 @@ export default function HomePage() {
         description="A selection of our most remarkable projects, showcasing the breadth of our expertise."
         projects={projects.slice(0, 4)}
       />
+      <StatisticsShowcase
+        title="By the Numbers"
+        description="Our track record of excellence."
+        stats={stats}
+      />
       <ServicesGrid
         title="Our Services"
         description="Comprehensive architectural services tailored to your vision."
@@ -68,21 +73,16 @@ export default function HomePage() {
         description="Our proven process ensures exceptional results for every project."
         steps={steps}
       />
-      <StatisticsShowcase
-        title="By the Numbers"
-        description="Our track record of excellence."
-        stats={stats}
-      />
       <ClientReviews
         title="What Our Clients Say"
         description="Hear from the clients who have trusted us with their vision."
         testimonials={testimonials}
       />
       <CTADefault
-        title="Let's Create Together"
-        description="Ready to start your project? Let's discuss how we can transform your vision into reality."
-        primaryCta={{ label: "Get in Touch", href: "/contact" }}
-        secondaryCta={{ label: "Explore Portfolio", href: "/portfolio" }}
+        title="Begin Your Architectural Journey"
+        description="Every masterpiece begins with a conversation. Share your vision with us and discover what we can create together."
+        primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
+        secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
       />
     </>
   );

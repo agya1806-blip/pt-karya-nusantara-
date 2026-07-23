@@ -38,9 +38,9 @@ export default function ServicesPage() {
         description="Schedule a complimentary consultation with our team to discuss your project requirements."
       />
       <CTADefault
-        title="Let's Create Something Extraordinary"
-        description="Ready to begin? Contact us to discuss your project and discover how we can bring your vision to life."
-        primaryCta={{ label: "Get in Touch", href: "/contact" }}
+        title="Not Sure Which Service You Need?"
+        description="Tell us about your project and we'll recommend the ideal approach during a complimentary consultation."
+        primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
       />
     </>
   );

@@ -47,8 +47,8 @@ export default function FAQPage() {
       />
       <CTADefault
         title="Still Have Questions?"
-        description="We are happy to answer any questions you may have. Reach out to our team directly."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        description="Every project is unique. Reach out to our team and we'll personally answer any questions about your specific needs."
+        primaryCta={{ label: "Ask Our Team", href: "/contact" }}
       />
     </>
   );

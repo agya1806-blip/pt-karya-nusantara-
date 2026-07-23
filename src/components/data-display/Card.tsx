@@ -15,9 +15,9 @@ function getVariantStyles(variant: CardVariant): string {
     case "muted":
       return "bg-surface-muted";
     case "elevated":
-      return "bg-surface shadow-elevation-2";
+      return "bg-surface shadow-elevation-2 hover:shadow-elevation-4";
     case "bordered":
-      return "bg-surface border border-border";
+      return "bg-surface border border-border-light hover:border-border-default";
     default:
       return "bg-surface";
   }
@@ -44,10 +44,10 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       <div
         ref={ref}
         className={cn(
-          "rounded-2xl",
+          "rounded-xl",
           getVariantStyles(variant),
           getPaddingStyles(padding),
-          hover && "transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+          hover && "cursor-pointer transition-all duration-500 ease-architectural hover:-translate-y-0.5",
           className,
         )}
         {...props}

@@ -41,19 +41,19 @@ export function NewsletterSection({
   };
 
   return (
-    <section className={cn("py-20", className)}>
+    <section className={cn("py-24 md:py-32", className)}>
       <div className="container-site">
         <div className="mx-auto max-w-xl text-center">
-          <h2 className="text-heading-xl font-light tracking-tight text-text">
+          <h2 className="text-heading-xl font-light leading-tight tracking-tight text-text">
             {title}
           </h2>
           {description && (
-            <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+            <p className="mt-5 text-body-lg leading-relaxed text-text-secondary">
               {description}
             </p>
           )}
 
-          <form onSubmit={handleSubmit} className="mt-8">
+          <form onSubmit={handleSubmit} className="mt-10">
             <div className="flex items-center gap-3">
               <div className="relative flex-1">
                 <input
@@ -63,13 +63,13 @@ export function NewsletterSection({
                   placeholder={placeholder}
                   required
                   disabled={status === "loading"}
-                  className="w-full rounded-lg border border-border-muted bg-surface px-4 py-3 text-body text-text placeholder:text-text-muted transition-colors duration-300 focus:border-text focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-lg border border-border-light bg-surface px-5 py-3.5 text-body text-text placeholder:text-text-tertiary transition-all duration-300 ease-architectural focus:border-text-primary focus:outline-none disabled:opacity-50"
                 />
               </div>
               <button
                 type="submit"
                 disabled={status === "loading" || !email.trim()}
-                className="inline-flex items-center gap-2 rounded-lg bg-text px-6 py-3 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-6 py-3.5 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90 disabled:opacity-50"
               >
                 {buttonLabel}
                 <Send size={16} />
@@ -77,12 +77,12 @@ export function NewsletterSection({
             </div>
 
             {status === "success" && (
-              <p className="mt-3 text-body-sm text-text-secondary">
+              <p className="mt-4 text-body-sm text-text-secondary">
                 Thank you for subscribing!
               </p>
             )}
             {status === "error" && (
-              <p className="mt-3 text-body-sm text-red-500">
+              <p className="mt-4 text-body-sm text-red-500">
                 Something went wrong. Please try again.
               </p>
             )}

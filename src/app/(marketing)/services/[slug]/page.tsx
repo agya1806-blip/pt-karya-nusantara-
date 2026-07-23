@@ -1,5 +1,5 @@
 import { ServiceDetail, CTADefault } from "@/sections";
-import { createMetadata } from "@/seo";
+import { createMetadata, createBreadcrumbSchema, JsonLdScript } from "@/seo";
 import type { ServiceItem } from "@/sections";
 
 interface ServicePageProps {
@@ -67,11 +67,15 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   return (
     <>
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Services", href: "/services" },
+        { name: service.title },
+      ])} id="breadcrumb-schema" />
       <ServiceDetail {...service} />
       <CTADefault
         title="Interested in This Service?"
-        description="Contact us to discuss how we can tailor this service to your project's unique requirements."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        description="Let's explore how this service can be tailored to your project's unique requirements and vision."
+        primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
       />
     </>
   );

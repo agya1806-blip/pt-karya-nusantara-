@@ -105,9 +105,9 @@ export function Footer({
 
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <p className="mb-4 text-caption font-semibold tracking-widest uppercase text-text-muted">
+              <h3 className="mb-5 text-caption tracking-widest uppercase text-text-tertiary">
                 {column.title}
-              </p>
+              </h3>
               <ul className="space-y-3">
                 {column.links.map((link) => (
                   <li key={link.href}>
@@ -116,9 +116,9 @@ export function Footer({
                       target={link.isExternal ? "_blank" : undefined}
                       rel={link.isExternal ? "noopener noreferrer" : undefined}
                       className={cn(
-                        "text-body-sm font-light leading-relaxed transition-colors duration-300",
+                        "inline-block text-body-sm leading-relaxed transition-all duration-300",
                         variant === "dark"
-                          ? "text-text-muted hover:text-text-inverse"
+                          ? "text-text-secondary hover:text-text-inverse"
                           : "text-text-secondary hover:text-text",
                       )}
                     >

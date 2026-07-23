@@ -11,16 +11,16 @@ interface LabelProps {
 }
 
 const sizeStyles: Record<LabelSize, string> = {
-  sm: "text-sm",
-  md: "text-base",
+  sm: "text-body-sm",
+  md: "text-body",
 };
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>(
   ({ size = "sm", required = false, className, children, htmlFor, ...rest }, ref) => {
     return (
-      <label ref={ref} htmlFor={htmlFor} className={cn("font-medium text-text", sizeStyles[size], className)} {...rest}>
+      <label ref={ref} htmlFor={htmlFor} className={cn("font-medium tracking-tight text-text", sizeStyles[size], className)} {...rest}>
         {children}
-        {required && <span className="ml-0.5 text-red-500" aria-hidden="true">*</span>}
+        {required && <span className="ml-1 text-red-500" aria-hidden="true">*</span>}
       </label>
     );
   },

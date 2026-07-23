@@ -41,6 +41,9 @@ export type {
   SeoConfig,
   GenerateMetadata,
   JsonLd,
+  JsonLdBreadcrumbList,
+  JsonLdArticle,
+  JsonLdProduct,
 } from "./seo";
 
 export type {

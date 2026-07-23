@@ -8,7 +8,7 @@ interface DatePickerWrapperProps {
   id?: string;
   className?: string;
   value?: string;
-  onChange?: React.ChangeEvent<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   label?: string;
   disabled?: boolean;
   required?: boolean;

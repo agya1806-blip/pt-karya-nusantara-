@@ -8,7 +8,7 @@ interface SearchProps {
   id?: string;
   className?: string;
   value?: string;
-  onChange?: React.ChangeEvent<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
   disabled?: boolean;
 }

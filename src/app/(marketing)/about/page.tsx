@@ -1,11 +1,18 @@
-import { CompanyOverview, VisionMission, Timeline, FounderStory, Values, Awards, CTADefault } from "@/sections";
+import { CompanyOverview, VisionMission, Timeline, FounderStory, Values, Awards, StatisticsShowcase, TeamGrid, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
-import type { TimelineEvent, TeamMember, AwardItem } from "@/sections";
+import type { TimelineEvent, TeamMember, AwardItem, StatItem } from "@/sections";
 
 export const metadata = createMetadata({
   title: "About Us",
   description: "Learn about PT Karya Nusantara Realty — a world-class luxury architecture firm based in Jakarta, serving globally.",
 });
+
+const stats: StatItem[] = [
+  { value: "200", label: "Projects Completed", suffix: "+" },
+  { value: "50", label: "Awards Won", suffix: "+" },
+  { value: "15", label: "Years of Experience" },
+  { value: "8", label: "Countries Served" },
+];
 
 const timelineEvents: TimelineEvent[] = [
   { year: "2010", title: "Founded", description: "PT Karya Nusantara Realty was established in Jakarta with a vision to redefine luxury architecture in Indonesia." },
@@ -19,6 +26,17 @@ const timelineEvents: TimelineEvent[] = [
 const founders: TeamMember[] = [
   { name: "Ardi Wicaksono", role: "Founder & Principal Architect", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Visionary architect with 25+ years of experience in luxury residential and commercial design." },
   { name: "Sari Dewi", role: "Co-Founder & Design Director", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Award-winning designer known for blending traditional Indonesian craftsmanship with modern aesthetics." },
+];
+
+const teamMembers: TeamMember[] = [
+  { name: "Ardi Wicaksono", role: "Founder & Principal Architect", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "25+ years of experience in luxury architecture across Southeast Asia." },
+  { name: "Sari Dewi", role: "Co-Founder & Design Director", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Award-winning designer specializing in luxury residential and hospitality projects." },
+  { name: "Budi Santoso", role: "Managing Partner", image: { src: "/images/team/budi.jpg", alt: "Budi Santoso" }, bio: "Oversees firm operations, client relationships, and strategic growth." },
+  { name: "Rina Wijaya", role: "Creative Director", image: { src: "/images/team/rina.jpg", alt: "Rina Wijaya" }, bio: "Leads creative vision across all projects, ensuring design excellence." },
+  { name: "Dimas Prayogo", role: "Senior Architect", image: { src: "/images/team/dimas.jpg", alt: "Dimas Prayogo" }, bio: "Specializes in residential and mixed-use developments." },
+  { name: "Maya Putri", role: "Senior Architect", image: { src: "/images/team/maya.jpg", alt: "Maya Putri" }, bio: "Expert in sustainable design and green building certification." },
+  { name: "Alex Hartono", role: "Project Architect", image: { src: "/images/team/alex.jpg", alt: "Alex Hartono" }, bio: "Focuses on hospitality and commercial projects." },
+  { name: "Lisa Tanudjaja", role: "Interior Designer", image: { src: "/images/team/lisa.jpg", alt: "Lisa Tanudjaja" }, bio: "Award-winning interior designer with a passion for luxury spaces." },
 ];
 
 const awards: AwardItem[] = [
@@ -37,13 +55,16 @@ export default function AboutPage() {
         ]}
         image={{ src: "/images/about/overview.jpg", alt: "PT Karya Nusantara Realty studio" }}
       />
+      <StatisticsShowcase
+        title="By the Numbers"
+        description="A decade and a half of defining luxury architecture across the region."
+        stats={stats}
+      />
       <VisionMission
         title="Our Vision & Mission"
         vision={{ title: "Our Vision", description: "To be the leading luxury architecture firm in Southeast Asia, setting the benchmark for design excellence, innovation, and sustainability." }}
         mission={{ title: "Our Mission", description: "To create spaces that harmonize beauty, function, and environmental responsibility — enriching the lives of those who inhabit them." }}
       />
-      <FounderStory founders={founders} />
-      <Timeline title="Our History" events={timelineEvents} />
       <Values
         title="Our Values"
         values={[
@@ -53,12 +74,20 @@ export default function AboutPage() {
           { title: "Cultural Heritage", description: "We celebrate Indonesian craftsmanship and incorporate local traditions into modern designs." },
         ]}
       />
+      <FounderStory founders={founders} />
+      <Timeline title="Our History" events={timelineEvents} />
+      <TeamGrid
+        title="Meet Our Team"
+        description="The architects, designers, and experts behind every project."
+        members={teamMembers}
+        columns={4}
+      />
       <Awards title="Awards & Recognition" awards={awards} />
       <CTADefault
-        title="Ready to Start Your Project?"
-        description="Let's discuss how we can transform your vision into a timeless architectural masterpiece."
+        title="Let's Discuss Your Vision"
+        description="Share your project aspirations with us. Every great design begins with a conversation."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
-        secondaryCta={{ label: "View Portfolio", href: "/portfolio" }}
+        secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
       />
     </>
   );

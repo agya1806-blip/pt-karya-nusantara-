@@ -13,13 +13,13 @@ interface HeadingProps {
 }
 
 const sizeStyles: Record<HeadingSize, string> = {
-  xs: "text-xs",
-  sm: "text-sm",
-  md: "text-base",
-  lg: "text-lg",
-  xl: "text-xl",
-  "2xl": "text-2xl",
-  "3xl": "text-3xl",
+  xs: "text-body-sm",
+  sm: "text-body",
+  md: "text-heading-sm",
+  lg: "text-heading",
+  xl: "text-heading-lg",
+  "2xl": "text-heading-xl",
+  "3xl": "text-display-sm",
 };
 
 const weightStyles: Record<FontWeight, string> = {
@@ -41,7 +41,7 @@ export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
   ({ as: level = "h2", size = "lg", weight = "medium", tracking = "tight", className, children, ...rest }, ref) => {
     return createElement(
       level,
-      { ref, className: cn("text-text", sizeStyles[size], weightStyles[weight], trackingStyles[tracking], className), ...rest },
+      { ref, className: cn("text-text-primary leading-snug", sizeStyles[size], weightStyles[weight], trackingStyles[tracking], className), ...rest },
       children,
     );
   },

@@ -1,4 +1,4 @@
-import { CareerHero, Benefits, OpenPositions, CultureValues, RecruitmentProcess } from "@/sections";
+import { CareerHero, Benefits, OpenPositions, CultureValues, RecruitmentProcess, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 
 export const metadata = createMetadata({
@@ -27,6 +27,15 @@ export default function CareerPage() {
         image={{ src: "/images/career/hero.jpg", alt: "Career at Karya Nusantara Realty" }}
         cta={{ label: "View Open Positions", href: "#positions" }}
       />
+      <CultureValues
+        title="Our Culture"
+        description="We foster a culture of excellence, collaboration, and continuous innovation."
+        values={[
+          { title: "Innovation", description: "We push boundaries and explore new design frontiers." },
+          { title: "Collaboration", description: "Great ideas emerge from teamwork and open dialogue." },
+          { title: "Excellence", description: "We hold ourselves to the highest standards." },
+        ]}
+      />
       <Benefits
         title="Why Work With Us"
         description="We believe in nurturing talent and providing an environment where creativity thrives."
@@ -35,20 +44,6 @@ export default function CareerPage() {
           { title: "Competitive Compensation", description: "Attractive salary packages, performance bonuses, and comprehensive benefits.", icon: "dollar-sign" },
           { title: "Professional Growth", description: "Continuous learning opportunities, workshops, and international exposure.", icon: "trending-up" },
           { title: "Collaborative Culture", description: "Work alongside Indonesia's most talented architects and designers in a supportive studio environment.", icon: "users" },
-        ]}
-      />
-      <OpenPositions
-        title="Open Positions"
-        description="Explore current opportunities to join our growing team."
-        positions={positions}
-      />
-      <CultureValues
-        title="Our Culture"
-        description="We foster a culture of excellence, collaboration, and continuous innovation."
-        values={[
-          { title: "Innovation", description: "We push boundaries and explore new design frontiers." },
-          { title: "Collaboration", description: "Great ideas emerge from teamwork and open dialogue." },
-          { title: "Excellence", description: "We hold ourselves to the highest standards." },
         ]}
       />
       <RecruitmentProcess
@@ -61,6 +56,16 @@ export default function CareerPage() {
           { title: "Final Interview", description: "Meet with senior leadership to discuss the role and fit." },
           { title: "Offer", description: "Successful candidates receive an offer to join our team." },
         ]}
+      />
+      <OpenPositions
+        title="Open Positions"
+        description="Explore current opportunities to join our growing team."
+        positions={positions}
+      />
+      <CTADefault
+        title="Don't See the Right Role?"
+        description="We are always looking for exceptional talent. Send us your portfolio and we'll keep you in mind for future opportunities."
+        primaryCta={{ label: "Contact Us", href: "/contact" }}
       />
     </>
   );

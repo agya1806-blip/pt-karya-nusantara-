@@ -3,7 +3,6 @@ export {
   StickyCTA,
   ReadingProgress,
   ScrollSpy,
-  SmoothScroll,
   RevealOnScroll,
   useIntersectionObserver,
   CopyLink,

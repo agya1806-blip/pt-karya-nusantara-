@@ -30,17 +30,17 @@ export function FAQSection({
   };
 
   return (
-    <section className={cn("py-20", className)}>
+    <section className={cn("py-24 md:py-32", className)}>
       <div className="container-site">
         {(title || description) && (
-          <div className="mx-auto mb-12 max-w-2xl text-center">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             {title && (
-              <h2 className="text-heading-xl font-light tracking-tight text-text">
+              <h2 className="text-heading-xl font-light leading-tight tracking-tight text-text">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+              <p className="mt-5 text-body-lg leading-relaxed text-text-secondary">
                 {description}
               </p>
             )}
@@ -51,7 +51,7 @@ export function FAQSection({
           {items.map((item, index) => (
             <div
               key={index}
-              className="rounded-xl border border-border-muted bg-surface transition-colors duration-300"
+              className="rounded-xl border border-border-light bg-surface transition-all duration-500 ease-architectural hover:border-border-default"
             >
               <button
                 type="button"
@@ -64,7 +64,7 @@ export function FAQSection({
                 <ChevronDown
                   size={18}
                   className={cn(
-                    "flex-shrink-0 text-text-muted transition-transform duration-300",
+                    "flex-shrink-0 text-text-tertiary transition-transform duration-300 ease-architectural",
                     openIndex === index && "rotate-180",
                   )}
                 />
@@ -76,10 +76,10 @@ export function FAQSection({
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
+                    transition={{ duration: 0.35, ease: [0.25, 0.1, 0.25, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t border-border-muted px-6 py-5">
+                    <div className="border-t border-border-light px-6 py-5">
                       <p className="text-body-sm leading-relaxed text-text-secondary">
                         {item.answer}
                       </p>

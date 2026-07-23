@@ -21,17 +21,17 @@ export function PartnersSection({
   className,
 }: PartnersSectionProps) {
   return (
-    <section className={cn("py-20", className)}>
+    <section className={cn("py-24 md:py-32", className)}>
       <div className="container-site">
         {(title || description) && (
-          <div className="mx-auto mb-12 max-w-2xl text-center">
+          <div className="mx-auto mb-14 max-w-3xl text-center">
             {title && (
-              <h2 className="text-heading-xl font-light tracking-tight text-text">
+              <h2 className="text-heading-xl font-light leading-tight tracking-tight text-text">
                 {title}
               </h2>
             )}
             {description && (
-              <p className="mt-4 text-body-lg leading-relaxed text-text-secondary">
+              <p className="mt-5 text-body-lg leading-relaxed text-text-secondary">
                 {description}
               </p>
             )}
@@ -42,10 +42,10 @@ export function PartnersSection({
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="flex flex-col items-center rounded-xl border border-border-muted bg-surface p-8 text-center transition-all duration-300 hover:shadow-elevation-3"
+              className="flex flex-col items-center rounded-xl border border-border-light bg-surface p-8 text-center transition-all duration-500 ease-architectural hover:border-border-default hover:shadow-elevation-4"
             >
               {partner.logo && (
-                <div className="mb-4">
+                <div className="mb-5">
                   <img
                     src={partner.logo}
                     alt={partner.name}
@@ -57,7 +57,7 @@ export function PartnersSection({
                 {partner.name}
               </h3>
               {partner.description && (
-                <p className="mt-2 text-body-sm leading-relaxed text-text-secondary">
+                <p className="mt-3 text-body-sm leading-relaxed text-text-secondary">
                   {partner.description}
                 </p>
               )}
@@ -66,7 +66,7 @@ export function PartnersSection({
                   href={partner.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-4 text-body-sm font-medium text-text underline-offset-2 transition-colors duration-300 hover:text-text hover:underline"
+                  className="mt-5 text-body-sm font-medium text-text underline-offset-2 transition-colors duration-300 hover:text-text hover:underline"
                 >
                   Visit Website
                 </a>

@@ -1,4 +1,4 @@
-import { PricingTable, ServicePackages, ComparisonTable } from "@/sections";
+import { PricingTable, ServicePackages, ComparisonTable, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 
 export const metadata = createMetadata({
@@ -51,6 +51,11 @@ export default function PricingPage() {
         title="Compare Plans"
         description="See how our plans stack up against each other."
         plans={plans.map((p) => ({ name: p.name, highlighted: p.highlighted, features: p.features }))}
+      />
+      <CTADefault
+        title="Not Sure Which Plan Fits?"
+        description="Schedule a complimentary consultation and we'll recommend the right approach for your project."
+        primaryCta={{ label: "Book a Consultation", href: "/contact" }}
       />
     </>
   );

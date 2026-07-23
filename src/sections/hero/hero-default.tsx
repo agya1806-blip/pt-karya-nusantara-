@@ -33,25 +33,25 @@ export function HeroDefault({
         </div>
       )}
       <div className="container-site relative z-10 py-32">
-        <Fade direction="up" className="max-w-3xl">
+        <Fade direction="up" className="max-w-4xl">
           {subtitle && (
-            <p className="text-caption font-semibold tracking-widest text-brand-500 uppercase mb-4">
+            <p className="text-caption tracking-widest text-brand-400 uppercase mb-6">
               {subtitle}
             </p>
           )}
-          <h1 className={cn("text-display font-light tracking-tight", image ? "text-white" : "text-text-primary")}>
+          <h1 className={cn("text-display-lg font-light leading-tight tracking-tight", image ? "text-white" : "text-text-primary")}>
             {title}
           </h1>
           {description && (
-            <p className={cn("mt-4 text-body-lg max-w-xl leading-relaxed", image ? "text-white/80" : "text-text-secondary")}>
+            <p className={cn("mt-6 text-body-lg max-w-2xl leading-relaxed", image ? "text-white/80" : "text-text-secondary")}>
               {description}
             </p>
           )}
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-10 flex flex-wrap gap-5">
             {primaryCta && (
               <Link
                 href={primaryCta.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-8 py-3.5 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-8 py-4 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90"
               >
                 {primaryCta.label} <ArrowRight size={16} />
               </Link>
@@ -60,10 +60,10 @@ export function HeroDefault({
               <Link
                 href={secondaryCta.href}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-lg border px-8 py-3.5 text-body-sm font-medium transition-all duration-300",
+                  "inline-flex items-center gap-2 rounded-lg border px-8 py-4 text-body-sm font-medium tracking-tight transition-all duration-300",
                   image
                     ? "border-white/30 text-white hover:bg-white/10"
-                    : "border-border-light text-text-primary hover:bg-surface",
+                    : "border-border-light text-text-primary hover:bg-surface-muted",
                 )}
               >
                 {secondaryCta.label}

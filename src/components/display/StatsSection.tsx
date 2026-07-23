@@ -30,16 +30,16 @@ export function StatsSection({
     return (
       <div
         className={cn(
-          "flex flex-wrap items-center justify-center gap-x-12 gap-y-6",
+          "flex flex-wrap items-center justify-center gap-x-16 gap-y-8",
           className,
         )}
       >
         {stats.map((stat) => (
           <div key={stat.label} className="text-center">
-            <p className="text-display-lg font-light tracking-tight text-text">
+            <p className="text-display-lg font-light leading-tight tracking-tight text-text">
               {stat.prefix}{stat.value}{stat.suffix}
             </p>
-            <p className="text-body-sm text-text-secondary">{stat.label}</p>
+            <p className="text-body-sm text-text-secondary mt-2">{stat.label}</p>
           </div>
         ))}
       </div>
@@ -51,12 +51,12 @@ export function StatsSection({
       {stats.map((stat) => (
         <div
           key={stat.label}
-          className="rounded-xl border border-border-muted bg-surface p-8 text-center transition-colors duration-300"
+          className="rounded-xl border border-border-light bg-surface p-8 text-center transition-colors duration-500"
         >
-          <p className="text-display font-light tracking-tight text-text">
+          <p className="text-display font-light leading-tight tracking-tight text-text">
             {stat.prefix}{stat.value}{stat.suffix}
           </p>
-          <p className="mt-2 text-body-sm leading-relaxed text-text-secondary">
+          <p className="mt-3 text-body-sm leading-relaxed text-text-secondary">
             {stat.label}
           </p>
         </div>
