@@ -37,7 +37,7 @@ export function GlobalSearch({
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const reducedMotion = useReducedMotion();
-  const debounceRef = useRef<ReturnType<typeof setTimeout>>();
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useLockBody(isOpen);
 

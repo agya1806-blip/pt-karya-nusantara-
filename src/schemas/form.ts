@@ -18,7 +18,7 @@ export const formSchema = z.object({
 
 export const formSubmissionSchema = z.object({
   formId: z.string().uuid(),
-  data: z.record(z.unknown()),
+  data: z.record(z.string(), z.unknown()),
 });
 
 export type FormFieldInput = z.infer<typeof formFieldSchema>;

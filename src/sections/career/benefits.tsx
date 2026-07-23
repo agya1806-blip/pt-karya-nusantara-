@@ -22,7 +22,7 @@ interface BenefitsProps extends SectionBaseProps {
 export function Benefits({ id, className, title, description, benefits }: BenefitsProps) {
   return (
     <Section id={id} variant="muted" className={className} aria-label="Benefits and perks">
-      <SectionHeader title={title} description={description} alignment="center" />
+      <SectionHeader title={title} description={description} align="center" />
       <Stagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {benefits.map((b) => (
           <StaggerItem key={b.title} className="group border border-border bg-surface p-8 transition-all duration-300 ease-luxury hover:border-text-muted hover:bg-surface-muted">

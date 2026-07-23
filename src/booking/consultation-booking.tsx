@@ -166,21 +166,18 @@ export function ConsultationBooking({ onComplete, config: configPartial, consult
             </div>
             <div>
               <label className="mb-1.5 block text-body-sm font-medium text-text">Project Type (optional)</label>
-              <Select {...register("projectType")}>
-                <option value="">Select project type</option>
-                <option value="residential">Residential</option>
-                <option value="commercial">Commercial</option>
-                <option value="hospitality">Hospitality</option>
-                <option value="cultural">Cultural</option>
-                <option value="educational">Educational</option>
-                <option value="mixed-use">Mixed-Use</option>
-              </Select>
+              <Select {...register("projectType")} placeholder="Select project type" options={[
+                { value: "residential", label: "Residential" },
+                { value: "commercial", label: "Commercial" },
+                { value: "hospitality", label: "Hospitality" },
+                { value: "cultural", label: "Cultural" },
+                { value: "educational", label: "Educational" },
+                { value: "mixed-use", label: "Mixed-Use" },
+              ]} />
             </div>
             <div>
               <label className="mb-1.5 block text-body-sm font-medium text-text">Duration *</label>
-              <Select value={duration} onChange={(e) => setDuration(e.target.value)}>
-                {config.durations.map((d) => <option key={d.value} value={d.value}>{d.label}</option>)}
-              </Select>
+              <Select value={duration} onChange={(e) => setDuration(e.target.value)} options={config.durations.map((d) => ({ value: d.value, label: d.label }))} />
             </div>
           </div>
 

@@ -69,11 +69,17 @@ export function InteractiveGallery({
             <ChevronRight size={20} />
           </button>
           <div className="flex flex-col items-center">
-            <img
-              src={images[activeIndex].src}
-              alt={images[activeIndex].alt}
-              className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
-            />
+            {(() => {
+              const img = images[activeIndex];
+              if (!img) return null;
+              return (
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
+                />
+              );
+            })()}
           </div>
         </div>
       )}

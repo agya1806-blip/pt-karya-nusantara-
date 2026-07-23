@@ -10,11 +10,11 @@ interface PortfolioLayoutProps {
 export default function PortfolioLayout({ children }: PortfolioLayoutProps) {
   return (
     <>
-      <Navbar items={siteConfig.navigation} variant="transparent" />
+      <Navbar links={siteConfig.navigation} variant="transparent" />
       <PageWrapper>{children}</PageWrapper>
       <Footer
-        sections={siteConfig.footer}
-        social={siteConfig.social}
+        columns={siteConfig.footer}
+        socialLinks={siteConfig.social}
         contact={siteConfig.contact}
       />
     </>

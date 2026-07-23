@@ -5,17 +5,12 @@ import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { Label } from "./Label";
 
-interface SelectProps {
+interface SelectProps extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, "onChange"> {
   label?: string;
   error?: string;
   hint?: string;
-  id?: string;
-  className?: string;
-  value?: string;
-  onChange?: React.ChangeEvent<HTMLSelectElement>;
   placeholder?: string;
-  required?: boolean;
-  disabled?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   options: { value: string; label: string }[];
 }
 

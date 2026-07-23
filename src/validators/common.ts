@@ -75,7 +75,7 @@ export const seoSchema = z.object({
   twitterTitle: z.string().max(70).optional(),
   twitterDescription: z.string().max(160).optional(),
   canonicalUrl: z.string().url().optional(),
-  jsonLd: z.record(z.unknown()).optional(),
+  jsonLd: z.record(z.string(), z.unknown()).optional(),
   robots: z.string().optional(),
 });
 

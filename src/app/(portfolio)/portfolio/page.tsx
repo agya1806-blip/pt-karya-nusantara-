@@ -1,4 +1,4 @@
-import { FeaturedProjects, Categories, StatisticsShowcase, CTADefault } from "@/sections";
+import { FeaturedProjects, ProjectCategories, StatisticsShowcase, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { PortfolioItem, StatItem } from "@/sections";
 
@@ -8,7 +8,7 @@ export const metadata = createMetadata({
 });
 
 const projects: PortfolioItem[] = [
-  { title: "The天际 Villa", category: "Residential", image: { src: "/images/portfolio/villa-sky.jpg", alt: "The天际 Villa" }, href: "/portfolio/the-villa", location: "Bali, Indonesia", year: "2024" },
+  { title: "The Sky Villa", category: "Residential", image: { src: "/images/portfolio/villa-sky.jpg", alt: "The Sky Villa" }, href: "/portfolio/the-villa", location: "Bali, Indonesia", year: "2024" },
   { title: "Sudirman Tower", category: "Commercial", image: { src: "/images/portfolio/sudirman-tower.jpg", alt: "Sudirman Tower" }, href: "/portfolio/sudirman-tower", location: "Jakarta, Indonesia", year: "2023" },
   { title: "Nusantara Resort", category: "Hospitality", image: { src: "/images/portfolio/nusantara-resort.jpg", alt: "Nusantara Resort" }, href: "/portfolio/nusantara-resort", location: "Lombok, Indonesia", year: "2025" },
   { title: "Green Valley Estate", category: "Master Planning", image: { src: "/images/portfolio/green-valley.jpg", alt: "Green Valley Estate" }, href: "/portfolio/green-valley", location: "Bandung, Indonesia", year: "2024" },
@@ -31,7 +31,16 @@ export default function PortfolioPage() {
         description="A curated collection of our finest work, showcasing the breadth and depth of our architectural expertise."
         projects={projects}
       />
-      {/* ProjectCategories commented out — component not available */}
+      <ProjectCategories
+        title="Browse by Category"
+        description="Explore our portfolio by project type."
+        categories={[
+          { label: "Residential", href: "/portfolio?category=residential" },
+          { label: "Commercial", href: "/portfolio?category=commercial" },
+          { label: "Hospitality", href: "/portfolio?category=hospitality" },
+          { label: "Master Planning", href: "/portfolio?category=master-planning" },
+        ]}
+      />
       <StatisticsShowcase
         title="By the Numbers"
         description="Our track record speaks for itself."

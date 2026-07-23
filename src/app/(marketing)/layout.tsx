@@ -10,11 +10,11 @@ interface MarketingLayoutProps {
 export default function MarketingLayout({ children }: MarketingLayoutProps) {
   return (
     <>
-      <Navbar items={siteConfig.navigation} />
+      <Navbar links={siteConfig.navigation} />
       <PageWrapper>{children}</PageWrapper>
       <Footer
-        sections={siteConfig.footer}
-        social={siteConfig.social}
+        columns={siteConfig.footer}
+        socialLinks={siteConfig.social}
         contact={siteConfig.contact}
       />
     </>

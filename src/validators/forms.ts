@@ -74,14 +74,14 @@ export const leadSchema = z.object({
   phone: z.string().optional(),
   company: z.string().max(200).optional(),
   message: z.string().max(5000).optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export const leadUpdateSchema = z.object({
   status: leadStatusSchema.optional(),
   assignedTo: z.string().uuid().nullable().optional(),
   message: z.string().optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export const notificationSchema = z.object({
@@ -89,5 +89,5 @@ export const notificationSchema = z.object({
   type: z.enum(["info", "success", "warning", "error"]).default("info"),
   title: z.string().min(1).max(200),
   message: z.string().max(2000).optional(),
-  data: z.record(z.unknown()).optional(),
+  data: z.record(z.string(), z.unknown()).optional(),
 });

@@ -26,12 +26,11 @@ interface NavbarProps {
 export function Navbar({
   logo,
   links,
-  items,
   transparent = false,
   variant = "default",
   className,
 }: NavbarProps) {
-  const navLinks = links ?? items ?? [];
+  const navLinks = links ?? [];
   const isTransparent = transparent || variant === "transparent";
   const { isScrolled } = useScroll(NAV_HEIGHT * 0.5);
   const [mobileOpen, setMobileOpen] = useState(false);

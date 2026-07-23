@@ -27,7 +27,11 @@ export function FloatingConsultation({ onSubmit, isSubmitting = false, isSuccess
   const handleFormSubmit = async (data: FloatingConsultationFormData) => {
     await onSubmit(data);
     reset();
-    if (phoneNumber) window.open(`https://wa.me/${phoneNumber.replace(/\D/g, "")}?text=${encodeURIComponent(`Hi, I would like a consultation. My name is ${data.name}.`)`, "_blank");
+    if (phoneNumber) {
+      const cleanPhone = phoneNumber.replace(/\D/g, "");
+      const message = `Hi, I would like a consultation. My name is ${data.name}.`;
+      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`, "_blank");
+    }
   };
 
   return (

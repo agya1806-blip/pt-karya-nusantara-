@@ -4,18 +4,11 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "./Label";
 
-interface TextareaProps {
+interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
   label?: string;
   error?: string;
   hint?: string;
-  id?: string;
-  className?: string;
-  value?: string;
-  onChange?: React.ChangeEvent<HTMLTextAreaElement>;
-  placeholder?: string;
-  required?: boolean;
-  disabled?: boolean;
-  rows?: number;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement>;
 }
 
 export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(

@@ -1,4 +1,4 @@
-import { CompanyOverview, VisionMission, Timeline, Values, Awards, CTADefault } from "@/sections";
+import { CompanyOverview, VisionMission, Timeline, FounderStory, Values, Awards, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { TimelineEvent, TeamMember, AwardItem } from "@/sections";
 
@@ -9,7 +9,7 @@ export const metadata = createMetadata({
 
 const timelineEvents: TimelineEvent[] = [
   { year: "2010", title: "Founded", description: "PT Karya Nusantara Realty was established in Jakarta with a vision to redefine luxury architecture in Indonesia." },
-  { year: "2013", title: "First International Project", description: "Completed our first跨-border project in Singapore, establishing our reputation for world-class design." },
+  { year: "2013", title: "First International Project", description: "Completed our first cross-border project in Singapore, establishing our reputation for world-class design." },
   { year: "2016", title: "Expanded Team", description: "Grew to over 50 architects and designers, opening a second studio in Bali." },
   { year: "2019", title: "Award-Winning Year", description: "Received multiple international architecture awards for residential and commercial projects." },
   { year: "2022", title: "Global Recognition", description: "Named among Southeast Asia's top luxury architecture firms by Architectural Digest." },
@@ -42,7 +42,7 @@ export default function AboutPage() {
         vision={{ title: "Our Vision", description: "To be the leading luxury architecture firm in Southeast Asia, setting the benchmark for design excellence, innovation, and sustainability." }}
         mission={{ title: "Our Mission", description: "To create spaces that harmonize beauty, function, and environmental responsibility — enriching the lives of those who inhabit them." }}
       />
-      {/* FounderStory commented out — component not available */}
+      <FounderStory founders={founders} />
       <Timeline title="Our History" events={timelineEvents} />
       <Values
         title="Our Values"

@@ -7,7 +7,7 @@ export type PolymorphicAs<C extends ElementType> = {
 export type PolymorphicProps<C extends ElementType, P = Record<string, never>> =
   PolymorphicAs<C> & Omit<ComponentPropsWithoutRef<C>, keyof PolymorphicAs<C> | keyof P> & P;
 
-export type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+export type HeadingLevel = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p";
 export type HeadingSize = "xs" | "sm" | "md" | "lg" | "xl" | "2xl" | "3xl";
 export type DisplaySize = "sm" | "md" | "lg" | "xl" | "2xl";
 export type TextElement = "p" | "span" | "div" | "label" | "li";

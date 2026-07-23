@@ -5,7 +5,7 @@ import type { PortfolioItem, ServiceItem, ProcessStep, StatItem, TestimonialItem
 export const metadata = createMetadata();
 
 const projects: PortfolioItem[] = [
-  { title: "The天际 Villa", category: "Residential", image: { src: "/images/portfolio/villa-sky.jpg", alt: "The天际 Villa" }, href: "/portfolio/the-villa", location: "Bali, Indonesia", year: "2024" },
+  { title: "The Sky Villa", category: "Residential", image: { src: "/images/portfolio/villa-sky.jpg", alt: "The Sky Villa" }, href: "/portfolio/the-villa", location: "Bali, Indonesia", year: "2024" },
   { title: "Sudirman Tower", category: "Commercial", image: { src: "/images/portfolio/sudirman-tower.jpg", alt: "Sudirman Tower" }, href: "/portfolio/sudirman-tower", location: "Jakarta, Indonesia", year: "2023" },
   { title: "Nusantara Resort", category: "Hospitality", image: { src: "/images/portfolio/nusantara-resort.jpg", alt: "Nusantara Resort" }, href: "/portfolio/nusantara-resort", location: "Lombok, Indonesia", year: "2025" },
   { title: "Green Valley Estate", category: "Master Planning", image: { src: "/images/portfolio/green-valley.jpg", alt: "Green Valley Estate" }, href: "/portfolio/green-valley", location: "Bandung, Indonesia", year: "2024" },

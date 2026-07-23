@@ -25,6 +25,24 @@ const serviceData: Record<string, ServiceItem> = {
     features: ["Resort Design", "Hotel Architecture", "Restaurant & Bar", "Spa & Wellness", "Guest Experience Design", "FF&E Specification"],
     image: { src: "/images/services/hospitality-detail.jpg", alt: "Hospitality design detail" },
   },
+  "master-planning": {
+    title: "Master Planning",
+    description: "Comprehensive site planning and urban design for large-scale developments and communities. We create visionary master plans that balance density, green space, infrastructure, and community needs.",
+    features: ["Site Analysis", "Urban Design", "Infrastructure Planning", "Sustainability Strategy", "Zoning & Compliance", "Community Development"],
+    image: { src: "/images/services/master-planning-detail.jpg", alt: "Master planning detail" },
+  },
+  "interior-design": {
+    title: "Interior Design",
+    description: "Sophisticated interior spaces that seamlessly blend aesthetics, comfort, and functionality. Our interior design team works in close harmony with our architects to create cohesive environments.",
+    features: ["Spatial Planning", "Material Selection", "Custom Furniture", "Lighting Design", "Color Consultation", "Art Curation"],
+    image: { src: "/images/services/interior-detail.jpg", alt: "Interior design detail" },
+  },
+  "sustainable-design": {
+    title: "Sustainable Design",
+    description: "Eco-conscious architecture that minimizes environmental impact without compromising luxury or design excellence. We lead the industry in green building practices.",
+    features: ["Passive Design", "Energy Modeling", "Material Sourcing", "Green Certification", "Water Conservation", "Waste Reduction"],
+    image: { src: "/images/services/sustainable-detail.jpg", alt: "Sustainable design detail" },
+  },
 };
 
 export async function generateStaticParams() {

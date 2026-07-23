@@ -8,7 +8,7 @@ import type { TeamMember } from "@/sections/types";
 
 interface TeamGridProps {
   label?: string;
-  title: string;
+  title?: string;
   description?: string;
   members: TeamMember[];
   columns?: 2 | 3 | 4;
@@ -34,11 +34,13 @@ export function TeamGrid({
   return (
     <section className={cn("bg-surface py-24", className)}>
       <div className="container-site">
-        <SectionHeader
-          label={label}
-          title={title}
-          description={description}
-        />
+        {title && (
+          <SectionHeader
+            label={label}
+            title={title}
+            description={description}
+          />
+        )}
         <Stagger className={cn("mt-16 grid gap-8", gridCols[columns])}>
           {members.map((member) => (
             <StaggerItem key={member.name}>

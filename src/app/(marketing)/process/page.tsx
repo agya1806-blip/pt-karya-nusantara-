@@ -1,4 +1,4 @@
-import { ProcessSteps, Timeline } from "@/sections";
+import { ProcessSteps, Timeline, ConsultationProcess, ConstructionFlow, ProjectLifecycle } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { ProcessStep, TimelineEvent } from "@/sections";
 
@@ -36,9 +36,24 @@ export default function ProcessPage() {
         title="Project Timeline"
         events={timelineEvents}
       />
-      {/* ConsultationProcess commented out — component not available */}
-      {/* ConstructionFlow commented out — component not available */}
-      {/* ProjectLifecycle commented out — component not available */}
+      <ConsultationProcess
+        title="Consultation Process"
+        description="Our consultation process ensures every detail is captured before we begin the design journey."
+        steps={[
+          { step: 1, title: "Initial Inquiry", description: "Reach out via our contact form or phone to express your interest." },
+          { step: 2, title: "Discovery Call", description: "A 30-minute call to understand your project scope, vision, and budget." },
+          { step: 3, title: "Site Visit", description: "Our team visits your site to assess conditions and gather measurements." },
+          { step: 4, title: "Proposal", description: "We provide a tailored proposal with scope, timeline, and fee structure." },
+        ]}
+      />
+      <ConstructionFlow
+        title="Construction Flow"
+        description="Our phased approach to construction ensures quality at every stage."
+      />
+      <ProjectLifecycle
+        title="Project Lifecycle"
+        description="From inception to completion, we guide your project through every phase."
+      />
     </>
   );
 }

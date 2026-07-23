@@ -13,7 +13,8 @@ interface TimeSlotSelectorProps {
 export function TimeSlotSelector({ slots, selectedSlotId, onSelect, label = "Available Times" }: TimeSlotSelectorProps) {
   const available = slots.filter((s) => s.available);
   const grouped = available.reduce<Record<string, TimeSlot[]>>((acc, slot) => {
-    const period = parseInt(slot.startTime.split(":")[0]) < 12 ? "Morning" : parseInt(slot.startTime.split(":")[0]) < 17 ? "Afternoon" : "Evening";
+    const hour = parseInt(slot.startTime.split(":")[0] ?? "0");
+    const period = hour < 12 ? "Morning" : hour < 17 ? "Afternoon" : "Evening";
     (acc[period] = acc[period] || []).push(slot);
     return acc;
   }, {});

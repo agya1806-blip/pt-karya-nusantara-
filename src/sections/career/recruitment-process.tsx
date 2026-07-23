@@ -20,7 +20,7 @@ export function RecruitmentProcess({ id, className, title, description, steps }:
       <SectionHeader title={title} description={description} />
       <Stagger className="relative mt-16">
         {steps.map((s, i) => (
-          <StaggerItem key={s.step}>
+          <StaggerItem key={s.title}>
             <div
               className={cn(
                 "relative grid gap-4 pb-12 md:grid-cols-12 md:pb-16",
@@ -35,11 +35,8 @@ export function RecruitmentProcess({ id, className, title, description, steps }:
                   )}
                   aria-hidden="true"
                 >
-                  {s.step}
+                  {i + 1}
                 </span>
-                {s.duration && (
-                  <span className="mt-1 block text-body-xs text-text-muted md:mr-8">{s.duration}</span>
-                )}
               </div>
               <div className="md:col-span-4">
                 <Heading as="h3" size="md" weight="light">{s.title}</Heading>

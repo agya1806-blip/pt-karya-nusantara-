@@ -11,7 +11,7 @@ export const inquirySchema = z.object({
   budget: z.string().optional(),
   message: z.string().min(10, "Message must be at least 10 characters"),
   preferredContact: z.enum(["email", "phone", "whatsapp"]).default("email"),
-  agreeToTerms: z.literal(true, { errorMap: () => ({ message: "You must agree to proceed" }) }),
+  agreeToTerms: z.literal(true, { message: "You must agree to proceed" }),
 });
 
 export const callbackSchema = z.object({
@@ -41,7 +41,7 @@ export const newsletterSchema = z.object({
   email: z.string().email("Please enter a valid email address"),
   name: z.string().min(2, "Name is required").optional(),
   interests: z.array(z.string()).optional(),
-  agreeToPrivacy: z.literal(true, { errorMap: () => ({ message: "You must agree to receive communications" }) }),
+  agreeToPrivacy: z.literal(true, { message: "You must agree to receive communications" }),
 });
 
 export const floatingConsultationSchema = z.object({
@@ -50,9 +50,9 @@ export const floatingConsultationSchema = z.object({
   email: z.string().email("Please enter a valid email").optional().or(z.literal("")),
 });
 
-export type InquiryFormData = z.infer<typeof inquirySchema>;
-export type CallbackFormData = z.infer<typeof callbackSchema>;
-export type DownloadFormData = z.infer<typeof downloadSchema>;
-export type LeadMagnetFormData = z.infer<typeof leadMagnetSchema>;
-export type NewsletterFormData = z.infer<typeof newsletterSchema>;
-export type FloatingConsultationFormData = z.infer<typeof floatingConsultationSchema>;
+export type InquiryFormData = z.input<typeof inquirySchema>;
+export type CallbackFormData = z.input<typeof callbackSchema>;
+export type DownloadFormData = z.input<typeof downloadSchema>;
+export type LeadMagnetFormData = z.input<typeof leadMagnetSchema>;
+export type NewsletterFormData = z.input<typeof newsletterSchema>;
+export type FloatingConsultationFormData = z.input<typeof floatingConsultationSchema>;

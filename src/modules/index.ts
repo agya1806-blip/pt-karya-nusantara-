@@ -9,7 +9,7 @@ export {
   CopyLink,
   ShareProjectButton,
   SocialSharing,
-} from "./interactions";
+} from "@/interactions";
 
 export {
   InquiryForm,
@@ -18,7 +18,7 @@ export {
   LeadMagnet,
   NewsletterSignup,
   FloatingConsultation,
-} from "./forms";
+} from "@/forms";
 
 export {
   ConsultationBooking,
@@ -29,14 +29,14 @@ export {
   validateBookingForm,
   validateTimeSlot,
   generateTimeSlots,
-} from "./booking";
+} from "@/booking";
 
 export {
   BuildingAreaCalculator,
   TimelineEstimator,
   RecommendationResult,
   calculateEstimate,
-} from "./calculator";
+} from "@/calculator";
 
 export {
   GlobalSearch,
@@ -44,7 +44,7 @@ export {
   PortfolioSearch,
   ServiceSearch,
   BlogSearch,
-} from "./search";
+} from "@/search";
 
 export {
   ProjectCategoryFilter,
@@ -55,7 +55,7 @@ export {
   AreaSizeFilter,
   SortSelector,
   FilterBar,
-} from "./filters";
+} from "@/filters";
 
 export {
   FloatingWhatsApp,
@@ -64,7 +64,7 @@ export {
   ShareProject,
   openWhatsApp,
   generateWhatsAppMessage,
-} from "./integrations";
+} from "@/integrations";
 
 export {
   ImageLightbox,
@@ -72,4 +72,4 @@ export {
   FullscreenViewer,
   BeforeAfterComparison,
   findRelatedProjects,
-} from "./features";
+} from "@/features";

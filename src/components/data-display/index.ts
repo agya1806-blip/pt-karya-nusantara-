@@ -7,7 +7,7 @@ export { TeamCard } from "./TeamCard";
 export { StatisticCard } from "./StatisticCard";
 export { PricingCard } from "./PricingCard";
 export { FeatureCard } from "./FeatureCard";
-export { GalleryCard } from "./GalleryCard";
+export { GalleryCard as DataDisplayGalleryCard } from "./GalleryCard";
 export { ReviewCard } from "./ReviewCard";
 export { Accordion } from "./Accordion";
 export { Tabs } from "./Tabs";

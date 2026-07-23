@@ -15,7 +15,7 @@ const variantClasses: Record<SectionVariant, string> = {
   default: "bg-surface",
   muted: "bg-surface-muted",
   dark: "bg-surface-dark text-text",
-  accent: "bg-surface-dark text-text",
+  accent: "bg-brand-500 text-text-inverse",
 };
 
 const spacingClasses: Record<SectionSpacing, string> = {

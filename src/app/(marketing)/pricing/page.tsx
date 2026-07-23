@@ -1,4 +1,4 @@
-import { PricingTable } from "@/sections";
+import { PricingTable, ServicePackages, ComparisonTable } from "@/sections";
 import { createMetadata } from "@/seo";
 
 export const metadata = createMetadata({
@@ -42,8 +42,16 @@ export default function PricingPage() {
         description="Transparent, value-driven pricing for every project scale. All plans include our commitment to design excellence."
         plans={plans}
       />
-      {/* ServicePackages commented out — component not available */}
-      {/* ComparisonTable commented out — component not available */}
+      <ServicePackages
+        title="Service Packages"
+        description="Choose the package that best fits your project needs."
+        packages={plans.map((p) => ({ title: p.name, description: p.description ?? "", price: p.price, period: p.period, features: p.features }))}
+      />
+      <ComparisonTable
+        title="Compare Plans"
+        description="See how our plans stack up against each other."
+        plans={plans.map((p) => ({ name: p.name, highlighted: p.highlighted, features: p.features }))}
+      />
     </>
   );
 }

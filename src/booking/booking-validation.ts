@@ -36,8 +36,12 @@ export function generateTimeSlots(
   bookedSlots: TimeSlot[]
 ): TimeSlot[] {
   const slots: TimeSlot[] = [];
-  const [startH, startM] = workingHours.start.split(":").map(Number);
-  const [endH, endM] = workingHours.end.split(":").map(Number);
+  const startParts = workingHours.start.split(":").map(Number);
+  const endParts = workingHours.end.split(":").map(Number);
+  const startH = startParts[0] ?? 0;
+  const startM = startParts[1] ?? 0;
+  const endH = endParts[0] ?? 0;
+  const endM = endParts[1] ?? 0;
   let currentMinutes = startH * 60 + startM;
   const endMinutes = endH * 60 + endM;
 

@@ -7,15 +7,14 @@ interface ScrollSpyProps {
   offset?: number;
   onChange?: (activeId: string) => void;
   children?: (activeId: string) => React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 export function ScrollSpy({ sectionIds, offset = 100, onChange, children }: ScrollSpyProps) {
-  const [activeId, setActiveId] = useState(sectionIds[0] || "");
+  const [activeId, setActiveId] = useState(sectionIds[0] ?? "");
 
   const handleScroll = useCallback(() => {
     const scrollPos = window.scrollY + offset;
-    let current = sectionIds[0] || "";
+    let current = sectionIds[0] ?? "";
 
     for (const id of sectionIds) {
       const el = document.getElementById(id);

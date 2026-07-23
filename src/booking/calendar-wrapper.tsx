@@ -32,6 +32,8 @@ export function CalendarWrapper({
   monthLabels = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
   dayLabels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
 }: CalendarWrapperProps) {
+  const toDateStr = (d: Date) => d.toISOString().split("T")[0] ?? "";
+
   const days = useMemo<CalendarDay[]>(() => {
     const year = currentMonth.getFullYear();
     const month = currentMonth.getMonth();
@@ -43,27 +45,27 @@ export function CalendarWrapper({
 
     for (let i = 0; i < startPad; i++) {
       const d = new Date(year, month, -startPad + i + 1);
-      result.push({ date: d.toISOString().split("T")[0], day: d.getDate(), month: d.getMonth(), year: d.getFullYear(), isCurrentMonth: false, isToday: false, isSelected: false, isDisabled: true, slots: [] });
+      result.push({ date: toDateStr(d), day: d.getDate(), month: d.getMonth(), year: d.getFullYear(), isCurrentMonth: false, isToday: false, isSelected: false, isDisabled: true, slots: [] });
     }
 
     for (let i = 1; i <= daysInMonth; i++) {
       const d = new Date(year, month, i);
-      const dateStr = d.toISOString().split("T")[0];
-      const isDayDisabled = !availableDays.includes(d.getDay()) || d < new Date(minDate.toISOString().split("T")[0]) || d > maxDate || disabledDates.includes(dateStr);
+      const dateStr = toDateStr(d);
+      const isDayDisabled = !availableDays.includes(d.getDay()) || d < new Date(toDateStr(minDate)) || d > maxDate || disabledDates.includes(dateStr);
       result.push({ date: dateStr, day: i, month, year, isCurrentMonth: true, isToday: d.toDateString() === new Date().toDateString(), isSelected: selectedDate === dateStr, isDisabled: isDayDisabled, slots: [] });
     }
 
     const remaining = 42 - result.length;
     for (let i = 1; i <= remaining; i++) {
       const d = new Date(year, month + 1, i);
-      result.push({ date: d.toISOString().split("T")[0], day: d.getDate(), month: d.getMonth(), year: d.getFullYear(), isCurrentMonth: false, isToday: false, isSelected: false, isDisabled: true, slots: [] });
+      result.push({ date: toDateStr(d), day: d.getDate(), month: d.getMonth(), year: d.getFullYear(), isCurrentMonth: false, isToday: false, isSelected: false, isDisabled: true, slots: [] });
     }
 
     return result;
   }, [currentMonth, selectedDate, minDate, maxDate, availableDays, disabledDates]);
 
   const monthYear = `${monthLabels[currentMonth.getMonth()]} ${currentMonth.getFullYear()}`;
-  const canGoPrev = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1) > new Date(minDate.toISOString().split("T")[0]);
+  const canGoPrev = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), 1) > new Date(toDateStr(minDate));
   const canGoNext = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0) < maxDate;
 
   return (

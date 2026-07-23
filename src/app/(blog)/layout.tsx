@@ -10,11 +10,11 @@ interface BlogLayoutProps {
 export default function BlogLayout({ children }: BlogLayoutProps) {
   return (
     <>
-      <Navbar items={siteConfig.navigation} />
+      <Navbar links={siteConfig.navigation} />
       <PageWrapper>{children}</PageWrapper>
       <Footer
-        sections={siteConfig.footer}
-        social={siteConfig.social}
+        columns={siteConfig.footer}
+        socialLinks={siteConfig.social}
         contact={siteConfig.contact}
       />
     </>

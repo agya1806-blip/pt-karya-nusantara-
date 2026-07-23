@@ -1,4 +1,4 @@
-import { FAQAccordion, CTADefault } from "@/sections";
+import { FAQAccordion, CategoryFAQ, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { FAQItem } from "@/sections";
 
@@ -36,7 +36,15 @@ export default function FAQPage() {
         description="Find answers to common questions about our services, process, and collaboration."
         items={[...generalFAQ, ...processFAQ, ...collaborationFAQ]}
       />
-      {/* CategoryFAQ commented out — component not available */}
+      <CategoryFAQ
+        title="Browse by Category"
+        description="Select a category to find answers faster."
+        categories={[
+          { label: "General", items: generalFAQ },
+          { label: "Process", items: processFAQ },
+          { label: "Collaboration", items: collaborationFAQ },
+        ]}
+      />
       <CTADefault
         title="Still Have Questions?"
         description="We are happy to answer any questions you may have. Reach out to our team directly."

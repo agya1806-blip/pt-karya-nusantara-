@@ -9,11 +9,11 @@ interface ContentLayoutProps {
 export default function ContentLayout({ children }: ContentLayoutProps) {
   return (
     <>
-      <Navbar items={siteConfig.navigation} />
+      <Navbar links={siteConfig.navigation} />
       <main className="min-h-screen">{children}</main>
       <Footer
-        sections={siteConfig.footer}
-        social={siteConfig.social}
+        columns={siteConfig.footer}
+        socialLinks={siteConfig.social}
         contact={siteConfig.contact}
       />
     </>

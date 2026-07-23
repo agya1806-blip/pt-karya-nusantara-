@@ -8,7 +8,7 @@ export const leadSchema = z.object({
   phone: z.string().optional(),
   company: z.string().max(200).optional(),
   message: z.string().max(5000).optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
   assignedTo: z.string().uuid().nullable().optional(),
 });
 
@@ -18,7 +18,7 @@ export const leadActivitySchema = z.object({
   leadId: z.string().uuid(),
   type: z.string().min(1),
   description: z.string().max(2000).optional(),
-  metadata: z.record(z.unknown()).optional(),
+  metadata: z.record(z.string(), z.unknown()).optional(),
 });
 
 export type LeadInput = z.infer<typeof leadSchema>;

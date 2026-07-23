@@ -128,16 +128,24 @@ export function GalleryGrid({
             </>
           )}
           <div className="flex max-h-full max-w-full flex-col items-center">
-            <img
-              src={items[lightboxIndex].src}
-              alt={items[lightboxIndex].alt}
-              className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
-            />
-            {items[lightboxIndex].caption && (
-              <p className="mt-4 text-body-sm text-white/80">
-                {items[lightboxIndex].caption}
-              </p>
-            )}
+            {(() => {
+              const item = items[lightboxIndex];
+              if (!item) return null;
+              return (
+                <>
+                  <img
+                    src={item.src}
+                    alt={item.alt}
+                    className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
+                  />
+                  {item.caption && (
+                    <p className="mt-4 text-body-sm text-white/80">
+                      {item.caption}
+                    </p>
+                  )}
+                </>
+              );
+            })()}
           </div>
         </div>
       )}

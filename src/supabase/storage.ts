@@ -82,7 +82,9 @@ export async function listFiles(
     throw new StorageError("List failed", { cause: error });
   }
 
-  return data.map((file) => ({
+  if (!data) return [];
+
+  return data.map((file: { name: string; metadata?: { size?: number; mimetype?: string }; created_at?: string; updated_at?: string }) => ({
     name: file.name,
     size: file.metadata?.size ?? 0,
     mimeType: file.metadata?.mimetype ?? "unknown",

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import type { BusinessHours } from "@/types/site";
 
 interface FooterLink {
   label: string;
@@ -34,11 +35,10 @@ interface FooterProps {
   logo?: React.ReactNode;
   description?: string;
   columns?: FooterColumn[];
-  sections?: FooterSection[];
   socialLinks?: SocialLink[];
-  social?: SocialLink[];
-  copyright?: string;
   contact?: ContactInfo;
+  businessHours?: BusinessHours[];
+  copyright?: string;
   variant?: "default" | "dark";
   className?: string;
 }
@@ -47,16 +47,14 @@ export function Footer({
   logo,
   description,
   columns,
-  sections,
   socialLinks,
-  social,
   copyright,
   contact,
   variant = "default",
   className,
 }: FooterProps) {
-  const footerColumns = columns ?? sections ?? [];
-  const footerSocialLinks = socialLinks ?? social ?? [];
+  const footerColumns = columns ?? [];
+  const footerSocialLinks = socialLinks ?? [];
   return (
     <footer
       className={cn(

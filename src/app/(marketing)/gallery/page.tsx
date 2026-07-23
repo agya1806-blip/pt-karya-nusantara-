@@ -1,4 +1,4 @@
-import { GalleryGrid, VideoShowcase } from "@/sections";
+import { GalleryGrid, InteractiveGallery, VideoShowcase } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { GalleryItem, VideoItem } from "@/sections";
 
@@ -37,7 +37,11 @@ export default function GalleryPage() {
         items={galleryItems}
         columns={3}
       />
-      {/* InteractiveGallery commented out — component not available */}
+      <InteractiveGallery
+        title="Interactive Gallery"
+        description="Browse all of our visuals in a compact, explorable grid."
+        images={galleryItems}
+      />
       <VideoShowcase
         title="Video Showcase"
         description="Watch our projects come to life through cinematic videography."

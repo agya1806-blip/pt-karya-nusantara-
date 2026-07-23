@@ -14,7 +14,25 @@ const articles: Record<string, BlogPost> = {
     title: "Designing for Tropical Living", excerpt: "Essential principles for creating comfortable, beautiful homes in Indonesia's tropical climate.", image: { src: "/images/blog/tropical-living.jpg", alt: "Tropical living design" }, date: "2025-05-28", author: "Sari Dewi", category: "Design", href: "/blog/designing-for-tropical-living",
   },
   "biophilic-design-urban-spaces": {
-    title: "Biophilic Design in Urban Spaces", excerpt: "Bringing nature into the city through thoughtful architectural integration.", image: { src: "/images/blog/biophilic.jpg", alt: "Biophilic design" }, date: "2025-05-10", author: "Rina Wijaya", category: "Design Trends", href: "/blog/biophilic-design-urban-spaces",
+    title: "Biophilic Design in Urban Spaces", excerpt: "Bringing nature into the city through thoughtful architectural integration.", image: { src: "/images/blog/biophilic.jpg", alt: "Biophilic design" }, date: "2025-05-10", author: "Rina Wijaya", category: "Design", href: "/blog/biophilic-design-urban-spaces",
+  },
+  "smart-home-integration": {
+    title: "Smart Home Integration in Modern Architecture", excerpt: "How smart home technology is transforming the way we design and interact with our living spaces.", image: { src: "/images/blog/smart-home.jpg", alt: "Smart home integration" }, date: "2025-06-01", author: "Bagas Pratama", category: "Technology", href: "/blog/smart-home-integration",
+  },
+  "sustainable-materials": {
+    title: "Guide to Sustainable Building Materials", excerpt: "A comprehensive guide to eco-friendly materials transforming the construction industry.", image: { src: "/images/blog/sustainable-materials.jpg", alt: "Sustainable materials" }, date: "2025-05-20", author: "Dewi Lestari", category: "Sustainability", href: "/blog/sustainable-materials",
+  },
+  "maximizing-small-spaces": {
+    title: "Maximizing Small Spaces: Design Strategies", excerpt: "Expert strategies for making the most of compact living spaces without compromising style.", image: { src: "/images/blog/small-spaces.jpg", alt: "Small space design" }, date: "2025-05-05", author: "Rina Wijaya", category: "Design", href: "/blog/maximizing-small-spaces",
+  },
+  "landscape-architecture-trends": {
+    title: "Landscape Architecture Trends 2025", excerpt: "The latest trends in landscape architecture that are shaping outdoor spaces across Southeast Asia.", image: { src: "/images/blog/landscape-trends.jpg", alt: "Landscape architecture" }, date: "2025-04-22", author: "Ardi Wicaksono", category: "Design", href: "/blog/landscape-architecture-trends",
+  },
+  "heritage-conservation": {
+    title: "Heritage Conservation in Modern Architecture", excerpt: "How architects are preserving cultural heritage while creating contemporary spaces.", image: { src: "/images/blog/heritage.jpg", alt: "Heritage conservation" }, date: "2025-04-10", author: "Sari Dewi", category: "Culture", href: "/blog/heritage-conservation",
+  },
+  "future-of-workspace": {
+    title: "The Future of Workspace Design", excerpt: "Redesigning the modern workplace to foster collaboration, well-being, and productivity.", image: { src: "/images/blog/future-workspace.jpg", alt: "Future workspace" }, date: "2025-03-28", author: "Bagas Pratama", category: "Commercial", href: "/blog/future-of-workspace",
   },
 };
 

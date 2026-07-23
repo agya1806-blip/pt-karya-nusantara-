@@ -18,14 +18,15 @@ export function useIntersectionObserver({ threshold = 0.1, rootMargin = "0px", t
     if (!el) return;
 
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsIntersecting(true);
-          onIntersect?.();
-          if (triggerOnce) observer.unobserve(el);
-        } else if (!triggerOnce) {
-          setIsIntersecting(false);
+      (entries) => {
+        const entry = entries[0];
+        if (!entry || !entry.isIntersecting) {
+          if (!triggerOnce) setIsIntersecting(false);
+          return;
         }
+        setIsIntersecting(true);
+        onIntersect?.();
+        if (triggerOnce) observer.unobserve(el);
       },
       { threshold, rootMargin }
     );

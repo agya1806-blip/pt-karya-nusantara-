@@ -1,7 +1,8 @@
 import { createClient } from "@supabase/supabase-js";
+import type { Database } from "@/database/types";
 import supabaseConfig from "./config";
 
-let adminClient: ReturnType<typeof createClient> | null = null;
+let adminClient: ReturnType<typeof createClient<Database>> | null = null;
 
 export function getSupabaseAdminClient() {
   if (adminClient) return adminClient;
@@ -12,7 +13,7 @@ export function getSupabaseAdminClient() {
     );
   }
 
-  adminClient = createClient(
+  adminClient = createClient<Database>(
     supabaseConfig.url,
     supabaseConfig.serviceRoleKey,
     {

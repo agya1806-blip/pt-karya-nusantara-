@@ -1,4 +1,4 @@
-import { ServicesGrid, ProcessSteps, ConsultationCTA, CTADefault } from "@/sections";
+import { ServiceOverview, ServicesGrid, ProcessSteps, ConsultationCTA, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { ServiceItem, ProcessStep } from "@/sections";
 
@@ -27,7 +27,10 @@ const workflowSteps: ProcessStep[] = [
 export default function ServicesPage() {
   return (
     <>
-      {/* ServiceOverview commented out — component not available */}
+      <ServiceOverview
+        title="Our Services"
+        description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise."
+      />
       <ServicesGrid title="Our Services" description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise." services={services} />
       <ProcessSteps title="How We Work" steps={workflowSteps} />
       <ConsultationCTA

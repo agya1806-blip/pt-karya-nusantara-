@@ -13,7 +13,7 @@ export const projectSchema = z.object({
   slug: slugSchema,
   categoryId: z.string().uuid().nullable().optional(),
   description: z.string().min(1).max(2000),
-  content: z.record(z.unknown()).optional(),
+  content: z.record(z.string(), z.unknown()).optional(),
   thumbnailId: z.string().uuid().nullable().optional(),
   location: z.string().max(200).optional(),
   year: z.number().int().min(1900).max(2100).optional(),

@@ -12,7 +12,6 @@ interface RevealOnScrollProps {
   duration?: number;
   threshold?: number;
   once?: boolean;
-  as?: keyof JSX.IntrinsicElements;
 }
 
 const variants = {
@@ -28,7 +27,7 @@ const variants = {
 export function RevealOnScroll({ children, className, animation = "fade-up", delay = 0, duration = 0.6, threshold = 0.15, once = true }: RevealOnScrollProps) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once, amount: threshold });
-  const variant = variants[animation];
+  const variant = variants[animation] ?? variants["fade-up"];
 
   return (
     <motion.div
