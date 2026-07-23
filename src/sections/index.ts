@@ -61,7 +61,7 @@ export { PricingTable, PricingPlans, ServicePackages, ComparisonTable } from "./
 export { StatisticsShowcase, Counter } from "./statistics";
 
 // Video
-export { VideoGallery as VideoShowcase, VideoGallery } from "./video";
+export { VideoShowcase, VideoGallery } from "./video";
 
 // Partners
 export { PartnersShowcase } from "./partners";

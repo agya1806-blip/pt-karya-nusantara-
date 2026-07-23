@@ -4,6 +4,7 @@ import type { HeadingLevel, HeadingSize, FontWeight, Tracking } from "./types";
 
 interface HeadingProps {
   level?: HeadingLevel;
+  as?: HeadingLevel;
   size?: HeadingSize;
   weight?: FontWeight;
   tracking?: Tracking;
@@ -37,7 +38,7 @@ const trackingStyles: Record<Tracking, string> = {
 };
 
 export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({ level = "h2", size = "lg", weight = "medium", tracking = "tight", className, children, ...rest }, ref) => {
+  ({ as: level = "h2", size = "lg", weight = "medium", tracking = "tight", className, children, ...rest }, ref) => {
     return createElement(
       level,
       { ref, className: cn("text-text", sizeStyles[size], weightStyles[weight], trackingStyles[tracking], className), ...rest },

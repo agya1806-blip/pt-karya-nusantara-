@@ -10,15 +10,18 @@ export async function GET(request: NextRequest) {
       page: Number(searchParams.get("page")) || 1,
       pageSize: Math.min(Number(searchParams.get("pageSize")) || 20, 100),
       search: searchParams.get("search") || undefined,
-      status: searchParams.get("status") as never || undefined,
+      status: searchParams.get("status") || undefined,
       category: searchParams.get("category") || undefined,
       featured: searchParams.get("featured") === "true" ? true : undefined,
       sort: searchParams.get("sort") || "created_at",
       order: (searchParams.get("order") as "asc" | "desc") || "desc",
     };
-    const result = await projectRepository.list(params);
-    if (!result.success) return NextResponse.json({ error: result.error }, { status: 500 });
-    return NextResponse.json(result.data);
+    const projects = await projectRepository.findPublished({
+      limit: params.pageSize,
+      categoryId: params.category,
+      isFeatured: params.featured,
+    });
+    return NextResponse.json(projects);
   } catch {
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
@@ -28,9 +31,8 @@ export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
     const validated = projectSchema.parse(body);
-    const result = await projectRepository.create(validated);
-    if (!result.success) return NextResponse.json({ error: result.error }, { status: 400 });
-    return NextResponse.json(result.data, { status: 201 });
+    const project = await projectRepository.create(validated);
+    return NextResponse.json(project, { status: 201 });
   } catch (err) {
     if (err instanceof Error && err.name === "ZodError") {
       return NextResponse.json({ error: "Validation failed", details: JSON.parse(err.message) }, { status: 422 });

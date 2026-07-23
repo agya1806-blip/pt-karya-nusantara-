@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { Calendar, Clock, MapPin, Video, Phone, User, Mail, FileText, Pencil } from "lucide-react";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";

@@ -12,18 +12,33 @@ interface FooterColumn {
   links: FooterLink[];
 }
 
+interface FooterSection {
+  title: string;
+  links: FooterLink[];
+}
+
 interface SocialLink {
   platform: string;
   url: string;
   label: string;
 }
 
+interface ContactInfo {
+  phone: string;
+  email: string;
+  address: string;
+  mapsUrl?: string;
+}
+
 interface FooterProps {
   logo?: React.ReactNode;
   description?: string;
-  columns: FooterColumn[];
+  columns?: FooterColumn[];
+  sections?: FooterSection[];
   socialLinks?: SocialLink[];
+  social?: SocialLink[];
   copyright?: string;
+  contact?: ContactInfo;
   variant?: "default" | "dark";
   className?: string;
 }
@@ -32,11 +47,16 @@ export function Footer({
   logo,
   description,
   columns,
+  sections,
   socialLinks,
+  social,
   copyright,
+  contact,
   variant = "default",
   className,
 }: FooterProps) {
+  const footerColumns = columns ?? sections ?? [];
+  const footerSocialLinks = socialLinks ?? social ?? [];
   return (
     <footer
       className={cn(
@@ -63,9 +83,9 @@ export function Footer({
                 {description}
               </p>
             )}
-            {socialLinks && socialLinks.length > 0 && (
+            {footerSocialLinks && footerSocialLinks.length > 0 && (
               <div className="mt-6 flex items-center gap-4">
-                {socialLinks.map((link) => (
+                {footerSocialLinks.map((link) => (
                   <Link
                     key={link.platform}
                     href={link.url}
@@ -85,7 +105,7 @@ export function Footer({
             )}
           </div>
 
-          {columns.map((column) => (
+          {footerColumns.map((column) => (
             <div key={column.title}>
               <p className="mb-4 text-caption font-semibold tracking-widest uppercase text-text-muted">
                 {column.title}

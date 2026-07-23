@@ -16,17 +16,23 @@ interface NavbarLink {
 
 interface NavbarProps {
   logo?: React.ReactNode;
-  links: NavbarLink[];
+  links?: NavbarLink[];
+  items?: NavbarLink[];
   transparent?: boolean;
+  variant?: "default" | "transparent";
   className?: string;
 }
 
 export function Navbar({
   logo,
   links,
+  items,
   transparent = false,
+  variant = "default",
   className,
 }: NavbarProps) {
+  const navLinks = links ?? items ?? [];
+  const isTransparent = transparent || variant === "transparent";
   const { isScrolled } = useScroll(NAV_HEIGHT * 0.5);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -34,7 +40,7 @@ export function Navbar({
     <nav
       className={cn(
         "fixed inset-x-0 top-0 z-navbar transition-all duration-300 ease-luxury",
-        !transparent || isScrolled
+        !isTransparent || isScrolled
           ? "bg-surface shadow-elevation-2"
           : "bg-transparent",
         className,
@@ -44,7 +50,7 @@ export function Navbar({
         <div className="flex-shrink-0">{logo}</div>
 
         <div className="hidden items-center gap-1 md:flex">
-          {links.map((link) => (
+          {navLinks.map((link) => (
             <Link
               key={link.href}
               href={link.href}
@@ -85,7 +91,7 @@ export function Navbar({
             className="overflow-hidden border-t border-border-muted bg-surface md:hidden"
           >
             <div className="container-site space-y-1 py-4">
-              {links.map((link) => (
+              {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}

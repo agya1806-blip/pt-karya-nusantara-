@@ -49,7 +49,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
 
   return (
     <>
-      <ServiceDetail service={service} />
+      <ServiceDetail {...service} />
       <CTADefault
         title="Interested in This Service?"
         description="Contact us to discuss how we can tailor this service to your project's unique requirements."

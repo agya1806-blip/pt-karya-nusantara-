@@ -79,6 +79,7 @@ export interface BlogPost {
 export interface FAQItem {
   question: string;
   answer: string;
+  category?: string;
 }
 
 export interface PartnerItem {

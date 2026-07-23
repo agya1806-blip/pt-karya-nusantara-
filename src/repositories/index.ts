@@ -1,5 +1,5 @@
 export { BaseRepository } from "./base";
-export { ProjectRepository } from "./project";
+export { ProjectRepository, projectRepository } from "./project";
 export { ServiceRepository } from "./service";
 export { BlogRepository } from "./blog";
 export { TeamRepository } from "./team";

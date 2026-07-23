@@ -9,8 +9,8 @@ import type { MediaItem } from "@/sections/types";
 interface ServiceDetailProps {
   title: string;
   description: string;
-  image: MediaItem;
-  features: string[];
+  image?: MediaItem;
+  features?: string[];
   reverse?: boolean;
   className?: string;
 }
@@ -19,7 +19,7 @@ export function ServiceDetail({
   title,
   description,
   image,
-  features,
+  features = [],
   reverse = false,
   className,
 }: ServiceDetailProps) {
@@ -57,12 +57,16 @@ export function ServiceDetail({
             direction={reverse ? "left" : "right"}
             className={cn(reverse && "lg:order-1")}
           >
-            <ImageReveal
-              src={image.src}
-              alt={image.alt}
-              className="aspect-[4/3] w-full rounded-2xl"
-              fill
-            />
+            {image ? (
+              <ImageReveal
+                src={image.src}
+                alt={image.alt}
+                className="aspect-[4/3] w-full rounded-2xl"
+                fill
+              />
+            ) : (
+              <div className="aspect-[4/3] w-full rounded-2xl bg-surface-muted" />
+            )}
           </Fade>
         </div>
       </div>

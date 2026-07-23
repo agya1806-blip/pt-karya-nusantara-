@@ -87,6 +87,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   const awards: AwardItem[] = (project.awards ?? []).map((a) => ({
     title: a,
+    organization: "PT Karya Nusantara Realty",
     year: project.year,
     description: `Awarded for excellence in ${project.category.toLowerCase()} architecture.`,
   }));
