@@ -92,7 +92,7 @@ export class ProjectRepository extends BaseRepository<ProjectRecord> {
     const client = await this.getClient(true);
     const { data, error } = await client
       .from("project_images")
-      .insert(input)
+      .insert(input as never)
       .select()
       .single();
 
@@ -127,7 +127,7 @@ export class ProjectRepository extends BaseRepository<ProjectRecord> {
     const client = await this.getClient(true);
     const { data, error } = await client
       .from("project_awards")
-      .insert(input)
+      .insert(input as never)
       .select()
       .single();
 
