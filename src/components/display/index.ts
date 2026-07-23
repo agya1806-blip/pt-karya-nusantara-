@@ -1,0 +1,10 @@
+export { HeroWrapper } from "./HeroWrapper";
+export { CTASection } from "./CTASection";
+export { FeatureGrid } from "./FeatureGrid";
+export { FAQSection } from "./FAQSection";
+export { PricingSection } from "./PricingSection";
+export { StatsSection } from "./StatsSection";
+export { Testimonials } from "./Testimonials";
+export { LogoCloud } from "./LogoCloud";
+export { PartnersSection } from "./PartnersSection";
+export { NewsletterSection } from "./NewsletterSection";
