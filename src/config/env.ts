@@ -11,7 +11,16 @@ class EnvironmentConfig {
   }
 
   get siteUrl(): string {
-    return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+    return (
+      process.env.NEXT_PUBLIC_SITE_URL ??
+      (process.env.VERCEL_URL
+        ? `https://${process.env.VERCEL_URL}`
+        : undefined) ??
+      (process.env.NEXT_PUBLIC_VERCEL_URL
+        ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+        : undefined) ??
+      "http://localhost:3000"
+    );
   }
 
   get siteName(): string {

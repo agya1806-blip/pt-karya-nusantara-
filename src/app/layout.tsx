@@ -18,7 +18,7 @@ import "@/styles/globals.css";
 export const metadata: Metadata = createMetadata();
 
 export const viewport: Viewport = {
-  width: DEFAULT_VIEWPORT,
+  width: "device-width",
   initialScale: 1,
   themeColor: THEME_COLOR_LIGHT,
   colorScheme: "light dark",
