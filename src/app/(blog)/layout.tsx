@@ -1,7 +1,5 @@
-import { Navbar } from "@/components/navigation/Navbar";
-import { Footer } from "@/components/navigation/Footer";
+import { Navbar, Footer, PageWrapper } from "@/components";
 import { siteConfig } from "@/config";
-import { PageWrapper } from "@/components/layout/PageWrapper";
 
 interface BlogLayoutProps {
   children: React.ReactNode;

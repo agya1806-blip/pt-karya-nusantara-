@@ -1,6 +1,4 @@
-import { Navbar } from "@/components/navigation/Navbar";
-import { Footer } from "@/components/navigation/Footer";
-import { PageWrapper } from "@/components/layout/PageWrapper";
+import { Navbar, Footer, PageWrapper } from "@/components";
 import { siteConfig } from "@/config";
 
 interface ContentLayoutProps {

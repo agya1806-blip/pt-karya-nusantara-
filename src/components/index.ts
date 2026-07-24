@@ -5,5 +5,5 @@ export { Card, CardMedia, CardBody, CardFooter, ProjectCard, PortfolioCard, Serv
 export { Image, VideoWrapper, Gallery, CarouselWrapper, LightboxWrapper, Logo, Avatar } from "./media";
 export { Modal, Dialog, Drawer, Popover, Tooltip, Dropdown } from "./overlay";
 export { Navbar, MegaMenu, MobileNavigation, Sidebar, Breadcrumb, Pagination, Footer, FloatingNavigation } from "./navigation";
-export { HeroWrapper, CTASection, FeatureGrid, FAQSection, PricingSection, StatsSection, Testimonials, LogoCloud, PartnersSection, NewsletterSection } from "./display";
+
 export { Fade, Slide, Scale, Stagger, StaggerItem, Reveal, TextReveal, ImageReveal, PageTransition, ScrollReveal } from "./animation";

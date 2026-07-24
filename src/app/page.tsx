@@ -44,10 +44,10 @@ const testimonials: TestimonialItem[] = [
 export default function HomePage() {
   return (
     <>
-      <HeroSection
+<HeroSection
         title="Crafting Timeless Architecture"
         subtitle="PT Karya Nusantara Realty"
-        description="An architecture and design practice dedicated to creating spaces of enduring beauty and purpose. Rooted in Aceh, reaching across the globe."
+        description="World-class luxury architecture firm crafting timeless spaces that inspire and endure. Based in Jakarta, serving globally."
         background={{ src: "/images/hero/home-hero.jpg", alt: "Luxury architecture showcase" }}
         actions={[
           { label: "View Portfolio", href: "/portfolio", variant: "primary" },

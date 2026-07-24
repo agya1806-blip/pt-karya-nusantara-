@@ -17,7 +17,7 @@ export {
 } from "./about";
 
 // Services
-export { ServicesGrid, ServiceGrid, ServiceDetail, ServiceOverview, Consultation } from "./services";
+export { ServicesGrid, ServiceDetail, ServiceOverview, Consultation } from "./services";
 
 // Process
 export { ProcessSteps, StepProcess, Workflow, ConsultationProcess, ConstructionFlow, ProjectLifecycle } from "./process";
@@ -26,13 +26,11 @@ export { ProcessSteps, StepProcess, Workflow, ConsultationProcess, ConstructionF
 export {
   FeaturedProjects,
   ProjectGallery,
-  Categories,
   Awards,
   ProjectDetailHeader,
   BeforeAfter,
   RelatedProjects,
   ProjectCategories,
-  ProjectAwards,
   ProjectStatistics,
 } from "./portfolio";
 
@@ -49,25 +47,26 @@ export { BlogPosts, BlogCategories, NewsletterCTA, FeaturedArticles, LatestArtic
 export { ContactInfoSection, ContactInformation, MapSection, ContactFormWrapper, ConsultationCTA } from "./contact";
 
 // CTA
-export { CTADefault, CallToAction } from "./cta";
+export { CTADefault } from "./cta";
 
 // FAQ
-export { FAQAccordion, AccordionFAQ, CategoryFAQ } from "./faq";
+export { FAQAccordion, CategoryFAQ } from "./faq";
 
 // Pricing
-export { PricingTable, PricingPlans, ServicePackages, ComparisonTable } from "./pricing";
+export { PricingTable, ServicePackages, ComparisonTable } from "./pricing";
 
 // Statistics
-export { StatisticsShowcase, Counter } from "./statistics";
+export { StatisticsShowcase } from "./statistics";
 
 // Video
-export { VideoShowcase, VideoGallery } from "./video";
+export { VideoShowcase } from "./video";
 
 // Partners
 export { PartnersShowcase } from "./partners";
 
 // Gallery
-export { GalleryGrid, ImageGallery, InteractiveGallery } from "./gallery";
+export { GalleryGrid, InteractiveGallery } from "./gallery";
+export { ImageGallery } from "./media";
 
 // Career
 export { CareerHero, Benefits, OpenPositions, CultureValues, RecruitmentProcess } from "./career";
@@ -99,6 +98,5 @@ export type {
   PricingPlan,
   MediaImage,
   ProjectItem,
-  BusinessHours,
   ContactInfoEntry,
 } from "./types";

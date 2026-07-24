@@ -190,11 +190,6 @@ export interface ProjectItem {
   awards?: string[];
 }
 
-export interface BusinessHours {
-  day: string;
-  hours: string;
-}
-
 export interface ContactInfoEntry {
   label: string;
   value: string;

@@ -11,13 +11,13 @@ interface GalleryImage {
   height?: number;
 }
 
-interface GalleryCardProps {
+interface MediaGalleryCardProps {
   image: GalleryImage;
   onClick?: () => void;
   className?: string;
 }
 
-export function GalleryCard({ image, onClick, className }: GalleryCardProps) {
+export function MediaGalleryCard({ image, onClick, className }: MediaGalleryCardProps) {
   return (
     <motion.button
       onClick={onClick}
@@ -59,7 +59,7 @@ export function Gallery({
   return (
     <div className={cn("grid gap-4", gridClasses[columns], className)}>
       {images.map((image, i) => (
-        <GalleryCard
+        <MediaGalleryCard
           key={i}
           image={image}
           onClick={onImageClick ? () => onImageClick(i) : undefined}

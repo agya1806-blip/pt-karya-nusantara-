@@ -272,13 +272,11 @@
 }
 
 /* ─── Dark Mode ─── */
-@variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
-
 @custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 /* ─── Reduced Motion ─── */
-@variant motion-safe (&:where([data-reduced-motion="false"], [data-reduced-motion="false"] *));
-@variant motion-reduce (&:where([data-reduced-motion="true"], [data-reduced-motion="true"] *));
+@custom-variant motion-safe (&:where([data-reduced-motion="false"], [data-reduced-motion="false"] *));
+@custom-variant motion-reduce (&:where([data-reduced-motion="true"], [data-reduced-motion="true"] *));
 
 /* ─── Base Styles ─── */
 @layer base {
