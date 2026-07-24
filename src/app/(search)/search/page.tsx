@@ -4,7 +4,7 @@ import { SearchClient } from "./search-client";
 
 export const metadata = createMetadata({
   title: "Search",
-  description: "Search PT Karya Nusantara Realty's website for projects, services, articles, and more.",
+  description: "Search our website for projects, services, articles, and more.",
 });
 
 export default function SearchPage() {
@@ -12,8 +12,8 @@ export default function SearchPage() {
     <>
       <SearchClient />
       <CTADefault
-        title="Can't Find What You're Looking For?"
-        description="Contact our team directly and we'll be happy to help."
+        title="Did Not Find What You Were Looking For?"
+        description="Contact our team directly and we will be happy to assist you."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
       />
     </>

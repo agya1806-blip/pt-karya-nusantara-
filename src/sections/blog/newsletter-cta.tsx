@@ -84,7 +84,7 @@ export function NewsletterCTA({
                   disabled={status === "loading"}
                   className={cn(
                     variant === "brand" || variant === "dark"
-                      ? "border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-white"
+                      ? "border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-white focus:ring-white/30"
                       : "",
                   )}
                 />

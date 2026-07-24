@@ -3,7 +3,7 @@ import { createMetadata } from "@/seo";
 
 export const metadata = createMetadata({
   title: "Career",
-  description: "Join PT Karya Nusantara Realty and be part of a team shaping the future of luxury architecture in Southeast Asia.",
+  description: "Join PT Karya Nusantara Realty and contribute to architecture of lasting significance in Southeast Asia.",
 });
 
 const positions: Array<{
@@ -23,48 +23,48 @@ export default function CareerPage() {
       <CareerHero
         title="Join Our Team"
         subtitle="PT Karya Nusantara Realty"
-        description="Shape the future of luxury architecture with Indonesia's premier design firm."
+        description="Be part of a practice creating architecture of lasting significance in Southeast Asia."
         image={{ src: "/images/career/hero.jpg", alt: "Career at Karya Nusantara Realty" }}
         cta={{ label: "View Open Positions", href: "#positions" }}
       />
       <CultureValues
         title="Our Culture"
-        description="We foster a culture of excellence, collaboration, and continuous innovation."
+        description="A studio culture built on rigour, curiosity, and mutual respect."
         values={[
-          { title: "Innovation", description: "We push boundaries and explore new design frontiers." },
-          { title: "Collaboration", description: "Great ideas emerge from teamwork and open dialogue." },
-          { title: "Excellence", description: "We hold ourselves to the highest standards." },
+          { title: "Innovation", description: "We explore new frontiers in design, materiality, and method." },
+          { title: "Collaboration", description: "Great ideas emerge from open dialogue and diverse perspectives." },
+          { title: "Excellence", description: "We hold ourselves to the highest standards in every endeavour." },
         ]}
       />
       <Benefits
         title="Why Work With Us"
-        description="We believe in nurturing talent and providing an environment where creativity thrives."
+        description="We nurture talent and provide an environment where creativity and rigour thrive."
         benefits={[
-          { title: "Creative Freedom", description: "We empower our team to explore innovative design solutions and push boundaries.", icon: "lightbulb" },
-          { title: "Competitive Compensation", description: "Attractive salary packages, performance bonuses, and comprehensive benefits.", icon: "dollar-sign" },
-          { title: "Professional Growth", description: "Continuous learning opportunities, workshops, and international exposure.", icon: "trending-up" },
-          { title: "Collaborative Culture", description: "Work alongside Indonesia's most talented architects and designers in a supportive studio environment.", icon: "users" },
+          { title: "Creative Freedom", description: "The autonomy to explore innovative design solutions and push boundaries.", icon: "lightbulb" },
+          { title: "Competitive Compensation", description: "Attractive packages, performance bonuses, and comprehensive benefits.", icon: "dollar-sign" },
+          { title: "Professional Growth", description: "Continuous learning, workshops, and international exposure.", icon: "trending-up" },
+          { title: "Collaborative Culture", description: "Work alongside experienced architects and designers in a supportive studio.", icon: "users" },
         ]}
       />
       <RecruitmentProcess
         title="Recruitment Process"
-        description="Our hiring process is designed to find the best talent while providing a great candidate experience."
+        description="A transparent process designed to identify talent and ensure a mutual fit."
         steps={[
-          { title: "Application Review", description: "Our HR team reviews your application and portfolio." },
-          { title: "Initial Interview", description: "A conversation with HR to discuss your background and aspirations." },
-          { title: "Portfolio Presentation", description: "Present your work to our design leadership team." },
-          { title: "Final Interview", description: "Meet with senior leadership to discuss the role and fit." },
-          { title: "Offer", description: "Successful candidates receive an offer to join our team." },
+          { title: "Application Review", description: "Our team reviews your application and portfolio." },
+          { title: "Initial Interview", description: "A conversation to discuss your background and aspirations." },
+          { title: "Portfolio Presentation", description: "Present your work to our design leadership." },
+          { title: "Final Interview", description: "Meet with senior leadership to discuss the role and cultural fit." },
+          { title: "Offer", description: "Successful candidates receive an offer to join the studio." },
         ]}
       />
       <OpenPositions
         title="Open Positions"
-        description="Explore current opportunities to join our growing team."
+        description="Current opportunities to join our growing practice."
         positions={positions}
       />
       <CTADefault
         title="Don't See the Right Role?"
-        description="We are always looking for exceptional talent. Send us your portfolio and we'll keep you in mind for future opportunities."
+        description="We are always looking for exceptional talent. Send us your portfolio and we will keep you in mind for future opportunities."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
       />
     </>

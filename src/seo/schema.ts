@@ -156,3 +156,39 @@ export function createProjectSchema(params: {
     ...(params.year ? { dateCreated: params.year } : {}),
   };
 }
+
+export function createFAQPageSchema(
+  questions: { question: string; answer: string }[],
+): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: questions.map((q) => ({
+      "@type": "Question",
+      name: q.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: q.answer,
+      },
+    })),
+  };
+}
+
+export function createServiceSchema(params: {
+  name: string;
+  description: string;
+  image?: string;
+  providerName: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: params.name,
+    description: params.description,
+    provider: {
+      "@type": "Organization",
+      name: params.providerName,
+    },
+    ...(params.image ? { image: `${siteConfig.url}${params.image}` } : {}),
+  };
+}

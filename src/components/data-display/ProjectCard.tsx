@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { ArrowUpRight, MapPin } from "lucide-react";
 
 interface ProjectCardProps {
@@ -42,27 +44,31 @@ function ProjectCard({ image, title, category, location, year, href, className }
 
   if (href) {
     return (
-      <a
+      <motion.a
         href={href}
         className={cn(
           "group block rounded-xl bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
           className,
         )}
+        whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+        transition={cardHoverTransition}
       >
         {shared}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <div
+    <motion.div
       className={cn(
         "group rounded-xl bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
         className,
       )}
+      whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+      transition={cardHoverTransition}
     >
       {shared}
-    </div>
+    </motion.div>
   );
 }
 

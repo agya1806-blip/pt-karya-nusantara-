@@ -9,38 +9,38 @@ interface ServicePageProps {
 const serviceData: Record<string, ServiceItem> = {
   residential: {
     title: "Residential Architecture",
-    description: "Luxury custom homes, villas, and apartments designed to reflect your unique lifestyle and vision. Our residential practice combines timeless aesthetics with modern functionality.",
-    features: ["Custom Home Design", "Renovation & Expansion", "Interior Architecture", "Landscape Integration", "Smart Home Integration", "Sustainable Materials"],
+    description: "Bespoke homes, villas, and private residences — each conceived as a unique expression of its owner and site. Our residential work combines timeless sensibility with modern rigour.",
+    features: ["Custom Home Design", "Renovation & Expansion", "Interior Architecture", "Landscape Integration", "Home Automation", "Sustainable Materials"],
     image: { src: "/images/services/residential-detail.jpg", alt: "Residential architecture detail" },
   },
   commercial: {
     title: "Commercial Architecture",
-    description: "Innovative office spaces, retail environments, and mixed-use developments that elevate brands and enhance user experience.",
-    features: ["Office Buildings", "Retail & Hospitality", "Mixed-Use Developments", "Workplace Strategy", "Brand Integration", "Adaptive Reuse"],
+    description: "Office environments, retail spaces, and mixed-use developments designed to elevate brand identity and enrich user experience.",
+    features: ["Office Buildings", "Retail Environments", "Mixed-Use Developments", "Workplace Strategy", "Brand Integration", "Adaptive Reuse"],
     image: { src: "/images/services/commercial-detail.jpg", alt: "Commercial architecture detail" },
   },
   hospitality: {
     title: "Hospitality Design",
-    description: "Resorts, hotels, and restaurants that deliver unforgettable guest experiences through exceptional design and attention to detail.",
+    description: "Resorts, hotels, and restaurants where architecture shapes memory. Every detail is considered for its contribution to the guest journey.",
     features: ["Resort Design", "Hotel Architecture", "Restaurant & Bar", "Spa & Wellness", "Guest Experience Design", "FF&E Specification"],
     image: { src: "/images/services/hospitality-detail.jpg", alt: "Hospitality design detail" },
   },
   "master-planning": {
     title: "Master Planning",
-    description: "Comprehensive site planning and urban design for large-scale developments and communities. We create visionary master plans that balance density, green space, infrastructure, and community needs.",
+    description: "Strategic site planning and urban design for large-scale developments. Master plans that balance density, ecology, infrastructure, and a sense of place.",
     features: ["Site Analysis", "Urban Design", "Infrastructure Planning", "Sustainability Strategy", "Zoning & Compliance", "Community Development"],
     image: { src: "/images/services/master-planning-detail.jpg", alt: "Master planning detail" },
   },
   "interior-design": {
     title: "Interior Design",
-    description: "Sophisticated interior spaces that seamlessly blend aesthetics, comfort, and functionality. Our interior design team works in close harmony with our architects to create cohesive environments.",
-    features: ["Spatial Planning", "Material Selection", "Custom Furniture", "Lighting Design", "Color Consultation", "Art Curation"],
+    description: "Interiors of character — where material, proportion, and light are orchestrated to create spaces that feel as refined as they are inhabitable.",
+    features: ["Spatial Planning", "Material Selection", "Custom Furniture", "Lighting Design", "Colour Consultation", "Art Curation"],
     image: { src: "/images/services/interior-detail.jpg", alt: "Interior design detail" },
   },
   "sustainable-design": {
     title: "Sustainable Design",
-    description: "Eco-conscious architecture that minimizes environmental impact without compromising luxury or design excellence. We lead the industry in green building practices.",
-    features: ["Passive Design", "Energy Modeling", "Material Sourcing", "Green Certification", "Water Conservation", "Waste Reduction"],
+    description: "Architecture that honours its environment. Low-carbon strategies, passive systems, and material stewardship — without compromising design calibre.",
+    features: ["Passive Design", "Energy Modelling", "Material Sourcing", "Green Certification", "Water Conservation", "Waste Reduction"],
     image: { src: "/images/services/sustainable-detail.jpg", alt: "Sustainable design detail" },
   },
 };
@@ -74,7 +74,7 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
       <ServiceDetail {...service} />
       <CTADefault
         title="Interested in This Service?"
-        description="Let's explore how this service can be tailored to your project's unique requirements and vision."
+        description="Let us explore how we can tailor this service to the specific requirements of your project."
         primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
       />
     </>

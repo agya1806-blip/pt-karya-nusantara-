@@ -15,24 +15,24 @@ const projects: PortfolioItem[] = [
 ];
 
 const services: ServiceItem[] = [
-  { title: "Residential Architecture", description: "Luxury custom homes and villas tailored to your lifestyle.", features: [], image: { src: "/images/services/residential.jpg", alt: "Residential" } },
-  { title: "Commercial Architecture", description: "Innovative spaces for business and retail.", features: [], image: { src: "/images/services/commercial.jpg", alt: "Commercial" } },
-  { title: "Hospitality Design", description: "Exceptional experiences through thoughtful design.", features: [], image: { src: "/images/services/hospitality.jpg", alt: "Hospitality" } },
-  { title: "Master Planning", description: "Comprehensive planning for large-scale developments.", features: [], image: { src: "/images/services/master-planning.jpg", alt: "Master Planning" } },
+  { title: "Residential Architecture", description: "Bespoke homes and private estates crafted to the highest standards of design and comfort.", features: [], image: { src: "/images/services/residential.jpg", alt: "Residential" } },
+  { title: "Commercial Architecture", description: "Distinguished workspaces and retail environments that elevate brand identity.", features: [], image: { src: "/images/services/commercial.jpg", alt: "Commercial" } },
+  { title: "Hospitality Design", description: "Resorts and hotels designed to create lasting impressions through considered spatial narratives.", features: [], image: { src: "/images/services/hospitality.jpg", alt: "Hospitality" } },
+  { title: "Master Planning", description: "Comprehensive precinct strategies that balance vision, density, and placemaking.", features: [], image: { src: "/images/services/master-planning.jpg", alt: "Master Planning" } },
 ];
 
 const steps: ProcessStep[] = [
-  { title: "Discovery", description: "We learn about your vision, needs, and site conditions.", icon: "search" },
-  { title: "Concept Design", description: "Initial design concepts and mood boards for your review.", icon: "lightbulb" },
-  { title: "Design Development", description: "Refined drawings, material selection, and budget.", icon: "pen-tool" },
-  { title: "Construction", description: "Expert administration ensuring faithful execution.", icon: "hard-hat" },
+  { title: "Discovery", description: "Understanding your vision, aspirations, and the unique character of your site.", icon: "search" },
+  { title: "Concept Design", description: "Translating ideas into spatial narratives through sketches, mood boards, and study models.", icon: "lightbulb" },
+  { title: "Design Development", description: "Refining every detail — materials, proportions, systems, and budget alignment.", icon: "pen-tool" },
+  { title: "Construction", description: "Rigorous design oversight to ensure every element is realised with precision.", icon: "hard-hat" },
 ];
 
 const stats: StatItem[] = [
-  { value: "200", label: "Projects Completed", suffix: "+" },
-  { value: "50", label: "Awards Won", suffix: "+" },
-  { value: "15", label: "Years of Experience" },
-  { value: "8", label: "Countries Served" },
+  { value: "200", label: "Projects Delivered", suffix: "+" },
+  { value: "50", label: "Design Awards Received", suffix: "+" },
+  { value: "15", label: "Years in Practice" },
+  { value: "8", label: "Countries Reached" },
 ];
 
 const testimonials: TestimonialItem[] = [
@@ -47,7 +47,7 @@ export default function HomePage() {
       <HeroSection
         title="Crafting Timeless Architecture"
         subtitle="PT Karya Nusantara Realty"
-        description="World-class luxury architecture firm crafting timeless spaces that inspire and endure. Based in Jakarta, serving globally."
+        description="An architecture and design practice dedicated to creating spaces of enduring beauty and purpose. Rooted in Aceh, reaching across the globe."
         background={{ src: "/images/hero/home-hero.jpg", alt: "Luxury architecture showcase" }}
         actions={[
           { label: "View Portfolio", href: "/portfolio", variant: "primary" },
@@ -57,43 +57,43 @@ export default function HomePage() {
       <AnimatedSection>
         <FeaturedProjects
           title="Featured Projects"
-          description="A selection of our most remarkable projects, showcasing the breadth of our expertise."
+          description="A curated selection of our work, each project a testament to considered design and meticulous craft."
           projects={projects.slice(0, 4)}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.1}>
         <StatisticsShowcase
           title="By the Numbers"
-          description="Our track record of excellence."
+          description="A measure of the trust our clients place in us."
           stats={stats}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
         <ServicesGrid
           title="Our Services"
-          description="Comprehensive architectural services tailored to your vision."
+          description="A full spectrum of architectural and design capabilities, each delivered with the same exacting standard."
           services={services}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <ProcessSteps
           title="How We Work"
-          description="Our proven process ensures exceptional results for every project."
+          description="A disciplined process that transforms vision into built reality, thoughtfully and without compromise."
           steps={steps}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.4}>
         <ClientReviews
           title="What Our Clients Say"
-          description="Hear from the clients who have trusted us with their vision."
+          description="The voices of those we have had the privilege to serve."
           testimonials={testimonials}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.5}>
         <CTADefault
-          title="Begin Your Architectural Journey"
-          description="Every masterpiece begins with a conversation. Share your vision with us and discover what we can create together."
-          primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
+          title="Let Us Realise Your Vision"
+          description="Every significant project begins with a conversation. Share your aspirations with us and discover the possibilities."
+          primaryCta={{ label: "Arrange a Consultation", href: "/contact" }}
           secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
         />
       </AnimatedSection>

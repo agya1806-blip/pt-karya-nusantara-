@@ -5,7 +5,7 @@ import type { GalleryItem, VideoItem } from "@/sections";
 
 export const metadata = createMetadata({
   title: "Gallery",
-  description: "Explore a curated collection of architectural photography, project visuals, and video showcases from PT Karya Nusantara Realty.",
+  description: "A curated collection of architectural photography, project visuals, and video showcases from PT Karya Nusantara Realty.",
 });
 
 const galleryItems: GalleryItem[] = [
@@ -35,7 +35,7 @@ export default function GalleryPage() {
       <AnimatedSection>
         <GalleryGrid
           title="Photo Gallery"
-          description="A curated selection of our finest architectural photography."
+          description="A curated selection of architectural photography from our projects."
           items={galleryItems}
           columns={3}
         />
@@ -43,21 +43,21 @@ export default function GalleryPage() {
       <AnimatedSection delay={0.1}>
         <InteractiveGallery
           title="Interactive Gallery"
-          description="Browse all of our visuals in a compact, explorable grid."
+          description="Browse all visuals in a compact, explorable grid."
           images={galleryItems}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
         <VideoShowcase
           title="Video Showcase"
-          description="Watch our projects come to life through cinematic videography."
+          description="See our projects come to life through cinematic videography."
           video={showcaseVideo}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <CTADefault
           title="Inspired by What You See?"
-          description="Let's discuss how we can create something equally remarkable for your project."
+          description="Let us discuss how we can create something equally considered for your project."
           primaryCta={{ label: "Start a Conversation", href: "/contact" }}
           secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
         />

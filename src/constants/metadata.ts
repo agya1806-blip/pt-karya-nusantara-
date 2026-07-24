@@ -8,6 +8,6 @@ export const METADATA = {
   TITLE_TEMPLATE: "%s | PT KARYA NUSANTARA REALTY",
   DEFAULT_TITLE: "PT KARYA NUSANTARA REALTY",
   DEFAULT_DESCRIPTION:
-    "Konsultan arsitek dan properti terpercaya di Aceh — melayani desain, perencanaan, konstruksi, dan konsultan properti.",
+    "Architecture, design, and property development firm based in Aceh — offering architectural design, master planning, interior design, construction, and property consulting services.",
   SEPARATOR: " | ",
 } as const;

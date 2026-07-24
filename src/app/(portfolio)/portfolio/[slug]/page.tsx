@@ -25,7 +25,7 @@ const projects: Record<string, ProjectData> = {
   "the-villa": {
     title: "The Sky Villa",
     category: "Residential",
-    description: "A breathtaking hillside villa in Bali with panoramic ocean views. This 800 sq meter residence seamlessly blends indoor and outdoor living, featuring an infinity pool, tropical gardens, and sweeping terraces that capture the essence of tropical luxury.",
+    description: "A hillside villa in Bali where architecture yields to the landscape. Panoramic ocean views, seamless indoor-outdoor living, and a material palette rooted in the island's natural beauty.",
     thumbnail: { src: "/images/portfolio/villa-sky.jpg", alt: "The Sky Villa" },
     images: [
       { src: "/images/portfolio/villa-01.jpg", alt: "Main building exterior" },
@@ -43,10 +43,10 @@ const projects: Record<string, ProjectData> = {
       { value: "2024", label: "Year Completed" },
     ],
     process: [
-      { title: "Site Analysis", description: "Studied the hillside topography, solar orientation, and ocean views to determine optimal building placement and orientation." },
-      { title: "Concept Design", description: "Developed three distinct design directions — modern tropical, minimalist, and Balinese contemporary — refined through close client collaboration." },
-      { title: "Design Development", description: "Detailed every space for seamless indoor-outdoor living, specifying natural stone, teak wood, and locally sourced materials." },
-      { title: "Construction Oversight", description: "Worked alongside local craftsmen to ensure every detail — from the infinity pool edge to the garden hardscape — met our exacting standards." },
+      { title: "Site Analysis", description: "Studying the hillside topography, solar orientation, and ocean views to determine optimal building placement and orientation." },
+      { title: "Concept Design", description: "Developing three distinct design directions — modern tropical, minimalist, and Balinese contemporary — refined through close client collaboration." },
+      { title: "Design Development", description: "Detailing every space for seamless indoor-outdoor living, specifying natural stone, teak wood, and locally sourced materials." },
+      { title: "Construction Oversight", description: "Working alongside local craftsmen to ensure every detail — from the infinity pool edge to the garden hardscape — met our exacting standards." },
     ],
     testimonial: {
       name: "James Thompson",
@@ -64,7 +64,7 @@ const projects: Record<string, ProjectData> = {
   "sudirman-tower": {
     title: "Sudirman Tower",
     category: "Commercial",
-    description: "A 40-story premium office tower in Jakarta's central business district. Designed with cutting-edge sustainable technology, the tower achieves Platinum LEED certification while providing world-class office spaces.",
+    description: "A 40-storey office tower in Jakarta's central business district. Platinum LEED-certified, the building sets a new benchmark for sustainable commercial architecture in Indonesia.",
     thumbnail: { src: "/images/portfolio/sudirman-tower.jpg", alt: "Sudirman Tower" },
     images: [
       { src: "/images/portfolio/tower-01.jpg", alt: "Tower exterior" },
@@ -82,10 +82,10 @@ const projects: Record<string, ProjectData> = {
       { value: "2023", label: "Year Completed" },
     ],
     process: [
-      { title: "Feasibility Study", description: "Analyzed site conditions, zoning regulations, and market demands to determine optimal building massing and program distribution." },
-      { title: "Facade Engineering", description: "Designed a high-performance curtain wall system that reduces solar heat gain while maximizing natural daylight penetration." },
-      { title: "Sustainable Systems", description: "Integrated rainwater harvesting, solar panels, and energy-efficient HVAC to achieve Platinum LEED certification." },
-      { title: "Interior Architecture", description: "Created flexible floor plates with premium finishes, biophilic design elements, and smart building technology throughout." },
+      { title: "Feasibility Study", description: "Analysing site conditions, zoning regulations, and market demands to determine optimal building massing and program distribution." },
+      { title: "Facade Engineering", description: "Designing a high-performance curtain wall system that reduces solar heat gain while maximising natural daylight penetration." },
+      { title: "Sustainable Systems", description: "Integrating rainwater harvesting, solar panels, and energy-efficient HVAC to achieve Platinum LEED certification." },
+      { title: "Interior Architecture", description: "Creating flexible floor plates with premium finishes, biophilic design elements, and smart building technology throughout." },
     ],
     testimonial: {
       name: "David Chen",
@@ -103,7 +103,7 @@ const projects: Record<string, ProjectData> = {
   "nusantara-resort": {
     title: "Nusantara Resort",
     category: "Hospitality",
-    description: "A luxury beachfront resort in Lombok featuring 120 villas, a world-class spa, multiple dining venues, and extensive recreational facilities set within pristine tropical landscapes.",
+    description: "A beachfront resort in Lombok with 120 villas set within pristine coastal landscapes. The design honours the site's natural ecology while delivering an uncompromised guest experience.",
     thumbnail: { src: "/images/portfolio/nusantara-resort.jpg", alt: "Nusantara Resort" },
     images: [
       { src: "/images/portfolio/resort-01.jpg", alt: "Resort aerial view" },
@@ -121,10 +121,10 @@ const projects: Record<string, ProjectData> = {
       { value: "2025", label: "Year Completed" },
     ],
     process: [
-      { title: "Master Planning", description: "Designed the resort layout to preserve existing coastal vegetation while maximizing ocean views from every villa." },
-      { title: "Villa Prototyping", description: "Created three villa typologies — beachfront, garden, and hillside — each with distinct indoor-outdoor living experiences." },
-      { title: "Landscape Design", description: "Integrated native tropical species, natural stone pathways, and water features that echo the surrounding coastal ecosystem." },
-      { title: "Interior Curation", description: "Selected local artisanal furnishings, handwoven textiles, and custom lighting to create an authentic sense of place." },
+      { title: "Master Planning", description: "Designing the resort layout to preserve existing coastal vegetation while maximising ocean views from every villa." },
+      { title: "Villa Prototyping", description: "Creating three villa typologies — beachfront, garden, and hillside — each with distinct indoor-outdoor living experiences." },
+      { title: "Landscape Design", description: "Integrating native tropical species, natural stone pathways, and water features that echo the surrounding coastal ecosystem." },
+      { title: "Interior Curation", description: "Selecting local artisanal furnishings, handwoven textiles, and custom lighting to create an authentic sense of place." },
     ],
     testimonial: {
       name: "Miyako Tanaka",
@@ -142,7 +142,7 @@ const projects: Record<string, ProjectData> = {
   "green-valley": {
     title: "Green Valley Estate",
     category: "Master Planning",
-    description: "A comprehensive master-planned community in Bandung spanning 50 hectares. The development integrates residential clusters, commercial centers, green spaces, and recreational facilities within a sustainable urban framework.",
+    description: "A 50-hectare master-planned community in Bandung that balances density with liveability. Residential clusters, green corridors, and commercial centres woven into a cohesive urban fabric.",
     thumbnail: { src: "/images/portfolio/green-valley.jpg", alt: "Green Valley Estate" },
     images: [
       { src: "/images/portfolio/green-valley-01.jpg", alt: "Master plan overview" },
@@ -160,10 +160,10 @@ const projects: Record<string, ProjectData> = {
       { value: "2024", label: "Year Completed" },
     ],
     process: [
-      { title: "Site Analysis", description: "Evaluated topography, watershed patterns, and existing vegetation to create a development that works with the land, not against it." },
-      { title: "Community Framework", description: "Designed a hierarchy of public spaces — from the central park to neighborhood gardens — that foster community interaction." },
-      { title: "Infrastructure Planning", description: "Planned roads, utilities, and drainage systems with future expansion capacity and minimal environmental disruption." },
-      { title: "Sustainable Guidelines", description: "Established design guidelines for all buildings ensuring cohesive aesthetics, energy efficiency, and green construction practices." },
+      { title: "Site Analysis", description: "Evaluating topography, watershed patterns, and existing vegetation to create a development that works with the land, not against it." },
+      { title: "Community Framework", description: "Designing a hierarchy of public spaces — from central park to neighbourhood gardens — that foster community interaction." },
+      { title: "Infrastructure Planning", description: "Planning roads, utilities, and drainage systems with future expansion capacity and minimal environmental disruption." },
+      { title: "Sustainable Guidelines", description: "Establishing design guidelines for all buildings ensuring cohesive aesthetics, energy efficiency, and green construction practices." },
     ],
     testimonial: {
       name: "Dr. Ratna Kusuma",
@@ -181,7 +181,7 @@ const projects: Record<string, ProjectData> = {
   "the-sanctuary": {
     title: "The Sanctuary",
     category: "Residential",
-    description: "An exclusive private residence in Ubud, Bali, designed as a serene retreat amidst lush tropical forest. The design emphasizes indoor-outdoor living with natural materials, sustainable systems, and panoramic valley views.",
+    description: "A private residence in Ubud, Bali, conceived as a retreat within the tropical forest. Natural materials, sustainable systems, and a porous boundary between inside and out define the experience.",
     thumbnail: { src: "/images/portfolio/sanctuary.jpg", alt: "The Sanctuary" },
     images: [
       { src: "/images/portfolio/sanctuary-01.jpg", alt: "Main residence exterior" },
@@ -199,10 +199,10 @@ const projects: Record<string, ProjectData> = {
       { value: "2023", label: "Year Completed" },
     ],
     process: [
-      { title: "Site Immersion", description: "Spent weeks understanding the forest microclimate, view corridors, and natural light patterns to inform every design decision." },
-      { title: "Biophilic Design", description: "Developed a concept that blurs boundaries between interior and exterior, using glass walls, open courtyards, and green roofs." },
-      { title: "Material Selection", description: "Sourced sustainable timber, local stone, and natural finishes that age gracefully and complement the surrounding forest." },
-      { title: "Sustainable Systems", description: "Integrated rainwater collection, solar energy, and natural ventilation to achieve a net-zero energy footprint." },
+      { title: "Site Immersion", description: "Understanding the forest microclimate, view corridors, and natural light patterns to inform every design decision." },
+      { title: "Biophilic Design", description: "Developing a concept that blurs boundaries between interior and exterior, using glass walls, open courtyards, and green roofs." },
+      { title: "Material Selection", description: "Sourcing sustainable timber, local stone, and natural finishes that age gracefully and complement the surrounding forest." },
+      { title: "Sustainable Systems", description: "Integrating rainwater collection, solar energy, and natural ventilation to achieve a net-zero energy footprint." },
     ],
     testimonial: {
       name: "Alexandra Hartono",
@@ -219,7 +219,7 @@ const projects: Record<string, ProjectData> = {
   "marina-club": {
     title: "Marina Bay Club",
     category: "Hospitality",
-    description: "A premium members-only club in Singapore's Marina Bay district. The design features sophisticated interiors, waterfront dining venues, a rooftop infinity pool, and state-of-the-art wellness facilities.",
+    description: "A members' club in Singapore's Marina Bay district. Interiors of refined restraint, waterfront dining, and wellness facilities designed for an exclusive, discerning membership.",
     thumbnail: { src: "/images/portfolio/marina-club.jpg", alt: "Marina Bay Club" },
     images: [
       { src: "/images/portfolio/marina-01.jpg", alt: "Club entrance" },
@@ -237,10 +237,10 @@ const projects: Record<string, ProjectData> = {
       { value: "2025", label: "Year Completed" },
     ],
     process: [
-      { title: "Concept Development", description: "Designed a sophisticated waterfront concept that balances exclusivity with warmth, inspired by luxury yacht club aesthetics." },
-      { title: "Interior Architecture", description: "Curated material palette of marble, brass, and rich timber across all spaces — from the grand lobby to private dining rooms." },
-      { title: "Facade Design", description: "Created a striking glass curtain wall with dynamic lighting that animates the waterfront facade at night." },
-      { title: "Wellness Integration", description: "Designed the spa and wellness wing around a central courtyard with natural light, water features, and tropical planting." },
+      { title: "Concept Development", description: "Designing a sophisticated waterfront concept that balances exclusivity with warmth, inspired by luxury yacht club aesthetics." },
+      { title: "Interior Architecture", description: "Curating a material palette of marble, brass, and rich timber across all spaces — from the grand lobby to private dining rooms." },
+      { title: "Facade Design", description: "Creating a glass curtain wall with dynamic lighting that animates the waterfront facade at night." },
+      { title: "Wellness Integration", description: "Designing the spa and wellness wing around a central courtyard with natural light, water features, and tropical planting." },
     ],
     testimonial: {
       name: "Michael Tan",
@@ -323,18 +323,18 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       <ProjectGallery title={project.title} images={project.images} />
       <BeforeAfter
         title="Before & After"
-        description="See the transformation of this project from concept to completion."
+        description="The transformation from concept to completed reality."
         project={projectItem}
       />
       <ProcessSteps
         title="The Design Journey"
-        description="A glimpse into our approach — from first site visit to final delivery."
+        description="Our approach — from first site visit to final delivery."
         steps={project.process}
       />
       {project.testimonial && (
         <ClientReviews
           title="Client Perspective"
-          description="What our client had to say about working with us."
+          description="What our client had to say."
           testimonials={[project.testimonial]}
           variant="grid"
         />
@@ -342,27 +342,27 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
       {project.partners && (
         <PartnersShowcase
           title="Collaborators"
-          description="The trusted partners who helped bring this project to life."
+          description="The partners who contributed to this project."
           partners={project.partners}
           variant="simple"
         />
       )}
       <ProjectStatistics
         title="Project Statistics"
-        description="Key metrics and figures for this project."
+        description="Key metrics for this project."
         stats={project.stats}
       />
       <Awards title="Awards & Recognition" awards={awards} />
       {remainingProjects.length > 0 && (
         <FeaturedProjects
           title="Related Projects"
-          description="Explore similar projects from our portfolio."
+          description="Other projects from our portfolio."
           projects={remainingProjects.slice(0, 3)}
         />
       )}
       <CTADefault
         title="Inspired by This Project?"
-        description="Let's create something equally remarkable for your space. Share your vision with us."
+        description="Let us create something equally considered for your space. Share your vision with us."
         primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
       />
     </>

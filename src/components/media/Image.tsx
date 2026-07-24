@@ -11,6 +11,7 @@ interface ImageProps extends Omit<NextImageProps, "loading" | "className"> {
   overlay?: boolean;
   overlayGradient?: string;
   reveal?: boolean;
+  priority?: boolean;
   className?: string;
 }
 
@@ -20,8 +21,10 @@ export function Image({
   overlay,
   overlayGradient,
   reveal,
+  priority,
   className,
   alt,
+  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
   ...props
 }: ImageProps) {
   const [loaded, setLoaded] = useState(false);
@@ -36,7 +39,9 @@ export function Image({
       <NextImage
         {...props}
         alt={alt}
-        loading={loading}
+        loading={priority ? undefined : loading}
+        priority={priority}
+        sizes={sizes}
         className={cn(
           "h-full w-full transition-opacity duration-300",
           fit === "cover" ? "object-cover" : "object-contain",

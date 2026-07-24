@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
@@ -24,7 +26,7 @@ function PricingCard({
   className,
 }: PricingCardProps) {
   return (
-    <div
+    <motion.div
       className={cn(
         "rounded-xl p-8 transition-all duration-500 ease-architectural",
         highlighted
@@ -32,6 +34,8 @@ function PricingCard({
           : "bg-surface text-text border border-border-light hover:border-border-default",
         className,
       )}
+      whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+      transition={cardHoverTransition}
     >
       <h3 className="text-heading-sm leading-snug">{name}</h3>
       <div className="mt-5 flex items-baseline gap-1.5">
@@ -69,7 +73,7 @@ function PricingCard({
           <Button>{ctaText}</Button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

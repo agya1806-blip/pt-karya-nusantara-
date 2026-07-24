@@ -6,5 +6,7 @@ export {
   createBreadcrumbSchema,
   createArticleSchema,
   createProjectSchema,
+  createFAQPageSchema,
+  createServiceSchema,
 } from "./schema";
 export { JsonLdScript } from "./json-ld";

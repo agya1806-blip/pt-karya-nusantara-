@@ -1,12 +1,12 @@
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { cardHoverTransition } from "@/lib/animation";
-import { forwardRef, type HTMLAttributes } from "react";
+import { forwardRef, type ComponentPropsWithoutRef, type HTMLAttributes } from "react";
 
 type CardVariant = "default" | "muted" | "elevated" | "bordered";
 type CardPadding = "none" | "sm" | "md" | "lg" | "xl";
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends ComponentPropsWithoutRef<typeof motion.div> {
   variant?: CardVariant;
   padding?: CardPadding;
   hover?: boolean;

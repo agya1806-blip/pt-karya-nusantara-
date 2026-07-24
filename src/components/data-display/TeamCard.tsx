@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 
 interface TeamCardProps {
   avatar: string;
@@ -29,16 +31,16 @@ function TeamCard({ avatar, name, role, bio, href, className }: TeamCardProps) {
 
   if (href) {
     return (
-      <a href={href} className={cn("group block", className)}>
+      <motion.a href={href} className={cn("group block", className)} whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }} transition={cardHoverTransition}>
         {shared}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <div className={cn("group", className)}>
+    <motion.div className={cn("group", className)} whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }} transition={cardHoverTransition}>
       {shared}
-    </div>
+    </motion.div>
   );
 }
 
