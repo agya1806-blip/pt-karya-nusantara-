@@ -1,4 +1,4 @@
-import { Inter, Playfair_Display, JetBrains_Mono } from "next/font/google";
+import { Inter, Cormorant_Garamond, JetBrains_Mono } from "next/font/google";
 
 export const fontSans = Inter({
   subsets: ["latin"],
@@ -8,11 +8,12 @@ export const fontSans = Inter({
   fallback: ["Helvetica Neue", "Arial", "sans-serif"],
 });
 
-export const fontSerif = Playfair_Display({
+export const fontSerif = Cormorant_Garamond({
   subsets: ["latin"],
   variable: "--font-serif",
   display: "swap",
   preload: true,
+  weight: ["300", "400", "500", "600", "700"],
   fallback: ["Georgia", "serif"],
 });
 

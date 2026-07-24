@@ -62,7 +62,7 @@ export function Modal({
           transition={{ duration: 0.2 }}
         >
           <div
-            className="absolute inset-0 bg-black/50"
+            className="absolute inset-0 bg-brand-900/60"
             onClick={closeOnOverlay ? onClose : undefined}
           />
           <motion.div

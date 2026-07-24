@@ -15,7 +15,7 @@ interface IconButtonProps {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-neutral-900 text-text-inverse hover:bg-neutral-800",
+  primary: "bg-brand-800 text-text-inverse hover:bg-brand-700",
   secondary: "bg-surface-muted text-text hover:bg-neutral-200",
   ghost: "text-text hover:bg-surface-muted",
   outline: "border border-border text-text hover:bg-surface-muted",

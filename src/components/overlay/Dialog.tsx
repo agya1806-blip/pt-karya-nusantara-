@@ -52,7 +52,7 @@ export function Dialog({
             "rounded-lg px-4 py-2 text-sm font-medium text-text-inverse transition-colors duration-300 ease-architectural",
             variant === "danger"
               ? "bg-red-600 hover:bg-red-700"
-              : "bg-neutral-900 hover:bg-neutral-800",
+              : "bg-gold-500 hover:bg-gold-600",
           )}
         >
           {confirmText}

@@ -23,7 +23,7 @@ function GalleryCard({ image, alt, onClick, className }: GalleryCardProps) {
         alt={alt}
         className="h-full w-full object-cover transition-transform duration-500 ease-architectural group-hover:scale-105"
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-500 ease-architectural group-hover:opacity-100">
+      <div className="absolute inset-0 flex items-center justify-center bg-brand-900/60 opacity-0 transition-opacity duration-500 ease-architectural group-hover:opacity-100">
         <Maximize2 className="h-7 w-7 text-text-inverse" />
       </div>
     </button>

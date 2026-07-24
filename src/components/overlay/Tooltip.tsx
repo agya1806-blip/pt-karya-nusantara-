@@ -68,7 +68,7 @@ export function Tooltip({
         {visible && (
           <motion.div
             className={cn(
-              "pointer-events-none absolute z-tooltip whitespace-nowrap rounded-md bg-neutral-900 px-2.5 py-1.5 text-body-sm text-text-inverse shadow-elevation-3",
+              "pointer-events-none absolute z-tooltip whitespace-nowrap rounded-md bg-brand-800 px-2.5 py-1.5 text-body-sm text-text-inverse shadow-elevation-3",
               placementClasses[placement],
               className,
             )}
@@ -81,7 +81,7 @@ export function Tooltip({
             {content}
             <span
               className={cn(
-                "absolute h-2 w-2 bg-neutral-900",
+                "absolute h-2 w-2 bg-brand-800",
                 arrowClasses[placement],
               )}
             />

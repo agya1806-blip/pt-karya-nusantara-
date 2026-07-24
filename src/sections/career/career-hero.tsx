@@ -20,7 +20,7 @@ export function CareerHero({ id, className, title, subtitle, description, image,
   return (
     <Section id={id} variant="dark" spacing="none" className={cn("relative min-h-screen", className)} aria-label="Career hero banner">
       <Image src={image.src} alt={image.alt} fill className="object-cover" priority sizes="100vw" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80" />
+      <div className="absolute inset-0 bg-gradient-to-b from-brand-900/80 via-brand-800/50 to-brand-900/90" />
       <div className="relative z-10 flex min-h-screen items-center">
         <div className="mx-auto max-w-4xl px-6 text-center">
           {subtitle && (
@@ -43,7 +43,7 @@ export function CareerHero({ id, className, title, subtitle, description, image,
               <div className="mt-10">
                 <a
                   href={cta.href}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-neutral-900 px-6 py-3 text-base font-medium text-text-inverse transition-all duration-300 ease-luxury hover:bg-neutral-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2"
+                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-base font-medium text-white transition-all duration-300 ease-luxury hover:bg-gold-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
                 >
                   {cta.label}
                 </a>

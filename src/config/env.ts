@@ -54,6 +54,10 @@ class EnvironmentConfig {
     return process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN ?? "";
   }
 
+  get nib(): string {
+    return process.env.NEXT_PUBLIC_NIB ?? "2407260005341";
+  }
+
   get googleSiteVerification(): string {
     return process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "";
   }

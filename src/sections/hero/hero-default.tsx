@@ -29,7 +29,7 @@ export function HeroDefault({
       {image && (
         <div className="absolute inset-0">
           <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 to-brand-800/30" />
         </div>
       )}
       <div className="container-site relative z-10 py-32">
@@ -51,7 +51,7 @@ export function HeroDefault({
             {primaryCta && (
               <Link
                 href={primaryCta.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-8 py-4 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90"
+                className="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-body-sm font-medium text-white transition-all duration-300 hover:bg-gold-600"
               >
                 {primaryCta.label} <ArrowRight size={16} />
               </Link>
@@ -62,8 +62,8 @@ export function HeroDefault({
                 className={cn(
                   "inline-flex items-center gap-2 rounded-lg border px-8 py-4 text-body-sm font-medium tracking-tight transition-all duration-300",
                   image
-                    ? "border-white/30 text-white hover:bg-white/10"
-                    : "border-border-light text-text-primary hover:bg-surface-muted",
+                    ? "border-gold-500/40 text-gold-300 hover:bg-gold-500/10"
+                    : "border-gold-500/30 text-gold-700 hover:bg-gold-50",
                 )}
               >
                 {secondaryCta.label}

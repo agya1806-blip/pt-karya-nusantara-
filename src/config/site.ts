@@ -2,10 +2,10 @@ import type { SiteConfig } from "@/types";
 import { env } from "./env";
 
 export const siteConfig: SiteConfig = {
-  name: "PT Karya Nusantara Realty",
+  name: "PT KARYA NUSANTARA REALTY",
   description:
-    "World-class luxury architecture firm crafting timeless spaces that inspire and endure. Based in Jakarta, serving globally.",
-  tagline: "Crafting Timeless Architecture",
+    "Konsultan arsitek dan properti terpercaya di Aceh — melayani desain, perencanaan, konstruksi, dan konsultan properti untuk hunian mewah, komersial, dan kawasan terpadu.",
+  tagline: "Membangun Karya untuk Nusantara",
   url: env.siteUrl,
   logo: "/images/logo.svg",
   ogImage: "/images/og-default.jpg",
@@ -13,8 +13,9 @@ export const siteConfig: SiteConfig = {
   contact: {
     phone: env.companyPhone,
     email: env.companyEmail,
-    address: env.companyAddress,
-    mapsUrl: "https://maps.google.com/?q=Jakarta+Indonesia",
+    address:
+      "Lorong Sawah I, Lambhuk, Kec. Ulee Kareng, Kota Banda Aceh, Aceh 23188",
+    mapsUrl: "https://maps.google.com/maps?q=5.561523,95.338814&z=15&output=embed",
   },
 
   social: [
@@ -32,7 +33,7 @@ export const siteConfig: SiteConfig = {
 
   navigation: [
     {
-      label: "Home",
+      label: "Beranda",
       href: "/",
     },
     {
@@ -40,11 +41,11 @@ export const siteConfig: SiteConfig = {
       href: "/portfolio",
     },
     {
-      label: "Services",
+      label: "Layanan",
       href: "/services",
     },
     {
-      label: "About",
+      label: "Tentang",
       href: "/about",
     },
     {
@@ -52,24 +53,24 @@ export const siteConfig: SiteConfig = {
       href: "/blog",
     },
     {
-      label: "Contact",
+      label: "Kontak",
       href: "/contact",
     },
   ],
 
   footer: [
     {
-      title: "Navigation",
+      title: "Navigasi",
       links: [
         { label: "Portfolio", href: "/portfolio" },
-        { label: "Services", href: "/services" },
-        { label: "About", href: "/about" },
+        { label: "Layanan", href: "/services" },
+        { label: "Tentang", href: "/about" },
         { label: "Blog", href: "/blog" },
-        { label: "Contact", href: "/contact" },
+        { label: "Kontak", href: "/contact" },
       ],
     },
     {
-      title: "Services",
+      title: "Layanan",
       links: [
         { label: "Residential", href: "/services/residential" },
         { label: "Commercial", href: "/services/commercial" },
@@ -78,7 +79,7 @@ export const siteConfig: SiteConfig = {
       ],
     },
     {
-      title: "Connect",
+      title: "Ikuti Kami",
       links: [
         { label: "Instagram", href: env.socialInstagram, isExternal: true },
         { label: "LinkedIn", href: env.socialLinkedin, isExternal: true },
@@ -87,12 +88,37 @@ export const siteConfig: SiteConfig = {
   ],
 
   businessHours: [
-    { day: "Monday", open: "09:00", close: "18:00" },
-    { day: "Tuesday", open: "09:00", close: "18:00" },
-    { day: "Wednesday", open: "09:00", close: "18:00" },
-    { day: "Thursday", open: "09:00", close: "18:00" },
-    { day: "Friday", open: "09:00", close: "17:00" },
-    { day: "Saturday", open: "09:00", close: "13:00" },
-    { day: "Sunday", open: "", close: "", isClosed: true },
+    { day: "Senin", open: "09:00", close: "18:00" },
+    { day: "Selasa", open: "09:00", close: "18:00" },
+    { day: "Rabu", open: "09:00", close: "18:00" },
+    { day: "Kamis", open: "09:00", close: "18:00" },
+    { day: "Jumat", open: "09:00", close: "17:00" },
+    { day: "Sabtu", open: "09:00", close: "13:00" },
+    { day: "Minggu", open: "", close: "", isClosed: true },
+  ],
+
+  nib: "2407260005341",
+  director: "TEUKU FARIZ WAZDI",
+  coordinates: {
+    lat: 5.561523,
+    lng: 95.338814,
+  },
+  businessFields: [
+    {
+      name: "1969 Architect",
+      description: "Design & Planning",
+    },
+    {
+      name: "1969 Interior",
+      description: "Interior Design & Custom Furniture",
+    },
+    {
+      name: "Akaruma Contractor",
+      description: "Build & Supervision",
+    },
+    {
+      name: "Casara Estate",
+      description: "Property Consultant & Media Property",
+    },
   ],
 };

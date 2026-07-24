@@ -31,7 +31,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
-      lang="en"
+      lang="id"
       data-theme="light"
       className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable}`}
       suppressHydrationWarning
@@ -48,7 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-neutral-900 focus:px-6 focus:py-3 focus:text-sm focus:font-medium focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2"
         >
-          Skip to main content
+          Lewati ke konten utama
         </a>
         <Providers>{children}</Providers>
       </body>

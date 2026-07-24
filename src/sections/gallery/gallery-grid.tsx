@@ -82,7 +82,7 @@ export function GalleryGrid({
                   className="h-full w-full transition-transform duration-500 group-hover:scale-105"
                 />
                 {item.caption && (
-                  <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-black/60 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
+                  <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-brand-900/60 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
                     <p className="text-body-sm text-white">{item.caption}</p>
                   </div>
                 )}

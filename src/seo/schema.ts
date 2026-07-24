@@ -9,21 +9,34 @@ export function createOrganizationSchema(): JsonLd {
     description: siteConfig.description,
     url: siteConfig.url,
     logo: `${siteConfig.url}${siteConfig.logo}`,
+    identifier: siteConfig.nib,
+    founder: {
+      "@type": "Person",
+      name: siteConfig.director,
+    },
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Lorong Sawah I, Lambhuk",
+      addressLocality: "Kec. Ulee Kareng, Kota Banda Aceh",
+      addressRegion: "Aceh",
+      postalCode: "23188",
+      addressCountry: "ID",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.coordinates.lat,
+      longitude: siteConfig.coordinates.lng,
+    },
     contactPoint: [
       {
         "@type": "ContactPoint",
         telephone: siteConfig.contact.phone,
         email: siteConfig.contact.email,
-        contactType: "customer service",
-        availableLanguage: ["English", "Indonesian"],
+        contactType: "layanan pelanggan",
+        availableLanguage: ["Indonesian", "English"],
       },
     ],
-    address: {
-      "@type": "PostalAddress",
-      addressCountry: "Indonesia",
-      addressLocality: "Jakarta",
-    },
-    sameAs: siteConfig.social.map((s) => s.url),
+    sameAs: siteConfig.social.map((s) => s.url).filter(Boolean),
   };
 }
 
@@ -54,11 +67,23 @@ export function createLocalBusinessSchema(): JsonLd {
     url: siteConfig.url,
     telephone: siteConfig.contact.phone,
     email: siteConfig.contact.email,
+    identifier: siteConfig.nib,
+    founder: {
+      "@type": "Person",
+      name: siteConfig.director,
+    },
     address: {
       "@type": "PostalAddress",
-      streetAddress: siteConfig.contact.address,
-      addressLocality: "Jakarta",
+      streetAddress: "Lorong Sawah I, Lambhuk",
+      addressLocality: "Kec. Ulee Kareng, Kota Banda Aceh",
+      addressRegion: "Aceh",
+      postalCode: "23188",
       addressCountry: "ID",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: siteConfig.coordinates.lat,
+      longitude: siteConfig.coordinates.lng,
     },
     openingHoursSpecification: siteConfig.businessHours.map((hours) => ({
       "@type": "OpeningHoursSpecification",
@@ -75,7 +100,7 @@ export function createBreadcrumbSchema(items: { name: string; href?: string }[])
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: siteConfig.url },
+      { "@type": "ListItem", position: 1, name: "Beranda", item: siteConfig.url },
       ...items.map((item, index) => ({
         "@type": "ListItem" as const,
         position: index + 2,

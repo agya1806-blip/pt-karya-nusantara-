@@ -89,7 +89,7 @@ export function GlobalSearch({
           aria-modal="true"
           aria-label="Search"
         >
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+          <div className="fixed inset-0 bg-brand-900/70 backdrop-blur-sm" onClick={onClose} />
           <div className={cn("fixed left-1/2 top-[15%] w-full max-w-2xl -translate-x-1/2 px-4", isMobile && "top-0 px-0")}>
             <motion.div
               initial={reducedMotion ? {} : { y: -20, opacity: 0 }}

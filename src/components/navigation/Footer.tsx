@@ -60,8 +60,8 @@ export function Footer({
       className={cn(
         "border-t transition-colors duration-300",
         variant === "dark"
-          ? "border-border-muted bg-surface-dark text-text-inverse"
-          : "border-border-muted bg-surface text-text",
+          ? "border-gold-500/10 bg-surface-dark text-text-inverse"
+          : "border-gold-500/5 bg-surface text-text",
         className,
       )}
     >

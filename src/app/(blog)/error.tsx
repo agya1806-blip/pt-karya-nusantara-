@@ -14,7 +14,7 @@ export default function BlogError({ reset }: ErrorPageProps) {
         <p className="mb-8 text-neutral-500">We encountered an error loading this page. Please try again.</p>
         <button
           onClick={reset}
-          className="inline-flex items-center justify-center border border-neutral-900 bg-neutral-900 px-8 py-3 text-sm font-medium tracking-wider text-white transition-colors hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 uppercase"
+          className="inline-flex items-center justify-center border border-gold-500 bg-gold-500 px-8 py-3 text-sm font-medium tracking-wider text-white transition-colors hover:bg-gold-600 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 uppercase"
         >
           Try Again
         </button>

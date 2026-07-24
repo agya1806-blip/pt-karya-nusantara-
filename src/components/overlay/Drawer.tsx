@@ -102,7 +102,7 @@ export function Drawer({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+          <div className="absolute inset-0 bg-brand-900/60" onClick={onClose} />
           <motion.div
             className={cn(
               "absolute bg-surface shadow-elevation-5",

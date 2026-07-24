@@ -58,15 +58,15 @@ export function HeroSection({
         aria-label={background.alt}
       />
       {overlay === "gradient" && (
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/30 to-neutral-950/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/40 to-brand-900/80" />
       )}
       {overlay === "solid" && (
-        <div className="absolute inset-0 bg-neutral-950/50" />
+        <div className="absolute inset-0 bg-brand-900/60" />
       )}
       <div className="container-site relative z-10 flex flex-col justify-center py-24">
         {subtitle && (
           <Fade direction="up" delay={0.1}>
-            <span className="mb-6 inline-block text-caption tracking-widest text-neutral-400 uppercase">
+            <span className="mb-6 inline-block text-caption tracking-widest text-gold-300 uppercase">
               {subtitle}
             </span>
           </Fade>
@@ -80,7 +80,7 @@ export function HeroSection({
           <Fade direction="up" delay={0.4}>
             <p
               className={cn(
-                "mt-8 max-w-2xl text-body-lg text-neutral-400 leading-relaxed",
+                "mt-8 max-w-2xl text-body-lg text-brand-200 leading-relaxed",
                 align === "center" && "mx-auto",
               )}
             >
@@ -102,7 +102,7 @@ export function HeroSection({
                   key={action.label}
                   variant={action.variant ?? "primary"}
                   onClick={action.onClick}
-                  className={action.variant === "primary" ? "bg-white text-neutral-900 hover:bg-neutral-100" : "border-white/30 text-white hover:bg-white/10"}
+                  className={action.variant === "primary" ? "bg-gold-500 text-white hover:bg-gold-600" : "border-gold-500/40 text-gold-300 hover:bg-gold-500/10"}
                 >
                   {action.icon}
                   {action.label}

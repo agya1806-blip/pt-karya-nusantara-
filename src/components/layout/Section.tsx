@@ -13,9 +13,9 @@ interface SectionProps extends React.HTMLAttributes<HTMLElement> {
 
 const variantClasses: Record<SectionVariant, string> = {
   default: "bg-surface",
-  muted: "bg-surface-muted",
-  dark: "bg-surface-dark text-text",
-  accent: "bg-brand-500 text-text-inverse",
+  muted: "bg-surface-secondary",
+  dark: "bg-surface-dark text-text-inverse",
+  accent: "bg-brand-800 text-text-inverse",
 };
 
 const spacingClasses: Record<SectionSpacing, string> = {

@@ -52,7 +52,7 @@ export function Categories({
                     fill
                     className="h-full w-full transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-neutral-950/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-900/70 to-transparent" />
                   <div className="absolute bottom-0 p-6">
                     <h3 className="text-heading-sm font-medium text-white">
                       {category.title}
