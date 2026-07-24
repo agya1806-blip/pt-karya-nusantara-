@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { ContactInfoSection, ContactFormWrapper, MapSection, ConsultationCTA } from "@/sections";
 import { createMetadata } from "@/seo";
 import { siteConfig } from "@/config";
@@ -21,23 +22,31 @@ const contactDetails: ContactInfo = {
 export default function ContactPage() {
   return (
     <>
-      <ContactInfoSection
-        title="Hubungi Kami"
-        description="Kami siap mendengar tentang proyek Anda. Hubungi tim kami dan mari mulai percakapan."
-        contact={contactDetails}
-      />
-      <ContactFormWrapper
-        title="Kirim Pesan"
-        description="Isi formulir di bawah dan tim kami akan merespon dalam 1x24 jam."
-      />
-      <MapSection
-        address={siteConfig.contact.address}
-        mapsUrl={siteConfig.contact.mapsUrl || ""}
-      />
-      <ConsultationCTA
-        title="Book a Consultation"
-        description="Schedule a one-on-one consultation with our principal architect to discuss your project in detail."
-      />
+      <AnimatedSection>
+        <ContactInfoSection
+          title="Hubungi Kami"
+          description="Kami siap mendengar tentang proyek Anda. Hubungi tim kami dan mari mulai percakapan."
+          contact={contactDetails}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <ContactFormWrapper
+          title="Kirim Pesan"
+          description="Isi formulir di bawah dan tim kami akan merespon dalam 1x24 jam."
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <MapSection
+          address={siteConfig.contact.address}
+          mapsUrl={siteConfig.contact.mapsUrl || ""}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <ConsultationCTA
+          title="Book a Consultation"
+          description="Schedule a one-on-one consultation with our principal architect to discuss your project in detail."
+        />
+      </AnimatedSection>
     </>
   );
 }

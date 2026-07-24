@@ -55,7 +55,7 @@ export function VideoWrapper({
           aria-label="Play video"
         >
           <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 ease-architectural hover:scale-105">
-            <Play className="ml-0.5 h-8 w-8 text-neutral-900" />
+            <Play className="ml-0.5 h-8 w-8 text-brand-900" />
           </span>
         </button>
       )}

@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { GalleryGrid, InteractiveGallery, VideoShowcase, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { GalleryItem, VideoItem } from "@/sections";
@@ -31,28 +32,36 @@ const showcaseVideo: VideoItem = {
 export default function GalleryPage() {
   return (
     <>
-      <GalleryGrid
-        title="Photo Gallery"
-        description="A curated selection of our finest architectural photography."
-        items={galleryItems}
-        columns={3}
-      />
-      <InteractiveGallery
-        title="Interactive Gallery"
-        description="Browse all of our visuals in a compact, explorable grid."
-        images={galleryItems}
-      />
-      <VideoShowcase
-        title="Video Showcase"
-        description="Watch our projects come to life through cinematic videography."
-        video={showcaseVideo}
-      />
-      <CTADefault
-        title="Inspired by What You See?"
-        description="Let's discuss how we can create something equally remarkable for your project."
-        primaryCta={{ label: "Start a Conversation", href: "/contact" }}
-        secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
-      />
+      <AnimatedSection>
+        <GalleryGrid
+          title="Photo Gallery"
+          description="A curated selection of our finest architectural photography."
+          items={galleryItems}
+          columns={3}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <InteractiveGallery
+          title="Interactive Gallery"
+          description="Browse all of our visuals in a compact, explorable grid."
+          images={galleryItems}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <VideoShowcase
+          title="Video Showcase"
+          description="Watch our projects come to life through cinematic videography."
+          video={showcaseVideo}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <CTADefault
+          title="Inspired by What You See?"
+          description="Let's discuss how we can create something equally remarkable for your project."
+          primaryCta={{ label: "Start a Conversation", href: "/contact" }}
+          secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
+        />
+      </AnimatedSection>
     </>
   );
 }

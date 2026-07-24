@@ -1,6 +1,6 @@
-import { ProjectGallery, Awards, FeaturedProjects, ProjectDetailHeader, BeforeAfter, ProjectStatistics, CTADefault } from "@/sections";
+import { ProjectGallery, Awards, FeaturedProjects, ProjectDetailHeader, BeforeAfter, ProjectStatistics, CTADefault, ProcessSteps, ClientReviews, PartnersShowcase } from "@/sections";
 import { createMetadata, createProjectSchema, createBreadcrumbSchema, JsonLdScript } from "@/seo";
-import type { GalleryItem, AwardItem, PortfolioItem, StatItem, ProjectItem, MediaItem } from "@/sections";
+import type { GalleryItem, AwardItem, PortfolioItem, StatItem, ProjectItem, MediaItem, ProcessStep, TestimonialItem, PartnerItem } from "@/sections";
 
 interface ProjectPageProps {
   params: Promise<{ slug: string }>;
@@ -16,6 +16,9 @@ interface ProjectData {
   year: string;
   awards: string[];
   stats: StatItem[];
+  process: ProcessStep[];
+  testimonial?: TestimonialItem;
+  partners?: PartnerItem[];
 }
 
 const projects: Record<string, ProjectData> = {
@@ -39,6 +42,24 @@ const projects: Record<string, ProjectData> = {
       { value: "12", label: "Months to Complete" },
       { value: "2024", label: "Year Completed" },
     ],
+    process: [
+      { title: "Site Analysis", description: "Studied the hillside topography, solar orientation, and ocean views to determine optimal building placement and orientation." },
+      { title: "Concept Design", description: "Developed three distinct design directions — modern tropical, minimalist, and Balinese contemporary — refined through close client collaboration." },
+      { title: "Design Development", description: "Detailed every space for seamless indoor-outdoor living, specifying natural stone, teak wood, and locally sourced materials." },
+      { title: "Construction Oversight", description: "Worked alongside local craftsmen to ensure every detail — from the infinity pool edge to the garden hardscape — met our exacting standards." },
+    ],
+    testimonial: {
+      name: "James Thompson",
+      role: "CEO",
+      company: "Harmony Developments",
+      content: "PT Karya Nusantara Realty exceeded our expectations. Their attention to detail and commitment to design excellence is unparalleled. The Sky Villa has become the crown jewel of our portfolio.",
+      rating: 5,
+    },
+    partners: [
+      { name: "Bali Construction Group" },
+      { name: "Tropical Landscapes Studio" },
+      { name: "Interior Atelier Bali" },
+    ],
   },
   "sudirman-tower": {
     title: "Sudirman Tower",
@@ -59,6 +80,24 @@ const projects: Record<string, ProjectData> = {
       { value: "50000", label: "Total Area", suffix: " sqm" },
       { value: "LEED", label: "Platinum Certified" },
       { value: "2023", label: "Year Completed" },
+    ],
+    process: [
+      { title: "Feasibility Study", description: "Analyzed site conditions, zoning regulations, and market demands to determine optimal building massing and program distribution." },
+      { title: "Facade Engineering", description: "Designed a high-performance curtain wall system that reduces solar heat gain while maximizing natural daylight penetration." },
+      { title: "Sustainable Systems", description: "Integrated rainwater harvesting, solar panels, and energy-efficient HVAC to achieve Platinum LEED certification." },
+      { title: "Interior Architecture", description: "Created flexible floor plates with premium finishes, biophilic design elements, and smart building technology throughout." },
+    ],
+    testimonial: {
+      name: "David Chen",
+      role: "Founder",
+      company: "Chen Properties",
+      content: "Sudirman Tower set a new benchmark for commercial architecture in Jakarta. The team's mastery of sustainable design transformed our vision into a landmark that tenants and investors admire.",
+      rating: 5,
+    },
+    partners: [
+      { name: "Arup Engineering" },
+      { name: "Green Building Council Indonesia" },
+      { name: "CSL Interior Solutions" },
     ],
   },
   "nusantara-resort": {
@@ -81,6 +120,24 @@ const projects: Record<string, ProjectData> = {
       { value: "5", label: "Dining Venues" },
       { value: "2025", label: "Year Completed" },
     ],
+    process: [
+      { title: "Master Planning", description: "Designed the resort layout to preserve existing coastal vegetation while maximizing ocean views from every villa." },
+      { title: "Villa Prototyping", description: "Created three villa typologies — beachfront, garden, and hillside — each with distinct indoor-outdoor living experiences." },
+      { title: "Landscape Design", description: "Integrated native tropical species, natural stone pathways, and water features that echo the surrounding coastal ecosystem." },
+      { title: "Interior Curation", description: "Selected local artisanal furnishings, handwoven textiles, and custom lighting to create an authentic sense of place." },
+    ],
+    testimonial: {
+      name: "Miyako Tanaka",
+      role: "Director",
+      company: "Luxury Retreats Asia",
+      content: "Working with this team was a pleasure. They understood our vision perfectly and delivered a resort that has become an icon of Lombok's hospitality scene.",
+      rating: 5,
+    },
+    partners: [
+      { name: "Lombok Landscape Architects" },
+      { name: "Artisan Interiors" },
+      { name: "Coastal Engineering Solutions" },
+    ],
   },
   "green-valley": {
     title: "Green Valley Estate",
@@ -101,6 +158,24 @@ const projects: Record<string, ProjectData> = {
       { value: "500", label: "Residential Units" },
       { value: "3", label: "Commercial Centers" },
       { value: "2024", label: "Year Completed" },
+    ],
+    process: [
+      { title: "Site Analysis", description: "Evaluated topography, watershed patterns, and existing vegetation to create a development that works with the land, not against it." },
+      { title: "Community Framework", description: "Designed a hierarchy of public spaces — from the central park to neighborhood gardens — that foster community interaction." },
+      { title: "Infrastructure Planning", description: "Planned roads, utilities, and drainage systems with future expansion capacity and minimal environmental disruption." },
+      { title: "Sustainable Guidelines", description: "Established design guidelines for all buildings ensuring cohesive aesthetics, energy efficiency, and green construction practices." },
+    ],
+    testimonial: {
+      name: "Dr. Ratna Kusuma",
+      role: "Principal",
+      company: "Bandung Urban Development",
+      content: "Green Valley Estate is a model for sustainable community development in Indonesia. The master plan balances density with liveability in a way that sets a new standard.",
+      rating: 5,
+    },
+    partners: [
+      { name: "Bandung Infrastructure Authority" },
+      { name: "Green Urban Design Lab" },
+      { name: "Sustainable Communities Institute" },
     ],
   },
   "the-sanctuary": {
@@ -123,6 +198,23 @@ const projects: Record<string, ProjectData> = {
       { value: "18", label: "Months to Complete" },
       { value: "2023", label: "Year Completed" },
     ],
+    process: [
+      { title: "Site Immersion", description: "Spent weeks understanding the forest microclimate, view corridors, and natural light patterns to inform every design decision." },
+      { title: "Biophilic Design", description: "Developed a concept that blurs boundaries between interior and exterior, using glass walls, open courtyards, and green roofs." },
+      { title: "Material Selection", description: "Sourced sustainable timber, local stone, and natural finishes that age gracefully and complement the surrounding forest." },
+      { title: "Sustainable Systems", description: "Integrated rainwater collection, solar energy, and natural ventilation to achieve a net-zero energy footprint." },
+    ],
+    testimonial: {
+      name: "Alexandra Hartono",
+      role: "Homeowner",
+      content: "The Sanctuary is more than a home — it is a personal retreat that connects me to nature every moment. The team understood exactly how I wanted to live.",
+      rating: 5,
+    },
+    partners: [
+      { name: "Ubud Green Builders" },
+      { name: "Natural Stone Works" },
+      { name: "Forest Light Landscapes" },
+    ],
   },
   "marina-club": {
     title: "Marina Bay Club",
@@ -143,6 +235,24 @@ const projects: Record<string, ProjectData> = {
       { value: "6", label: "Dining Venues" },
       { value: "300", label: "Member Capacity" },
       { value: "2025", label: "Year Completed" },
+    ],
+    process: [
+      { title: "Concept Development", description: "Designed a sophisticated waterfront concept that balances exclusivity with warmth, inspired by luxury yacht club aesthetics." },
+      { title: "Interior Architecture", description: "Curated material palette of marble, brass, and rich timber across all spaces — from the grand lobby to private dining rooms." },
+      { title: "Facade Design", description: "Created a striking glass curtain wall with dynamic lighting that animates the waterfront facade at night." },
+      { title: "Wellness Integration", description: "Designed the spa and wellness wing around a central courtyard with natural light, water features, and tropical planting." },
+    ],
+    testimonial: {
+      name: "Michael Tan",
+      role: "Managing Director",
+      company: "Marina Bay Hospitality",
+      content: "The Marina Bay Club has redefined what a private members club can be. Every detail — from the materials to the spatial flow — reflects uncompromising quality.",
+      rating: 5,
+    },
+    partners: [
+      { name: "Singapore Design Consortium" },
+      { name: "Waterfront Engineering Pte Ltd" },
+      { name: "Luxury Fit-Out Solutions" },
     ],
   },
 };
@@ -193,6 +303,8 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
     year: project.year,
   };
 
+  const remainingProjects = allProjects.filter((p) => p.href !== `/portfolio/${slug}`);
+
   return (
     <>
       <JsonLdScript data={createProjectSchema({
@@ -214,13 +326,40 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         description="See the transformation of this project from concept to completion."
         project={projectItem}
       />
+      <ProcessSteps
+        title="The Design Journey"
+        description="A glimpse into our approach — from first site visit to final delivery."
+        steps={project.process}
+      />
+      {project.testimonial && (
+        <ClientReviews
+          title="Client Perspective"
+          description="What our client had to say about working with us."
+          testimonials={[project.testimonial]}
+          variant="grid"
+        />
+      )}
+      {project.partners && (
+        <PartnersShowcase
+          title="Collaborators"
+          description="The trusted partners who helped bring this project to life."
+          partners={project.partners}
+          variant="simple"
+        />
+      )}
       <ProjectStatistics
         title="Project Statistics"
         description="Key metrics and figures for this project."
         stats={project.stats}
       />
       <Awards title="Awards & Recognition" awards={awards} />
-      <FeaturedProjects title="Related Projects" description="Explore similar projects from our portfolio." projects={allProjects.filter((p) => p.href !== `/portfolio/${slug}`).slice(0, 3)} />
+      {remainingProjects.length > 0 && (
+        <FeaturedProjects
+          title="Related Projects"
+          description="Explore similar projects from our portfolio."
+          projects={remainingProjects.slice(0, 3)}
+        />
+      )}
       <CTADefault
         title="Inspired by This Project?"
         description="Let's create something equally remarkable for your space. Share your vision with us."

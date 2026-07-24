@@ -1,7 +1,9 @@
 "use client";
 
 import { forwardRef, Children, cloneElement, isValidElement } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { buttonHoverTransition } from "@/lib/animation";
 import { Loader2 } from "lucide-react";
 import type { ButtonVariant, ButtonSize } from "./types";
 
@@ -13,22 +15,32 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-gold-500 text-white hover:bg-gold-600 active:bg-gold-700",
-  secondary: "bg-brand-800 text-white hover:bg-brand-700 active:bg-brand-900",
-  ghost: "text-brand-800 hover:bg-brand-50 active:bg-brand-100",
-  outline: "border border-gold-500/30 text-brand-800 hover:bg-gold-50 active:bg-gold-100",
+  primary:
+    "bg-gold-500 text-white shadow-sm hover:bg-gold-600 active:bg-gold-700",
+  secondary:
+    "bg-brand-800 text-white hover:bg-brand-700 active:bg-brand-900",
+  ghost:
+    "text-text-secondary hover:text-text hover:bg-surface-muted active:bg-surface-tertiary",
+  outline:
+    "border border-gold-500/30 text-gold-700 hover:bg-gold-50 hover:border-gold-500/60 active:bg-gold-100",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-4 py-1.5 text-caption",
-  md: "px-5 py-2.5 text-body-sm",
-  lg: "px-6 py-3 text-body-sm",
-  xl: "px-8 py-3.5 text-body",
+  sm: "px-4 py-1.5 text-caption gap-1.5",
+  md: "px-5 py-2.5 text-body-sm gap-2",
+  lg: "px-6 py-3 text-body-sm gap-2",
+  xl: "px-8 py-3.5 text-body gap-2.5",
 };
 
-function getButtonClasses(variant: ButtonVariant, size: ButtonSize, disabled: boolean, loading: boolean, className?: string) {
+function getButtonClasses(
+  variant: ButtonVariant,
+  size: ButtonSize,
+  disabled: boolean,
+  loading: boolean,
+  className?: string,
+) {
   return cn(
-    "inline-flex items-center justify-center gap-2 rounded-lg font-medium tracking-tight transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+    "inline-flex items-center justify-center rounded-lg font-medium tracking-tight transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
     variantStyles[variant],
     sizeStyles[size],
     (disabled || loading) && "opacity-50 pointer-events-none cursor-not-allowed",
@@ -52,16 +64,19 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     }
 
     return (
-      <button
+      <motion.button
         ref={ref}
         type={type}
         disabled={disabled || loading}
         className={getButtonClasses(variant, size, disabled ?? false, loading, className)}
-        {...rest}
+        whileHover={disabled || loading ? {} : { scale: 1.02 }}
+        whileTap={disabled || loading ? {} : { scale: 0.98 }}
+        transition={buttonHoverTransition}
+        {...(rest as React.ComponentPropsWithoutRef<typeof motion.button>)}
       >
         {loading && <Loader2 className="h-4 w-4 animate-spin" aria-hidden="true" />}
         {children}
-      </button>
+      </motion.button>
     );
   },
 );

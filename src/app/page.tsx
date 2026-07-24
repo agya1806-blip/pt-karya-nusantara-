@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { HeroSection, FeaturedProjects, ServicesGrid, ProcessSteps, StatisticsShowcase, ClientReviews, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { PortfolioItem, ServiceItem, ProcessStep, StatItem, TestimonialItem } from "@/sections";
@@ -53,37 +54,49 @@ export default function HomePage() {
           { label: "Contact Us", href: "/contact", variant: "outline" },
         ]}
       />
-      <FeaturedProjects
-        title="Featured Projects"
-        description="A selection of our most remarkable projects, showcasing the breadth of our expertise."
-        projects={projects.slice(0, 4)}
-      />
-      <StatisticsShowcase
-        title="By the Numbers"
-        description="Our track record of excellence."
-        stats={stats}
-      />
-      <ServicesGrid
-        title="Our Services"
-        description="Comprehensive architectural services tailored to your vision."
-        services={services}
-      />
-      <ProcessSteps
-        title="How We Work"
-        description="Our proven process ensures exceptional results for every project."
-        steps={steps}
-      />
-      <ClientReviews
-        title="What Our Clients Say"
-        description="Hear from the clients who have trusted us with their vision."
-        testimonials={testimonials}
-      />
-      <CTADefault
-        title="Begin Your Architectural Journey"
-        description="Every masterpiece begins with a conversation. Share your vision with us and discover what we can create together."
-        primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
-        secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
-      />
+      <AnimatedSection>
+        <FeaturedProjects
+          title="Featured Projects"
+          description="A selection of our most remarkable projects, showcasing the breadth of our expertise."
+          projects={projects.slice(0, 4)}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <StatisticsShowcase
+          title="By the Numbers"
+          description="Our track record of excellence."
+          stats={stats}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <ServicesGrid
+          title="Our Services"
+          description="Comprehensive architectural services tailored to your vision."
+          services={services}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <ProcessSteps
+          title="How We Work"
+          description="Our proven process ensures exceptional results for every project."
+          steps={steps}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.4}>
+        <ClientReviews
+          title="What Our Clients Say"
+          description="Hear from the clients who have trusted us with their vision."
+          testimonials={testimonials}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.5}>
+        <CTADefault
+          title="Begin Your Architectural Journey"
+          description="Every masterpiece begins with a conversation. Share your vision with us and discover what we can create together."
+          primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
+          secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
+        />
+      </AnimatedSection>
     </>
   );
 }

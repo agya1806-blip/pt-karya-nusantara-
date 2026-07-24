@@ -1,9 +1,32 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config";
 import { METADATA, DEFAULT_LOCALE } from "@/constants";
+import { env } from "@/config/env";
 
 export function createMetadata(override?: Partial<Metadata>): Metadata {
-  return {
+  const keywords = [
+    "arsitek Aceh",
+    "konsultan arsitek",
+    "jasa desain rumah",
+    "arsitek Banda Aceh",
+    "kontraktor Aceh",
+    "desain interior",
+    "konsultan properti",
+    "arsitek profesional",
+    "jasa arsitek rumah tinggal",
+    "desain villa mewah",
+    "arsitek komersial",
+    "masterplan kawasan",
+    "arsitek hunian",
+    "jasa konsultan arsitektur",
+    "desain bangunan",
+    "arsitek Nusantara",
+    "perencanaan konstruksi",
+    "desain resort",
+    "arsitek hotel",
+  ];
+
+  const metadata: Metadata = {
     title: {
       default: METADATA.DEFAULT_TITLE,
       template: METADATA.TITLE_TEMPLATE,
@@ -11,17 +34,8 @@ export function createMetadata(override?: Partial<Metadata>): Metadata {
     description: siteConfig.description,
     metadataBase: new URL(siteConfig.url),
     applicationName: siteConfig.name,
-    generator: "Next.js",
     referrer: "origin-when-cross-origin",
-    keywords: [
-      "arsitek Aceh",
-      "konsultan arsitek",
-      "jasa desain rumah",
-      "arsitek Banda Aceh",
-      "kontraktor Aceh",
-      "desain interior",
-      "konsultan properti",
-    ],
+    keywords,
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
@@ -69,4 +83,14 @@ export function createMetadata(override?: Partial<Metadata>): Metadata {
     },
     ...override,
   };
+
+  const gsv = env.googleSiteVerification;
+  if (gsv) {
+    metadata.other = {
+      ...metadata.other,
+      "google-site-verification": gsv,
+    };
+  }
+
+  return metadata;
 }

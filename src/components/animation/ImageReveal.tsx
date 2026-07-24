@@ -12,10 +12,9 @@ interface ImageRevealProps {
   width?: number;
   height?: number;
   fill?: boolean;
-  duration?: number;
-  delay?: number;
-  once?: boolean;
   className?: string;
+  imgClassName?: string;
+  priority?: boolean;
 }
 
 export function ImageReveal({
@@ -24,48 +23,25 @@ export function ImageReveal({
   width,
   height,
   fill,
-  duration = 1,
-  delay = 0,
-  once = true,
   className,
+  imgClassName,
+  priority,
 }: ImageRevealProps) {
   const [loaded, setLoaded] = useState(false);
   const reduced = useReducedMotion();
 
-  if (reduced) {
-    return (
-      <div className={cn("relative overflow-hidden", className)}>
-        {fill ? (
-          <Image src={src} alt={alt} fill className="object-cover" />
-        ) : (
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            className="object-cover"
-          />
-        )}
-      </div>
-    );
-  }
-
   return (
-    <div
-      className={cn(
-        "relative overflow-hidden",
-        !loaded && "bg-surface-muted",
-        className,
-      )}
-    >
+    <div className={cn("relative overflow-hidden bg-surface-muted", className)}>
       <motion.div
-        initial={{ clipPath: "inset(0 100% 0 0)", scale: 1.1 }}
-        whileInView={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
-        viewport={{ once, margin: "-50px" }}
+        initial={reduced ? {} : { clipPath: "inset(0 100% 0 0)", scale: 1.05 }}
+        animate={
+          reduced || !loaded
+            ? {}
+            : { clipPath: "inset(0 0% 0 0)", scale: 1 }
+        }
         transition={{
-          duration,
-          delay,
-          ease: [0.25, 0.1, 0.25, 1],
+          duration: 1,
+          ease: [0.16, 1, 0.3, 1],
         }}
         className="h-full w-full"
       >
@@ -74,17 +50,27 @@ export function ImageReveal({
             src={src}
             alt={alt}
             fill
+            className={cn(
+              "object-cover transition-opacity duration-500",
+              loaded ? "opacity-100" : "opacity-0",
+              imgClassName,
+            )}
             onLoad={() => setLoaded(true)}
-            className="object-cover"
+            priority={priority}
           />
         ) : (
           <Image
             src={src}
             alt={alt}
-            width={width}
-            height={height}
+            width={width ?? 800}
+            height={height ?? 600}
+            className={cn(
+              "object-cover transition-opacity duration-500",
+              loaded ? "opacity-100" : "opacity-0",
+              imgClassName,
+            )}
             onLoad={() => setLoaded(true)}
-            className="object-cover"
+            priority={priority}
           />
         )}
       </motion.div>

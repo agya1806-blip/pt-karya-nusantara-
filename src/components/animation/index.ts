@@ -7,3 +7,5 @@ export { TextReveal } from "./TextReveal";
 export { ImageReveal } from "./ImageReveal";
 export { PageTransition } from "./PageTransition";
 export { ScrollReveal } from "./ScrollReveal";
+export { PageTransitionWrapper } from "./PageTransitionWrapper";
+export { AnimatedSection } from "./AnimatedSection";

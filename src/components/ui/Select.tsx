@@ -18,15 +18,17 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
   ({ label, error, hint, id, className, options, placeholder, ...rest }, ref) => {
     const inputId = id || (label ? label.toLowerCase().replace(/\s+/g, "-") : undefined);
     return (
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-1.5">
         {label && <Label htmlFor={inputId} size="sm">{label}</Label>}
         <div className="relative">
           <select
             ref={ref}
             id={inputId}
             className={cn(
-              "w-full appearance-none border-b-2 bg-transparent pb-2.5 pt-1 pr-8 text-text outline-none transition-all duration-300 ease-architectural",
-              error ? "border-red-400 focus:border-red-500" : "border-border-light focus:border-text-primary",
+              "w-full appearance-none rounded-lg border px-4 py-3 pr-10 text-body text-text outline-none transition-all duration-300 ease-architectural",
+              error
+                ? "border-red-400 bg-red-50/50 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+                : "border-input-border bg-surface focus:border-input-border-hover focus:ring-1 focus:ring-input-ring",
               className,
             )}
             aria-invalid={error ? true : undefined}
@@ -37,10 +39,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               <option key={opt.value} value={opt.value}>{opt.label}</option>
             ))}
           </select>
-          <ChevronDown className="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-text-tertiary" aria-hidden="true" />
+          <ChevronDown className="pointer-events-none absolute right-3 top-1/2 h-4 w-4 -translate-y-1/2 text-text-tertiary" aria-hidden="true" />
         </div>
-        {error && <p id={`${inputId}-error`} className="text-caption text-red-500 mt-1" role="alert">{error}</p>}
-        {hint && !error && <p id={`${inputId}-hint`} className="text-caption text-text-tertiary mt-1">{hint}</p>}
+        {error && <p id={`${inputId}-error`} className="text-caption text-red-500" role="alert">{error}</p>}
+        {hint && !error && <p id={`${inputId}-hint`} className="text-caption text-text-tertiary">{hint}</p>}
       </div>
     );
   },

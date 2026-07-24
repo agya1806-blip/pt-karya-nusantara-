@@ -7,6 +7,8 @@ import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { cn } from "@/lib/utils";
 import type { MediaImage, SectionBaseProps } from "@/sections/types";
+import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 
 interface CareerHeroProps extends SectionBaseProps {
   title: string;
@@ -41,12 +43,11 @@ export function CareerHero({ id, className, title, subtitle, description, image,
           {cta && (
             <Fade direction="up" delay={0.3}>
               <div className="mt-10">
-                <a
-                  href={cta.href}
-                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-base font-medium text-white transition-all duration-300 ease-luxury hover:bg-gold-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2"
-                >
-                  {cta.label}
-                </a>
+                <Button asChild size="lg">
+                  <Link href={cta.href}>
+                    {cta.label}
+                  </Link>
+                </Button>
               </div>
             </Fade>
           )}

@@ -1,5 +1,9 @@
 "use client";
 
+"use client";
+
+import { Button } from "@/components/ui/Button";
+
 interface ErrorPageProps {
   error: Error & { digest?: string };
   reset: () => void;
@@ -22,12 +26,9 @@ export default function ErrorPage({ reset }: ErrorPageProps) {
           An unexpected error occurred. Please try again or contact us if the
           problem persists.
         </p>
-        <button
-          onClick={reset}
-          className="inline-flex items-center justify-center border border-gold-500 bg-gold-500 px-8 py-3 text-sm font-medium tracking-wider text-white transition-colors hover:bg-gold-600 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 uppercase"
-        >
+        <Button onClick={reset} size="lg">
           Try Again
-        </button>
+        </Button>
       </div>
     </div>
   );

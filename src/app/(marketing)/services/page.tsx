@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { ServiceOverview, ServicesGrid, ProcessSteps, ConsultationCTA, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { ServiceItem, ProcessStep } from "@/sections";
@@ -27,21 +28,31 @@ const workflowSteps: ProcessStep[] = [
 export default function ServicesPage() {
   return (
     <>
-      <ServiceOverview
-        title="Our Services"
-        description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise."
-      />
-      <ServicesGrid title="Our Services" description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise." services={services} />
-      <ProcessSteps title="How We Work" steps={workflowSteps} />
-      <ConsultationCTA
-        title="Book a Consultation"
-        description="Schedule a complimentary consultation with our team to discuss your project requirements."
-      />
-      <CTADefault
-        title="Not Sure Which Service You Need?"
-        description="Tell us about your project and we'll recommend the ideal approach during a complimentary consultation."
-        primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
-      />
+      <AnimatedSection>
+        <ServiceOverview
+          title="Our Services"
+          description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise."
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <ServicesGrid title="Our Services" description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise." services={services} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <ProcessSteps title="How We Work" steps={workflowSteps} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <ConsultationCTA
+          title="Book a Consultation"
+          description="Schedule a complimentary consultation with our team to discuss your project requirements."
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.4}>
+        <CTADefault
+          title="Not Sure Which Service You Need?"
+          description="Tell us about your project and we'll recommend the ideal approach during a complimentary consultation."
+          primaryCta={{ label: "Schedule a Consultation", href: "/contact" }}
+        />
+      </AnimatedSection>
     </>
   );
 }

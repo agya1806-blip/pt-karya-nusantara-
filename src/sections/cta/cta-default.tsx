@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 export interface CTADefaultProps {
   title: string;
@@ -37,6 +38,25 @@ const descClasses = {
   split: "text-text-secondary",
 };
 
+const ctaButtonClasses = {
+  default: {
+    primary: "bg-gold-500 text-white hover:bg-gold-600",
+    secondary: "border border-gold-500/30 text-gold-700 hover:bg-gold-50",
+  },
+  brand: {
+    primary: "bg-white text-neutral-900 hover:bg-neutral-100",
+    secondary: "border border-white/20 text-white hover:bg-white/10",
+  },
+  dark: {
+    primary: "bg-white text-neutral-900 hover:bg-neutral-100",
+    secondary: "border border-white/20 text-white hover:bg-white/10",
+  },
+  split: {
+    primary: "bg-gold-500 text-white hover:bg-gold-600",
+    secondary: "border border-gold-500/30 text-gold-700 hover:bg-gold-50",
+  },
+};
+
 export function CTADefault({
   title,
   description,
@@ -47,48 +67,39 @@ export function CTADefault({
   image,
   className,
 }: CTADefaultProps) {
+  const sectionClasses = variantClasses[variant];
+  const titleClass = titleClasses[variant];
+  const descClass = descClasses[variant];
+
   if (variant === "split") {
     return (
-      <section className={cn("py-24", variantClasses[variant], className)}>
+      <section className={cn("py-24", sectionClasses, className)}>
         <div className="container-site">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Fade direction="left">
               <div>
-                <h2
-                  className={cn(
-                    "text-display font-light tracking-tight",
-                    titleClasses[variant],
-                  )}
-                >
+                <h2 className={cn("text-display font-light tracking-tight", titleClass)}>
                   {title}
                 </h2>
                 {description && (
-                  <p
-                    className={cn(
-                      "mt-4 text-body-lg leading-relaxed",
-                      descClasses[variant],
-                    )}
-                  >
+                  <p className={cn("mt-4 text-body-lg leading-relaxed", descClass)}>
                     {description}
                   </p>
                 )}
                 <div className="mt-8 flex flex-wrap gap-4">
                   {primaryCta && (
-                    <Link
-                      href={primaryCta.href}
-                      className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-8 py-3.5 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90"
-                    >
-                      {primaryCta.label}
-                      <ArrowRight size={16} />
-                    </Link>
+                    <Button asChild size="lg">
+                      <Link href={primaryCta.href}>
+                        {primaryCta.label} <ArrowRight size={16} />
+                      </Link>
+                    </Button>
                   )}
                   {secondaryCta && (
-                    <Link
-                      href={secondaryCta.href}
-                      className="inline-flex items-center gap-2 rounded-lg border border-border-light px-8 py-3.5 text-body-sm font-medium text-text-primary transition-all duration-300 hover:bg-surface"
-                    >
-                      {secondaryCta.label}
-                    </Link>
+                    <Button asChild variant="outline" size="lg">
+                      <Link href={secondaryCta.href}>
+                        {secondaryCta.label}
+                      </Link>
+                    </Button>
                   )}
                 </div>
               </div>
@@ -96,11 +107,7 @@ export function CTADefault({
             <Fade direction="right">
               {image ? (
                 <div className="aspect-[4/3] overflow-hidden rounded-2xl">
-                  <img
-                    src={image}
-                    alt=""
-                    className="h-full w-full object-cover"
-                  />
+                  <img src={image} alt="" className="h-full w-full object-cover" />
                 </div>
               ) : (
                 <div className="aspect-[4/3] rounded-2xl bg-surface-secondary" />
@@ -113,7 +120,7 @@ export function CTADefault({
   }
 
   return (
-    <section className={cn("py-24", variantClasses[variant], className)}>
+    <section className={cn("py-24", sectionClasses, className)}>
       <div className="container-site">
         <Fade
           direction="up"
@@ -122,21 +129,11 @@ export function CTADefault({
             align === "left" ? "text-left" : "text-center",
           )}
         >
-          <h2
-            className={cn(
-              "text-display font-light tracking-tight",
-              titleClasses[variant],
-            )}
-          >
+          <h2 className={cn("text-display font-light tracking-tight", titleClass)}>
             {title}
           </h2>
           {description && (
-            <p
-              className={cn(
-                "mt-4 text-body-lg leading-relaxed",
-                descClasses[variant],
-              )}
-            >
+            <p className={cn("mt-4 text-body-lg leading-relaxed", descClass)}>
               {description}
             </p>
           )}
@@ -147,29 +144,18 @@ export function CTADefault({
             )}
           >
             {primaryCta && (
-              <Link
-                href={primaryCta.href}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-lg px-8 py-3.5 text-body-sm font-medium transition-all duration-300",
-                  variant === "default"
-                    ? "bg-text-primary text-text-inverse hover:opacity-90"
-                    : "bg-white text-neutral-900 hover:bg-neutral-100",
-                )}
-              >
-                {primaryCta.label}
-                <ArrowRight size={16} />
+              <Link href={primaryCta.href} className={cn(
+                "inline-flex items-center gap-2 rounded-lg px-6 py-3 text-body-sm font-medium transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                ctaButtonClasses[variant].primary,
+              )}>
+                {primaryCta.label} <ArrowRight size={16} />
               </Link>
             )}
             {secondaryCta && (
-              <Link
-                href={secondaryCta.href}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-lg border px-8 py-3.5 text-body-sm font-medium transition-all duration-300",
-                  variant === "default"
-                    ? "border-border-light text-text-primary hover:bg-surface"
-                    : "border-white/20 text-white hover:bg-white/10",
-                )}
-              >
+              <Link href={secondaryCta.href} className={cn(
+                "inline-flex items-center gap-2 rounded-lg px-6 py-3 text-body-sm font-medium transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                ctaButtonClasses[variant].secondary,
+              )}>
                 {secondaryCta.label}
               </Link>
             )}

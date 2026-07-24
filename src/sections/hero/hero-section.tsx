@@ -72,10 +72,11 @@ export function HeroSection({
           </Fade>
         )}
         <TextReveal
-          text={title}
           className="text-display-xl font-light leading-tight tracking-tight text-white"
           delay={0.2}
-        />
+        >
+          {title}
+        </TextReveal>
         {description && (
           <Fade direction="up" delay={0.4}>
             <p

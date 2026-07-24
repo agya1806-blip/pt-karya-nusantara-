@@ -27,7 +27,7 @@ export const DatePickerWrapper = forwardRef<HTMLInputElement, DatePickerWrapperP
             id={inputId}
             type="date"
             className={cn(
-              "w-full rounded-lg border border-border bg-surface py-2 pl-10 pr-3 text-text outline-none transition-colors duration-300 ease-luxury focus:border-neutral-900 [color-scheme:light]",
+              "w-full rounded-lg border border-border bg-surface py-2 pl-10 pr-3 text-text outline-none transition-colors duration-300 ease-luxury focus:border-brand-900 [color-scheme:light]",
               className,
             )}
             {...rest}

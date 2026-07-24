@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { CompanyOverview, VisionMission, Timeline, FounderStory, Values, Awards, StatisticsShowcase, TeamGrid, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { TimelineEvent, TeamMember, AwardItem, StatItem } from "@/sections";
@@ -48,47 +49,65 @@ const awards: AwardItem[] = [
 export default function AboutPage() {
   return (
     <>
-      <CompanyOverview
-        title="About PT Karya Nusantara Realty"
-        description={[
-          "We are a Jakarta-based luxury architecture firm dedicated to crafting timeless spaces that inspire and endure. Since 2010, we have delivered over 200 projects across Southeast Asia.",
-        ]}
-        image={{ src: "/images/about/overview.jpg", alt: "PT Karya Nusantara Realty studio" }}
-      />
-      <StatisticsShowcase
-        title="By the Numbers"
-        description="A decade and a half of defining luxury architecture across the region."
-        stats={stats}
-      />
-      <VisionMission
-        title="Our Vision & Mission"
-        vision={{ title: "Our Vision", description: "To be the leading luxury architecture firm in Southeast Asia, setting the benchmark for design excellence, innovation, and sustainability." }}
-        mission={{ title: "Our Mission", description: "To create spaces that harmonize beauty, function, and environmental responsibility — enriching the lives of those who inhabit them." }}
-      />
-      <Values
-        title="Our Values"
-        values={[
-          { title: "Design Excellence", description: "Every project reflects our unwavering commitment to aesthetic and functional perfection." },
-          { title: "Sustainable Practice", description: "We integrate eco-friendly materials and energy-efficient solutions into every design." },
-          { title: "Client Partnership", description: "We collaborate closely with clients to bring their vision to life, exceeding expectations." },
-          { title: "Cultural Heritage", description: "We celebrate Indonesian craftsmanship and incorporate local traditions into modern designs." },
-        ]}
-      />
-      <FounderStory founders={founders} />
-      <Timeline title="Our History" events={timelineEvents} />
-      <TeamGrid
-        title="Meet Our Team"
-        description="The architects, designers, and experts behind every project."
-        members={teamMembers}
-        columns={4}
-      />
-      <Awards title="Awards & Recognition" awards={awards} />
-      <CTADefault
-        title="Let's Discuss Your Vision"
-        description="Share your project aspirations with us. Every great design begins with a conversation."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
-        secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
-      />
+      <AnimatedSection>
+        <CompanyOverview
+          title="About PT Karya Nusantara Realty"
+          description={[
+            "We are a Jakarta-based luxury architecture firm dedicated to crafting timeless spaces that inspire and endure. Since 2010, we have delivered over 200 projects across Southeast Asia.",
+          ]}
+          image={{ src: "/images/about/overview.jpg", alt: "PT Karya Nusantara Realty studio" }}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <StatisticsShowcase
+          title="By the Numbers"
+          description="A decade and a half of defining luxury architecture across the region."
+          stats={stats}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <VisionMission
+          title="Our Vision & Mission"
+          vision={{ title: "Our Vision", description: "To be the leading luxury architecture firm in Southeast Asia, setting the benchmark for design excellence, innovation, and sustainability." }}
+          mission={{ title: "Our Mission", description: "To create spaces that harmonize beauty, function, and environmental responsibility — enriching the lives of those who inhabit them." }}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <Values
+          title="Our Values"
+          values={[
+            { title: "Design Excellence", description: "Every project reflects our unwavering commitment to aesthetic and functional perfection." },
+            { title: "Sustainable Practice", description: "We integrate eco-friendly materials and energy-efficient solutions into every design." },
+            { title: "Client Partnership", description: "We collaborate closely with clients to bring their vision to life, exceeding expectations." },
+            { title: "Cultural Heritage", description: "We celebrate Indonesian craftsmanship and incorporate local traditions into modern designs." },
+          ]}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.4}>
+        <FounderStory founders={founders} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.5}>
+        <Timeline title="Our History" events={timelineEvents} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.6}>
+        <TeamGrid
+          title="Meet Our Team"
+          description="The architects, designers, and experts behind every project."
+          members={teamMembers}
+          columns={4}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.7}>
+        <Awards title="Awards & Recognition" awards={awards} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.8}>
+        <CTADefault
+          title="Let's Discuss Your Vision"
+          description="Share your project aspirations with us. Every great design begins with a conversation."
+          primaryCta={{ label: "Contact Us", href: "/contact" }}
+          secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
+        />
+      </AnimatedSection>
     </>
   );
 }

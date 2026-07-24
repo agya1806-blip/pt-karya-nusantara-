@@ -2,24 +2,15 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
-import { scaleInVariants } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
-interface ScaleProps {
+interface AnimatedSectionProps {
   children: React.ReactNode;
-  duration?: number;
-  delay?: number;
-  once?: boolean;
   className?: string;
+  delay?: number;
 }
 
-export function Scale({
-  children,
-  duration,
-  delay = 0,
-  once = true,
-  className,
-}: ScaleProps) {
+export function AnimatedSection({ children, className, delay = 0 }: AnimatedSectionProps) {
   const reduced = useReducedMotion();
 
   if (reduced) {
@@ -28,11 +19,11 @@ export function Scale({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.92 }}
-      whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once, margin: "-40px" }}
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
       transition={{
-        duration: duration ?? 0.6,
+        duration: 0.6,
         delay,
         ease: [0.16, 1, 0.3, 1],
       }}

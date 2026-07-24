@@ -11,7 +11,7 @@ interface QuoteProps {
 
 const variantStyles: Record<QuoteVariant, string> = {
   default: "border-l-4 border-border pl-4",
-  featured: "border-l-4 border-neutral-900 pl-6 text-lg",
+  featured: "border-l-4 border-gold-500 pl-6 text-lg",
 };
 
 export function Quote({ variant = "default", attribution, role, className, children }: QuoteProps) {

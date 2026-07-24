@@ -80,14 +80,14 @@ export function CarouselWrapper({
         <>
           <button
             onClick={prev}
-            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-neutral-900 shadow-lg transition-opacity duration-300 ease-architectural hover:bg-white"
+            className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-brand-900 shadow-lg transition-opacity duration-300 ease-architectural hover:bg-white"
             aria-label="Previous slide"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
           <button
             onClick={next}
-            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-neutral-900 shadow-lg transition-opacity duration-300 ease-architectural hover:bg-white"
+            className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-white/80 p-2 text-brand-900 shadow-lg transition-opacity duration-300 ease-architectural hover:bg-white"
             aria-label="Next slide"
           >
             <ChevronRight className="h-5 w-5" />

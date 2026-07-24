@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { TeamGrid } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { TeamMember } from "@/sections";
@@ -27,12 +28,14 @@ const allMembers: TeamMember[] = [
 export default function TeamPage() {
   return (
     <>
-      <TeamGrid
-        title="Our Team"
-        description="Meet the visionary architects, designers, and experts behind PT Karya Nusantara Realty's award-winning projects."
-        members={allMembers}
-        columns={4}
-      />
+      <AnimatedSection>
+        <TeamGrid
+          title="Our Team"
+          description="Meet the visionary architects, designers, and experts behind PT Karya Nusantara Realty's award-winning projects."
+          members={allMembers}
+          columns={4}
+        />
+      </AnimatedSection>
     </>
   );
 }

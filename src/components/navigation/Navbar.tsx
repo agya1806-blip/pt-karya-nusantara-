@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { springs } from "@/lib/animation";
 import { useScroll } from "@/hooks";
 import { NAV_HEIGHT } from "@/constants";
 
@@ -54,17 +55,24 @@ export function Navbar({
               key={link.href}
               href={link.href}
               className={cn(
-                "relative rounded-lg px-4 py-2 text-body-sm font-medium tracking-tight transition-all duration-300",
+                "relative rounded-lg px-4 py-2 text-body-sm font-medium tracking-tight transition-colors duration-300",
                 link.active
                   ? "text-text"
-                  : "text-text-secondary hover:text-text hover:bg-surface-muted/50",
+                  : "text-text-secondary hover:text-text",
               )}
             >
-              {link.label}
+              <motion.span
+                className="relative inline-block"
+                whileHover={{ scale: 1.04 }}
+                transition={springs.subtle}
+              >
+                {link.label}
+              </motion.span>
               {link.active && (
                 <motion.span
                   layoutId="navbar-active"
                   className="absolute inset-x-4 -bottom-0.5 h-px bg-text"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
                 />
               )}
             </Link>

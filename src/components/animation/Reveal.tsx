@@ -15,25 +15,12 @@ interface RevealProps {
   className?: string;
 }
 
-const clipPaths: Record<RevealDirection, { hidden: string; visible: string }> =
-  {
-    left: {
-      hidden: "inset(0 100% 0 0)",
-      visible: "inset(0 0 0 0)",
-    },
-    right: {
-      hidden: "inset(0 0 0 100%)",
-      visible: "inset(0 0 0 0)",
-    },
-    top: {
-      hidden: "inset(0 0 100% 0)",
-      visible: "inset(0 0 0 0)",
-    },
-    bottom: {
-      hidden: "inset(100% 0 0 0)",
-      visible: "inset(0 0 0 0)",
-    },
-  };
+const clipPaths: Record<RevealDirection, { hidden: string; visible: string }> = {
+  left: { hidden: "inset(0 100% 0 0)", visible: "inset(0 0% 0 0)" },
+  right: { hidden: "inset(0 0 0 100%)", visible: "inset(0 0 0 0%)" },
+  top: { hidden: "inset(0 0 100% 0)", visible: "inset(0 0 0% 0)" },
+  bottom: { hidden: "inset(100% 0 0 0)", visible: "inset(0% 0 0 0)" },
+};
 
 export function Reveal({
   children,
@@ -54,11 +41,11 @@ export function Reveal({
     <motion.div
       initial={{ clipPath: clip.hidden }}
       whileInView={{ clipPath: clip.visible }}
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: "-40px" }}
       transition={{
         duration,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={cn(className)}
     >

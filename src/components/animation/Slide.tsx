@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { slideUpVariants } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type SlideDirection = "up" | "down" | "left" | "right";
@@ -36,16 +37,18 @@ export function Slide({
     return <div className={cn(className)}>{children}</div>;
   }
 
+  const translate = translateMap[direction];
+
   return (
     <div className={cn("overflow-hidden", className)}>
       <motion.div
-        initial={{ translate: translateMap[direction] }}
-        whileInView={{ translate: "0px" }}
-        viewport={{ once, margin: "-50px" }}
+        initial={{ [direction === "up" || direction === "down" ? "y" : "x"]: translate }}
+        whileInView={{ y: 0, x: 0 }}
+        viewport={{ once, margin: "-40px" }}
         transition={{
           duration,
           delay,
-          ease: [0.25, 0.1, 0.25, 1],
+          ease: [0.16, 1, 0.3, 1],
         }}
       >
         {children}

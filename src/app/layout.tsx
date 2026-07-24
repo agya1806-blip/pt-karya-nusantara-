@@ -12,6 +12,7 @@ import {
   DEFAULT_VIEWPORT,
   THEME_COLOR_LIGHT,
 } from "@/constants";
+import { PageTransitionWrapper } from "@/components/animation";
 import { siteConfig } from "@/config";
 import "@/styles/globals.css";
 
@@ -46,11 +47,13 @@ export default function RootLayout({ children }: RootLayoutProps) {
       <body>
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-neutral-900 focus:px-6 focus:py-3 focus:text-sm focus:font-medium focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:rounded-lg focus:bg-brand-900 focus:px-6 focus:py-3 focus:text-sm focus:font-medium focus:text-white focus:shadow-lg focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2"
         >
           Lewati ke konten utama
         </a>
-        <Providers>{children}</Providers>
+        <Providers>
+          <PageTransitionWrapper>{children}</PageTransitionWrapper>
+        </Providers>
       </body>
     </html>
   );

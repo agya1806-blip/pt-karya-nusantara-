@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 interface HeroDefaultProps {
   title: string;
@@ -35,7 +36,7 @@ export function HeroDefault({
       <div className="container-site relative z-10 py-32">
         <Fade direction="up" className="max-w-4xl">
           {subtitle && (
-            <p className="text-caption tracking-widest text-brand-400 uppercase mb-6">
+            <p className={cn("text-caption tracking-widest uppercase mb-6", image ? "text-gold-300" : "text-text-tertiary")}>
               {subtitle}
             </p>
           )}
@@ -49,25 +50,19 @@ export function HeroDefault({
           )}
           <div className="mt-10 flex flex-wrap gap-5">
             {primaryCta && (
-              <Link
-                href={primaryCta.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-8 py-4 text-body-sm font-medium text-white transition-all duration-300 hover:bg-gold-600"
-              >
-                {primaryCta.label} <ArrowRight size={16} />
-              </Link>
+              <Button asChild size="lg" className={cn(image ? "bg-gold-500 text-white hover:bg-gold-600" : "")}>
+                <Link href={primaryCta.href}>
+                  {primaryCta.label} <ArrowRight size={16} />
+                </Link>
+              </Button>
             )}
             {secondaryCta && (
-              <Link
-                href={secondaryCta.href}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-lg border px-8 py-4 text-body-sm font-medium tracking-tight transition-all duration-300",
-                  image
-                    ? "border-gold-500/40 text-gold-300 hover:bg-gold-500/10"
-                    : "border-gold-500/30 text-gold-700 hover:bg-gold-50",
-                )}
-              >
-                {secondaryCta.label}
-              </Link>
+              <Button asChild variant="outline" size="lg"
+                className={cn(image ? "border-gold-500/40 text-gold-300 hover:bg-gold-500/10" : "")}>
+                <Link href={secondaryCta.href}>
+                  {secondaryCta.label}
+                </Link>
+              </Button>
             )}
           </div>
         </Fade>

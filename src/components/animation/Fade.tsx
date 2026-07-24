@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { fadeUpVariants, fadeVariants } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type FadeDirection = "up" | "down" | "left" | "right" | "none";
@@ -15,18 +16,10 @@ interface FadeProps {
   className?: string;
 }
 
-const directionVariants: Record<FadeDirection, { x?: number; y?: number }> = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
-  none: {},
-};
-
 export function Fade({
   children,
   direction = "up",
-  duration = 0.6,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -37,17 +30,27 @@ export function Fade({
     return <div className={cn(className)}>{children}</div>;
   }
 
-  const offset = directionVariants[direction];
+  const variants = direction === "none" ? fadeVariants : fadeUpVariants;
+
+  const offsets: Record<FadeDirection, Record<string, number>> = {
+    up: { y: 24 },
+    down: { y: -24 },
+    left: { x: 24 },
+    right: { x: -24 },
+    none: {},
+  };
+
+  const offset = offsets[direction];
 
   return (
     <motion.div
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: "-40px" }}
       transition={{
-        duration,
+        duration: duration ?? (direction === "none" ? 0.4 : 0.6),
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={cn(className)}
     >

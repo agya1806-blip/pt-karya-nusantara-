@@ -5,6 +5,10 @@ import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/sections/shared/section-header";
 import { Fade } from "@/components/animation/Fade";
 import { Send, CheckCircle, AlertCircle } from "lucide-react";
+import { Input } from "@/components/ui/Input";
+import { Select } from "@/components/ui/Select";
+import { Textarea } from "@/components/ui/Textarea";
+import { Button } from "@/components/ui/Button";
 
 interface FormField {
   name: string;
@@ -88,46 +92,33 @@ export function ContactFormWrapper({
             <form onSubmit={handleSubmit} className="mt-12 space-y-5">
               {fields.map((field) => (
                 <div key={field.name}>
-                  <label
-                    htmlFor={`field-${field.name}`}
-                    className="mb-1.5 block text-body-sm font-medium text-text-primary"
-                  >
-                    {field.label}
-                    {field.required && (
-                      <span className="ml-1 text-red-500" aria-hidden="true">*</span>
-                    )}
-                  </label>
                   {field.type === "textarea" ? (
-                    <textarea
+                    <Textarea
                       id={`field-${field.name}`}
+                      label={`${field.label}${field.required ? " *" : ""}`}
                       name={field.name}
                       value={formData[field.name] ?? ""}
                       onChange={(e) => handleChange(field.name, e.target.value)}
                       placeholder={field.placeholder}
-                      required={field.required}
                       disabled={status === "loading"}
                       rows={5}
-                      className="w-full resize-y rounded-lg border border-border-light bg-surface-secondary px-4 py-3 text-body text-text-primary placeholder:text-text-tertiary transition-colors duration-300 focus:border-text-primary focus:outline-none disabled:opacity-50"
                     />
                   ) : field.type === "select" ? (
-                    <select
+                    <Select
                       id={`field-${field.name}`}
+                      label={`${field.label}${field.required ? " *" : ""}`}
                       name={field.name}
                       value={formData[field.name] ?? ""}
                       onChange={(e) => handleChange(field.name, e.target.value)}
                       required={field.required}
                       disabled={status === "loading"}
-                      className="w-full rounded-lg border border-border-light bg-surface-secondary px-4 py-3 text-body text-text-primary transition-colors duration-300 focus:border-text-primary focus:outline-none disabled:opacity-50"
-                    >
-                      {field.options?.map((opt) => (
-                        <option key={opt.value} value={opt.value}>
-                          {opt.label}
-                        </option>
-                      ))}
-                    </select>
+                      options={field.options ?? []}
+                      placeholder={field.placeholder}
+                    />
                   ) : (
-                    <input
+                    <Input
                       id={`field-${field.name}`}
+                      label={`${field.label}${field.required ? " *" : ""}`}
                       name={field.name}
                       type={field.type}
                       value={formData[field.name] ?? ""}
@@ -135,19 +126,20 @@ export function ContactFormWrapper({
                       placeholder={field.placeholder}
                       required={field.required}
                       disabled={status === "loading"}
-                      className="w-full rounded-lg border border-border-light bg-surface-secondary px-4 py-3 text-body text-text-primary placeholder:text-text-tertiary transition-colors duration-300 focus:border-text-primary focus:outline-none disabled:opacity-50"
                     />
                   )}
                 </div>
               ))}
-              <button
+              <Button
                 type="submit"
                 disabled={status === "loading"}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-text-primary px-8 py-3.5 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90 disabled:opacity-50"
+                loading={status === "loading"}
+                size="lg"
+                className="w-full"
               >
                 {status === "loading" ? "Sending..." : submitLabel}
                 <Send size={16} />
-              </button>
+              </Button>
               {status === "success" && (
                 <div className="flex items-center gap-2 rounded-lg bg-brand-500/10 p-4 text-body-sm text-brand-600">
                   <CheckCircle size={16} />

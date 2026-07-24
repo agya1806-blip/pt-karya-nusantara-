@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  /* ─── Brand Colors — Noir Gold: International Luxury ─── */
+  /* ─── Brand Colors — Warm Earth / Luxury Architecture ─── */
   --color-brand-50: #faf8f5;
   --color-brand-100: #f0ece6;
   --color-brand-200: #ddd5c8;
@@ -13,7 +13,7 @@
   --color-brand-800: #322a20;
   --color-brand-900: #1a1510;
 
-  /* ─── Gold Accent — Subtle Luxury ─── */
+  /* ─── Gold Accent — Signature Luxury ─── */
   --color-gold-50: #fdf8ed;
   --color-gold-100: #f9edcd;
   --color-gold-200: #f2d999;
@@ -55,14 +55,21 @@
   --color-text-muted: #a5a19c;
 
   /* ─── Border ─── */
-  --color-border: #eeedec;
+  --color-border: #dddbd8;
   --color-border-light: #eeedec;
   --color-border-default: #dddbd8;
-  --color-border-strong: #a5a19c;
   --color-border-muted: #dddbd8;
+  --color-border-strong: #a5a19c;
 
   /* ─── Ring / Focus ─── */
-  --color-ring: #8a7356;
+  --color-ring: #b8963e;
+
+  /* ─── Form Input ─── */
+  --color-input: #ffffff;
+  --color-input-border: #dddbd8;
+  --color-input-border-hover: #c4b8a5;
+  --color-input-ring: #b8963e;
+  --color-input-placeholder: #a5a19c;
 
   /* ─── Elevation / Shadows ─── */
   --shadow-elevation-1: 0 1px 2px 0 rgb(0 0 0 / 0.04);
@@ -258,6 +265,10 @@
   --ease-architectural: cubic-bezier(0.25, 0.1, 0.25, 1);
   --ease-luxury: cubic-bezier(0.65, 0, 0.35, 1);
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ─── Default transition — applied globally ─── */
+  --default-transition-duration: 300ms;
+  --default-transition-timing: cubic-bezier(0.25, 0.1, 0.25, 1);
 }
 
 /* ─── Dark Mode ─── */
@@ -274,7 +285,7 @@
   *,
   *::before,
   *::after {
-    border-color: var(--color-border-light);
+    border-color: var(--color-border-default, #dddbd8);
   }
 
   html {
@@ -290,9 +301,7 @@
     font-family: var(--font-sans);
     font-size: var(--text-body);
     line-height: var(--text-body--line-height);
-    transition-property: background-color, color;
-    transition-duration: var(--duration-normal);
-    transition-timing-function: var(--ease-default);
+    transition: background-color var(--default-transition-duration) var(--default-transition-timing), color var(--default-transition-duration) var(--default-transition-timing);
     overflow-x: hidden;
   }
 
@@ -324,9 +333,10 @@
     --color-text-primary: var(--color-neutral-50);
     --color-text-secondary: var(--color-neutral-400);
     --color-text-tertiary: var(--color-neutral-500);
-    --color-border-light: var(--color-neutral-800);
     --color-border-default: var(--color-neutral-700);
     --color-border-strong: var(--color-neutral-600);
+    --color-input: var(--color-neutral-900);
+    --color-input-border: var(--color-neutral-700);
   }
 
   /* Reduced motion */
