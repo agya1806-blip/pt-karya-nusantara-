@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { forwardRef, type HTMLAttributes } from "react";
 
 type CardVariant = "default" | "muted" | "elevated" | "bordered";
@@ -41,7 +43,7 @@ function getPaddingStyles(padding: CardPadding): string {
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", padding = "md", hover = false, children, ...props }, ref) => {
     return (
-      <div
+      <motion.div
         ref={ref}
         className={cn(
           "rounded-xl",
@@ -50,10 +52,12 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           hover && "cursor-pointer transition-all duration-500 ease-architectural hover:-translate-y-0.5",
           className,
         )}
+        whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+        transition={cardHoverTransition}
         {...props}
       >
         {children}
-      </div>
+      </motion.div>
     );
   },
 );
