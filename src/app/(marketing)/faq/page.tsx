@@ -1,5 +1,6 @@
 import { FAQAccordion, CategoryFAQ, CTADefault } from "@/sections";
 import { createMetadata, createFAQPageSchema, JsonLdScript } from "@/seo";
+import { FAQSearch } from "./faq-search";
 import type { FAQItem } from "@/sections";
 
 export const metadata = createMetadata({
@@ -28,14 +29,23 @@ const collaborationFAQ: FAQItem[] = [
   { question: "Can you recommend contractors?", answer: "Yes. We maintain a curated list of reputable contractors who share our commitment to quality and craftsmanship.", category: "Collaboration" },
 ];
 
+const allFAQ = [...generalFAQ, ...processFAQ, ...collaborationFAQ];
+
 export default function FAQPage() {
   return (
     <>
-      <JsonLdScript data={createFAQPageSchema([...generalFAQ, ...processFAQ, ...collaborationFAQ])} id="faq-schema" />
+      <JsonLdScript data={createFAQPageSchema(allFAQ)} id="faq-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <div className="mx-auto max-w-2xl">
+            <FAQSearch items={allFAQ} />
+          </div>
+        </div>
+      </section>
       <FAQAccordion
         title="Frequently Asked Questions"
         description="Answers to common questions about our services, process, and collaborations."
-        items={[...generalFAQ, ...processFAQ, ...collaborationFAQ]}
+        items={allFAQ}
       />
       <CategoryFAQ
         title="Browse by Category"

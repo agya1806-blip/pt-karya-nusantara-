@@ -63,20 +63,19 @@ export function Navbar({
 
   const handleSelectSuggestion = useCallback((suggestion: SearchSuggestion) => {
     setSearchOpen(false);
-    if (suggestion.url) window.location.href = suggestion.url;
   }, []);
 
   const projects: SearchResult[] = [
-    { id: "1", title: "The Sky Villa", description: "Luxury villa in Bali", entity: "portfolio", url: "/portfolio/the-villa", matches: [] },
-    { id: "2", title: "Sudirman Tower", description: "Commercial tower in Jakarta", entity: "portfolio", url: "/portfolio/sudirman-tower", matches: [] },
-    { id: "3", title: "Nusantara Resort", description: "Beachfront resort in Lombok", entity: "portfolio", url: "/portfolio/nusantara-resort", matches: [] },
-    { id: "4", title: "Green Valley Estate", description: "Master planned community in Bandung", entity: "portfolio", url: "/portfolio/green-valley", matches: [] },
+    { id: "1", title: "The Sky Villa", description: "Luxury villa in Bali", category: "Residential", entity: "portfolio", url: "/portfolio/the-villa", matches: [] },
+    { id: "2", title: "Sudirman Tower", description: "Commercial tower in Jakarta", category: "Commercial", entity: "portfolio", url: "/portfolio/sudirman-tower", matches: [] },
+    { id: "3", title: "Nusantara Resort", description: "Beachfront resort in Lombok", category: "Hospitality", entity: "portfolio", url: "/portfolio/nusantara-resort", matches: [] },
+    { id: "4", title: "Green Valley Estate", description: "Master planned community in Bandung", category: "Master Planning", entity: "portfolio", url: "/portfolio/green-valley", matches: [] },
   ];
 
   const suggestions: SearchSuggestion[] = [
-    { text: "Residential Architecture", type: "trending", icon: "trending-up", url: "/services" },
-    { text: "View Our Portfolio", type: "recent", icon: "clock", url: "/portfolio" },
-    { text: "Book a Consultation", type: "recent", icon: "clock", url: "/contact" },
+    { text: "Residential Architecture", type: "trending" },
+    { text: "View Our Portfolio", type: "trending" },
+    { text: "Book a Consultation", type: "trending" },
   ];
 
   const filteredResults = searchQuery

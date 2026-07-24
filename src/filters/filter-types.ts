@@ -1,6 +1,6 @@
 export type FilterOperator = "any" | "all" | "range";
 export type SortDirection = "asc" | "desc";
-export type SortField = "name" | "date" | "budget" | "area" | "popularity" | "rating";
+export type SortField = "name" | "date" | "budget" | "area" | "popularity" | "rating" | "year" | "title";
 
 export interface FilterOption {
   value: string;

@@ -34,7 +34,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="id"
-      data-theme="light"
       className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable}`}
       suppressHydrationWarning
     >
@@ -45,6 +44,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
+        <script dangerouslySetInnerHTML={{
+          __html: `(function(){var e=localStorage.getItem("theme-mode");if(!e&&(e=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),e))document.documentElement.setAttribute("data-theme",e)})()`,
+        }} />
         <JsonLdScript data={createOrganizationSchema()} id="organization-schema" />
         <JsonLdScript data={createWebsiteSchema()} id="website-schema" />
         <JsonLdScript data={createLocalBusinessSchema()} id="local-business-schema" />
