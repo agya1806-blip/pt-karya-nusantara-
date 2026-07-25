@@ -3,6 +3,7 @@ import { ServiceOverview, ServicesGrid, ProcessSteps, ConsultationCTA, CTADefaul
 import { createMetadata, createServiceSchema, JsonLdScript } from "@/seo";
 import { siteConfig } from "@/config";
 import type { ServiceItem, ProcessStep } from "@/sections";
+import { Search, Lightbulb, PenTool, FileText, HardHat } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Layanan",
@@ -19,11 +20,11 @@ const services: ServiceItem[] = [
 ];
 
 const workflowSteps: ProcessStep[] = [
-  { title: "Penemuan", description: "Memahami visi, aspirasi, dan karakter unik lahan Anda melalui konsultasi yang mendalam." },
-  { title: "Desain Konsep", description: "Menerjemahkan ide menjadi narasi spasial melalui sketsa, mood board, dan model studi untuk pertimbangan Anda." },
-  { title: "Pengembangan Desain", description: "Menyempurnakan setiap detail — material, proporsi, sistem, dan anggaran — dengan presisi dan kejelasan." },
-  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan, tender, dan konstruksi." },
-  { title: "Administrasi Konstruksi", description: "Pengawasan desain yang ketat selama konstruksi untuk memastikan setiap elemen terwujud sesuai rencana." },
+  { title: "Penemuan", description: "Memahami visi, aspirasi, dan karakter unik lahan Anda melalui konsultasi yang mendalam.", icon: <Search size={20} /> },
+  { title: "Desain Konsep", description: "Menerjemahkan ide menjadi narasi spasial melalui sketsa, mood board, dan model studi untuk pertimbangan Anda.", icon: <Lightbulb size={20} /> },
+  { title: "Pengembangan Desain", description: "Menyempurnakan setiap detail — material, proporsi, sistem, dan anggaran — dengan presisi dan kejelasan.", icon: <PenTool size={20} /> },
+  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan, tender, dan konstruksi.", icon: <FileText size={20} /> },
+  { title: "Administrasi Konstruksi", description: "Pengawasan desain yang ketat selama konstruksi untuk memastikan setiap elemen terwujud sesuai rencana.", icon: <HardHat size={20} /> },
 ];
 
 export default function ServicesPage() {

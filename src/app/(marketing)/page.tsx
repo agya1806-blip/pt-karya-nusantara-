@@ -2,6 +2,7 @@ import { AnimatedSection } from "@/components/animation";
 import { HeroSection, FeaturedProjects, ServicesGrid, ProcessSteps, StatisticsShowcase, ClientReviews, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { PortfolioItem, ServiceItem, ProcessStep, StatItem, TestimonialItem } from "@/sections";
+import { Search, Lightbulb, PenTool, HardHat } from "lucide-react";
 
 export const metadata = createMetadata();
 
@@ -22,10 +23,10 @@ const services: ServiceItem[] = [
 ];
 
 const steps: ProcessStep[] = [
-  { title: "Penemuan", description: "Memahami visi, aspirasi, dan karakter unik dari lahan Anda.", icon: "search" },
-  { title: "Desain Konsep", description: "Menerjemahkan ide menjadi narasi spasial melalui sketsa, mood board, dan model studi.", icon: "lightbulb" },
-  { title: "Pengembangan Desain", description: "Menyempurnakan setiap detail — material, proporsi, sistem, dan keselarasan anggaran.", icon: "pen-tool" },
-  { title: "Konstruksi", description: "Pengawasan desain yang ketat untuk memastikan setiap elemen terwujud dengan presisi.", icon: "hard-hat" },
+  { title: "Penemuan", description: "Memahami visi, aspirasi, dan karakter unik dari lahan Anda.", icon: <Search size={20} /> },
+  { title: "Desain Konsep", description: "Menerjemahkan ide menjadi narasi spasial melalui sketsa, mood board, dan model studi.", icon: <Lightbulb size={20} /> },
+  { title: "Pengembangan Desain", description: "Menyempurnakan setiap detail — material, proporsi, sistem, dan keselarasan anggaran.", icon: <PenTool size={20} /> },
+  { title: "Konstruksi", description: "Pengawasan desain yang ketat untuk memastikan setiap elemen terwujud dengan presisi.", icon: <HardHat size={20} /> },
 ];
 
 const stats: StatItem[] = [

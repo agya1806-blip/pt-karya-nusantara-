@@ -66,7 +66,7 @@ export function FeaturedProjects({
                     {project.year && <span>{project.year}</span>}
                   </div>
                   <span className="mt-6 inline-flex items-center gap-1 text-body-sm font-medium text-brand-600 transition-all duration-300 group-hover:gap-2">
-                    View Project <ArrowRight size={14} />
+                    Lihat Proyek <ArrowRight size={14} />
                   </span>
                 </div>
               </Link>

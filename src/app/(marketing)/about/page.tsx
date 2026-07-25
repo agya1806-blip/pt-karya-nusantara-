@@ -2,6 +2,7 @@ import { AnimatedSection } from "@/components/animation";
 import { CompanyOverview, VisionMission, Timeline, FounderStory, Values, Awards, StatisticsShowcase, TeamGrid, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { TimelineEvent, TeamMember, AwardItem, StatItem } from "@/sections";
+import { Award, Leaf, HandshakeIcon, Palette } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Tentang Kami",
@@ -76,10 +77,10 @@ export default function AboutPage() {
         <Values
           title="Nilai-Nilai Kami"
           values={[
-            { title: "Keunggulan Desain", description: "Komitmen tanpa kompromi terhadap keahlian, proporsi, dan integritas setiap detail." },
-            { title: "Praktik Berkelanjutan", description: "Pengelolaan material dan energi yang bertanggung jawab — mendesain untuk umur panjang, bukan tren." },
-            { title: "Kemitraan Klien", description: "Hubungan kolaboratif yang dibangun di atas mendengarkan dengan saksama dan memberikan dengan presisi." },
-            { title: "Warisan Budaya", description: "Penghormatan terhadap kerajinan Indonesia dan kearifan tradisi bangunan vernakular." },
+            { title: "Keunggulan Desain", description: "Komitmen tanpa kompromi terhadap keahlian, proporsi, dan integritas setiap detail.", icon: <Award size={18} /> },
+            { title: "Praktik Berkelanjutan", description: "Pengelolaan material dan energi yang bertanggung jawab — mendesain untuk umur panjang, bukan tren.", icon: <Leaf size={18} /> },
+            { title: "Kemitraan Klien", description: "Hubungan kolaboratif yang dibangun di atas mendengarkan dengan saksama dan memberikan dengan presisi.", icon: <HandshakeIcon size={18} /> },
+            { title: "Warisan Budaya", description: "Penghormatan terhadap kerajinan Indonesia dan kearifan tradisi bangunan vernakular.", icon: <Palette size={18} /> },
           ]}
         />
       </AnimatedSection>

@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/sections/shared/section-header";
 import { Stagger, StaggerItem } from "@/components/animation/Stagger";
+import { ImageReveal } from "@/components/animation/ImageReveal";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import type { ServiceItem } from "@/sections/types";
@@ -43,34 +44,47 @@ export function ServicesGrid({
             <StaggerItem key={service.title}>
               <Link
                 href={service.href ?? "#"}
-                className="group flex h-full flex-col rounded-2xl border border-border-light bg-surface p-8 transition-all duration-300 hover:border-brand-200 hover:shadow-elevation-3"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border-light bg-surface transition-all duration-500 hover:border-brand-200 hover:shadow-luxury-lg"
               >
-                {service.icon && (
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-100">
-                    {service.icon}
+                {service.image && (
+                  <div className="relative aspect-[16/9] w-full overflow-hidden">
+                    <ImageReveal
+                      src={service.image.src}
+                      alt={service.image.alt}
+                      fill
+                      className="h-full w-full"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
                   </div>
                 )}
-                <h3 className="text-heading-sm font-medium text-text-primary">
-                  {service.title}
-                </h3>
-                <p className="mt-2 flex-1 text-body-sm text-text-secondary leading-relaxed">
-                  {service.description}
-                </p>
-                {service.features && (
-                  <ul className="mt-4 space-y-1.5">
-                    {service.features.map((feat) => (
-                      <li
-                        key={feat}
-                        className="text-body-sm text-text-secondary"
-                      >
-                        {feat}
-                      </li>
-                    ))}
-                  </ul>
-                )}
-                <span className="mt-6 inline-flex items-center gap-1 text-body-sm font-medium text-brand-600 transition-all duration-300 group-hover:gap-2">
-                  Learn more <ArrowRight size={14} />
-                </span>
+                <div className="flex flex-1 flex-col p-8">
+                  {service.icon && (
+                    <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-100">
+                      {service.icon}
+                    </div>
+                  )}
+                  <h3 className="text-heading-sm font-medium text-text-primary">
+                    {service.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-body-sm text-text-secondary leading-relaxed">
+                    {service.description}
+                  </p>
+                  {service.features && (
+                    <ul className="mt-4 space-y-1.5">
+                      {service.features.map((feat) => (
+                        <li
+                          key={feat}
+                          className="text-body-sm text-text-secondary"
+                        >
+                          {feat}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                  <span className="mt-6 inline-flex items-center gap-1 text-body-sm font-medium text-brand-600 transition-all duration-300 group-hover:gap-2">
+                    Selengkapnya <ArrowRight size={14} />
+                  </span>
+                </div>
               </Link>
             </StaggerItem>
           ))}

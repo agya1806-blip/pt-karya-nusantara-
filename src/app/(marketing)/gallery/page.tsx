@@ -1,11 +1,11 @@
 import { AnimatedSection } from "@/components/animation";
-import { GalleryGrid, InteractiveGallery, VideoShowcase, CTADefault } from "@/sections";
+import { GalleryGrid, InteractiveGallery, ImageGallery, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
-import type { GalleryItem, VideoItem } from "@/sections";
+import type { GalleryItem } from "@/sections";
 
 export const metadata = createMetadata({
   title: "Galeri",
-  description: "Koleksi terkurasi fotografi arsitektur, visual proyek, dan video showcase dari PT Karya Nusantara Realty.",
+  description: "Koleksi terkurasi fotografi arsitektur, visual proyek, dan showcase desain dari PT Karya Nusantara Realty.",
 });
 
 const galleryItems: GalleryItem[] = [
@@ -23,11 +23,7 @@ const galleryItems: GalleryItem[] = [
   { src: "/images/gallery/gallery-12.jpg", alt: "Interior restoran", width: 1920, height: 1280 },
 ];
 
-const showcaseVideo: VideoItem = {
-  src: "/videos/project-showcase.mp4",
-  title: "Showcase Proyek 2025",
-  type: "local",
-};
+const featuredImages = galleryItems.map((item) => ({ src: item.src, alt: item.alt }));
 
 export default function GalleryPage() {
   return (
@@ -42,16 +38,17 @@ export default function GalleryPage() {
       </AnimatedSection>
       <AnimatedSection delay={0.1}>
         <InteractiveGallery
-          title="Galeri Interaktif"
-          description="Jelajahi semua visual dalam grid yang ringkas dan dapat dijelajahi."
+          title="Jelajahi Semua Visual"
+          description="Navigasi grid lengkap foto arsitektur dengan tampilan lightbox interaktif."
           images={galleryItems}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
-        <VideoShowcase
-          title="Showcase Video"
-          description="Saksikan proyek kami menjadi hidup melalui videografi sinematik."
-          video={showcaseVideo}
+        <ImageGallery
+          label="Koleksi"
+          title="Karya Pilihan"
+          description="Sorotan visual dari proyek-proyek terbaik yang pernah kami kerjakan."
+          images={featuredImages}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>

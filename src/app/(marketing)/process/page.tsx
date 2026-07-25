@@ -1,6 +1,7 @@
 import { ProcessSteps, Timeline, ConsultationProcess, ConstructionFlow, ProjectLifecycle } from "@/sections";
 import { createMetadata } from "@/seo";
 import type { ProcessStep, TimelineEvent } from "@/sections";
+import { Search, Lightbulb, Ruler, PenTool, FileText, HardHat } from "lucide-react";
 
 export const metadata = createMetadata({
   title: "Proses Kami",
@@ -8,12 +9,12 @@ export const metadata = createMetadata({
 });
 
 const steps: ProcessStep[] = [
-  { title: "Penemuan & Briefing", description: "Kami melakukan diskusi mendalam untuk memahami visi, kebutuhan, anggaran, dan jadwal Anda." },
-  { title: "Analisis Lahan", description: "Tim kami melakukan evaluasi lahan menyeluruh, termasuk topografi, iklim, orientasi, dan peraturan." },
-  { title: "Desain Konsep", description: "Kami mengembangkan konsep desain awal, sketsa, dan mood board untuk review dan masukan Anda." },
-  { title: "Pengembangan Desain", description: "Konsep yang dipilih disempurnakan dengan gambar detail, pemilihan material, dan perkiraan biaya." },
-  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan dan tender kontraktor." },
-  { title: "Administrasi Konstruksi", description: "Kami mengawasi konstruksi, melakukan kunjungan lapangan, dan memastikan visi desain dijalankan dengan setia." },
+  { title: "Penemuan & Briefing", description: "Kami melakukan diskusi mendalam untuk memahami visi, kebutuhan, anggaran, dan jadwal Anda.", icon: <Search size={20} /> },
+  { title: "Analisis Lahan", description: "Tim kami melakukan evaluasi lahan menyeluruh, termasuk topografi, iklim, orientasi, dan peraturan.", icon: <Ruler size={20} /> },
+  { title: "Desain Konsep", description: "Kami mengembangkan konsep desain awal, sketsa, dan mood board untuk review dan masukan Anda.", icon: <Lightbulb size={20} /> },
+  { title: "Pengembangan Desain", description: "Konsep yang dipilih disempurnakan dengan gambar detail, pemilihan material, dan perkiraan biaya.", icon: <PenTool size={20} /> },
+  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan dan tender kontraktor.", icon: <FileText size={20} /> },
+  { title: "Administrasi Konstruksi", description: "Kami mengawasi konstruksi, melakukan kunjungan lapangan, dan memastikan visi desain dijalankan dengan setia.", icon: <HardHat size={20} /> },
 ];
 
 const timelineEvents: TimelineEvent[] = [

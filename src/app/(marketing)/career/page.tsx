@@ -40,10 +40,10 @@ export default function CareerPage() {
         title="Mengapa Bekerja dengan Kami"
         description="Kami mengembangkan bakat dan menyediakan lingkungan di mana kreativitas dan ketelitian berkembang."
         benefits={[
-          { title: "Kebebasan Kreatif", description: "Otonomi untuk mengeksplorasi solusi desain inovatif dan mendorong batasan.", icon: "lightbulb" },
-          { title: "Kompensasi Kompetitif", description: "Paket menarik, bonus kinerja, dan tunjangan komprehensif.", icon: "dollar-sign" },
-          { title: "Pertumbuhan Profesional", description: "Pembelajaran berkelanjutan, lokakarya, dan paparan internasional.", icon: "trending-up" },
-          { title: "Budaya Kolaboratif", description: "Bekerja bersama arsitek dan desainer berpengalaman di studio yang mendukung.", icon: "users" },
+          { title: "Kebebasan Kreatif", description: "Otonomi untuk mengeksplorasi solusi desain inovatif dan mendorong batasan.", icon: "💡" },
+          { title: "Kompensasi Kompetitif", description: "Paket menarik, bonus kinerja, dan tunjangan komprehensif.", icon: "💰" },
+          { title: "Pertumbuhan Profesional", description: "Pembelajaran berkelanjutan, lokakarya, dan paparan internasional.", icon: "📈" },
+          { title: "Budaya Kolaboratif", description: "Bekerja bersama arsitek dan desainer berpengalaman di studio yang mendukung.", icon: "👥" },
         ]}
       />
       <RecruitmentProcess
