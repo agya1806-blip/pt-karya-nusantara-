@@ -22,6 +22,7 @@ const nextConfig: NextConfig = {
     deviceSizes: [375, 640, 768, 1024, 1280, 1440, 1920, 2560],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000,
+    unoptimized: true,
   },
 
   headers: async () => [
@@ -35,9 +36,6 @@ const nextConfig: NextConfig = {
         { key: "X-XSS-Protection", value: "1; mode=block" },
         { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
         { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
-        { key: "Cross-Origin-Embedder-Policy", value: "require-corp" },
-        { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
-        { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
         { key: "Content-Security-Policy", value: csp },
       ],
     },

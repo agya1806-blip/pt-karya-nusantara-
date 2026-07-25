@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useReducedMotion } from "@/hooks";
@@ -28,16 +28,26 @@ export function ImageReveal({
   priority,
 }: ImageRevealProps) {
   const [loaded, setLoaded] = useState(false);
+  const [fallback, setFallback] = useState(false);
   const reduced = useReducedMotion();
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFallback(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const ready = loaded || fallback || reduced;
 
   return (
     <div className={cn("relative overflow-hidden bg-surface-muted", className)}>
       <motion.div
-        initial={reduced ? {} : { clipPath: "inset(0 100% 0 0)", scale: 1.05 }}
+        initial={
+          reduced ? {} : { clipPath: "inset(0 100% 0 0)", scale: 1.05 }
+        }
         animate={
-          reduced || !loaded
-            ? {}
-            : { clipPath: "inset(0 0% 0 0)", scale: 1 }
+          ready
+            ? { clipPath: "inset(0 0% 0 0)", scale: 1 }
+            : {}
         }
         transition={{
           duration: 1,
@@ -51,12 +61,11 @@ export function ImageReveal({
             alt={alt}
             fill
             className={cn(
-              "object-cover transition-opacity duration-500",
-              loaded ? "opacity-100" : "opacity-0",
+              "object-cover",
               imgClassName,
             )}
             onLoad={() => setLoaded(true)}
-            priority={priority}
+            priority={priority ?? true}
           />
         ) : (
           <Image
@@ -65,12 +74,11 @@ export function ImageReveal({
             width={width ?? 800}
             height={height ?? 600}
             className={cn(
-              "object-cover transition-opacity duration-500",
-              loaded ? "opacity-100" : "opacity-0",
+              "object-cover",
               imgClassName,
             )}
             onLoad={() => setLoaded(true)}
-            priority={priority}
+            priority={priority ?? true}
           />
         )}
       </motion.div>

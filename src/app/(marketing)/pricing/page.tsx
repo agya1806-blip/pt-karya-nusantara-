@@ -1,3 +1,4 @@
+import { AnimatedSection } from "@/components/animation";
 import { PricingTable, ServicePackages, ComparisonTable, CTADefault } from "@/sections";
 import { createMetadata } from "@/seo";
 
@@ -37,26 +38,34 @@ const plans = [
 export default function PricingPage() {
   return (
     <>
-      <PricingTable
-        title="Struktur Biaya"
-        description="Kisaran biaya indikatif untuk tipologi proyek umum. Setiap penawaran disesuaikan dengan lingkup dan ambisi spesifik proyek Anda."
-        plans={plans}
-      />
-      <ServicePackages
-        title="Paket Layanan"
-        description="Pilih paket yang paling sesuai dengan skala proyek Anda."
-        packages={plans.map((p) => ({ title: p.name, description: p.description ?? "", price: p.price, period: p.period, features: p.features }))}
-      />
-      <ComparisonTable
-        title="Bandingkan Paket"
-        description="Gambaran umum tentang apa yang disertakan setiap tingkatan."
-        plans={plans.map((p) => ({ name: p.name, highlighted: p.highlighted, features: p.features }))}
-      />
-      <CTADefault
-        title="Tidak Yakin Paket yang Tepat?"
-        description="Jadwalkan konsultasi gratis dan kami akan merekomendasikan pendekatan yang tepat untuk proyek Anda."
-        primaryCta={{ label: "Jadwalkan Konsultasi", href: "/contact" }}
-      />
+      <AnimatedSection>
+        <PricingTable
+          title="Struktur Biaya"
+          description="Kisaran biaya indikatif untuk tipologi proyek umum. Setiap penawaran disesuaikan dengan lingkup dan ambisi spesifik proyek Anda."
+          plans={plans}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <ServicePackages
+          title="Paket Layanan"
+          description="Pilih paket yang paling sesuai dengan skala proyek Anda."
+          packages={plans.map((p) => ({ title: p.name, description: p.description ?? "", price: p.price, period: p.period, features: p.features }))}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <ComparisonTable
+          title="Bandingkan Paket"
+          description="Gambaran umum tentang apa yang disertakan setiap tingkatan."
+          plans={plans.map((p) => ({ name: p.name, highlighted: p.highlighted, features: p.features }))}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <CTADefault
+          title="Tidak Yakin Paket yang Tepat?"
+          description="Jadwalkan konsultasi gratis dan kami akan merekomendasikan pendekatan yang tepat untuk proyek Anda."
+          primaryCta={{ label: "Jadwalkan Konsultasi", href: "/contact" }}
+        />
+      </AnimatedSection>
     </>
   );
 }
