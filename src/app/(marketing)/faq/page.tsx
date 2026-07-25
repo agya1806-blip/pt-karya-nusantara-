@@ -5,28 +5,28 @@ import type { FAQItem } from "@/sections";
 
 export const metadata = createMetadata({
   title: "FAQ",
-  description: "Answers to common questions about our architecture services, design process, and how to collaborate with us.",
+  description: "Jawaban atas pertanyaan umum tentang layanan arsitektur, proses desain, dan cara bekerja sama dengan kami.",
 });
 
 const generalFAQ: FAQItem[] = [
-  { question: "What types of projects does PT Karya Nusantara Realty handle?", answer: "We specialise in luxury residential, commercial, hospitality, and master planning projects. Our portfolio ranges from private villas and estates to boutique hotels and mixed-use developments.", category: "General" },
-  { question: "Where are you based?", answer: "Our studio is based in Banda Aceh, Indonesia. We serve clients both domestically and internationally.", category: "General" },
-  { question: "What is your design philosophy?", answer: "We create spaces of enduring beauty and purpose — each design rooted in its context, culture, and the aspirations of those who will inhabit it.", category: "General" },
-  { question: "Do you handle projects outside of Indonesia?", answer: "Yes. We have completed projects across Southeast Asia, including Singapore, Malaysia, Thailand, and beyond. International collaborations are always welcome.", category: "General" },
+  { question: "Jenis proyek apa yang ditangani PT Karya Nusantara Realty?", answer: "Kami mengkhususkan diri pada proyek residensial mewah, komersial, hospitality, dan master plan. Portofolio kami mencakup vila pribadi hingga hotel butik dan pengembangan mixed-use.", category: "Umum" },
+  { question: "Di mana kantor Anda berada?", answer: "Studio kami berbasis di Banda Aceh, Indonesia. Kami melayani klien baik domestik maupun internasional.", category: "Umum" },
+  { question: "Apa filosofi desain Anda?", answer: "Kami menciptakan ruang dengan keindahan dan tujuan yang abadi — setiap desain berakar pada konteks, budaya, dan aspirasi penghuninya.", category: "Umum" },
+  { question: "Apakah Anda menangani proyek di luar Indonesia?", answer: "Ya. Kami telah menyelesaikan proyek di seluruh Asia Tenggara, termasuk Singapura, Malaysia, Thailand, dan lainnya. Kolaborasi internasional selalu kami sambut.", category: "Umum" },
 ];
 
 const processFAQ: FAQItem[] = [
-  { question: "What is your design process?", answer: "Our process follows five stages: Discovery, Concept Design, Design Development, Construction Documents, and Construction Administration. Each stage involves close collaboration with our clients and consultants.", category: "Process" },
-  { question: "How long does a typical project take?", answer: "Timelines vary by scope. A custom residence typically takes 12–18 months from concept to completion. Larger commercial projects may extend to 24–36 months.", category: "Process" },
-  { question: "How do you charge for your services?", answer: "We offer both percentage-based and fixed-fee structures depending on project scope. An initial consultation is complimentary to discuss your needs and budget.", category: "Process" },
-  { question: "Do you provide cost estimates?", answer: "Yes. We provide detailed cost estimates during design development, working closely with quantity surveyors and contractors.", category: "Process" },
+  { question: "Bagaimana proses desain Anda?", answer: "Proses kami mengikuti lima tahap: Penemuan, Desain Konsep, Pengembangan Desain, Dokumen Konstruksi, dan Administrasi Konstruksi. Setiap tahap melibatkan kolaborasi erat dengan klien dan konsultan.", category: "Proses" },
+  { question: "Berapa lama waktu yang dibutuhkan untuk sebuah proyek?", answer: "Jadwal bervariasi sesuai lingkup. Hunian kustom biasanya memakan waktu 12–18 bulan dari konsep hingga penyelesaian. Proyek komersial yang lebih besar dapat memakan waktu 24–36 bulan.", category: "Proses" },
+  { question: "Bagaimana sistem pembayaran untuk layanan Anda?", answer: "Kami menawarkan struktur berbasis persentase dan biaya tetap tergantung pada lingkup proyek. Konsultasi awal gratis untuk mendiskusikan kebutuhan dan anggaran Anda.", category: "Proses" },
+  { question: "Apakah Anda menyediakan perkiraan biaya?", answer: "Ya. Kami menyediakan perkiraan biaya terperinci selama pengembangan desain, bekerja sama dengan quantity surveyor dan kontraktor.", category: "Proses" },
 ];
 
 const collaborationFAQ: FAQItem[] = [
-  { question: "How do I start a project with your firm?", answer: "Reach out through our contact form or call us. We will schedule an initial consultation to discuss your vision, requirements, and budget.", category: "Collaboration" },
-  { question: "What information do you need to provide a proposal?", answer: "We typically need your project brief, site information, budget range, and timeline expectations. The more detail you share, the more accurate our proposal.", category: "Collaboration" },
-  { question: "Do you work with external consultants?", answer: "Yes. We collaborate with a network of trusted structural engineers, MEP consultants, interior designers, landscape architects, and sustainability experts.", category: "Collaboration" },
-  { question: "Can you recommend contractors?", answer: "Yes. We maintain a curated list of reputable contractors who share our commitment to quality and craftsmanship.", category: "Collaboration" },
+  { question: "Bagaimana cara memulai proyek dengan firma Anda?", answer: "Hubungi kami melalui formulir kontak atau telepon. Kami akan menjadwalkan konsultasi awal untuk mendiskusikan visi, kebutuhan, dan anggaran Anda.", category: "Kolaborasi" },
+  { question: "Informasi apa yang Anda butuhkan untuk memberikan proposal?", answer: "Kami biasanya membutuhkan brief proyek, informasi lahan, kisaran anggaran, dan ekspektasi jadwal. Semakin detail yang Anda bagikan, semakin akurat proposal kami.", category: "Kolaborasi" },
+  { question: "Apakah Anda bekerja dengan konsultan eksternal?", answer: "Ya. Kami berkolaborasi dengan jaringan insinyur struktur, konsultan MEP, desainer interior, arsitek lansekap, dan ahli keberlanjutan yang terpercaya.", category: "Kolaborasi" },
+  { question: "Dapatkah Anda merekomendasikan kontraktor?", answer: "Ya. Kami menjaga daftar kontraktor terkurasi yang bereputasi baik dan memiliki komitmen terhadap kualitas dan keahlian.", category: "Kolaborasi" },
 ];
 
 const allFAQ = [...generalFAQ, ...processFAQ, ...collaborationFAQ];
@@ -43,23 +43,23 @@ export default function FAQPage() {
         </div>
       </section>
       <FAQAccordion
-        title="Frequently Asked Questions"
-        description="Answers to common questions about our services, process, and collaborations."
+        title="Pertanyaan yang Sering Diajukan"
+        description="Jawaban atas pertanyaan umum tentang layanan, proses, dan kolaborasi kami."
         items={allFAQ}
       />
       <CategoryFAQ
-        title="Browse by Category"
-        description="Select a category to find answers quickly."
+        title="Jelajahi Berdasarkan Kategori"
+        description="Pilih kategori untuk menemukan jawaban dengan cepat."
         categories={[
-          { label: "General", items: generalFAQ },
-          { label: "Process", items: processFAQ },
-          { label: "Collaboration", items: collaborationFAQ },
+          { label: "Umum", items: generalFAQ },
+          { label: "Proses", items: processFAQ },
+          { label: "Kolaborasi", items: collaborationFAQ },
         ]}
       />
       <CTADefault
-        title="Still Have Questions?"
-        description="Every project is unique. Reach out to our team and we will personally answer any questions about your specific needs."
-        primaryCta={{ label: "Contact Our Team", href: "/contact" }}
+        title="Masih Punya Pertanyaan?"
+        description="Setiap proyek itu unik. Hubungi tim kami dan kami akan menjawab secara pribadi setiap pertanyaan tentang kebutuhan spesifik Anda."
+        primaryCta={{ label: "Hubungi Tim Kami", href: "/contact" }}
       />
     </>
   );

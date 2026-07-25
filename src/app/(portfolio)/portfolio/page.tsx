@@ -8,28 +8,26 @@ import type { FilterState, SortField, SortDirection } from "@/filters";
 import type { PortfolioItem, StatItem } from "@/sections";
 
 const projects: PortfolioItem[] = [
-  { title: "The Sky Villa", category: "Residential", image: { src: "/images/portfolio/villa-sky.jpg", alt: "The Sky Villa" }, href: "/portfolio/the-villa", location: "Bali, Indonesia", year: "2024" },
-  { title: "Sudirman Tower", category: "Commercial", image: { src: "/images/portfolio/sudirman-tower.jpg", alt: "Sudirman Tower" }, href: "/portfolio/sudirman-tower", location: "Jakarta, Indonesia", year: "2023" },
+  { title: "The Sky Villa", category: "Residensial", image: { src: "/images/portfolio/villa-sky.jpg", alt: "The Sky Villa" }, href: "/portfolio/the-villa", location: "Bali, Indonesia", year: "2024" },
+  { title: "Sudirman Tower", category: "Komersial", image: { src: "/images/portfolio/sudirman-tower.jpg", alt: "Sudirman Tower" }, href: "/portfolio/sudirman-tower", location: "Jakarta, Indonesia", year: "2023" },
   { title: "Nusantara Resort", category: "Hospitality", image: { src: "/images/portfolio/nusantara-resort.jpg", alt: "Nusantara Resort" }, href: "/portfolio/nusantara-resort", location: "Lombok, Indonesia", year: "2025" },
-  { title: "Green Valley Estate", category: "Master Planning", image: { src: "/images/portfolio/green-valley.jpg", alt: "Green Valley Estate" }, href: "/portfolio/green-valley", location: "Bandung, Indonesia", year: "2024" },
-  { title: "The Sanctuary", category: "Residential", image: { src: "/images/portfolio/sanctuary.jpg", alt: "The Sanctuary" }, href: "/portfolio/the-sanctuary", location: "Ubud, Indonesia", year: "2023" },
-  { title: "Marina Bay Club", category: "Hospitality", image: { src: "/images/portfolio/marina-club.jpg", alt: "Marina Bay Club" }, href: "/portfolio/marina-club", location: "Singapore", year: "2025" },
-  { title: "Puri Akaruma", category: "Residential", image: { src: "/images/portfolio/puri-ak aruma.jpg", alt: "Puri Akaruma" }, href: "/portfolio/puri-akaruma", location: "Aceh, Indonesia", year: "2025" },
-  { title: "Casara Estate", category: "Master Planning", image: { src: "/images/portfolio/casara-estate.jpg", alt: "Casara Estate" }, href: "/portfolio/casara-estate", location: "Banda Aceh, Indonesia", year: "2024" },
+  { title: "Green Valley Estate", category: "Master Plan", image: { src: "/images/portfolio/green-valley.jpg", alt: "Green Valley Estate" }, href: "/portfolio/green-valley", location: "Bandung, Indonesia", year: "2024" },
+  { title: "The Sanctuary", category: "Residensial", image: { src: "/images/portfolio/sanctuary.jpg", alt: "The Sanctuary" }, href: "/portfolio/the-sanctuary", location: "Ubud, Indonesia", year: "2023" },
+  { title: "Marina Bay Club", category: "Hospitality", image: { src: "/images/portfolio/marina-club.jpg", alt: "Marina Bay Club" }, href: "/portfolio/marina-club", location: "Singapura", year: "2025" },
 ];
 
 const stats: StatItem[] = [
-  { value: "200", label: "Projects Delivered", suffix: "+" },
-  { value: "50", label: "Design Awards Received", suffix: "+" },
-  { value: "15", label: "Years in Practice" },
-  { value: "8", label: "Countries Reached" },
+  { value: "200", label: "Proyek Terselesaikan", suffix: "+" },
+  { value: "50", label: "Penghargaan Desain", suffix: "+" },
+  { value: "15", label: "Tahun Berpraktek" },
+  { value: "8", label: "Negara Terjangkau" },
 ];
 
 const categoryOptions = [
-  { value: "residential", label: "Residential" },
-  { value: "commercial", label: "Commercial" },
+  { value: "residensial", label: "Residensial" },
+  { value: "komersial", label: "Komersial" },
   { value: "hospitality", label: "Hospitality" },
-  { value: "master-planning", label: "Master Planning" },
+  { value: "master-plan", label: "Master Plan" },
 ];
 
 const locationOptions = [
@@ -38,29 +36,28 @@ const locationOptions = [
   { value: "lombok", label: "Lombok" },
   { value: "bandung", label: "Bandung" },
   { value: "ubud", label: "Ubud" },
-  { value: "singapore", label: "Singapore" },
-  { value: "aceh", label: "Aceh" },
+  { value: "singapura", label: "Singapura" },
 ];
 
 const buildingTypeOptions = [
   { value: "villa", label: "Villa" },
-  { value: "tower", label: "Tower" },
-  { value: "resort", label: "Resort" },
-  { value: "estate", label: "Estate" },
+  { value: "tower", label: "Menara" },
+  { value: "resort", label: "Resor" },
+  { value: "estate", label: "Kawasan" },
 ];
 
 const styleOptions = [
   { value: "modern", label: "Modern" },
-  { value: "tropical", label: "Tropical" },
-  { value: "contemporary", label: "Contemporary" },
-  { value: "minimalist", label: "Minimalist" },
+  { value: "tropical", label: "Tropis" },
+  { value: "contemporary", label: "Kontemporer" },
+  { value: "minimalist", label: "Minimalis" },
 ];
 
 const sortOptions = [
-  { value: "newest", label: "Newest", field: "year" as SortField, direction: "desc" as SortDirection },
-  { value: "oldest", label: "Oldest", field: "year" as SortField, direction: "asc" as SortDirection },
-  { value: "name-asc", label: "Name A-Z", field: "title" as SortField, direction: "asc" as SortDirection },
-  { value: "name-desc", label: "Name Z-A", field: "title" as SortField, direction: "desc" as SortDirection },
+  { value: "newest", label: "Terbaru", field: "year" as SortField, direction: "desc" as SortDirection },
+  { value: "oldest", label: "Terlama", field: "year" as SortField, direction: "asc" as SortDirection },
+  { value: "name-asc", label: "Nama A-Z", field: "title" as SortField, direction: "asc" as SortDirection },
+  { value: "name-desc", label: "Nama Z-A", field: "title" as SortField, direction: "desc" as SortDirection },
 ];
 
 export default function PortfolioPage() {
@@ -94,8 +91,8 @@ export default function PortfolioPage() {
       <div className="bg-surface pt-32 pb-8">
         <div className="container-site">
           <SectionHeader
-            title="Our Portfolio"
-            description="Every project tells a story. Explore our work — from private residences to commercial landmarks — each a reflection of considered design."
+            title="Portofolio"
+            description="Setiap proyek memiliki cerita. Jelajahi karya kami — dari hunian pribadi hingga landmark komersial — masing-masing cerminan desain yang matang."
           />
         </div>
       </div>
@@ -116,35 +113,35 @@ export default function PortfolioPage() {
       </section>
       <AnimatedSection>
         <FeaturedProjects
-          title="Selected Works"
-          description="A curated journey through projects that define our practice and reveal the breadth of our capability."
+          title="Karya Terpilih"
+          description="Perjalanan terkurasi melalui proyek-proyek yang mendefinisikan praktik kami dan mengungkap keluasan kemampuan kami."
           projects={filteredProjects}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
         <ProjectCategories
-          title="Explore by Discipline"
-          description="Each category reflects a distinct design language and a depth of expertise we have cultivated over time."
+          title="Jelajahi Berdasarkan Disiplin"
+          description="Setiap kategori mencerminkan bahasa desain yang berbeda dan kedalaman keahlian yang telah kami kembangkan dari waktu ke waktu."
           categories={[
-            { label: "Residential", href: "/services" },
-            { label: "Commercial", href: "/services" },
+            { label: "Residensial", href: "/services" },
+            { label: "Komersial", href: "/services" },
             { label: "Hospitality", href: "/services" },
-            { label: "Master Planning", href: "/services" },
+            { label: "Master Plan", href: "/services" },
           ]}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <StatisticsShowcase
-          title="By the Numbers"
-          description="A measure of the trust our clients place in us."
+          title="Dalam Angka"
+          description="Ukuran kepercayaan yang diberikan klien kepada kami."
           stats={stats}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.4}>
         <CTADefault
-          title="Your Vision, Our Expertise"
-          description="Share your project aspirations with us and discover what we can create together."
-          primaryCta={{ label: "Arrange a Consultation", href: "/contact" }}
+          title="Visi Anda, Keahlian Kami"
+          description="Bagikan aspirasi proyek Anda dengan kami dan temukan apa yang dapat kami ciptakan bersama."
+          primaryCta={{ label: "Jadwalkan Konsultasi", href: "/contact" }}
         />
       </AnimatedSection>
     </>

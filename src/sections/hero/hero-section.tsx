@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import { TextReveal } from "@/components/animation/TextReveal";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import type { ButtonAction, MediaItem } from "@/sections/types";
 
 interface HeroSectionProps {
@@ -98,17 +99,25 @@ export function HeroSection({
                 align === "right" && "justify-end",
               )}
             >
-              {actions.map((action) => (
-                <Button
-                  key={action.label}
-                  variant={action.variant ?? "primary"}
-                  onClick={action.onClick}
-                  className={action.variant === "primary" ? "bg-gold-500 text-white hover:bg-gold-600" : "border-gold-500/40 text-gold-300 hover:bg-gold-500/10"}
-                >
-                  {action.icon}
-                  {action.label}
-                </Button>
-              ))}
+              {actions.map((action) => {
+  const button = (
+    <Button
+      key={action.label}
+      variant={action.variant ?? "primary"}
+      onClick={action.href ? undefined : action.onClick}
+      className={action.variant === "primary" ? "bg-gold-500 text-white hover:bg-gold-600" : "border-gold-500/40 text-gold-300 hover:bg-gold-500/10"}
+    >
+      {action.icon}
+      {action.label}
+    </Button>
+  );
+
+  if (action.href && !action.onClick) {
+    return <Link key={action.label} href={action.href}>{button}</Link>;
+  }
+
+  return button;
+})}
             </div>
           </Fade>
         )}

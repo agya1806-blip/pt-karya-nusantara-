@@ -3,56 +3,56 @@ import { createMetadata } from "@/seo";
 import type { ProcessStep, TimelineEvent } from "@/sections";
 
 export const metadata = createMetadata({
-  title: "Our Process",
-  description: "Discover how PT Karya Nusantara Realty transforms visions into architectural masterpieces through our proven design and construction process.",
+  title: "Proses Kami",
+  description: "Temukan bagaimana PT Karya Nusantara Realty mengubah visi menjadi mahakarya arsitektur melalui proses desain dan konstruksi yang teruji.",
 });
 
 const steps: ProcessStep[] = [
-  { title: "Discovery & Briefing", description: "We conduct in-depth discussions to understand your vision, requirements, budget, and timeline." },
-  { title: "Site Analysis", description: "Our team performs thorough site evaluation, including topography, climate, orientation, and regulations." },
-  { title: "Concept Design", description: "We develop initial design concepts, sketches, and mood boards for your review and feedback." },
-  { title: "Design Development", description: "The chosen concept is refined with detailed drawings, material selections, and cost estimates." },
-  { title: "Construction Documentation", description: "Comprehensive technical drawings and specifications are prepared for permitting and contractor bidding." },
-  { title: "Construction Administration", description: "We oversee construction, conduct site visits, and ensure the design vision is faithfully executed." },
+  { title: "Penemuan & Briefing", description: "Kami melakukan diskusi mendalam untuk memahami visi, kebutuhan, anggaran, dan jadwal Anda." },
+  { title: "Analisis Lahan", description: "Tim kami melakukan evaluasi lahan menyeluruh, termasuk topografi, iklim, orientasi, dan peraturan." },
+  { title: "Desain Konsep", description: "Kami mengembangkan konsep desain awal, sketsa, dan mood board untuk review dan masukan Anda." },
+  { title: "Pengembangan Desain", description: "Konsep yang dipilih disempurnakan dengan gambar detail, pemilihan material, dan perkiraan biaya." },
+  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan dan tender kontraktor." },
+  { title: "Administrasi Konstruksi", description: "Kami mengawasi konstruksi, melakukan kunjungan lapangan, dan memastikan visi desain dijalankan dengan setia." },
 ];
 
 const timelineEvents: TimelineEvent[] = [
-  { year: "Month 1-2", title: "Discovery Phase", description: "Initial consultations, site visits, and project brief development." },
-  { year: "Month 3-4", title: "Concept Design", description: "Schematic designs, mood boards, and preliminary budget." },
-  { year: "Month 5-8", title: "Design Development", description: "Detailed drawings, material selection, and final budget." },
-  { year: "Month 9-12", title: "Documentation & Permitting", description: "Construction documents and building permit applications." },
-  { year: "Month 13+", title: "Construction", description: "Construction administration and project completion." },
+  { year: "Bulan 1-2", title: "Fase Penemuan", description: "Konsultasi awal, kunjungan lahan, dan pengembangan brief proyek." },
+  { year: "Bulan 3-4", title: "Desain Konsep", description: "Desain skematis, mood board, dan anggaran pendahuluan." },
+  { year: "Bulan 5-8", title: "Pengembangan Desain", description: "Gambar detail, pemilihan material, dan anggaran akhir." },
+  { year: "Bulan 9-12", title: "Dokumentasi & Perizinan", description: "Dokumen konstruksi dan aplikasi izin bangunan." },
+  { year: "Bulan 13+", title: "Konstruksi", description: "Administrasi konstruksi dan penyelesaian proyek." },
 ];
 
 export default function ProcessPage() {
   return (
     <>
       <ProcessSteps
-        title="How We Work"
-        description="Our proven process ensures every project is delivered with the highest standards of quality and attention to detail."
+        title="Cara Kami Bekerja"
+        description="Proses teruji kami memastikan setiap proyek diantarkan dengan standar kualitas dan perhatian terhadap detail tertinggi."
         steps={steps}
       />
       <Timeline
-        title="Project Timeline"
+        title="Jadwal Proyek"
         events={timelineEvents}
       />
       <ConsultationProcess
-        title="Consultation Process"
-        description="Our consultation process ensures every detail is captured before we begin the design journey."
+        title="Proses Konsultasi"
+        description="Proses konsultasi kami memastikan setiap detail tertangkap sebelum kami memulai perjalanan desain."
         steps={[
-          { step: 1, title: "Initial Inquiry", description: "Reach out via our contact form or phone to express your interest." },
-          { step: 2, title: "Discovery Call", description: "A 30-minute call to understand your project scope, vision, and budget." },
-          { step: 3, title: "Site Visit", description: "Our team visits your site to assess conditions and gather measurements." },
-          { step: 4, title: "Proposal", description: "We provide a tailored proposal with scope, timeline, and fee structure." },
+          { step: 1, title: "Permintaan Awal", description: "Hubungi kami melalui formulir kontak atau telepon untuk menyatakan minat Anda." },
+          { step: 2, title: "Panggilan Penemuan", description: "Panggilan 30 menit untuk memahami lingkup proyek, visi, dan anggaran Anda." },
+          { step: 3, title: "Kunjungan Lahan", description: "Tim kami mengunjungi lahan Anda untuk menilai kondisi dan mengumpulkan pengukuran." },
+          { step: 4, title: "Proposal", description: "Kami memberikan proposal yang disesuaikan dengan lingkup, jadwal, dan struktur biaya." },
         ]}
       />
       <ConstructionFlow
-        title="Construction Flow"
-        description="Our phased approach to construction ensures quality at every stage."
+        title="Alur Konstruksi"
+        description="Pendekatan bertahap kami terhadap konstruksi memastikan kualitas di setiap tahap."
       />
       <ProjectLifecycle
-        title="Project Lifecycle"
-        description="From inception to completion, we guide your project through every phase."
+        title="Siklus Hidup Proyek"
+        description="Dari awal hingga penyelesaian, kami memandu proyek Anda melalui setiap fase."
       />
     </>
   );

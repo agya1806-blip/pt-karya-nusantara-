@@ -15,8 +15,8 @@ export const siteConfig: SiteConfig = {
     mapsUrl: "https://maps.google.com/maps?q=5.561523,95.338814&z=15&output=embed",
   },
   social: [
-    { platform: "instagram", url: env.socialInstagram, label: "Follow us on Instagram" },
-    { platform: "linkedin", url: env.socialLinkedin, label: "Connect on LinkedIn" },
+    { platform: "instagram", url: env.socialInstagram, label: "Ikuti kami di Instagram" },
+    { platform: "linkedin", url: env.socialLinkedin, label: "Terhubung di LinkedIn" },
   ],
   navigation: [
     { label: "Beranda", href: "/" },
@@ -29,21 +29,21 @@ export const siteConfig: SiteConfig = {
     {
       title: "Navigasi",
       links: [
-        { label: "Portfolio", href: "/portfolio" },
+        { label: "Portofolio", href: "/portfolio" },
         { label: "Layanan", href: "/services" },
         { label: "Tentang", href: "/about" },
         { label: "Kontak", href: "/contact" },
         { label: "Kalkulator", href: "/calculator" },
-        { label: "Project Finder", href: "/project-finder" },
+        { label: "Pencari Proyek", href: "/project-finder" },
       ],
     },
     {
       title: "Layanan",
       links: [
-        { label: "Residential", href: "/services" },
-        { label: "Commercial", href: "/services" },
-        { label: "Hospitality", href: "/services" },
-        { label: "Master Planning", href: "/services" },
+        { label: "Residensial", href: "/services" },
+        { label: "Komersial", href: "/services" },
+        { label: "Hospitaliti", href: "/services" },
+        { label: "Master Plan", href: "/services" },
       ],
     },
     {
@@ -67,9 +67,9 @@ export const siteConfig: SiteConfig = {
   director: "TEUKU FARIZ WAZDI",
   coordinates: { lat: 5.561523, lng: 95.338814 },
   businessFields: [
-    { name: "1969 Architect", description: "Design & Planning" },
-    { name: "1969 Interior", description: "Interior Design & Custom Furniture" },
-    { name: "Akaruma Contractor", description: "Build & Supervision" },
-    { name: "Casara Estate", description: "Property Consultant & Media Property" },
+    { name: "1969 Architect", description: "Desain & Perencanaan" },
+    { name: "1969 Interior", description: "Desain Interior & Furnitur Kustom" },
+    { name: "Akaruma Contractor", description: "Bangun & Supervisi" },
+    { name: "Casara Estate", description: "Konsultan Properti & Media Properti" },
   ],
 };

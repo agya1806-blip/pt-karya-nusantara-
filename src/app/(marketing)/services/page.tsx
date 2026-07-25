@@ -5,25 +5,25 @@ import { siteConfig } from "@/config";
 import type { ServiceItem, ProcessStep } from "@/sections";
 
 export const metadata = createMetadata({
-  title: "Services",
-  description: "A full spectrum of architecture and design services — from private residences to large-scale master planning — delivered with uncompromising quality.",
+  title: "Layanan",
+  description: "Spektrum lengkap layanan arsitektur dan desain — dari hunian pribadi hingga master plan skala besar — diantarkan dengan kualitas tanpa kompromi.",
 });
 
 const services: ServiceItem[] = [
-  { title: "Residential Architecture", description: "Bespoke homes, villas, and private residences — each conceived as a unique expression of its owner and site.", features: ["Custom Home Design", "Renovation & Expansion", "Interior Architecture", "Landscape Integration"], image: { src: "/images/services/residential.jpg", alt: "Luxury residential architecture" }, href: "/contact" },
-  { title: "Commercial Architecture", description: "Office towers, retail environments, and mixed-use developments designed to elevate brand identity and user experience.", features: ["Office Buildings", "Retail & Hospitality", "Mixed-Use Developments", "Workplace Strategy"], image: { src: "/images/services/commercial.jpg", alt: "Commercial architecture" }, href: "/contact" },
-  { title: "Hospitality Design", description: "Resorts, hotels, and restaurants where architecture becomes an essential part of the guest experience.", features: ["Resort Design", "Hotel Architecture", "Restaurant & Bar", "Spa & Wellness"], image: { src: "/images/services/hospitality.jpg", alt: "Hospitality design" }, href: "/contact" },
-  { title: "Master Planning", description: "Strategic site planning and urban design for large-scale developments and new communities.", features: ["Site Analysis", "Urban Design", "Infrastructure Planning", "Sustainability Strategy"], image: { src: "/images/services/master-planning.jpg", alt: "Master planning" }, href: "/contact" },
-  { title: "Interior Design", description: "Refined interiors where material, proportion, and light come together to create spaces of character.", features: ["Spatial Planning", "Material Selection", "Custom Furniture", "Lighting Design"], image: { src: "/images/services/interior.jpg", alt: "Interior design" }, href: "/contact" },
-  { title: "Sustainable Design", description: "Architecture that treads lightly — low-carbon materials, passive strategies, and a commitment to longevity.", features: ["Passive Design", "Energy Modeling", "Material Sourcing", "Green Certification"], image: { src: "/images/services/sustainable.jpg", alt: "Sustainable architecture" }, href: "/contact" },
+  { title: "Arsitektur Residensial", description: "Rumah, vila, dan hunian pribadi — masing-masing dihadirkan sebagai ekspresi unik dari pemilik dan lahannya.", features: ["Desain Rumah Kustom", "Renovasi & Perluasan", "Arsitektur Interior", "Integrasi Lansekap"], image: { src: "/images/services/residential.jpg", alt: "Arsitektur residensial mewah" }, href: "/contact" },
+  { title: "Arsitektur Komersial", description: "Gedung perkantoran, lingkungan ritel, dan pengembangan mixed-use yang dirancang untuk meningkatkan identitas merek dan pengalaman pengguna.", features: ["Gedung Perkantoran", "Ritel & Hospitality", "Pengembangan Mixed-Use", "Strategi Tempat Kerja"], image: { src: "/images/services/commercial.jpg", alt: "Arsitektur komersial" }, href: "/contact" },
+  { title: "Desain Hospitality", description: "Resor, hotel, dan restoran di mana arsitektur menjadi bagian penting dari pengalaman tamu.", features: ["Desain Resor", "Arsitektur Hotel", "Restoran & Bar", "Spa & Kebugaran"], image: { src: "/images/services/hospitality.jpg", alt: "Desain hospitality" }, href: "/contact" },
+  { title: "Master Plan", description: "Perencanaan tapak strategis dan desain urban untuk pengembangan skala besar dan komunitas baru.", features: ["Analisis Tapak", "Desain Urban", "Perencanaan Infrastruktur", "Strategi Keberlanjutan"], image: { src: "/images/services/master-planning.jpg", alt: "Master plan" }, href: "/contact" },
+  { title: "Desain Interior", description: "Interior yang refined di mana material, proporsi, dan cahaya bersatu menciptakan ruang berkarakter.", features: ["Perencanaan Spasial", "Pemilihan Material", "Furnitur Kustom", "Desain Pencahayaan"], image: { src: "/images/services/interior.jpg", alt: "Desain interior" }, href: "/contact" },
+  { title: "Desain Berkelanjutan", description: "Arsitektur yang ramah lingkungan — material rendah karbon, strategi pasif, dan komitmen terhadap umur panjang.", features: ["Desain Pasif", "Pemodelan Energi", "Pengadaan Material", "Sertifikasi Hijau"], image: { src: "/images/services/sustainable.jpg", alt: "Arsitektur berkelanjutan" }, href: "/contact" },
 ];
 
 const workflowSteps: ProcessStep[] = [
-  { title: "Discovery", description: "Understanding your vision, aspirations, and the unique character of your site through a rigorous consultation." },
-  { title: "Concept Design", description: "Translating ideas into spatial narratives through sketches, mood boards, and study models for your consideration." },
-  { title: "Design Development", description: "Refining every detail — materials, proportions, systems, and budget — with precision and clarity." },
-  { title: "Construction Documents", description: "Comprehensive technical drawings and specifications prepared for permitting, tendering, and construction." },
-  { title: "Construction Administration", description: "Rigorous design oversight throughout construction to ensure every element is realised as intended." },
+  { title: "Penemuan", description: "Memahami visi, aspirasi, dan karakter unik lahan Anda melalui konsultasi yang mendalam." },
+  { title: "Desain Konsep", description: "Menerjemahkan ide menjadi narasi spasial melalui sketsa, mood board, dan model studi untuk pertimbangan Anda." },
+  { title: "Pengembangan Desain", description: "Menyempurnakan setiap detail — material, proporsi, sistem, dan anggaran — dengan presisi dan kejelasan." },
+  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan, tender, dan konstruksi." },
+  { title: "Administrasi Konstruksi", description: "Pengawasan desain yang ketat selama konstruksi untuk memastikan setiap elemen terwujud sesuai rencana." },
 ];
 
 export default function ServicesPage() {
@@ -43,27 +43,27 @@ export default function ServicesPage() {
       ))}
       <AnimatedSection>
         <ServiceOverview
-          title="Our Services"
-          description="From concept to completion, each commission receives the full attention of our studio — a depth of care that distinguishes our work."
+          title="Layanan Kami"
+          description="Dari konsep hingga penyelesaian, setiap komisi mendapat perhatian penuh dari studio kami — kedalaman perhatian yang membedakan karya kami."
         />
       </AnimatedSection>
       <AnimatedSection delay={0.1}>
-        <ServicesGrid title="Our Services" description="A full spectrum of architectural and design capabilities, delivered with a consistent standard of excellence." services={services} />
+        <ServicesGrid title="Layanan Kami" description="Spektrum lengkap kemampuan arsitektur dan desain, diantarkan dengan standar keunggulan yang konsisten." services={services} />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
-        <ProcessSteps title="How We Work" steps={workflowSteps} />
+        <ProcessSteps title="Cara Kami Bekerja" steps={workflowSteps} />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <ConsultationCTA
-          title="Arrange a Consultation"
-          description="Speak with our team about your project in a complimentary consultation tailored to your needs."
+          title="Jadwalkan Konsultasi"
+          description="Bicaralah dengan tim kami tentang proyek Anda dalam konsultasi gratis yang disesuaikan dengan kebutuhan Anda."
         />
       </AnimatedSection>
       <AnimatedSection delay={0.4}>
         <CTADefault
-          title="Not Certain Where to Begin?"
-          description="Describe your project to us and we will recommend the most suitable approach during a complimentary consultation."
-          primaryCta={{ label: "Arrange a Consultation", href: "/contact" }}
+          title="Tidak Yakin Harus Mulai dari Mana?"
+          description="Jelaskan proyek Anda kepada kami dan kami akan merekomendasikan pendekatan yang paling sesuai selama konsultasi gratis."
+          primaryCta={{ label: "Jadwalkan Konsultasi", href: "/contact" }}
         />
       </AnimatedSection>
     </>

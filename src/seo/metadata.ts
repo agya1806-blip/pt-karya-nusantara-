@@ -5,20 +5,20 @@ import { env } from "@/config/env";
 
 export function createMetadata(override?: Partial<Metadata>): Metadata {
   const keywords = [
-    "architecture firm Aceh",
-    "luxury architecture Indonesia",
-    "architectural design services",
-    "architect Banda Aceh",
-    "interior design Indonesia",
-    "property consultant Aceh",
-    "master planning Indonesia",
-    "residential architect",
-    "commercial architecture",
-    "hospitality design",
-    "luxury villa design",
-    "construction management",
-    "precast concrete architecture",
-    "bespoke architecture Indonesia",
+    "firma arsitektur Aceh",
+    "arsitektur mewah Indonesia",
+    "jasa desain arsitektur",
+    "arsitek Banda Aceh",
+    "desain interior Indonesia",
+    "konsultan properti Aceh",
+    "master plan Indonesia",
+    "arsitek residensial",
+    "arsitektur komersial",
+    "desain hospitaliti",
+    "desain vila mewah",
+    "manajemen konstruksi",
+    "arsitektur beton pracetak",
+    "arsitektur bespoke Indonesia",
   ];
 
   const metadata: Metadata = {

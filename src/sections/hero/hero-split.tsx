@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import { ImageReveal } from "@/components/animation/ImageReveal";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
 import type { ButtonAction, MediaItem } from "@/sections/types";
 
 interface HeroSplitProps {
@@ -61,12 +62,20 @@ export function HeroSplit({
           {actions && actions.length > 0 && (
             <Fade direction="up" delay={0.4}>
               <div className="mt-10 flex flex-wrap gap-5">
-                {actions.map((action) => (
-                  <Button key={action.label} variant={action.variant ?? "primary"}>
-                    {action.icon}
-                    {action.label}
-                  </Button>
-                ))}
+                {actions.map((action) => {
+  const button = (
+    <Button key={action.label} variant={action.variant ?? "primary"}>
+      {action.icon}
+      {action.label}
+    </Button>
+  );
+
+  if (action.href && !action.onClick) {
+    return <Link key={action.label} href={action.href}>{button}</Link>;
+  }
+
+  return button;
+})}
               </div>
             </Fade>
           )}

@@ -5,14 +5,14 @@ import { createMetadata } from "@/seo";
 import type { ContactInfo } from "@/sections";
 
 export const metadata = createMetadata({
-  title: "Contact Us",
-  description: "Get in touch with PT Karya Nusantara Realty. Visit our Jakarta studio or reach out via phone, email, or our contact form.",
+  title: "Hubungi Kami",
+  description: "Hubungi PT Karya Nusantara Realty. Kunjungi studio kami di Banda Aceh atau hubungi melalui telepon, email, atau formulir kontak.",
 });
 
 const contactDetails: ContactInfo = {
-  phone: "+62 21 1234 5678",
-  email: "hello@karya-nusantara.com",
-  address: "Jl. Sudirman Kav. 52-53, Jakarta Selatan, 12190",
+  phone: "+62 813 6054 6845",
+  email: "karyanusantararealty@gmail.com",
+  address: "Lorong Sawah I, Lambhuk, Kec. Ulee Kareng, Kota Banda Aceh, Aceh 23188",
   social: [
     { platform: "Instagram", url: "https://instagram.com/karya-nusantara" },
   ],
@@ -22,20 +22,20 @@ export default function ContactPage() {
   return (
     <>
       <ContactInfoSection
-        title="Get in Touch"
-        description="We would love to hear about your project. Reach out to our team and let's start a conversation."
+        title="Hubungi Kami"
+        description="Kami ingin mendengar tentang proyek Anda. Hubungi tim kami dan mari mulai percakapan."
         contact={contactDetails}
       />
       <ContactBookingSection />
       <ContactDownloadSection />
       <MapSection
-        address="Jl. Sudirman Kav. 52-53, Jakarta Selatan, 12190"
-        mapsUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.4!2d106.8!3d-6.2!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTInMDAuMCJTIDEwNsKwNDgnMDAuMCJF!5e0!3m2!1sen!2sid!4v1"
+        address="Lorong Sawah I, Lambhuk, Kec. Ulee Kareng, Kota Banda Aceh, Aceh 23188"
+        mapsUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3971.9!2d95.3388!3d5.5615!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMzMnNDEuNSJTIDk1wrAyMCcxOS43IkU!5e0!3m2!1sid!2sid!4v1"
       />
       <CTADefault
-        title="Book a Consultation"
-        description="Schedule a one-on-one consultation with our principal architect to discuss your project in detail."
-        primaryCta={{ label: "Book Now", href: "#consultation-booking" }}
+        title="Jadwalkan Konsultasi"
+        description="Jadwalkan konsultasi tatap muka dengan arsitek utama kami untuk membahas proyek Anda secara detail."
+        primaryCta={{ label: "Jadwalkan Sekarang", href: "#consultation-booking" }}
       />
     </>
   );

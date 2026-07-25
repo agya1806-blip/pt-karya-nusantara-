@@ -4,46 +4,46 @@ import { createMetadata } from "@/seo";
 import type { TimelineEvent, TeamMember, AwardItem, StatItem } from "@/sections";
 
 export const metadata = createMetadata({
-  title: "About Us",
-  description: "Discover the story, vision, and people behind PT Karya Nusantara Realty — an architecture and design practice based in Aceh, Indonesia.",
+  title: "Tentang Kami",
+  description: "Kenali kisah, visi, dan tim di balik PT Karya Nusantara Realty — praktik arsitektur dan desain yang berbasis di Aceh, Indonesia.",
 });
 
 const stats: StatItem[] = [
-  { value: "200", label: "Projects Delivered", suffix: "+" },
-  { value: "50", label: "Design Awards Received", suffix: "+" },
-  { value: "15", label: "Years in Practice" },
-  { value: "8", label: "Countries Reached" },
+  { value: "200", label: "Proyek Terselesaikan", suffix: "+" },
+  { value: "50", label: "Penghargaan Desain", suffix: "+" },
+  { value: "15", label: "Tahun Berpraktek" },
+  { value: "8", label: "Negara Terjangkau" },
 ];
 
 const timelineEvents: TimelineEvent[] = [
-  { year: "2010", title: "Founded", description: "PT Karya Nusantara Realty is established in Banda Aceh, driven by a conviction that Indonesia deserves architecture of the highest order." },
-  { year: "2013", title: "First International Project", description: "A residential commission in Singapore marks our first cross-border engagement, setting the standard for future overseas work." },
-  { year: "2016", title: "Studio Expansion", description: "The practice grows to accommodate a multidisciplinary team, reflecting the increasing complexity and scale of our projects." },
-  { year: "2019", title: "Award-Winning Year", description: "Multiple international awards recognise the rigour and refinement of our residential and commercial portfolio." },
-  { year: "2022", title: "Global Recognition", description: "Named among Southeast Asia's foremost architecture practices by international design media." },
-  { year: "2025", title: "Sustainable Future", description: "A dedicated sustainability division is formed, formalising our commitment to net-zero design." },
+  { year: "2010", title: "Berdiri", description: "PT Karya Nusantara Realty didirikan di Banda Aceh, didorong oleh keyakinan bahwa Indonesia layak mendapatkan arsitektur kelas tertinggi." },
+  { year: "2013", title: "Proyek Internasional Pertama", description: "Komisi residensial di Singapura menandai keterlibatan lintas batas pertama kami, menetapkan standar untuk karya luar negeri di masa depan." },
+  { year: "2016", title: "Ekspansi Studio", description: "Praktik berkembang untuk menampung tim multidisiplin, mencerminkan kompleksitas dan skala proyek yang semakin meningkat." },
+  { year: "2019", title: "Tahun Penghargaan", description: "Beberapa penghargaan internasional mengakui ketelitian dan kehalusan portofolio residensial dan komersial kami." },
+  { year: "2022", title: "Pengakuan Global", description: "Dinobatkan sebagai salah satu praktik arsitektur terkemuka di Asia Tenggara oleh media desain internasional." },
+  { year: "2025", title: "Masa Depan Berkelanjutan", description: "Divisi keberlanjutan khusus dibentuk, meresmikan komitmen kami terhadap desain net-zero." },
 ];
 
 const founders: TeamMember[] = [
-  { name: "Ardi Wicaksono", role: "Founder & Principal Architect", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Over two decades shaping luxury residential and commercial environments across Indonesia and Southeast Asia." },
-  { name: "Sari Dewi", role: "Co-Founder & Design Director", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "An award-winning designer recognised for weaving Indonesian craft traditions into contemporary architectural language." },
+  { name: "Ardi Wicaksono", role: "Pendiri & Arsitek Utama", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Lebih dari dua dekade membentuk lingkungan residensial dan komersial mewah di Indonesia dan Asia Tenggara." },
+  { name: "Sari Dewi", role: "Rekan Pendiri & Direktur Desain", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Desainer pemenang penghargaan yang dikenal karena menjalin tradisi kerajinan Indonesia ke dalam bahasa arsitektur kontemporer." },
 ];
 
 const teamMembers: TeamMember[] = [
-  { name: "Ardi Wicaksono", role: "Founder & Principal Architect", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Over two decades of experience shaping luxury residential and commercial environments across Southeast Asia." },
-  { name: "Sari Dewi", role: "Co-Founder & Design Director", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Award-winning designer with a distinctive approach to contemporary luxury residential and hospitality projects." },
-  { name: "Budi Santoso", role: "Managing Partner", image: { src: "/images/team/budi.jpg", alt: "Budi Santoso" }, bio: "Leads firm strategy, client partnerships, and practice operations with a focus on sustainable growth." },
-  { name: "Rina Wijaya", role: "Creative Director", image: { src: "/images/team/rina.jpg", alt: "Rina Wijaya" }, bio: "Guides the studio's creative direction, ensuring coherence of vision across all projects." },
-  { name: "Dimas Prayogo", role: "Senior Architect", image: { src: "/images/team/dimas.jpg", alt: "Dimas Prayogo" }, bio: "Leads residential and mixed-use projects from concept through construction." },
-  { name: "Maya Putri", role: "Senior Architect", image: { src: "/images/team/maya.jpg", alt: "Maya Putri" }, bio: "Specialist in sustainable design, green building certification, and low-carbon materiality." },
-  { name: "Alex Hartono", role: "Project Architect", image: { src: "/images/team/alex.jpg", alt: "Alex Hartono" }, bio: "Focuses on hospitality and commercial projects with an emphasis on experiential design." },
-  { name: "Lisa Tanudjaja", role: "Interior Designer", image: { src: "/images/team/lisa.jpg", alt: "Lisa Tanudjaja" }, bio: "Award-winning interior designer known for crafting refined, inhabitable spaces of character." },
+  { name: "Ardi Wicaksono", role: "Pendiri & Arsitek Utama", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Lebih dari dua dekade membentuk lingkungan residensial dan komersial mewah di Asia Tenggara." },
+  { name: "Sari Dewi", role: "Rekan Pendiri & Direktur Desain", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Desainer pemenang penghargaan dengan pendekatan khas pada proyek residensial dan hospitality mewah kontemporer." },
+  { name: "Budi Santoso", role: "Mitra Pengelola", image: { src: "/images/team/budi.jpg", alt: "Budi Santoso" }, bio: "Memimpin strategi firma, kemitraan klien, dan operasional praktik dengan fokus pada pertumbuhan berkelanjutan." },
+  { name: "Rina Wijaya", role: "Direktur Kreatif", image: { src: "/images/team/rina.jpg", alt: "Rina Wijaya" }, bio: "Memandu arahan kreatif studio, memastikan koherensi visi di seluruh proyek." },
+  { name: "Dimas Prayogo", role: "Arsitek Senior", image: { src: "/images/team/dimas.jpg", alt: "Dimas Prayogo" }, bio: "Memimpin proyek residensial dan mixed-use dari konsep hingga konstruksi." },
+  { name: "Maya Putri", role: "Arsitek Senior", image: { src: "/images/team/maya.jpg", alt: "Maya Putri" }, bio: "Spesialis desain berkelanjutan, sertifikasi bangunan hijau, dan material rendah karbon." },
+  { name: "Alex Hartono", role: "Arsitek Proyek", image: { src: "/images/team/alex.jpg", alt: "Alex Hartono" }, bio: "Berfokus pada proyek hospitality dan komersial dengan penekanan pada desain eksperiensial." },
+  { name: "Lisa Tanudjaja", role: "Desainer Interior", image: { src: "/images/team/lisa.jpg", alt: "Lisa Tanudjaja" }, bio: "Desainer interior pemenang penghargaan yang dikenal menciptakan ruang hunian yang refined dan berkarakter." },
 ];
 
 const awards: AwardItem[] = [
-  { title: "Best Residential Architecture", year: "2023", description: "Asia Pacific Architecture Awards", organization: "APA" },
-  { title: "Green Building Design Excellence", year: "2024", description: "International Sustainable Design Awards", organization: "ISDA" },
-  { title: "Firm of the Year", year: "2025", description: "Indonesia Architecture Excellence Awards", organization: "IAI" },
+  { title: "Arsitektur Residensial Terbaik", year: "2023", description: "Asia Pacific Architecture Awards", organization: "APA" },
+  { title: "Keunggulan Desain Bangunan Hijau", year: "2024", description: "International Sustainable Design Awards", organization: "ISDA" },
+  { title: "Firma Tahun Ini", year: "2025", description: "Indonesia Architecture Excellence Awards", organization: "IAI" },
 ];
 
 export default function AboutPage() {
@@ -51,35 +51,35 @@ export default function AboutPage() {
     <>
       <AnimatedSection>
         <CompanyOverview
-          title="About PT Karya Nusantara Realty"
+          title="Tentang PT Karya Nusantara Realty"
           description={[
-            "We are an architecture and design practice based in Aceh, serving clients across Indonesia and Southeast Asia. Since 2010, we have delivered over 200 projects — each defined by a commitment to craft, context, and enduring quality.",
+            "Kami adalah praktik arsitektur dan desain yang berbasis di Aceh, melayani klien di Indonesia dan Asia Tenggara. Sejak 2010, kami telah menyelesaikan lebih dari 200 proyek — masing-masing ditentukan oleh komitmen terhadap keahlian, konteks, dan kualitas abadi.",
           ]}
-          image={{ src: "/images/about/overview.jpg", alt: "PT Karya Nusantara Realty studio" }}
+          image={{ src: "/images/about/overview.jpg", alt: "Studio PT Karya Nusantara Realty" }}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.1}>
         <StatisticsShowcase
-          title="By the Numbers"
-          description="A measure of the trust our clients place in us."
+          title="Dalam Angka"
+          description="Ukuran kepercayaan yang diberikan klien kepada kami."
           stats={stats}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
         <VisionMission
-          title="Our Vision & Mission"
-          vision={{ title: "Our Vision", description: "To be the defining architecture practice in Indonesia — a studio where design rigour, cultural sensitivity, and environmental stewardship converge." }}
-          mission={{ title: "Our Mission", description: "To create spaces that elevate the human experience — environments of beauty, purpose, and lasting value." }}
+          title="Visi & Misi Kami"
+          vision={{ title: "Visi Kami", description: "Menjadi praktik arsitektur terdepan di Indonesia — studio di mana ketelitian desain, kepekaan budaya, dan kepedulian lingkungan bersatu." }}
+          mission={{ title: "Misi Kami", description: "Menciptakan ruang yang mengangkat pengalaman manusia — lingkungan yang indah, penuh tujuan, dan bernilai abadi." }}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <Values
-          title="Our Values"
+          title="Nilai-Nilai Kami"
           values={[
-            { title: "Design Excellence", description: "An uncompromising commitment to craft, proportion, and the integrity of every detail." },
-            { title: "Sustainable Practice", description: "Responsible stewardship of materials and energy — designing for longevity, not trends." },
-            { title: "Client Partnership", description: "Close, collaborative relationships built on listening deeply and delivering with precision." },
-            { title: "Cultural Heritage", description: "A reverence for Indonesian craftsmanship and the wisdom of vernacular building traditions." },
+            { title: "Keunggulan Desain", description: "Komitmen tanpa kompromi terhadap keahlian, proporsi, dan integritas setiap detail." },
+            { title: "Praktik Berkelanjutan", description: "Pengelolaan material dan energi yang bertanggung jawab — mendesain untuk umur panjang, bukan tren." },
+            { title: "Kemitraan Klien", description: "Hubungan kolaboratif yang dibangun di atas mendengarkan dengan saksama dan memberikan dengan presisi." },
+            { title: "Warisan Budaya", description: "Penghormatan terhadap kerajinan Indonesia dan kearifan tradisi bangunan vernakular." },
           ]}
         />
       </AnimatedSection>
@@ -87,25 +87,25 @@ export default function AboutPage() {
         <FounderStory founders={founders} />
       </AnimatedSection>
       <AnimatedSection delay={0.5}>
-        <Timeline title="Our History" events={timelineEvents} />
+        <Timeline title="Sejarah Kami" events={timelineEvents} />
       </AnimatedSection>
       <AnimatedSection delay={0.6}>
         <TeamGrid
-          title="Meet Our Team"
-          description="The people behind our practice — architects, designers, and strategists united by a shared commitment to craft."
+          title="Tim Kami"
+          description="Orang-orang di balik praktik kami — arsitek, desainer, dan ahli strategi yang dipersatukan oleh komitmen bersama terhadap keahlian."
           members={teamMembers}
           columns={4}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.7}>
-        <Awards title="Awards & Recognition" awards={awards} />
+        <Awards title="Penghargaan & Pengakuan" awards={awards} />
       </AnimatedSection>
       <AnimatedSection delay={0.8}>
         <CTADefault
-          title="Let Us Realise Your Vision"
-          description="Share your project aspirations with us. Every great design begins with a conversation."
-          primaryCta={{ label: "Arrange a Consultation", href: "/contact" }}
-          secondaryCta={{ label: "View Our Portfolio", href: "/portfolio" }}
+          title="Wujudkan Visi Anda"
+          description="Bagikan aspirasi proyek Anda dengan kami. Setiap desain hebat dimulai dengan percakapan."
+          primaryCta={{ label: "Hubungi Kami", href: "/contact" }}
+          secondaryCta={{ label: "Lihat Portofolio", href: "/portfolio" }}
         />
       </AnimatedSection>
     </>
