@@ -1,12 +1,20 @@
+import { Breadcrumb } from "@/components";
 import { AnimatedSection } from "@/components/animation";
-import { TeamGrid } from "@/sections";
+import { TeamGrid, StatisticsShowcase, CTADefault } from "@/sections";
 import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
-import type { TeamMember } from "@/sections";
+import type { TeamMember, StatItem } from "@/sections";
 
 export const metadata = createMetadata({
   title: "Tim — Arsitek & Visioner",
   description: "Kenali para arsitek visioner, desainer interior, dan ahli teknik di balik mahakarya Karya Nusantara Realty.",
 });
+
+const stats: StatItem[] = [
+  { value: "200", label: "Proyek Terwujud", suffix: "+" },
+  { value: "50", label: "Penghargaan Bergengsi", suffix: "+" },
+  { value: "14", label: "Arsitek & Desainer" },
+  { value: "8", label: "Negara Jangkauan" },
+];
 
 const allMembers: TeamMember[] = [
   { name: "Ardi Wicaksono", role: "Pendiri & Arsitek Utama", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Lebih dari 25 tahun menorehkan jejak dalam arsitektur premium di Asia Tenggara. Visioner di balik setiap mahakarya studio." },
@@ -36,12 +44,31 @@ export default function TeamPage() {
       <JsonLdScript data={createBreadcrumbSchema([
         { name: "Tim" },
       ])} id="breadcrumb-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <Breadcrumb items={[{ label: "Tim" }]} />
+        </div>
+      </section>
       <AnimatedSection>
         <TeamGrid
           title="Insan Studio"
           description="Kenali para arsitek visioner, desainer, dan ahli di balik mahakarya Karya Nusantara Realty."
           members={allMembers}
           columns={4}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <StatisticsShowcase
+          title="Tolok Ukur"
+          description="Angka-angka yang merekam jejak perjalanan, komitmen, dan kepercayaan yang diamanatkan kepada kami."
+          stats={stats}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <CTADefault
+          title="Berminat Berkolaborasi?"
+          description="Setiap mahakarya bermula dari percakapan. Tim kami siap mendengar visi Anda dan menerjemahkannya menjadi arsitektur yang abadi."
+          primaryCta={{ label: "Mulai Percakapan", href: "/contact" }}
         />
       </AnimatedSection>
     </>

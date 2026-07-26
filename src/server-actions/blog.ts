@@ -10,6 +10,7 @@ import {
   validationError,
   handleServerError,
   requireRole,
+  validatedInput,
 } from "./utils";
 
 export async function getBlogPosts(options?: {
@@ -56,7 +57,7 @@ export async function createBlogPost(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const post = await blogRepository.create(parsed.data as any);
+    const post = await blogRepository.create(validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "create",
@@ -82,7 +83,7 @@ export async function updateBlogPost(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const post = await blogRepository.update(id, parsed.data as any);
+    const post = await blogRepository.update(id, validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "update",

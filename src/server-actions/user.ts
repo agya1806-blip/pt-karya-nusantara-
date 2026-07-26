@@ -7,7 +7,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getUsers(page = 1, limit = 20) {
@@ -40,7 +40,7 @@ export async function createUser(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const user = await userRepository.create(parsed.data as any);
+    const user = await userRepository.create(validatedInput(parsed.data));
     return success(user);
   } catch (error) {
     return handleServerError(error);
@@ -59,7 +59,7 @@ export async function updateUser(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const user = await userRepository.update(id, parsed.data as any);
+    const user = await userRepository.update(id, validatedInput(parsed.data));
     return success(user);
   } catch (error) {
     return handleServerError(error);

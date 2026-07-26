@@ -97,16 +97,16 @@ export function Navbar({
           className,
         )}
       >
-        <div className="container-site flex h-16 items-center justify-between md:h-20">
+        <div className="container-site flex h-20 items-center justify-between">
           <div className="flex-shrink-0">{logo}</div>
 
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="hidden items-center gap-1 md:flex">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative rounded-lg px-4 py-2 text-body-sm font-medium tracking-tight transition-colors duration-300",
+                  "relative rounded-lg px-5 py-2.5 text-caption tracking-widest font-medium uppercase transition-colors duration-300",
                   link.active
                     ? "text-text"
                     : "text-text-secondary hover:text-text",
@@ -131,13 +131,13 @@ export function Navbar({
             <button
               type="button"
               onClick={() => setSearchOpen(true)}
-              className="ml-2 flex items-center gap-2 rounded-lg border border-border-light px-3 py-2 text-body-sm text-text-secondary transition-all duration-300 hover:border-text-muted hover:text-text"
+              className="ml-3 flex items-center gap-2 rounded-lg border border-border-light/60 px-4 py-2.5 text-caption text-text-secondary uppercase tracking-widest transition-all duration-300 hover:border-gold-500/30 hover:text-text"
               aria-label="Open search"
             >
-              <Search size={16} />
-              <span className="hidden lg:inline">Search</span>
+              <Search size={14} />
+              <span className="hidden lg:inline">Cari</span>
               <kbd className="hidden items-center gap-0.5 rounded border border-border-light px-1.5 py-0.5 text-body-xs text-text-tertiary md:flex">
-                <Command size={12} />K
+                <Command size={11} />K
               </kbd>
             </button>
           </div>
@@ -161,14 +161,14 @@ export function Navbar({
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden border-t border-border-light bg-surface/95 backdrop-blur-md md:hidden"
             >
-              <div className="container-site space-y-1 pb-6 pt-4">
+              <div className="container-site space-y-1 pb-8 pt-6">
                 <button
                   type="button"
                   onClick={() => { setSearchOpen(true); setMobileOpen(false); }}
-                  className="flex w-full items-center gap-3 rounded-lg px-4 py-3 text-body-lg font-light tracking-tight text-text-secondary transition-colors duration-300 hover:text-text hover:bg-surface-muted/50"
+                  className="flex w-full items-center gap-3 rounded-lg px-4 py-3.5 text-body-lg font-light tracking-tight text-text-secondary transition-colors duration-300 hover:text-text hover:bg-surface-muted/50"
                 >
                   <Search size={18} />
-                  Search
+                  Cari
                 </button>
                 {navLinks.map((link) => (
                   <Link
@@ -176,7 +176,7 @@ export function Navbar({
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={cn(
-                      "block rounded-lg px-4 py-3 text-body-lg font-light tracking-tight transition-colors duration-300",
+                      "block rounded-lg px-4 py-3.5 text-body-lg font-light tracking-tight transition-colors duration-300",
                       link.active
                         ? "text-text bg-surface-muted"
                         : "text-text-secondary hover:text-text hover:bg-surface-muted/50",

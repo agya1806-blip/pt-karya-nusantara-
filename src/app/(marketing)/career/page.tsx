@@ -1,3 +1,4 @@
+import { Breadcrumb } from "@/components";
 import { CareerHero, Benefits, OpenPositions, CultureValues, RecruitmentProcess, CTADefault } from "@/sections";
 import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
 
@@ -28,6 +29,11 @@ export default function CareerPage() {
       <JsonLdScript data={createBreadcrumbSchema([
         { name: "Karier" },
       ])} id="breadcrumb-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <Breadcrumb items={[{ label: "Karier" }]} />
+        </div>
+      </section>
       <CareerHero
         title="Bangun Karier, Ciptakan Warisan"
         subtitle="Karya Nusantara Realty"

@@ -14,9 +14,9 @@ export function ContactBookingSection() {
           {bookingComplete ? (
             <div className="mx-auto max-w-2xl text-center">
               <div className="rounded-2xl border border-brand-200 bg-brand-50 p-12">
-                <h2 className="text-heading font-light text-text-primary">Thank You</h2>
+                <h2 className="text-heading font-light text-text-primary">Terima Kasih</h2>
                 <p className="mt-4 text-body-lg text-text-secondary">
-                  Your consultation has been booked. We will confirm your appointment via email within 24 hours.
+                  Konsultasi Anda telah dijadwalkan. Kami akan mengirimkan konfirmasi melalui surel dalam 24 jam.
                 </p>
               </div>
             </div>

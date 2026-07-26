@@ -7,7 +7,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getFAQs(options?: { category?: string }) {
@@ -37,7 +37,7 @@ export async function createFAQ(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const faq = await faqRepository.create(parsed.data as any);
+    const faq = await faqRepository.create(validatedInput(parsed.data));
     return success(faq);
   } catch (error) {
     return handleServerError(error);
@@ -53,7 +53,7 @@ export async function updateFAQ(id: string, input: unknown): Promise<ActionResul
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const faq = await faqRepository.update(id, parsed.data as any);
+    const faq = await faqRepository.update(id, validatedInput(parsed.data));
     return success(faq);
   } catch (error) {
     return handleServerError(error);

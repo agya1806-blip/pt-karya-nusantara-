@@ -61,18 +61,18 @@ export function NewsletterCTA({
   };
 
   return (
-    <section className={cn("py-24", variantClasses[variant], className)}>
+    <section className={cn("py-24 lg:py-28", variantClasses[variant], className)}>
       <div className="container-site">
         <Fade direction="up" className="mx-auto max-w-2xl text-center">
-          <h2 className={cn("text-display font-light tracking-tight", headingClasses[variant])}>
+          <h2 className={cn("font-serif text-display font-light tracking-tight", headingClasses[variant])}>
             {title}
           </h2>
           {description && (
-            <p className={cn("mt-4 text-body-lg leading-relaxed", descriptionClasses[variant])}>
+            <p className={cn("mt-6 text-body-lg leading-relaxed", descriptionClasses[variant])}>
               {description}
             </p>
           )}
-          <form onSubmit={handleSubmit} className="mt-8">
+          <form onSubmit={handleSubmit} className="mt-10">
             <div className="mx-auto flex max-w-md items-center gap-3">
               <div className="relative flex-1">
                 <Input

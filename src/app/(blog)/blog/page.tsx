@@ -1,3 +1,4 @@
+import { Breadcrumb } from "@/components";
 import { BlogPosts, BlogCategories, NewsletterCTA, CTADefault } from "@/sections";
 import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
 import type { BlogPost } from "@/sections";
@@ -33,6 +34,11 @@ export default function BlogPage() {
         description: "Artikel dan perspektif tentang arsitektur premium, desain interior, material, dan tren properti dari studio Karya Nusantara Realty.",
         url: "/blog",
       })} id="webpage-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <Breadcrumb items={[{ label: "Blog" }]} />
+        </div>
+      </section>
       <BlogPosts
         title="Esai Pilihan"
         description="Kurasi perspektif dari studio kami tentang arsitektur, desain, dan lingkungan binaan."

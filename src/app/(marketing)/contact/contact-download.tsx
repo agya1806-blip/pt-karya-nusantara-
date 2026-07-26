@@ -9,8 +9,8 @@ export function ContactDownloadSection() {
       <div className="container-site">
         <div className="grid gap-12 lg:grid-cols-2">
           <ContactFormWrapper
-            title="Send Us a Message"
-            description="Fill out the form below and our team will get back to you within 24 hours."
+            title="Kirim Pesan untuk Kami"
+            description="Isi formulir di bawah dan tim kami akan menghubungi Anda dalam 24 jam."
           />
           <div>
             <DownloadProfile

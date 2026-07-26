@@ -26,10 +26,10 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-4 py-1.5 text-caption gap-1.5",
-  md: "px-5 py-2.5 text-body-sm gap-2",
-  lg: "px-6 py-3 text-body-sm gap-2",
-  xl: "px-8 py-3.5 text-body gap-2.5",
+  sm: "px-5 py-2 text-caption gap-1.5 uppercase tracking-widest",
+  md: "px-6 py-2.5 text-caption gap-2 uppercase tracking-widest",
+  lg: "px-8 py-3 text-caption gap-2 uppercase tracking-widest",
+  xl: "px-10 py-3.5 text-body-sm gap-2.5 uppercase tracking-widest",
 };
 
 function getButtonClasses(
@@ -40,7 +40,7 @@ function getButtonClasses(
   className?: string,
 ) {
   return cn(
-    "inline-flex items-center justify-center rounded-lg font-medium tracking-tight transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
+    "inline-flex items-center justify-center font-medium transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface",
     variantStyles[variant],
     sizeStyles[size],
     (disabled || loading) && "opacity-50 pointer-events-none cursor-not-allowed",

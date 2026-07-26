@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { Breadcrumb } from "@/components";
 import { AnimatedSection } from "@/components/animation";
 import { FeaturedProjects, ProjectCategories, StatisticsShowcase, CTADefault, SectionHeader } from "@/sections";
 import { FilterBar } from "@/filters";
@@ -107,6 +108,7 @@ export default function PortfolioPage() {
       }} id="breadcrumb-schema" />
       <div className="bg-surface pt-32 pb-8">
         <div className="container-site">
+          <Breadcrumb items={[{ label: "Portofolio" }]} className="mb-6" />
           <SectionHeader
             title="Rangkaian Karya"
             description="Sebuah kurasi perjalanan arsitektur yang melampaui batas geografis dan tipologis. Setiap proyek adalah pernyataan desain yang lahir dari dialog mendalam antara konteks, material, dan visi."

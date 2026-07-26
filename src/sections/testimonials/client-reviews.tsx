@@ -18,9 +18,9 @@ interface ClientReviewsProps {
 
 function ReviewCard({ testimonial }: { testimonial: TestimonialItem }) {
   return (
-    <div className="flex h-full flex-col rounded-2xl border border-border-light bg-surface p-8 transition-all duration-300 hover:shadow-elevation-2">
+    <div className="flex h-full flex-col border border-border-light/60 bg-surface p-8 lg:p-10 transition-all duration-300 hover:border-border-default hover:shadow-elevation-2">
       {testimonial.rating && (
-        <div className="mb-4 flex items-center gap-0.5">
+        <div className="mb-5 flex items-center gap-0.5">
           {Array.from({ length: 5 }, (_, i) => (
             <Star
               key={i}
@@ -35,11 +35,11 @@ function ReviewCard({ testimonial }: { testimonial: TestimonialItem }) {
         </div>
       )}
       <blockquote className="flex-1">
-        <p className="text-body-lg text-text-secondary leading-relaxed">
+        <p className="text-body-lg text-text-secondary leading-relaxed italic">
           &ldquo;{testimonial.content}&rdquo;
         </p>
       </blockquote>
-      <div className="mt-6 flex items-center gap-4">
+      <div className="mt-8 flex items-center gap-4">
         {testimonial.avatar && (
           <div className="h-12 w-12 overflow-hidden rounded-full">
             <img
@@ -100,7 +100,7 @@ export function ClientReviews({
                     )
                   }
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-border-light text-text-secondary transition-colors duration-300 hover:bg-surface hover:text-text-primary"
-                  aria-label="Previous testimonial"
+                  aria-label="Testimoni sebelumnya"
                 >
                   <ChevronLeft size={18} />
                 </button>
@@ -116,7 +116,7 @@ export function ClientReviews({
                           ? "w-8 bg-text-primary"
                           : "w-2 bg-border-light hover:bg-text-secondary",
                       )}
-                      aria-label={`Go to testimonial ${i + 1}`}
+                      aria-label={`Ke testimoni ${i + 1}`}
                     />
                   ))}
                 </div>
@@ -128,7 +128,7 @@ export function ClientReviews({
                     )
                   }
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-border-light text-text-secondary transition-colors duration-300 hover:bg-surface hover:text-text-primary"
-                  aria-label="Next testimonial"
+                  aria-label="Testimoni berikutnya"
                 >
                   <ChevronRight size={18} />
                 </button>

@@ -51,13 +51,13 @@ export function HeroWrapper({
       )}
 
       {overlay === "gradient" && (
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/30 to-brand-900/70" />
+        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/80 via-brand-900/50 to-brand-900/90" />
       )}
       {overlay === "solid" && (
-        <div className="absolute inset-0 bg-brand-900/60" />
+        <div className="absolute inset-0 bg-brand-900/70" />
       )}
 
-      <div className="container-site relative z-10 py-20">
+      <div className="container-site relative z-10 py-32">
         {children}
       </div>
     </section>

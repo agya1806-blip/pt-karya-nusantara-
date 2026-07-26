@@ -44,6 +44,9 @@
   --color-surface-tertiary: #f5f2ed;
   --color-surface-dark: #1a1510;
   --color-surface-muted: #f0ece6;
+  --color-surface-warm: #fdfcfa;
+  --color-surface-glass: rgba(255, 255, 255, 0.85);
+  --color-surface-glass-dark: rgba(26, 21, 16, 0.85);
 
   /* ─── Text ─── */
   --color-text: #1a1510;
@@ -90,68 +93,72 @@
 
   --text-display-xl: 5rem;
   --text-display-xl--line-height: 1.0;
-  --text-display-xl--letter-spacing: -0.03em;
-  --text-display-xl--font-weight: 350;
+  --text-display-xl--letter-spacing: -0.02em;
+  --text-display-xl--font-weight: 300;
 
   --text-display-lg: 4rem;
   --text-display-lg--line-height: 1.05;
-  --text-display-lg--letter-spacing: -0.025em;
-  --text-display-lg--font-weight: 350;
+  --text-display-lg--letter-spacing: -0.02em;
+  --text-display-lg--font-weight: 300;
 
   --text-display: 3.25rem;
   --text-display--line-height: 1.1;
-  --text-display--letter-spacing: -0.02em;
-  --text-display--font-weight: 350;
+  --text-display--letter-spacing: -0.015em;
+  --text-display--font-weight: 300;
 
   --text-display-sm: 2.75rem;
   --text-display-sm--line-height: 1.15;
-  --text-display-sm--letter-spacing: -0.015em;
-  --text-display-sm--font-weight: 350;
+  --text-display-sm--letter-spacing: -0.01em;
+  --text-display-sm--font-weight: 300;
 
-  --text-heading-xl: 2.5rem;
-  --text-heading-xl--line-height: 1.2;
+  --text-heading-xl: 2.25rem;
+  --text-heading-xl--line-height: 1.25;
   --text-heading-xl--letter-spacing: -0.01em;
-  --text-heading-xl--font-weight: 400;
+  --text-heading-xl--font-weight: 350;
 
   --text-heading-lg: 2rem;
   --text-heading-lg--line-height: 1.3;
   --text-heading-lg--letter-spacing: -0.01em;
-  --text-heading-lg--font-weight: 400;
+  --text-heading-lg--font-weight: 350;
 
   --text-heading: 1.625rem;
   --text-heading--line-height: 1.35;
   --text-heading--letter-spacing: 0;
-  --text-heading--font-weight: 400;
+  --text-heading--font-weight: 350;
 
-  --text-heading-sm: 1.375rem;
+  --text-heading-sm: 1.25rem;
   --text-heading-sm--line-height: 1.4;
   --text-heading-sm--letter-spacing: 0;
   --text-heading-sm--font-weight: 400;
 
   --text-body-xl: 1.25rem;
-  --text-body-xl--line-height: 1.7;
+  --text-body-xl--line-height: 1.65;
   --text-body-xl--font-weight: 350;
+  --text-body-xl--letter-spacing: 0.01em;
 
   --text-body-lg: 1.125rem;
-  --text-body-lg--line-height: 1.7;
+  --text-body-lg--line-height: 1.65;
   --text-body-lg--font-weight: 400;
+  --text-body-lg--letter-spacing: 0.01em;
 
   --text-body: 1rem;
-  --text-body--line-height: 1.7;
+  --text-body--line-height: 1.65;
   --text-body--font-weight: 400;
+  --text-body--letter-spacing: 0.01em;
 
   --text-body-sm: 0.875rem;
-  --text-body-sm--line-height: 1.6;
+  --text-body-sm--line-height: 1.55;
   --text-body-sm--font-weight: 400;
+  --text-body-sm--letter-spacing: 0.01em;
 
   --text-caption: 0.75rem;
   --text-caption--line-height: 1.5;
   --text-caption--font-weight: 500;
-  --text-caption--letter-spacing: 0.06em;
+  --text-caption--letter-spacing: 0.08em;
 
   --text-overline: 0.6875rem;
   --text-overline--line-height: 1.3;
-  --text-overline--letter-spacing: 0.12em;
+  --text-overline--letter-spacing: 0.15em;
   --text-overline--font-weight: 500;
   --text-overline--text-transform: uppercase;
 
@@ -371,8 +378,8 @@
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
     max-width: var(--container-3xl);
   }
 
@@ -392,8 +399,15 @@
 
   @media (min-width: 1440px) {
     .container-site {
-      padding-left: 4rem;
-      padding-right: 4rem;
+      padding-left: 5rem;
+      padding-right: 5rem;
+    }
+  }
+
+  @media (min-width: 1800px) {
+    .container-site {
+      padding-left: 8rem;
+      padding-right: 8rem;
     }
   }
 

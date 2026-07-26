@@ -20,7 +20,7 @@ function ProjectCard({ image, title, category, location, year, href, className }
         <img
           src={image}
           alt={title}
-          className="h-72 w-full object-cover transition-transform duration-500 ease-architectural group-hover:scale-105"
+          className="h-80 w-full object-cover transition-transform duration-700 ease-luxury group-hover:scale-105"
         />
         {href && (
           <div className="absolute inset-0 flex items-center justify-center bg-brand-900/60 opacity-0 transition-opacity duration-500 ease-architectural group-hover:opacity-100">
@@ -28,10 +28,10 @@ function ProjectCard({ image, title, category, location, year, href, className }
           </div>
         )}
       </div>
-      <div className="p-7">
-        <span className="text-caption tracking-widest text-text-tertiary">{category}</span>
-        <h3 className="text-heading-sm text-text mt-2 leading-snug">{title}</h3>
-        <div className="mt-4 flex items-center gap-4 text-body-sm text-text-secondary">
+      <div className="p-8">
+        <span className="text-overline tracking-widest text-text-tertiary">{category}</span>
+        <h3 className="font-serif text-heading-sm text-text mt-3 leading-snug">{title}</h3>
+        <div className="mt-5 flex items-center gap-5 text-body-sm text-text-secondary">
           <span className="flex items-center gap-1.5">
             <MapPin className="h-3.5 w-3.5" />
             {location}
@@ -47,7 +47,7 @@ function ProjectCard({ image, title, category, location, year, href, className }
       <motion.a
         href={href}
         className={cn(
-          "group block rounded-xl bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
+          "group block bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
           className,
         )}
         whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
@@ -61,7 +61,7 @@ function ProjectCard({ image, title, category, location, year, href, className }
   return (
     <motion.div
       className={cn(
-        "group rounded-xl bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
+        "group bg-surface overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
         className,
       )}
       whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}

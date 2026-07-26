@@ -4,6 +4,6 @@ export { Alert, Toast, Badge, Chip, Status, Notification, Skeleton, SkeletonText
 export { Card, CardMedia, CardBody, CardFooter, ProjectCard, PortfolioCard, ServiceCard, BlogCard, TeamCard, StatisticCard, PricingCard, FeatureCard, DataDisplayGalleryCard as GalleryCard, ReviewCard, Accordion, Tabs, Timeline, TableWrapper, TableHead, TableBody, TableRow, TableHeader, TableCell } from "./data-display";
 export { Image, VideoWrapper, Gallery, CarouselWrapper, LightboxWrapper, Logo, Avatar } from "./media";
 export { Modal, Dialog, Drawer, Popover, Tooltip, Dropdown } from "./overlay";
-export { Navbar, MegaMenu, MobileNavigation, Sidebar, Breadcrumb, Pagination, Footer, FloatingNavigation } from "./navigation";
+export { Navbar, MegaMenu, MobileNavigation, Sidebar, Breadcrumb, Pagination, Footer, FloatingNavigation, WhatsAppButton } from "./navigation";
 
 export { Fade, Slide, Scale, Stagger, StaggerItem, Reveal, TextReveal, ImageReveal, PageTransition, ScrollReveal } from "./animation";

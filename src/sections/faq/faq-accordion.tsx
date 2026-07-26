@@ -37,14 +37,14 @@ export function FAQAccordion({
 
   if (variant === "cards") {
     return (
-      <section className={cn("bg-surface py-24", className)}>
+      <section className={cn("bg-surface py-24 lg:py-28", className)}>
         <div className="container-site">
           <SectionHeader
             label={label}
             title={title}
             description={description}
           />
-          <Stagger className="mx-auto mt-16 grid max-w-4xl gap-4 md:grid-cols-2">
+          <Stagger className="mx-auto mt-20 grid max-w-4xl gap-4 md:grid-cols-2">
             {items.map((item, i) => (
               <StaggerItem key={i}>
                 <div
@@ -101,14 +101,14 @@ export function FAQAccordion({
   }
 
   return (
-    <section className={cn("bg-surface py-24", className)}>
+    <section className={cn("bg-surface py-24 lg:py-28", className)}>
       <div className="container-site">
         <SectionHeader
           label={label}
           title={title}
           description={description}
         />
-        <div className="mx-auto mt-16 max-w-3xl">
+        <div className="mx-auto mt-20 max-w-3xl">
           <Fade direction="up">
             <div className="divide-y divide-border-light">
               {items.map((item, i) => (

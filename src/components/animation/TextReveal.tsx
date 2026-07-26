@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
@@ -32,11 +33,11 @@ export function TextReveal({
           <motion.span
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             transition={{
-              duration: 0.6,
-              delay: delay + index * 0.06,
-              ease: [0.16, 1, 0.3, 1],
+              duration: durations.slow,
+              delay: delay + index * 0.08,
+              ease: easings.easeOut,
             }}
             className="inline-block"
           >

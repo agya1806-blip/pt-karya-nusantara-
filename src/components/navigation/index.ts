@@ -6,3 +6,4 @@ export { Breadcrumb } from "./Breadcrumb";
 export { Pagination } from "./Pagination";
 export { Footer } from "./Footer";
 export { FloatingNavigation } from "./FloatingNavigation";
+export { WhatsAppButton } from "./WhatsAppButton";

@@ -44,7 +44,7 @@ export type GenerateMetadata = (
 
 export interface JsonLd {
   "@context": "https://schema.org";
-  "@type": string;
+  "@type": string | string[];
   name?: string;
   description?: string;
   url?: string;

@@ -73,20 +73,20 @@ export function CTADefault({
 
   if (variant === "split") {
     return (
-      <section className={cn("py-24", sectionClasses, className)}>
+      <section className={cn("py-24 lg:py-28", sectionClasses, className)}>
         <div className="container-site">
           <div className="grid items-center gap-12 lg:grid-cols-2">
             <Fade direction="left">
               <div>
-                <h2 className={cn("text-display font-light tracking-tight", titleClass)}>
+                <h2 className={cn("font-serif text-display font-light tracking-tight", titleClass)}>
                   {title}
                 </h2>
                 {description && (
-                  <p className={cn("mt-4 text-body-lg leading-relaxed", descClass)}>
+                  <p className={cn("mt-6 text-body-lg leading-relaxed", descClass)}>
                     {description}
                   </p>
                 )}
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-10 flex flex-wrap gap-4">
                   {primaryCta && (
                     <Button asChild size="lg">
                       <Link href={primaryCta.href}>
@@ -106,11 +106,11 @@ export function CTADefault({
             </Fade>
             <Fade direction="right">
               {image ? (
-                <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+                <div className="aspect-[4/3] overflow-hidden rounded-sm">
                   <img src={image} alt="" className="h-full w-full object-cover" />
                 </div>
               ) : (
-                <div className="aspect-[4/3] rounded-2xl bg-surface-secondary" />
+                <div className="aspect-[4/3] rounded-sm bg-surface-secondary" />
               )}
             </Fade>
           </div>
@@ -120,7 +120,7 @@ export function CTADefault({
   }
 
   return (
-    <section className={cn("py-24", sectionClasses, className)}>
+    <section className={cn("py-24 lg:py-28", sectionClasses, className)}>
       <div className="container-site">
         <Fade
           direction="up"
@@ -129,31 +129,31 @@ export function CTADefault({
             align === "left" ? "text-left" : "text-center",
           )}
         >
-          <h2 className={cn("text-display font-light tracking-tight", titleClass)}>
+          <h2 className={cn("font-serif text-display font-light tracking-tight", titleClass)}>
             {title}
           </h2>
           {description && (
-            <p className={cn("mt-4 text-body-lg leading-relaxed", descClass)}>
+            <p className={cn("mt-6 text-body-lg leading-relaxed", descClass)}>
               {description}
             </p>
           )}
           <div
             className={cn(
-              "mt-8 flex flex-wrap gap-4",
+              "mt-10 flex flex-wrap gap-4",
               align === "center" && "justify-center",
             )}
           >
             {primaryCta && (
               <Link href={primaryCta.href} className={cn(
-                "inline-flex items-center gap-2 rounded-lg px-6 py-3 text-body-sm font-medium transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                "inline-flex items-center gap-2 px-8 py-3.5 text-caption font-medium uppercase tracking-widest transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 ctaButtonClasses[variant].primary,
               )}>
-                {primaryCta.label} <ArrowRight size={16} />
+                {primaryCta.label} <ArrowRight size={14} />
               </Link>
             )}
             {secondaryCta && (
               <Link href={secondaryCta.href} className={cn(
-                "inline-flex items-center gap-2 rounded-lg px-6 py-3 text-body-sm font-medium transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
+                "inline-flex items-center gap-2 px-8 py-3.5 text-caption font-medium uppercase tracking-widest transition-all duration-300 ease-architectural focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
                 ctaButtonClasses[variant].secondary,
               )}>
                 {secondaryCta.label}

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { durations, easings } from "@/lib/animation";
 
 interface GalleryImage {
   src: string;
@@ -23,7 +24,7 @@ export function MediaGalleryCard({ image, onClick, className }: MediaGalleryCard
       onClick={onClick}
       className={cn("group relative aspect-[4/3] w-full overflow-hidden rounded-lg", className)}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: durations.fast, ease: easings.easeOut }}
       type="button"
     >
       <Image

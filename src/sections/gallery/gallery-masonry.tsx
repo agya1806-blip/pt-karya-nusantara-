@@ -31,17 +31,17 @@ export function GalleryMasonry({
   });
 
   return (
-    <section className={cn("bg-surface py-24", className)}>
+    <section className={cn("bg-surface py-24 lg:py-28", className)}>
       <div className="container-site">
         <SectionHeader
           label={label}
           title={title}
           description={description}
         />
-        <Fade direction="up" className="mt-16">
+        <Fade direction="up" className="mt-20">
           <div
             className={cn(
-              "grid gap-4",
+              "grid gap-5",
               cols === 2 && "grid-cols-2",
               cols === 3 && "grid-cols-2 md:grid-cols-3",
               cols === 4 && "grid-cols-2 md:grid-cols-4",
@@ -49,20 +49,20 @@ export function GalleryMasonry({
             style={{ alignItems: "start" }}
           >
             {chunks.map((col, colIdx) => (
-              <div key={colIdx} className="flex flex-col gap-4">
+              <div key={colIdx} className="flex flex-col gap-5">
                 {col.map((img, imgIdx) => {
                 if (!img) return null;
                 return (
                   <div
                     key={`${colIdx}-${imgIdx}`}
-                    className="group relative overflow-hidden rounded-xl bg-surface-muted"
+                    className="group relative overflow-hidden bg-surface-muted"
                   >
                     <ImageReveal
                       src={img.src}
                       alt={img.alt}
                       width={img.width ?? 600}
                       height={img.height ?? 400}
-                      className="w-full transition-transform duration-500 ease-luxury group-hover:scale-105"
+                      className="w-full transition-transform duration-700 ease-luxury group-hover:scale-105"
                     />
                   </div>
                 );

@@ -7,19 +7,22 @@ export const easings = {
 } as const;
 
 export const springs = {
-  snappy: { type: "spring", stiffness: 400, damping: 30, mass: 0.5 } as const satisfies Transition,
-  gentle: { type: "spring", stiffness: 200, damping: 20, mass: 1 } as const satisfies Transition,
-  smooth: { type: "spring", stiffness: 150, damping: 15, mass: 1 } as const satisfies Transition,
-  subtle: { type: "spring", stiffness: 100, damping: 20, mass: 0.8 } as const satisfies Transition,
+  snappy: { type: "spring", stiffness: 350, damping: 28, mass: 0.6 } as const satisfies Transition,
+  gentle: { type: "spring", stiffness: 180, damping: 22, mass: 1 } as const satisfies Transition,
+  smooth: { type: "spring", stiffness: 120, damping: 18, mass: 1.1 } as const satisfies Transition,
+  subtle: { type: "spring", stiffness: 80, damping: 22, mass: 1 } as const satisfies Transition,
 } as const;
 
 export const durations = {
-  fast: 0.2,
-  normal: 0.4,
-  slow: 0.6,
-  slower: 0.8,
-  slowest: 1.2,
+  instant: 0.15,
+  fast: 0.3,
+  normal: 0.5,
+  slow: 0.7,
+  slower: 1.0,
+  slowest: 1.4,
 } as const;
+
+export const viewportMargin = "-48px";
 
 export function createTransition(duration: number = durations.slow, ease: readonly number[] = easings.easeOut): Transition {
   return { duration, ease: [...ease] as [number, number, number, number] };
@@ -31,7 +34,7 @@ export const fadeVariants: Variants = {
 };
 
 export const fadeUpVariants: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 32 },
   visible: { opacity: 1, y: 0, transition: { duration: durations.slow, ease: easings.easeOut } },
 };
 
@@ -56,23 +59,23 @@ export const imageRevealVariants: Variants = {
 };
 
 export const pageTransitionVariants: Variants = {
-  initial: { opacity: 0, y: 12, scale: 0.99 },
+  initial: { opacity: 0, y: 16, scale: 0.99 },
   animate: { opacity: 1, y: 0, scale: 1, transition: { duration: durations.slow, ease: easings.easeInOut } },
-  exit: { opacity: 0, y: -12, scale: 0.99, transition: { duration: durations.normal, ease: easings.easeIn } },
+  exit: { opacity: 0, y: -16, scale: 0.99, transition: { duration: durations.normal, ease: easings.easeIn } },
 };
 
 export const staggerContainerVariants: Variants = {
   hidden: {},
   visible: {
     transition: {
-      staggerChildren: 0.08,
-      delayChildren: 0.15,
+      staggerChildren: 0.1,
+      delayChildren: 0.2,
     },
   },
 };
 
 export const staggerItemVariants: Variants = {
-  hidden: { opacity: 0, y: 16 },
+  hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
@@ -87,14 +90,18 @@ export const textRevealWordVariants: Variants = {
 
 export const cardHoverTransition: Transition = {
   type: "spring",
-  stiffness: 250,
-  damping: 20,
+  stiffness: 200,
+  damping: 24,
   mass: 0.8,
 };
 
 export const buttonHoverTransition: Transition = {
   type: "spring",
-  stiffness: 300,
-  damping: 15,
+  stiffness: 280,
+  damping: 18,
   mass: 0.6,
+};
+
+export const reducedMotionTransition: Transition = {
+  duration: 0,
 };

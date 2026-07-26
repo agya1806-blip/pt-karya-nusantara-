@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
-import { scaleInVariants } from "@/lib/animation";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface ScaleProps {
@@ -28,13 +28,13 @@ export function Scale({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: 0.92 }}
+      initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once, margin: "-40px" }}
+      viewport={{ once, margin: viewportMargin }}
       transition={{
-        duration: duration ?? 0.6,
+        duration: duration ?? durations.slow,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: easings.easeOut,
       }}
       className={cn(className)}
     >

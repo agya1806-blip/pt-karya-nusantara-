@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type RevealDirection = "left" | "right" | "top" | "bottom";
@@ -25,7 +26,7 @@ const clipPaths: Record<RevealDirection, { hidden: string; visible: string }> = 
 export function Reveal({
   children,
   direction = "left",
-  duration = 1,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -41,11 +42,11 @@ export function Reveal({
     <motion.div
       initial={{ clipPath: clip.hidden }}
       whileInView={{ clipPath: clip.visible }}
-      viewport={{ once, margin: "-40px" }}
+      viewport={{ once, margin: viewportMargin }}
       transition={{
-        duration,
+        duration: duration ?? durations.slower,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: easings.easeOut,
       }}
       className={cn(className)}
     >

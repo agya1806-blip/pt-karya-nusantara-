@@ -1,48 +1,48 @@
 import { createMetadata } from "@/seo";
 
 export const metadata = createMetadata({
-  title: "Terms of Service",
-  description: "Terms and conditions for using PT Karya Nusantara Realty's website and services.",
+  title: "Ketentuan Layanan",
+  description: "Syarat dan ketentuan penggunaan situs web dan layanan Karya Nusantara Realty.",
 });
 
 export default function TermsOfServicePage() {
   return (
     <section className="py-24">
       <div className="container-site max-w-4xl">
-        <h1 className="text-display font-light tracking-tight text-text-primary mb-8">Terms of Service</h1>
+        <h1 className="text-display font-light tracking-tight text-text-primary mb-8">Ketentuan Layanan</h1>
         <div className="space-y-6 text-body text-text-secondary leading-relaxed [&_h2]:text-display-sm [&_h2]:font-light [&_h2]:tracking-tight [&_h2]:text-text-primary [&_h2]:mt-12 [&_h2]:mb-4 [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:space-y-1">
-          <p>Last updated: January 1, 2025</p>
+          <p>Terakhir diperbarui: 1 Januari 2025</p>
 
-          <h2>1. Acceptance of Terms</h2>
-          <p>By accessing or using the PT Karya Nusantara Realty website and services, you agree to be bound by these Terms of Service. If you do not agree, please do not use our website or services.</p>
+          <h2>1. Penerimaan Ketentuan</h2>
+          <p>Dengan mengakses atau menggunakan situs web dan layanan Karya Nusantara Realty, Anda menyetujui untuk terikat oleh Ketentuan Layanan ini. Jika Anda tidak setuju, mohon untuk tidak menggunakan situs web atau layanan kami.</p>
 
-          <h2>2. Services</h2>
-          <p>PT Karya Nusantara Realty provides architectural design and consulting services. All services are subject to a separate agreement that will outline the specific scope, timeline, and fees for your project.</p>
+          <h2>2. Layanan</h2>
+          <p>Karya Nusantara Realty menyediakan layanan desain arsitektur dan konsultasi. Seluruh layanan tunduk pada perjanjian terpisah yang akan menguraikan lingkup, jadwal, dan biaya spesifik untuk proyek Anda.</p>
 
-          <h2>3. Intellectual Property</h2>
-          <p>All content on this website, including designs, drawings, text, images, and logos, is the property of PT Karya Nusantara Realty and is protected by applicable intellectual property laws. You may not reproduce, distribute, or create derivative works without our prior written consent.</p>
+          <h2>3. Kekayaan Intelektual</h2>
+          <p>Seluruh konten di situs web ini, termasuk desain, gambar, teks, foto, dan logo, adalah milik Karya Nusantara Realty dan dilindungi oleh undang-undang kekayaan intelektual yang berlaku. Anda tidak diperkenankan mereproduksi, mendistribusikan, atau membuat karya turunan tanpa izin tertulis sebelumnya.</p>
 
-          <h2>4. Website Use</h2>
-          <p>You agree to use our website for lawful purposes only. You must not:</p>
+          <h2>4. Penggunaan Situs Web</h2>
+          <p>Anda setuju untuk menggunakan situs web kami hanya untuk tujuan yang sah. Anda dilarang:</p>
           <ul>
-            <li>Use the website in any way that violates applicable laws</li>
-            <li>Attempt to gain unauthorized access to our systems</li>
-            <li>Interfere with the proper functioning of the website</li>
-            <li>Upload malicious code or content</li>
+            <li>Menggunakan situs web dengan cara yang melanggar hukum yang berlaku</li>
+            <li>Mencoba mendapatkan akses tidak sah ke sistem kami</li>
+            <li>Mengganggu fungsi situs web yang semestinya</li>
+            <li>Mengunggah kode atau konten berbahaya</li>
           </ul>
 
-          <h2>5. Limitation of Liability</h2>
-          <p>PT Karya Nusantara Realty shall not be liable for any indirect, incidental, special, or consequential damages arising from your use of our website or services, to the fullest extent permitted by law.</p>
+          <h2>5. Batasan Tanggung Jawab</h2>
+          <p>Karya Nusantara Realty tidak bertanggung jawab atas kerugian tidak langsung, insidental, khusus, atau konsekuensial yang timbul dari penggunaan situs web atau layanan kami, sejauh yang diizinkan oleh hukum yang berlaku.</p>
 
-          <h2>6. Governing Law</h2>
-          <p>These terms shall be governed by and construed in accordance with the laws of the Republic of Indonesia.</p>
+          <h2>6. Hukum yang Berlaku</h2>
+          <p>Ketentuan ini tunduk pada dan ditafsirkan sesuai dengan hukum Republik Indonesia.</p>
 
-          <h2>7. Contact</h2>
-          <p>For questions about these terms, please contact us at:</p>
+          <h2>7. Hubungi Kami</h2>
+          <p>Untuk pertanyaan tentang ketentuan ini, silakan hubungi kami di:</p>
           <p>
-            Email: legal@karya-nusantara.com<br />
-            Phone: +62 21 1234 5678<br />
-            Address: Jl. Sudirman Kav. 52-53, Jakarta Selatan, 12190
+            Surel: karyanusantararealty@gmail.com<br />
+            Telepon: +62 813 6054 6845<br />
+            Alamat: Lorong Sawah I, Lambhuk, Kec. Ulee Kareng, Kota Banda Aceh, Aceh 23188
           </p>
         </div>
       </div>

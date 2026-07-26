@@ -30,14 +30,14 @@ export function CTASection({
   return (
     <section
       className={cn(
-        "py-24 md:py-32 transition-colors duration-500",
+        "py-24 lg:py-28 transition-colors duration-500",
         sectionVariants[variant],
         className,
       )}
     >
       <div className="container-site">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="text-heading-xl font-light leading-tight tracking-tight">
+          <h2 className="font-serif text-heading-xl font-light leading-tight tracking-tight">
             {title}
           </h2>
           {description && (
@@ -59,7 +59,7 @@ export function CTASection({
                   key={action.href}
                   href={action.href}
                   className={cn(
-                    "inline-flex items-center justify-center rounded-lg px-8 py-3.5 text-body-sm font-medium tracking-tight transition-all duration-300",
+                    "inline-flex items-center justify-center px-8 py-3.5 text-caption font-medium tracking-widest uppercase transition-all duration-300",
                     action.variant === "primary" || !action.variant
                       ? "bg-gold-500 text-white hover:bg-gold-600"
                       : action.variant === "secondary"

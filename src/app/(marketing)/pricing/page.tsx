@@ -1,6 +1,7 @@
 import { AnimatedSection } from "@/components/animation";
-import { PricingTable, ServicePackages, ComparisonTable, CTADefault } from "@/sections";
+import { PricingTable, ServicePackages, ComparisonTable, StatisticsShowcase, CTADefault } from "@/sections";
 import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
+import type { StatItem } from "@/sections";
 
 export const metadata = createMetadata({
   title: "Biaya Layanan",
@@ -33,6 +34,13 @@ const plans = [
     features: ["Semua Layanan Premium", "Manajemen Proyek Penuh", "Konsultasi Keberlanjutan", "Desain Lansekap Terpadu", "Spesifikasi FF&E Lengkap", "Dukungan Pasca Hunian"],
     cta: { label: "Diskusikan Proyek Anda", href: "/contact" },
   },
+];
+
+const stats: StatItem[] = [
+  { value: "200", label: "Proyek Terwujud", suffix: "+" },
+  { value: "50", label: "Penghargaan Bergengsi", suffix: "+" },
+  { value: "15", label: "Tahun Dedikasi" },
+  { value: "100", label: "Klien Puas", suffix: "%" },
 ];
 
 export default function PricingPage() {
@@ -68,6 +76,13 @@ export default function PricingPage() {
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
+        <StatisticsShowcase
+          title="Mengapa Mempercayai Kami?"
+          description="Angka-angka yang merekam jejak perjalanan, komitmen, dan kepercayaan yang diamanatkan kepada kami."
+          stats={stats}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.4}>
         <CTADefault
           title="Tak Yakin Paket Mana yang Tepat?"
           description="Konsultasi awal tanpa biaya — kami akan merekomendasikan pendekatan terbaik untuk proyek Anda."

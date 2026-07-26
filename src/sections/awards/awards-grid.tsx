@@ -23,24 +23,24 @@ export function AwardsGrid({
   className,
 }: AwardsGridProps) {
   return (
-    <section className={cn("bg-surface py-24", className)}>
+    <section className={cn("bg-surface py-24 lg:py-28", className)}>
       <div className="container-site">
         <SectionHeader
           label={label}
           title={title}
           description={description}
         />
-        <Stagger className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-20 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {awards.map((award, i) => (
             <StaggerItem key={`${award.title}-${i}`}>
-              <div className="group flex flex-col rounded-2xl border border-border bg-surface-muted p-8 transition-all duration-300 ease-luxury hover:border-border-muted">
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-surface-dark text-text-inverse">
+              <div className="group flex flex-col border border-border-light/60 bg-surface-muted p-8 lg:p-10 transition-all duration-300 ease-luxury hover:border-border-default hover:shadow-elevation-1">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center bg-surface-dark text-text-inverse">
                   <Award size={24} />
                 </div>
-                <h3 className="text-heading-sm font-medium text-text">
+                <h3 className="font-serif text-heading-sm font-medium text-text">
                   {award.title}
                 </h3>
-                <p className="mt-1 text-body-sm text-text-secondary">
+                <p className="mt-2 text-body-sm text-text-secondary">
                   {award.organization}
                 </p>
                 {award.description && (
@@ -48,7 +48,7 @@ export function AwardsGrid({
                     {award.description}
                   </p>
                 )}
-                <span className="mt-4 text-caption font-semibold tracking-widest text-text-secondary uppercase">
+                <span className="mt-5 text-overline tracking-widest text-text-secondary">
                   {award.year}
                 </span>
               </div>

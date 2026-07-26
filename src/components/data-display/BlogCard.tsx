@@ -21,26 +21,26 @@ function BlogCard({ image, category, date, author, title, excerpt, href, classNa
         <img
           src={image}
           alt={title}
-          className="h-56 w-full object-cover transition-transform duration-500 ease-architectural group-hover:scale-105"
+          className="h-64 w-full object-cover transition-transform duration-700 ease-luxury group-hover:scale-105"
         />
       </div>
-      <div className="p-7">
-        <div className="flex items-center gap-4 text-caption tracking-widest text-text-tertiary">
+      <div className="p-8">
+        <div className="flex items-center gap-5 text-overline tracking-widest text-text-tertiary">
           <span className="text-text-secondary">{category}</span>
           <span className="flex items-center gap-1.5">
             <Calendar className="h-3.5 w-3.5" />
             {date}
           </span>
         </div>
-        <h3 className="text-heading-sm text-text mt-4 leading-snug">{title}</h3>
+        <h3 className="font-serif text-heading-sm text-text mt-4 leading-snug">{title}</h3>
         <p className="text-body text-text-secondary mt-3 leading-relaxed">{excerpt}</p>
-        <div className="mt-5 flex items-center gap-2 text-body-sm text-text-secondary">
+        <div className="mt-6 flex items-center gap-2 text-body-sm text-text-secondary">
           <User className="h-3.5 w-3.5" />
           {author}
         </div>
         {href && (
-          <div className="mt-5 flex items-center gap-1.5 text-body-sm font-medium text-brand-500 transition-colors duration-300 group-hover:text-brand-600">
-            Read More <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+          <div className="mt-6 flex items-center gap-1.5 text-caption font-medium tracking-widest uppercase text-brand-500 transition-colors duration-300 group-hover:text-brand-600">
+            Baca Selengkapnya <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
           </div>
         )}
       </div>

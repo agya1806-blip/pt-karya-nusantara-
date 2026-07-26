@@ -1,4 +1,4 @@
-import { Navbar, Footer, PageWrapper } from "@/components";
+import { Navbar, Footer, PageWrapper, WhatsAppButton } from "@/components";
 import { siteConfig } from "@/config";
 
 interface SearchLayoutProps {
@@ -14,7 +14,10 @@ export default function SearchLayout({ children }: SearchLayoutProps) {
         columns={siteConfig.footer}
         socialLinks={siteConfig.social}
         contact={siteConfig.contact}
+        businessHours={siteConfig.businessHours}
+        copyright={`© ${new Date().getFullYear()} ${siteConfig.name}. All rights reserved.`}
       />
+      <WhatsAppButton phone={siteConfig.contact.phone} />
     </>
   );
 }

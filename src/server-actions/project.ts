@@ -9,7 +9,7 @@ import {
   failure,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getProjects(options?: {
@@ -54,7 +54,7 @@ export async function createProject(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const project = await projectRepository.create(parsed.data as any);
+    const project = await projectRepository.create(validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "create",
@@ -80,13 +80,13 @@ export async function updateProject(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const project = await projectRepository.update(id, parsed.data as any);
+    const project = await projectRepository.update(id, validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "update",
       entityType: "project",
       entityId: id,
-      changes: parsed.data as any,
+      changes: parsed.data,
     });
 
     return success(project);

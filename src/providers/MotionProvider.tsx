@@ -51,11 +51,11 @@ export function MotionProvider({ children }: MotionProviderProps) {
         ref={lenisRef}
         root
         options={{
-          duration: reducedMotion ? 0 : 1.2,
+          duration: reducedMotion ? 0 : 1.4,
           easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           smoothWheel: !reducedMotion,
-          wheelMultiplier: 1,
-          touchMultiplier: 2,
+          wheelMultiplier: 0.8,
+          touchMultiplier: 1.5,
         }}
       >
         {children}

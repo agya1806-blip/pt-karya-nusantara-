@@ -7,7 +7,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getPricingPlans() {
@@ -28,7 +28,7 @@ export async function createPricingPlan(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const plan = await pricingRepository.create(parsed.data as any);
+    const plan = await pricingRepository.create(validatedInput(parsed.data));
     return success(plan);
   } catch (error) {
     return handleServerError(error);
@@ -47,7 +47,7 @@ export async function updatePricingPlan(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const plan = await pricingRepository.update(id, parsed.data as any);
+    const plan = await pricingRepository.update(id, validatedInput(parsed.data));
     return success(plan);
   } catch (error) {
     return handleServerError(error);

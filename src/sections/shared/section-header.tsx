@@ -19,13 +19,13 @@ export function SectionHeader({
   return (
     <Fade direction="up" className={cn(className)}>
       {label && (
-        <span className="mb-4 block text-caption tracking-widest text-text-tertiary uppercase">
+        <span className="mb-5 block text-overline tracking-widest text-text-tertiary">
           {label}
         </span>
       )}
       <h2
         className={cn(
-          "text-display font-light leading-tight tracking-tight text-text-primary",
+          "font-serif text-display font-light leading-tight tracking-tight text-text-primary",
           align === "center" && "mx-auto max-w-3xl text-center",
           align === "right" && "ml-auto text-right",
         )}

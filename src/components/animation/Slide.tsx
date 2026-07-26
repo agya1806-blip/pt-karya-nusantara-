@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
-import { slideUpVariants } from "@/lib/animation";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type SlideDirection = "up" | "down" | "left" | "right";
@@ -26,7 +26,7 @@ const translateMap: Record<SlideDirection, string> = {
 export function Slide({
   children,
   direction = "up",
-  duration = 0.8,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -44,11 +44,11 @@ export function Slide({
       <motion.div
         initial={{ [direction === "up" || direction === "down" ? "y" : "x"]: translate }}
         whileInView={{ y: 0, x: 0 }}
-        viewport={{ once, margin: "-40px" }}
+        viewport={{ once, margin: viewportMargin }}
         transition={{
-          duration,
+          duration: duration ?? durations.slower,
           delay,
-          ease: [0.16, 1, 0.3, 1],
+          ease: easings.easeOut,
         }}
       >
         {children}

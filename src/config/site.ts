@@ -3,8 +3,8 @@ import { env } from "./env";
 
 export const siteConfig: SiteConfig = {
   name: "PT KARYA NUSANTARA REALTY",
-  description: "Konsultan arsitek dan properti terpercaya di Aceh — melayani desain, perencanaan, konstruksi, dan konsultan properti untuk hunian mewah, komersial, dan kawasan terpadu.",
-  tagline: "Membangun Karya untuk Nusantara",
+  description: "Praktik arsitektur dan properti terpercaya di Aceh yang menghadirkan desain hunian mewah, properti komersial premium, resor, dan kawasan terpadu — dari konsep hingga konstruksi, dengan standar internasional.",
+  tagline: "Mewujudkan Karya untuk Nusantara",
   url: env.siteUrl,
   logo: "/images/logo.svg",
   ogImage: "/images/og-default.jpg",
@@ -15,12 +15,12 @@ export const siteConfig: SiteConfig = {
     mapsUrl: "https://maps.google.com/maps?q=5.561523,95.338814&z=15&output=embed",
   },
   social: [
-    { platform: "instagram", url: env.socialInstagram, label: "Ikuti kami di Instagram" },
+    { platform: "instagram", url: env.socialInstagram, label: "Ikuti Perjalanan Kami di Instagram" },
     { platform: "linkedin", url: env.socialLinkedin, label: "Terhubung di LinkedIn" },
   ],
   navigation: [
     { label: "Beranda", href: "/" },
-    { label: "Portfolio", href: "/portfolio" },
+    { label: "Portofolio", href: "/portfolio" },
     { label: "Layanan", href: "/services" },
     { label: "Tentang", href: "/about" },
     { label: "Kontak", href: "/contact" },
@@ -29,9 +29,10 @@ export const siteConfig: SiteConfig = {
     {
       title: "Navigasi",
       links: [
+        { label: "Beranda", href: "/" },
         { label: "Portofolio", href: "/portfolio" },
         { label: "Layanan", href: "/services" },
-        { label: "Tentang", href: "/about" },
+        { label: "Tentang Kami", href: "/about" },
         { label: "Kontak", href: "/contact" },
         { label: "Kalkulator", href: "/calculator" },
         { label: "Pencari Proyek", href: "/project-finder" },
@@ -40,10 +41,12 @@ export const siteConfig: SiteConfig = {
     {
       title: "Layanan",
       links: [
-        { label: "Residensial", href: "/services" },
-        { label: "Komersial", href: "/services" },
-        { label: "Hospitaliti", href: "/services" },
-        { label: "Master Plan", href: "/services" },
+        { label: "Arsitektur Residensial", href: "/services/residential" },
+        { label: "Arsitektur Komersial", href: "/services/commercial" },
+        { label: "Desain Hospitality", href: "/services/hospitality" },
+        { label: "Master Plan", href: "/services/master-planning" },
+        { label: "Desain Interior", href: "/services/interior" },
+        { label: "Desain Berkelanjutan", href: "/services/sustainable" },
       ],
     },
     {
@@ -67,9 +70,9 @@ export const siteConfig: SiteConfig = {
   director: "TEUKU FARIZ WAZDI",
   coordinates: { lat: 5.561523, lng: 95.338814 },
   businessFields: [
-    { name: "1969 Architect", description: "Desain & Perencanaan" },
+    { name: "1969 Architect", description: "Desain Arsitektur & Perencanaan" },
     { name: "1969 Interior", description: "Desain Interior & Furnitur Kustom" },
-    { name: "Akaruma Contractor", description: "Bangun & Supervisi" },
-    { name: "Casara Estate", description: "Konsultan Properti & Media Properti" },
+    { name: "Akaruma Contractor", description: "Konstruksi & Supervisi" },
+    { name: "Casara Estate", description: "Konsultan Properti & Media" },
   ],
 };

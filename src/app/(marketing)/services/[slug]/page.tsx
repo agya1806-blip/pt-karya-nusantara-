@@ -1,6 +1,46 @@
-import { ServiceDetail, CTADefault } from "@/sections";
+import { Breadcrumb } from "@/components";
+import { ServiceDetail, CTADefault, ProcessSteps, ClientReviews, StatisticsShowcase } from "@/sections";
 import { createMetadata, createBreadcrumbSchema, JsonLdScript } from "@/seo";
-import type { ServiceItem } from "@/sections";
+import type { ServiceItem, ProcessStep, StatItem, TestimonialItem } from "@/sections";
+
+const serviceProcesses: Record<string, ProcessStep[]> = {
+  residential: [
+    { title: "Konsultasi & Brief", description: "Memahami visi, gaya hidup, dan kebutuhan spesifik Anda melalui sesi diskusi mendalam." },
+    { title: "Desain Konsep", description: "Menghadirkan 2-3 alternatif konsep desain yang menggabungkan estetika, fungsi, dan konteks lahan." },
+    { title: "Pengembangan Desain", description: "Menyempurnakan setiap detail — material, pencahayaan, sirkulasi, dan integrasi lanskap." },
+    { title: "Dokumen Konstruksi", description: "Menyusun gambar teknis dan spesifikasi yang presisi untuk proses tender dan pembangunan." },
+    { title: "Pengawasan Konstruksi", description: "Memastikan setiap elemen terwujud sesuai desain melalui kunjungan dan koordinasi rutin." },
+  ],
+  commercial: [
+    { title: "Analisis Kebutuhan", description: "Mempelajari brand, budaya perusahaan, dan kebutuhan operasional untuk merancang ruang yang produktif." },
+    { title: "Konsep & Strategi", description: "Mengembangkan konsep arsitektur yang memperkuat identitas merek dan pengalaman pengguna." },
+    { title: "Desain & Engineering", description: "Mengintegrasikan sistem MEP, struktur, dan interior dalam satu bahasa desain yang koheren." },
+    { title: "Dokumentasi & Perizinan", description: "Menyusun dokumen teknis lengkap dan mengurus perizinan yang diperlukan." },
+    { title: "Pelaksanaan & Serah Terima", description: "Mengawasi konstruksi hingga proyek siap digunakan." },
+  ],
+  hospitality: [
+    { title: "Studi Kelayakan", description: "Menganalisis pasar, lokasi, dan potensi untuk menentukan konsep hospitality yang optimal." },
+    { title: "Konsep Guest Journey", description: "Merancang pengalaman tamu dari arrival hingga departure melalui narasi spasial." },
+    { title: "Desain Arsitektur & Interior", description: "Menyelaraskan arsitektur, interior, dan lanskap untuk menciptakan pengalaman yang immersive." },
+    { title: "FF&E & OS&E", description: "Memilih furnitur, perlengkapan, dan peralatan yang sesuai dengan konsep dan standar operasional." },
+    { title: "Supervisi & Soft Opening", description: "Mendampingi proses konstruksi, instalasi, dan persiapan operasional hingga grand opening." },
+  ],
+};
+
+const commonStats: StatItem[] = [
+  { value: "200", label: "Proyek Terselesaikan", suffix: "+" },
+  { value: "50", label: "Penghargaan Desain", suffix: "+" },
+  { value: "15", label: "Tahun Berpraktek" },
+  { value: "8", label: "Negara Terjangkau" },
+];
+
+const sharedTestimonial: TestimonialItem = {
+  name: "James Thompson",
+  role: "CEO",
+  company: "Harmony Developments",
+  content: "PT Karya Nusantara Realty melampaui ekspektasi kami. Perhatian mereka terhadap detail dan komitmen terhadap keunggulan desain tidak tertandingi.",
+  rating: 5,
+};
 
 interface ServicePageProps {
   params: Promise<{ slug: string }>;
@@ -65,17 +105,46 @@ export default async function ServiceDetailPage({ params }: ServicePageProps) {
     image: { src: "", alt: "" },
   };
 
+  const serviceProcess = serviceProcesses[slug] ?? [];
+  const showProcess = serviceProcess.length > 0;
+
   return (
     <>
       <JsonLdScript data={createBreadcrumbSchema([
-        { name: "Services", href: "/services" },
+        { name: "Layanan", href: "/services" },
         { name: service.title },
       ])} id="breadcrumb-schema" />
+      <div className="container-site pt-28 pb-4">
+        <Breadcrumb
+          items={[
+            { label: "Layanan", href: "/services" },
+            { label: service.title },
+          ]}
+        />
+      </div>
       <ServiceDetail {...service} />
+      {showProcess && (
+        <ProcessSteps
+          title="Proses Kami"
+          description="Pendekatan terstruktur yang memastikan setiap proyek berjalan tepat waktu, tepat anggaran, dan sesuai ekspektasi."
+          steps={serviceProcess}
+        />
+      )}
+      <StatisticsShowcase
+        title="Mengapa Memilih Kami"
+        description="Rekam jejak yang menjadi alasan klien mempercayakan proyek mereka kepada kami."
+        stats={commonStats}
+      />
+      <ClientReviews
+        title="Kata Klien"
+        description="Pengalaman mereka bekerja sama dengan kami."
+        testimonials={[sharedTestimonial]}
+        variant="grid"
+      />
       <CTADefault
-        title="Interested in This Service?"
-        description="Let us explore how we can tailor this service to the specific requirements of your project."
-        primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
+        title="Tertarik dengan Layanan Ini?"
+        description="Hubungi tim kami untuk mendiskusikan bagaimana kami dapat membantu mewujudkan proyek Anda."
+        primaryCta={{ label: "Diskusikan Proyek Anda", href: "/contact" }}
       />
     </>
   );

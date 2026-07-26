@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
-import { staggerContainerVariants, staggerItemVariants } from "@/lib/animation";
+import { staggerItemVariants, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface StaggerProps {
@@ -14,8 +14,8 @@ interface StaggerProps {
 
 export function Stagger({
   children,
-  staggerDelay = 0.08,
-  delayChildren = 0.15,
+  staggerDelay = 0.1,
+  delayChildren = 0.2,
   className,
 }: StaggerProps) {
   const reduced = useReducedMotion();
@@ -38,7 +38,7 @@ export function Stagger({
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: viewportMargin }}
       variants={variants}
       className={cn(className)}
     >

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface ImageRevealProps {
@@ -50,8 +51,8 @@ export function ImageReveal({
             : {}
         }
         transition={{
-          duration: 1,
-          ease: [0.16, 1, 0.3, 1],
+          duration: durations.slower,
+          ease: easings.easeOut,
         }}
         className="h-full w-full"
       >

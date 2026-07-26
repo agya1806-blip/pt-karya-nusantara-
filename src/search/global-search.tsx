@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLockBody, useMediaQuery, useReducedMotion } from "@/hooks";
 import { Input } from "@/components/ui/Input";
 import { cn } from "@/lib/utils";
+import { easings } from "@/lib/animation";
 import { SearchSuggestions } from "./search-suggestions";
 import type { SearchResult, SearchSuggestion, SearchConfig } from "./search-types";
 
@@ -95,7 +96,7 @@ export function GlobalSearch({
               initial={reducedMotion ? {} : { y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={reducedMotion ? {} : { y: -20, opacity: 0 }}
-              transition={{ duration: reducedMotion ? 0 : 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: reducedMotion ? 0 : 0.3, ease: easings.easeOut }}
               className="overflow-hidden rounded-2xl bg-surface shadow-luxury-xl"
             >
               <div className="relative flex items-center border-b border-border px-6">

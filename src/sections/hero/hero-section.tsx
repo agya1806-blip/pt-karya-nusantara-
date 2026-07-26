@@ -1,10 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import { TextReveal } from "@/components/animation/TextReveal";
 import { Button } from "@/components/ui/Button";
 import Link from "next/link";
+import { durations, easings } from "@/lib/animation";
 import type { ButtonAction, MediaItem } from "@/sections/types";
 
 interface HeroSectionProps {
@@ -52,28 +54,34 @@ export function HeroSection({
         className,
       )}
     >
-      <div
+      <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${background.src})` }}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: durations.slowest, ease: easings.easeOut }}
         role="img"
         aria-label={background.alt}
       />
       {overlay === "gradient" && (
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-900/70 via-brand-800/40 to-brand-900/80" />
+        <>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/30 to-brand-800/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-900/20 to-transparent" />
+        </>
       )}
       {overlay === "solid" && (
         <div className="absolute inset-0 bg-brand-900/60" />
       )}
-      <div className="container-site relative z-10 flex flex-col justify-center py-24">
+      <div className="container-site relative z-10 flex flex-col justify-center py-36">
         {subtitle && (
           <Fade direction="up" delay={0.1}>
-            <span className="mb-6 inline-block text-caption tracking-widest text-gold-300 uppercase">
+            <span className="mb-8 inline-block text-overline tracking-[0.2em] text-gold-300/90">
               {subtitle}
             </span>
           </Fade>
         )}
         <TextReveal
-          className="text-display-xl font-light leading-tight tracking-tight text-white"
+          className="font-serif text-display-xl font-light leading-[0.95] -tracking-[0.03em] text-white"
           delay={0.2}
         >
           {title}
@@ -82,7 +90,7 @@ export function HeroSection({
           <Fade direction="up" delay={0.4}>
             <p
               className={cn(
-                "mt-8 max-w-2xl text-body-lg text-brand-200 leading-relaxed",
+                "mt-8 max-w-xl text-body-lg font-light text-brand-200/80 leading-relaxed tracking-[0.02em]",
                 align === "center" && "mx-auto",
               )}
             >
@@ -105,7 +113,7 @@ export function HeroSection({
       key={action.label}
       variant={action.variant ?? "primary"}
       onClick={action.href ? undefined : action.onClick}
-      className={action.variant === "primary" ? "bg-gold-500 text-white hover:bg-gold-600" : "border-gold-500/40 text-gold-300 hover:bg-gold-500/10"}
+      className={action.variant === "primary" ? "bg-gold-500 text-white hover:bg-gold-600 shadow-luxury-lg shadow-gold-500/15" : "border-gold-500/30 text-gold-300/90 hover:text-gold-300 hover:border-gold-500/60 hover:bg-gold-500/5"}
     >
       {action.icon}
       {action.label}

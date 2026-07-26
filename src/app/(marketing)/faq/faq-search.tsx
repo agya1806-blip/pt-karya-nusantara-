@@ -37,7 +37,7 @@ export function FAQSearch({ items, className }: FAQSearchProps) {
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search FAQs by keyword..."
+          placeholder="Cari pertanyaan berdasarkan kata kunci..."
           className="w-full rounded-xl border border-border-light bg-surface py-4 pl-12 pr-4 text-body text-text-primary placeholder:text-text-tertiary transition-colors duration-300 focus:border-text-primary focus:outline-none"
           aria-label="Search frequently asked questions"
         />

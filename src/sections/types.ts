@@ -10,12 +10,6 @@ export interface MediaItem {
   height?: number;
 }
 
-export interface SocialLink {
-  platform: string;
-  url: string;
-  label?: string;
-}
-
 export interface ButtonAction {
   label: string;
   href?: string;
@@ -36,7 +30,7 @@ export interface TeamMember {
   role: string;
   image?: MediaItem;
   bio?: string;
-  social?: SocialLink[];
+  social?: import("@/types").SocialLink[];
 }
 
 export interface TestimonialItem {
@@ -116,11 +110,13 @@ export interface TimelineEvent {
   image?: MediaItem;
 }
 
+export type SocialLink = import("@/types").SocialLink;
+
 export interface ContactInfo {
   phone?: string;
   email?: string;
   address?: string;
-  mapUrl?: string;
+  mapsUrl?: string;
   social?: SocialLink[];
 }
 
@@ -188,6 +184,11 @@ export interface ProjectItem {
   year?: string;
   stats?: StatItem[];
   awards?: string[];
+}
+
+export interface BusinessHours {
+  day: string;
+  hours: string;
 }
 
 export interface ContactInfoEntry {

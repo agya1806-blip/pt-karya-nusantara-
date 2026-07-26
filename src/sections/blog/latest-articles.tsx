@@ -25,35 +25,35 @@ export function LatestArticles({
   const displayed = articles.slice(0, itemsPerPage);
 
   return (
-    <section className={cn("bg-surface-secondary py-24", className)}>
+    <section className={cn("bg-surface-secondary py-24 lg:py-28", className)}>
       <div className="container-site">
         <SectionHeader title={title} description={description} />
-        <Stagger className="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <Stagger className="mt-20 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {displayed.map((article) => (
             <StaggerItem key={article.id}>
               <Link
                 href={`/blog/${article.slug}`}
                 className="group block"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden rounded-xl">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
                   <ImageReveal
                     src={article.image.src}
                     alt={article.image.alt}
                     fill
-                    className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                    className="h-full w-full transition-transform duration-700 ease-luxury group-hover:scale-105"
                   />
                 </div>
-                <div className="mt-4">
-                  <span className="text-caption font-semibold tracking-widest text-brand-500 uppercase">
+                <div className="mt-5">
+                  <span className="text-overline tracking-widest text-brand-500">
                     {article.category}
                   </span>
-                  <h3 className="mt-1 text-heading-sm font-medium text-text-primary transition-colors duration-300 group-hover:text-brand-600">
+                  <h3 className="mt-2 font-serif text-heading-sm font-medium text-text-primary transition-colors duration-300 group-hover:text-brand-600">
                     {article.title}
                   </h3>
                   <p className="mt-2 text-body-sm text-text-secondary line-clamp-2">
                     {article.excerpt}
                   </p>
-                  <div className="mt-3 flex items-center gap-3 text-caption text-text-tertiary">
+                  <div className="mt-4 flex items-center gap-4 text-overline text-text-tertiary">
                     <span>{article.date}</span>
                     {article.author && <span>{article.author}</span>}
                   </div>

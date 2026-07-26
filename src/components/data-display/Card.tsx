@@ -46,10 +46,10 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
       <motion.div
         ref={ref}
         className={cn(
-          "rounded-xl",
+          "border border-border-light/60",
           getVariantStyles(variant),
           getPaddingStyles(padding),
-          hover && "cursor-pointer transition-all duration-500 ease-architectural hover:-translate-y-0.5",
+          hover && "cursor-pointer transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:border-border-default hover:shadow-elevation-2",
           className,
         )}
         whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}

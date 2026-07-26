@@ -7,7 +7,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getGalleryItems(options?: {
@@ -40,7 +40,7 @@ export async function createGalleryItem(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const item = await galleryRepository.create(parsed.data as any);
+    const item = await galleryRepository.create(validatedInput(parsed.data));
     return success(item);
   } catch (error) {
     return handleServerError(error);
@@ -59,7 +59,7 @@ export async function updateGalleryItem(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const item = await galleryRepository.update(id, parsed.data as any);
+    const item = await galleryRepository.update(id, validatedInput(parsed.data));
     return success(item);
   } catch (error) {
     return handleServerError(error);

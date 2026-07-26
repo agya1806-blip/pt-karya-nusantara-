@@ -9,7 +9,7 @@ import {
   failure,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getTeamMembers(options?: { isFeatured?: boolean }) {
@@ -40,7 +40,7 @@ export async function createTeamMember(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const member = await teamRepository.create(parsed.data as any);
+    const member = await teamRepository.create(validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "create",
@@ -66,7 +66,7 @@ export async function updateTeamMember(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const member = await teamRepository.update(id, parsed.data as any);
+    const member = await teamRepository.update(id, validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "update",

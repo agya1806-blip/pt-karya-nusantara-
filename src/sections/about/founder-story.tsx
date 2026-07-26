@@ -11,13 +11,13 @@ interface FounderStoryProps {
 
 export function FounderStory({ founders, className }: FounderStoryProps) {
   return (
-    <section className={cn("bg-surface-secondary py-24", className)}>
+    <section className={cn("bg-surface-secondary py-24 lg:py-28", className)}>
       <div className="container-site">
-        <Stagger className="mx-auto max-w-4xl space-y-12">
+        <Stagger className="mx-auto max-w-4xl space-y-16">
           {founders.map((founder) => (
             <StaggerItem key={founder.name}>
-              <div className="flex flex-col items-start gap-6 md:flex-row">
-                <div className="aspect-square w-full max-w-xs flex-shrink-0 overflow-hidden rounded-2xl bg-surface">
+              <div className="flex flex-col items-start gap-8 md:flex-row">
+                <div className="aspect-square w-full max-w-xs flex-shrink-0 overflow-hidden bg-surface">
                   {founder.image ? (
                     <img src={founder.image.src} alt={founder.image.alt} className="h-full w-full object-cover" />
                   ) : (
@@ -27,10 +27,10 @@ export function FounderStory({ founders, className }: FounderStoryProps) {
                   )}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-heading font-medium text-text-primary">{founder.name}</h3>
+                  <h3 className="font-serif text-heading font-medium text-text-primary">{founder.name}</h3>
                   <p className="text-body text-text-secondary">{founder.role}</p>
                   {founder.bio && (
-                    <p className="mt-3 text-body text-text-secondary leading-relaxed">{founder.bio}</p>
+                    <p className="mt-4 text-body text-text-secondary leading-relaxed">{founder.bio}</p>
                   )}
                 </div>
               </div>

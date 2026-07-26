@@ -8,7 +8,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function uploadMedia(
@@ -36,7 +36,7 @@ export async function uploadMedia(
       url: uploadResult.url,
       folder,
       bucket: "media",
-    } as any);
+    });
 
     return success(media);
   } catch (error) {
@@ -92,7 +92,7 @@ export async function updateMedia(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const media = await mediaRepository.update(id, parsed.data as any);
+    const media = await mediaRepository.update(id, validatedInput(parsed.data));
     return success(media);
   } catch (error) {
     return handleServerError(error);

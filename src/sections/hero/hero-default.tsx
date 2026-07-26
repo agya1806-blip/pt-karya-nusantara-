@@ -36,19 +36,19 @@ export function HeroDefault({
       <div className="container-site relative z-10 py-32">
         <Fade direction="up" className="max-w-4xl">
           {subtitle && (
-            <p className={cn("text-caption tracking-widest uppercase mb-6", image ? "text-gold-300" : "text-text-tertiary")}>
+            <p className={cn("text-overline tracking-widest mb-8", image ? "text-gold-300" : "text-text-tertiary")}>
               {subtitle}
             </p>
           )}
-          <h1 className={cn("text-display-lg font-light leading-tight tracking-tight", image ? "text-white" : "text-text-primary")}>
+          <h1 className={cn("font-serif text-display-lg font-light leading-[1.05] tracking-tight", image ? "text-white" : "text-text-primary")}>
             {title}
           </h1>
           {description && (
-            <p className={cn("mt-6 text-body-lg max-w-2xl leading-relaxed", image ? "text-white/80" : "text-text-secondary")}>
+            <p className={cn("mt-8 text-body-lg max-w-2xl leading-relaxed", image ? "text-white/80" : "text-text-secondary")}>
               {description}
             </p>
           )}
-          <div className="mt-10 flex flex-wrap gap-5">
+          <div className="mt-12 flex flex-wrap gap-5">
             {primaryCta && (
               <Button asChild size="lg" className={cn(image ? "bg-gold-500 text-white hover:bg-gold-600" : "")}>
                 <Link href={primaryCta.href}>

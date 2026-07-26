@@ -24,16 +24,16 @@ export function CompanyOverview({
   className,
 }: CompanyOverviewProps) {
   return (
-    <section className={cn("bg-surface py-24", className)}>
+    <section className={cn("bg-surface py-24 lg:py-28", className)}>
       <div className="container-site">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-16 lg:gap-20 lg:grid-cols-2">
           <div className="order-2 lg:order-1">
             <SectionHeader
               label={label}
               title={title}
               align="left"
             />
-            <div className="mt-6 space-y-4">
+            <div className="mt-8 space-y-5">
               {description.map((paragraph, i) => (
                 <Fade key={i} direction="up" delay={0.2 + i * 0.1}>
                   <p className="text-body-lg text-text-secondary leading-relaxed">
@@ -43,11 +43,11 @@ export function CompanyOverview({
               ))}
             </div>
             {stats && (
-              <div className="mt-12 grid grid-cols-2 gap-8 sm:grid-cols-4">
+              <div className="mt-14 grid grid-cols-2 gap-8 sm:grid-cols-4">
                 {stats.map((stat) => (
                   <Fade key={stat.label} direction="up" delay={0.3}>
                     <div>
-                      <p className="text-display font-light tracking-tight text-text-primary">
+                      <p className="font-serif text-display font-light tracking-tight text-text-primary">
                         {stat.value}
                       </p>
                       <p className="mt-1 text-body-sm text-text-secondary">

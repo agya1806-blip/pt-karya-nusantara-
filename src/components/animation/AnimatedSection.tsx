@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface AnimatedSectionProps {
@@ -21,11 +22,11 @@ export function AnimatedSection({ children, className, delay = 0 }: AnimatedSect
     <motion.div
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: true, margin: viewportMargin }}
       transition={{
-        duration: 0.6,
+        duration: durations.slow,
         delay,
-        ease: [0.16, 1, 0.3, 1],
+        ease: easings.easeOut,
       }}
       className={cn(className)}
     >

@@ -8,7 +8,7 @@ import {
   failure,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getCareerPositions(options?: {
@@ -53,7 +53,7 @@ export async function createCareerPosition(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const position = await careerRepository.create(parsed.data as any);
+    const position = await careerRepository.create(validatedInput(parsed.data));
     return success(position);
   } catch (error) {
     return handleServerError(error);
@@ -72,7 +72,7 @@ export async function updateCareerPosition(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const position = await careerRepository.update(id, parsed.data as any);
+    const position = await careerRepository.update(id, validatedInput(parsed.data));
     return success(position);
   } catch (error) {
     return handleServerError(error);

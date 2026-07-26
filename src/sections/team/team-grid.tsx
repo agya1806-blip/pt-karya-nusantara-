@@ -32,7 +32,7 @@ export function TeamGrid({
   className,
 }: TeamGridProps) {
   return (
-    <section className={cn("bg-surface py-24", className)}>
+    <section className={cn("bg-surface py-24 lg:py-28", className)}>
       <div className="container-site">
         {title && (
           <SectionHeader
@@ -41,17 +41,17 @@ export function TeamGrid({
             description={description}
           />
         )}
-        <Stagger className={cn("mt-16 grid gap-8", gridCols[columns])}>
+        <Stagger className={cn("mt-20 grid gap-10", gridCols[columns])}>
           {members.map((member) => (
             <StaggerItem key={member.name}>
               <div className="group">
-                <div className="relative aspect-[3/4] w-full overflow-hidden rounded-2xl bg-surface-secondary">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-surface-secondary">
                   {member.image ? (
                     <ImageReveal
                       src={member.image.src}
                       alt={member.name}
                       fill
-                      className="h-full w-full transition-transform duration-500 group-hover:scale-105"
+                      className="h-full w-full transition-transform duration-700 ease-luxury group-hover:scale-105"
                     />
                   ) : (
                     <div className="flex h-full items-center justify-center">
@@ -61,8 +61,8 @@ export function TeamGrid({
                     </div>
                   )}
                 </div>
-                <div className="mt-4">
-                  <h3 className="text-heading-sm font-medium text-text-primary">
+                <div className="mt-5">
+                  <h3 className="font-serif text-heading-sm font-medium text-text-primary">
                     {member.name}
                   </h3>
                   <p className="text-body-sm text-text-secondary">
@@ -74,12 +74,12 @@ export function TeamGrid({
                     </p>
                   )}
                   {member.social && member.social.length > 0 && (
-                    <div className="mt-3 flex gap-3">
+                    <div className="mt-4 flex gap-4">
                       {member.social.map((link) => (
                         <a
                           key={link.platform}
                           href={link.url}
-                          className="text-text-tertiary transition-colors duration-300 hover:text-text-primary"
+                          className="text-overline tracking-widest text-text-tertiary transition-colors duration-300 hover:text-text-primary"
                           aria-label={link.label ?? link.platform}
                           target="_blank"
                           rel="noopener noreferrer"

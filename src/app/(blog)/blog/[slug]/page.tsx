@@ -1,3 +1,4 @@
+import { Breadcrumb } from "@/components";
 import { BlogPosts, NewsletterCTA, CTADefault } from "@/sections";
 import { createMetadata, createArticleSchema, createBreadcrumbSchema, JsonLdScript } from "@/seo";
 import type { BlogPost } from "@/sections";
@@ -76,6 +77,11 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
         { name: "Blog", href: "/blog" },
         { name: article.title },
       ])} id="breadcrumb-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <Breadcrumb items={[{ label: "Blog", href: "/blog" }, { label: article.title }]} />
+        </div>
+      </section>
       <BlogPosts
         title={article.title}
         description={article.excerpt}
