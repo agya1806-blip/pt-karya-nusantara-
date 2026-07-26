@@ -68,6 +68,9 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
         datePublished: article.date,
         author: article.author ?? "PT Karya Nusantara Realty",
         url: `/blog/${slug}`,
+        wordCount: 1200,
+        articleSection: article.category,
+        inLanguage: "en",
       })} id="article-schema" />
       <JsonLdScript data={createBreadcrumbSchema([
         { name: "Blog", href: "/blog" },

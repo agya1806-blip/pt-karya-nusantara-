@@ -6,6 +6,9 @@ export {
   createBreadcrumbSchema,
   createArticleSchema,
   createProjectSchema,
+  createReviewSchema,
+  createWebPageSchema,
+  createCollectionPageSchema,
   createFAQPageSchema,
   createServiceSchema,
 } from "./schema";

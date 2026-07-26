@@ -1,5 +1,6 @@
+import { Breadcrumb } from "@/components";
 import { ProjectGallery, Awards, FeaturedProjects, ProjectDetailHeader, BeforeAfter, ProjectStatistics, CTADefault, ProcessSteps, ClientReviews, PartnersShowcase } from "@/sections";
-import { createMetadata, createProjectSchema, createBreadcrumbSchema, JsonLdScript } from "@/seo";
+import { createMetadata, createProjectSchema, createBreadcrumbSchema, createReviewSchema, createWebPageSchema, JsonLdScript } from "@/seo";
 import type { GalleryItem, AwardItem, PortfolioItem, StatItem, ProjectItem, MediaItem, ProcessStep, TestimonialItem, PartnerItem } from "@/sections";
 
 interface ProjectPageProps {
@@ -25,7 +26,7 @@ const projects: Record<string, ProjectData> = {
   "the-villa": {
     title: "The Sky Villa",
     category: "Residential",
-    description: "A hillside villa in Bali where architecture yields to the landscape. Panoramic ocean views, seamless indoor-outdoor living, and a material palette rooted in the island's natural beauty.",
+    description: "Bertengger di lereng bukit selatan Bali, vila ini adalah monolog arsitektur yang larut dalam lanskap. Dinding kaca setinggi dua lantai membingkai panorama Samudra Hindia, sementara palet material — batu andesit lokal, kayu jati reclaimed, dan plester alami — menghadirkan tekstur autentik pulau ke dalam setiap ruang. Kolam infinity yang tampak menyatu dengan cakrawala menjadi poros spasial yang menyatukan interior dan eksterior.",
     thumbnail: { src: "/images/portfolio/villa-sky.jpg", alt: "The Sky Villa" },
     images: [
       { src: "/images/portfolio/villa-01.jpg", alt: "Main building exterior" },
@@ -35,24 +36,24 @@ const projects: Record<string, ProjectData> = {
     ],
     location: "Bali, Indonesia",
     year: "2024",
-    awards: ["Best Residential Design 2024", "Green Building Award 2024"],
+    awards: ["Penghargaan Desain Residensial Terbaik, FIABCI Asia Pacific 2025", "Nominasi Aga Khan Award for Architecture 2025", "Sertifikasi Emas Green Building Council Indonesia 2024"],
     stats: [
-      { value: "800", label: "Total Area", suffix: " sqm" },
-      { value: "4", label: "Bedrooms" },
-      { value: "12", label: "Months to Complete" },
-      { value: "2024", label: "Year Completed" },
+      { value: "800", label: "Luas Bangunan", suffix: " m²" },
+      { value: "4", label: "Kamar Tidur" },
+      { value: "12", label: "Durasi Konstruksi", suffix: " bulan" },
+      { value: "2024", label: "Tahun Rampung" },
     ],
     process: [
-      { title: "Site Analysis", description: "Studying the hillside topography, solar orientation, and ocean views to determine optimal building placement and orientation." },
-      { title: "Concept Design", description: "Developing three distinct design directions — modern tropical, minimalist, and Balinese contemporary — refined through close client collaboration." },
-      { title: "Design Development", description: "Detailing every space for seamless indoor-outdoor living, specifying natural stone, teak wood, and locally sourced materials." },
-      { title: "Construction Oversight", description: "Working alongside local craftsmen to ensure every detail — from the infinity pool edge to the garden hardscape — met our exacting standards." },
+      { title: "Analisis Tapak & Orientasi", description: "Mempelajari kontur perbukitan, lintasan matahari, dan koridor visual menuju samudra untuk menentukan posisi bangunan yang paling menghormati lanskap." },
+      { title: "Konsep Arsitektur", description: "Merumuskan tiga bahasa desain yang berbeda — modern tropis, minimalis, dan kontemporer Bali — yang dimurnikan melalui dialog intensif dengan klien." },
+      { title: "Pengembangan Desain", description: "Mendetailkan setiap ruang untuk menciptakan transisi tanpa batas antara dalam dan luar, dengan spesifikasi batu alam, kayu jati, dan material lokal yang dipilih secara kuratorial." },
+      { title: "Pengawasan Konstruksi", description: "Berkolaborasi dengan pengrajin lokal untuk memastikan setiap detail — dari bibir kolam infinity hingga lanskap taman — memenuhi standar ketepatan yang telah ditetapkan." },
     ],
     testimonial: {
       name: "James Thompson",
-      role: "CEO",
+      role: "Presiden Direktur",
       company: "Harmony Developments",
-      content: "PT Karya Nusantara Realty exceeded our expectations. Their attention to detail and commitment to design excellence is unparalleled. The Sky Villa has become the crown jewel of our portfolio.",
+      content: "Mereka tidak sekadar membangun vila — mereka menciptakan pengalaman spasial yang mengubah cara saya memandang arsitektur. The Sky Villa adalah mahkota portofolio kami dan standar baru yang akan kami kejar di setiap proyek mendatang.",
       rating: 5,
     },
     partners: [
@@ -64,7 +65,7 @@ const projects: Record<string, ProjectData> = {
   "sudirman-tower": {
     title: "Sudirman Tower",
     category: "Commercial",
-    description: "A 40-storey office tower in Jakarta's central business district. Platinum LEED-certified, the building sets a new benchmark for sustainable commercial architecture in Indonesia.",
+    description: "Menjulang 40 lantai di pusat segitiga emas Jakarta, menara ini adalah pernyataan vertikal tentang arsitektur berkelanjutan. Fasad kaca berkinerja tinggi tidak hanya merespons iklim tropis — ia menangkap sinar matahari dan menyalurkan pencahayaan alami hingga ke inti bangunan. Sebagai gedung perkantoran pertama di Indonesia yang meraih sertifikasi LEED Platinum, Sudirman Tower mendefinisikan ulang standar arsitektur komersial di kawasan ini.",
     thumbnail: { src: "/images/portfolio/sudirman-tower.jpg", alt: "Sudirman Tower" },
     images: [
       { src: "/images/portfolio/tower-01.jpg", alt: "Tower exterior" },
@@ -74,24 +75,24 @@ const projects: Record<string, ProjectData> = {
     ],
     location: "Jakarta, Indonesia",
     year: "2023",
-    awards: ["Best Commercial Architecture 2023", "LEED Platinum Certification"],
+    awards: ["Sertifikasi LEED Platinum — US Green Building Council 2023", "Penghargaan Arsitektur Komersial Terbaik, Indonesia Property Awards 2023", "Pencapaian Bangunan Hijau Teladan, Kementerian PUPR 2024"],
     stats: [
-      { value: "40", label: "Floors", suffix: "+" },
-      { value: "50000", label: "Total Area", suffix: " sqm" },
-      { value: "LEED", label: "Platinum Certified" },
-      { value: "2023", label: "Year Completed" },
+      { value: "40", label: "Lantai", suffix: "+" },
+      { value: "50000", label: "Luas Lantai", suffix: " m²" },
+      { value: "LEED", label: "Sertifikasi Platinum" },
+      { value: "2023", label: "Tahun Rampung" },
     ],
     process: [
-      { title: "Feasibility Study", description: "Analysing site conditions, zoning regulations, and market demands to determine optimal building massing and program distribution." },
-      { title: "Facade Engineering", description: "Designing a high-performance curtain wall system that reduces solar heat gain while maximising natural daylight penetration." },
-      { title: "Sustainable Systems", description: "Integrating rainwater harvesting, solar panels, and energy-efficient HVAC to achieve Platinum LEED certification." },
-      { title: "Interior Architecture", description: "Creating flexible floor plates with premium finishes, biophilic design elements, and smart building technology throughout." },
+      { title: "Kajian Kelayakan & Regulasi", description: "Menganalisis kondisi tapak, peraturan zonasi, dan permintaan pasar untuk menentukan massa bangunan dan distribusi program yang paling optimal di kawasan padat Jakarta." },
+      { title: "Rekayasa Fasad", description: "Merancang sistem curtain wall berkinerja tinggi yang mengurangi perolehan panas matahari sekaligus memaksimalkan penetrasi cahaya alami ke seluruh lantai." },
+      { title: "Sistem Berkelanjutan", description: "Mengintegrasikan panen air hujan, panel surya, dan sistem HVAC hemat energi yang menjadi tulang punggung pencapaian sertifikasi LEED Platinum." },
+      { title: "Arsitektur Interior", description: "Menciptakan denah lantai fleksibel dengan material premium, elemen desain biofilik, dan teknologi bangunan pintar yang meningkatkan produktivitas penghuni." },
     ],
     testimonial: {
       name: "David Chen",
-      role: "Founder",
+      role: "Pendiri",
       company: "Chen Properties",
-      content: "Sudirman Tower set a new benchmark for commercial architecture in Jakarta. The team's mastery of sustainable design transformed our vision into a landmark that tenants and investors admire.",
+      content: "Sudirman Tower bukan hanya gedung perkantoran — ia adalah protokol baru untuk arsitektur komersial di Jakarta. Penguasaan tim terhadap desain berkelanjutan telah mengubah visi kami menjadi landmark yang dikagumi penyewa dan investor.",
       rating: 5,
     },
     partners: [
@@ -103,7 +104,7 @@ const projects: Record<string, ProjectData> = {
   "nusantara-resort": {
     title: "Nusantara Resort",
     category: "Hospitality",
-    description: "A beachfront resort in Lombok with 120 villas set within pristine coastal landscapes. The design honours the site's natural ecology while delivering an uncompromised guest experience.",
+    description: "Sebuah resor di pesisir Lombok yang merayakan ekologi pantai tanpa kompromi pada kemewahan. Seratus dua puluh vila tersebar di lahan seluas sepuluh hektar, masing-masing berorientasi pada poros angin laut dan dibingkai vegetasi pantai yang dipertahankan. Arsitektur tropis kontemporer — dengan atap-atap menjulang, material bambu struktural, dan kolam pribadi yang memantulkan langit Senaru — menciptakan pengalaman menginap yang intim namun tetap terhubung dengan alam.",
     thumbnail: { src: "/images/portfolio/nusantara-resort.jpg", alt: "Nusantara Resort" },
     images: [
       { src: "/images/portfolio/resort-01.jpg", alt: "Resort aerial view" },
@@ -113,24 +114,24 @@ const projects: Record<string, ProjectData> = {
     ],
     location: "Lombok, Indonesia",
     year: "2025",
-    awards: ["Best Resort Design 2025"],
+    awards: ["Resor Desain Terbaik Asia Pasifik 2025 — Hospitality Design Awards", "Penghargaan Arsitektur Berkelanjutan — PATA 2025"],
     stats: [
-      { value: "120", label: "Villas" },
-      { value: "10", label: "Hectares" },
-      { value: "5", label: "Dining Venues" },
-      { value: "2025", label: "Year Completed" },
+      { value: "120", label: "Unit Vila" },
+      { value: "10", label: "Luas Lahan", suffix: " hektar" },
+      { value: "5", label: "Ruang Kuliner" },
+      { value: "2025", label: "Tahun Rampung" },
     ],
     process: [
-      { title: "Master Planning", description: "Designing the resort layout to preserve existing coastal vegetation while maximising ocean views from every villa." },
-      { title: "Villa Prototyping", description: "Creating three villa typologies — beachfront, garden, and hillside — each with distinct indoor-outdoor living experiences." },
-      { title: "Landscape Design", description: "Integrating native tropical species, natural stone pathways, and water features that echo the surrounding coastal ecosystem." },
-      { title: "Interior Curation", description: "Selecting local artisanal furnishings, handwoven textiles, and custom lighting to create an authentic sense of place." },
+      { title: "Penataan Master Plan", description: "Merancang tata letak resor yang mempertahankan vegetasi pantai eksisting sambil memaksimalkan panorama laut dari setiap vila — keseimbangan antara densitas dan privasi." },
+      { title: "Prototipe Vila", description: "Menciptakan tiga tipologi vila — tepi pantai, taman, dan bukit — masing-masing dengan orientasi, bayangan, dan aliran udara yang dioptimalkan untuk pengalaman dalam-luar yang khas." },
+      { title: "Desain Lanskap", description: "Mengintegrasikan spesies tropis asli, jalur batu alam, dan elemen air yang bergema dengan ekosistem pesisir — menciptakan lanskap yang terasa telah ada sejak lama." },
+      { title: "Kurasi Interior", description: "Memilih furnitur buatan pengrajin lokal, tekstil tenun tangan, dan pencahayaan kustom yang menghadirkan keaslian tempat tanpa mengorbankan kemewahan kontemporer." },
     ],
     testimonial: {
       name: "Miyako Tanaka",
-      role: "Director",
+      role: "Direktur",
       company: "Luxury Retreats Asia",
-      content: "Working with this team was a pleasure. They understood our vision perfectly and delivered a resort that has become an icon of Lombok's hospitality scene.",
+      content: "Kolaborasi dengan tim ini adalah harmoni antara intuisi dan ketepatan. Mereka tidak hanya memahami visi kami — mereka mewujudkannya dalam bahasa arsitektur yang melampaui ekspektasi. Nusantara Resort kini menjadi ikon perhotelan Lombok yang diakui secara global.",
       rating: 5,
     },
     partners: [
@@ -142,7 +143,7 @@ const projects: Record<string, ProjectData> = {
   "green-valley": {
     title: "Green Valley Estate",
     category: "Master Planning",
-    description: "A 50-hectare master-planned community in Bandung that balances density with liveability. Residential clusters, green corridors, and commercial centres woven into a cohesive urban fabric.",
+    description: "Sebuah komunitas terencana seluas lima puluh hektar di ketinggian Bandung yang mendefinisikan ulang keseimbangan antara kepadatan dan kualitas hidup. Jaringan koridor hijau menghubungkan klaster residensial, pusat komersial, dan taman sentral dalam satu kesatuan urban yang koheren. Konsep transit-oriented development yang mengurangi ketergantungan pada kendaraan pribadi mengukuhkan Green Valley sebagai protokol baru perencanaan kota di Indonesia.",
     thumbnail: { src: "/images/portfolio/green-valley.jpg", alt: "Green Valley Estate" },
     images: [
       { src: "/images/portfolio/green-valley-01.jpg", alt: "Master plan overview" },
@@ -152,24 +153,24 @@ const projects: Record<string, ProjectData> = {
     ],
     location: "Bandung, Indonesia",
     year: "2024",
-    awards: ["Best Master Planning 2024", "Sustainable Community Award"],
+    awards: ["Penghargaan Master Plan Terbaik — Indonesia Landscape Awards 2025", "Komunitas Berkelanjutan Teladan — Kementerian ATR/BPN 2024"],
     stats: [
-      { value: "50", label: "Total Area", suffix: " hectares" },
-      { value: "500", label: "Residential Units" },
-      { value: "3", label: "Commercial Centers" },
-      { value: "2024", label: "Year Completed" },
+      { value: "50", label: "Luas Kawasan", suffix: " hektar" },
+      { value: "500", label: "Unit Hunian" },
+      { value: "3", label: "Pusat Komersial" },
+      { value: "2024", label: "Tahun Rampung" },
     ],
     process: [
-      { title: "Site Analysis", description: "Evaluating topography, watershed patterns, and existing vegetation to create a development that works with the land, not against it." },
-      { title: "Community Framework", description: "Designing a hierarchy of public spaces — from central park to neighbourhood gardens — that foster community interaction." },
-      { title: "Infrastructure Planning", description: "Planning roads, utilities, and drainage systems with future expansion capacity and minimal environmental disruption." },
-      { title: "Sustainable Guidelines", description: "Establishing design guidelines for all buildings ensuring cohesive aesthetics, energy efficiency, and green construction practices." },
+      { title: "Analisis Tapak", description: "Mengevaluasi topografi, pola aliran air, dan vegetasi eksisting untuk menciptakan pengembangan yang bekerja dengan alam — menjaga kontur alami sebagai kerangka desain." },
+      { title: "Kerangka Komunitas", description: "Merancang hierarki ruang publik — dari taman sentral hingga taman lingkungan — yang mendorong interaksi sosial dan menciptakan rasa kepemilikan bersama di antara penghuni." },
+      { title: "Perencanaan Infrastruktur", description: "Merencanakan jaringan jalan, utilitas, dan drainase dengan kapasitas ekspansi masa depan dan gangguan lingkungan yang minimal — infrastruktur yang tidak terlihat tetapi terasa." },
+      { title: "Pedoman Berkelanjutan", description: "Menyusun pedoman desain untuk seluruh bangunan yang memastikan estetika kohesif, efisiensi energi, dan praktik konstruksi hijau yang terukur." },
     ],
     testimonial: {
       name: "Dr. Ratna Kusuma",
-      role: "Principal",
+      role: "Prinsipal",
       company: "Bandung Urban Development",
-      content: "Green Valley Estate is a model for sustainable community development in Indonesia. The master plan balances density with liveability in a way that sets a new standard.",
+      content: "Green Valley Estate adalah manifesto perencanaan kota berkelanjutan di Indonesia. Tim ini berhasil menyeimbangkan kepadatan dan kualitas hidup dalam satu kesatuan yang koheren — sebuah standar baru yang layak ditiru di seluruh Nusantara.",
       rating: 5,
     },
     partners: [
@@ -181,7 +182,7 @@ const projects: Record<string, ProjectData> = {
   "the-sanctuary": {
     title: "The Sanctuary",
     category: "Residential",
-    description: "A private residence in Ubud, Bali, conceived as a retreat within the tropical forest. Natural materials, sustainable systems, and a porous boundary between inside and out define the experience.",
+    description: "Sebuah kediaman pribadi di Ubud yang dirancang sebagai retret dalam hutan tropis. Batas antara dalam dan luar sengaja dikaburkan — dinding kaca selebar ruang tamu menghilang ke dalam taman, sementara atap hijau dan dinding batu vulkanik menyamarkan massa bangunan di antara kanopi pepohonan. Rumah ini adalah studi tentang ketahanan — sebuah arsitektur yang hidup bersama waktu, bukan melawannya.",
     thumbnail: { src: "/images/portfolio/sanctuary.jpg", alt: "The Sanctuary" },
     images: [
       { src: "/images/portfolio/sanctuary-01.jpg", alt: "Main residence exterior" },
@@ -191,23 +192,23 @@ const projects: Record<string, ProjectData> = {
     ],
     location: "Ubud, Indonesia",
     year: "2023",
-    awards: ["Best Residential Design 2023", "Green Building Excellence Award"],
+    awards: ["Penghargaan Desain Residensial Terbaik — Indonesia Green Building Awards 2023", "Sertifikasi Greenship Platinum — GBC Indonesia 2023"],
     stats: [
-      { value: "600", label: "Total Area", suffix: " sqm" },
-      { value: "3", label: "Bedrooms" },
-      { value: "18", label: "Months to Complete" },
-      { value: "2023", label: "Year Completed" },
+      { value: "600", label: "Luas Bangunan", suffix: " m²" },
+      { value: "3", label: "Kamar Tidur" },
+      { value: "18", label: "Masa Konstruksi", suffix: " bulan" },
+      { value: "2023", label: "Tahun Rampung" },
     ],
     process: [
-      { title: "Site Immersion", description: "Understanding the forest microclimate, view corridors, and natural light patterns to inform every design decision." },
-      { title: "Biophilic Design", description: "Developing a concept that blurs boundaries between interior and exterior, using glass walls, open courtyards, and green roofs." },
-      { title: "Material Selection", description: "Sourcing sustainable timber, local stone, and natural finishes that age gracefully and complement the surrounding forest." },
-      { title: "Sustainable Systems", description: "Integrating rainwater collection, solar energy, and natural ventilation to achieve a net-zero energy footprint." },
+      { title: "Imersi Tapak", description: "Memahami mikroklimat hutan, koridor cahaya alami yang menembus kanopi, dan pola angin untuk menginformasikan setiap keputusan desain — dari orientasi bukaan hingga posisi ruang basah." },
+      { title: "Desain Biofilik", description: "Mengembangkan konsep yang mengaburkan batas antara interior dan eksterior melalui dinding kaca lipat penuh, halaman terbuka, dan atap hijau yang menyatu dengan kanopi hutan." },
+      { title: "Kurasi Material", description: "Menyaring kayu bersertifikasi berkelanjutan, batu lokal dari sungai sekitar, dan finishing alami yang akan menua dengan elegan — menciptakan patina seiring waktu." },
+      { title: "Sistem Berkelanjutan", description: "Mengintegrasikan panen air hujan, energi surya, dan ventilasi silang alami untuk mencapai jejak karbon net-zero — bukti bahwa kemewahan dan keberlanjutan dapat berjalan beriringan." },
     ],
     testimonial: {
       name: "Alexandra Hartono",
-      role: "Homeowner",
-      content: "The Sanctuary is more than a home — it is a personal retreat that connects me to nature every moment. The team understood exactly how I wanted to live.",
+      role: "Pemilik Kediaman",
+      content: "Lebih dari sekadar rumah — The Sanctuary adalah ruang yang mengingatkan saya setiap hari tentang ketenangan yang mungkin dicapai ketika arsitektur benar-benar menghormati alam. Tim ini memahami bagaimana saya ingin hidup bahkan sebelum saya mampu mengatakannya.",
       rating: 5,
     },
     partners: [
@@ -219,7 +220,7 @@ const projects: Record<string, ProjectData> = {
   "marina-club": {
     title: "Marina Bay Club",
     category: "Hospitality",
-    description: "A members' club in Singapore's Marina Bay district. Interiors of refined restraint, waterfront dining, and wellness facilities designed for an exclusive, discerning membership.",
+    description: "Sebuah klub anggota eksklusif di distrik Marina Bay yang merayakan kemewahan melalui keheningan. Interior yang menahan diri — marmer Calacatta, kuningan poles tangan, dan panel kayu ceri — menciptakan atmosfer keanggotaan yang canggih. Dermaga pribadi dengan cakrawala Singapura menjadi latar pengalaman kuliner dan kebugaran yang dirancang untuk jiwa-jiwa diskriminatif.",
     thumbnail: { src: "/images/portfolio/marina-club.jpg", alt: "Marina Bay Club" },
     images: [
       { src: "/images/portfolio/marina-01.jpg", alt: "Club entrance" },
@@ -229,24 +230,24 @@ const projects: Record<string, ProjectData> = {
     ],
     location: "Singapore",
     year: "2025",
-    awards: ["Best Hospitality Design 2025"],
+    awards: ["Penghargaan Desain Hospitalitas Terbaik — Singapore Design Awards 2025", "Nominasi World Architecture Festival — Kategori Interior 2025"],
     stats: [
-      { value: "5000", label: "Total Area", suffix: " sqm" },
-      { value: "6", label: "Dining Venues" },
-      { value: "300", label: "Member Capacity" },
-      { value: "2025", label: "Year Completed" },
+      { value: "5000", label: "Luas Interior", suffix: " m²" },
+      { value: "6", label: "Ruang Kuliner" },
+      { value: "300", label: "Kapasitas Anggota" },
+      { value: "2025", label: "Tahun Rampung" },
     ],
     process: [
-      { title: "Concept Development", description: "Designing a sophisticated waterfront concept that balances exclusivity with warmth, inspired by luxury yacht club aesthetics." },
-      { title: "Interior Architecture", description: "Curating a material palette of marble, brass, and rich timber across all spaces — from the grand lobby to private dining rooms." },
-      { title: "Facade Design", description: "Creating a glass curtain wall with dynamic lighting that animates the waterfront facade at night." },
-      { title: "Wellness Integration", description: "Designing the spa and wellness wing around a central courtyard with natural light, water features, and tropical planting." },
+      { title: "Penyusunan Konsep", description: "Merumuskan konsep tepi air yang terinspirasi estetika klub kapal pesiar mewah — menyeimbangkan eksklusivitas dengan kehangatan melalui material, cahaya, dan proporsi ruang." },
+      { title: "Arsitektur Interior", description: "Mengkurasi palet material — marmer Calacatta, kuningan permukaan sikat, kayu jati solid — yang mengalir koheren dari lobi utama hingga ruang makan privat dan lounge anggota." },
+      { title: "Desain Fasad", description: "Menciptakan dinding tirai kaca dengan pencahayaan dinamis yang menghidupkan fasad tepi air di malam hari — mercusuar kontemporer di teluk." },
+      { title: "Integrasi Kebugaran", description: "Merancang sayap spa dan kebugaran di sekitar halaman sentral yang dipenuhi cahaya alami, dengan fitur air dan taman tropis vertikal yang membingkai kolam infinity atap." },
     ],
     testimonial: {
       name: "Michael Tan",
-      role: "Managing Director",
+      role: "Direktur Utama",
       company: "Marina Bay Hospitality",
-      content: "The Marina Bay Club has redefined what a private members club can be. Every detail — from the materials to the spatial flow — reflects uncompromising quality.",
+      content: "Marina Bay Club telah mendefinisikan ulang makna klub anggota. Setiap detail — dari suhu kuningan di pegangan pintu hingga irama sirkulasi antarruang — adalah manifesto kualitas tanpa kompromi. Inilah standar baru untuk hospitalitas eksklusif di Asia.",
       rating: 5,
     },
     partners: [
@@ -282,7 +283,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   const project = projects[slug];
 
   if (!project) {
-    return <CTADefault title="Project Not Found" description="The project you are looking for does not exist." primaryCta={{ label: "View Portfolio", href: "/portfolio" }} />;
+    return <CTADefault title="Proyek Tidak Ditemukan" description="Halaman yang Anda cari tidak tersedia." primaryCta={{ label: "Kembali ke Portofolio", href: "/portfolio" }} />;
   }
 
   const awards: AwardItem[] = (project.awards ?? []).map((a) => ({
@@ -307,6 +308,11 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
 
   return (
     <>
+      <JsonLdScript data={createWebPageSchema({
+        name: `${project.title} — ${project.category} Architecture Case Study`,
+        description: project.description,
+        url: `/portfolio/${slug}`,
+      })} id="webpage-schema" />
       <JsonLdScript data={createProjectSchema({
         name: project.title,
         description: project.description,
@@ -319,51 +325,80 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
         { name: "Portfolio", href: "/portfolio" },
         { name: project.title },
       ])} id="breadcrumb-schema" />
+      {project.testimonial && (
+        <JsonLdScript data={createReviewSchema({
+          itemName: project.title,
+          reviewBody: project.testimonial.content,
+          authorName: project.testimonial.name,
+          reviewRating: project.testimonial.rating ?? 5,
+          datePublished: project.year,
+          url: `/portfolio/${slug}`,
+        })} id="review-schema" />
+      )}
       <ProjectDetailHeader project={projectItem} />
+      <div className="container-site py-6">
+        <Breadcrumb
+          items={[
+            { label: "Portfolio", href: "/portfolio" },
+            { label: project.title },
+          ]}
+        />
+      </div>
       <ProjectGallery title={project.title} images={project.images} />
+      <div className="container-site py-8">
+        <div className="rounded-lg border border-gold-500/10 bg-surface-secondary p-8 text-center">
+          <p className="text-body-lg text-text-secondary mb-4">Tertarik dengan proyek serupa?</p>
+          <a
+            href="/contact"
+            className="inline-flex items-center gap-2 rounded-lg bg-gold-500 px-6 py-3 text-body-sm font-medium text-white transition-all duration-300 hover:bg-gold-600"
+          >
+            Diskusikan Proyek Anda
+          </a>
+        </div>
+      </div>
       <BeforeAfter
-        title="Before & After"
-        description="The transformation from concept to completed reality."
+        title="Sebelum & Sesudah"
+        description="Transformasi dari wujud konseptual menuju realitas terbangun yang utuh."
         project={projectItem}
       />
       <ProcessSteps
-        title="The Design Journey"
-        description="Our approach — from first site visit to final delivery."
+        title="Tahapan Penciptaan"
+        description="Perjalanan desain — dari dialog pertama di tapak hingga sentuhan akhir yang sempurna."
         steps={project.process}
       />
       {project.testimonial && (
         <ClientReviews
-          title="Client Perspective"
-          description="What our client had to say."
+          title="Perspektif Klien"
+          description="Refleksi dari mereka yang mempercayakan visinya kepada kami."
           testimonials={[project.testimonial]}
           variant="grid"
         />
       )}
       {project.partners && (
         <PartnersShowcase
-          title="Collaborators"
-          description="The partners who contributed to this project."
+          title="Kolaborator"
+          description="Rekan kerja yang turut mewujudkan karya ini."
           partners={project.partners}
           variant="simple"
         />
       )}
       <ProjectStatistics
-        title="Project Statistics"
-        description="Key metrics for this project."
+        title="Data Proyek"
+        description="Metrik kunci yang mendefinisikan skala dan kompleksitas karya ini."
         stats={project.stats}
       />
-      <Awards title="Awards & Recognition" awards={awards} />
+      <Awards title="Penghargaan & Pengakuan" awards={awards} />
       {remainingProjects.length > 0 && (
         <FeaturedProjects
-          title="Related Projects"
-          description="Other projects from our portfolio."
+          title="Proyek Terkait"
+          description="Karya lain dari rangkaian portofolio kami yang mungkin menginspirasi."
           projects={remainingProjects.slice(0, 3)}
         />
       )}
       <CTADefault
-        title="Inspired by This Project?"
-        description="Let us create something equally considered for your space. Share your vision with us."
-        primaryCta={{ label: "Discuss Your Project", href: "/contact" }}
+        title="Terinspirasi oleh Karya Ini?"
+        description="Izinkan kami menciptakan sesuatu yang setara untuk ruang Anda. Bagikan visi Anda dan mari kita wujudkan bersama."
+        primaryCta={{ label: "Diskusikan Proyek Anda", href: "/contact" }}
       />
     </>
   );

@@ -1,59 +1,67 @@
 import { ProcessSteps, Timeline, ConsultationProcess, ConstructionFlow, ProjectLifecycle } from "@/sections";
-import { createMetadata } from "@/seo";
+import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
 import type { ProcessStep, TimelineEvent } from "@/sections";
 import { Search, Lightbulb, Ruler, PenTool, FileText, HardHat } from "lucide-react";
 
 export const metadata = createMetadata({
-  title: "Proses Kami",
-  description: "Temukan bagaimana PT Karya Nusantara Realty mengubah visi menjadi mahakarya arsitektur melalui proses desain dan konstruksi yang teruji.",
+  title: "Metodologi Desain & Proses Arsitektur",
+  description: "Pelajari metodologi desain arsitektur PT Karya Nusantara Realty — dari konsultasi awal, eksplorasi desain, dokumentasi konstruksi, hingga pengawasan pembangunan.",
 });
 
 const steps: ProcessStep[] = [
-  { title: "Penemuan & Briefing", description: "Kami melakukan diskusi mendalam untuk memahami visi, kebutuhan, anggaran, dan jadwal Anda.", icon: <Search size={20} /> },
-  { title: "Analisis Lahan", description: "Tim kami melakukan evaluasi lahan menyeluruh, termasuk topografi, iklim, orientasi, dan peraturan.", icon: <Ruler size={20} /> },
-  { title: "Desain Konsep", description: "Kami mengembangkan konsep desain awal, sketsa, dan mood board untuk review dan masukan Anda.", icon: <Lightbulb size={20} /> },
-  { title: "Pengembangan Desain", description: "Konsep yang dipilih disempurnakan dengan gambar detail, pemilihan material, dan perkiraan biaya.", icon: <PenTool size={20} /> },
-  { title: "Dokumen Konstruksi", description: "Gambar teknis dan spesifikasi komprehensif disiapkan untuk perizinan dan tender kontraktor.", icon: <FileText size={20} /> },
-  { title: "Administrasi Konstruksi", description: "Kami mengawasi konstruksi, melakukan kunjungan lapangan, dan memastikan visi desain dijalankan dengan setia.", icon: <HardHat size={20} /> },
+  { title: "Penemuan & Perumusan Visi", description: "Dialog intim untuk menangkap esensi aspirasi Anda — merangkum narasi, kebutuhan, dan ambisi ruang.", icon: <Search size={20} /> },
+  { title: "Teliti Lahan & Konteks", description: "Kajian menyeluruh terhadap topografi, mikroklimat, orientasi matahari, serta regulasi tapak sebagai fondasi desain.", icon: <Ruler size={20} /> },
+  { title: "Gagasan & Purwarupa", description: "Lahirnya sketsa awal, mood board kuratif, dan konsep yang mewadahi imajinasi Anda dalam bentuk visual.", icon: <Lightbulb size={20} /> },
+  { title: "Penajaman & Detailisasi", description: "Konsep terpilih diperhalus menjadi gambar presisi, spesifikasi material terkurasi, dan estimasi biaya mendalam.", icon: <PenTool size={20} /> },
+  { title: "Dokumentasi Konstruksi", description: "Paket gambar teknis dan spesifikasi komprehensif yang menjadi acuan mutlak bagi perizinan dan pelaksanaan.", icon: <FileText size={20} /> },
+  { title: "Pengawasan Konstruksi", description: "Kehadiran kami di lapangan memastikan setiap detail desain dieksekusi dengan kesetiaan mutlak terhadap visi awal.", icon: <HardHat size={20} /> },
 ];
 
 const timelineEvents: TimelineEvent[] = [
-  { year: "Bulan 1-2", title: "Fase Penemuan", description: "Konsultasi awal, kunjungan lahan, dan pengembangan brief proyek." },
-  { year: "Bulan 3-4", title: "Desain Konsep", description: "Desain skematis, mood board, dan anggaran pendahuluan." },
-  { year: "Bulan 5-8", title: "Pengembangan Desain", description: "Gambar detail, pemilihan material, dan anggaran akhir." },
-  { year: "Bulan 9-12", title: "Dokumentasi & Perizinan", description: "Dokumen konstruksi dan aplikasi izin bangunan." },
-  { year: "Bulan 13+", title: "Konstruksi", description: "Administrasi konstruksi dan penyelesaian proyek." },
+  { year: "Bulan 1–2", title: "Riset & Perumusan", description: "Konsultasi perdana, survei tapak, dan penyusunan brief proyek yang menjadi cetak biru visi Anda." },
+  { year: "Bulan 3–4", title: "Eksplorasi Bentuk", description: "Skematik desain, mood board kuratif, dan studi anggaran awal." },
+  { year: "Bulan 5–8", title: "Pematangan Desain", description: "Gambar detail, seleksi material ketat, dan finalisasi anggaran." },
+  { year: "Bulan 9–12", title: "Dokumentasi & Izin", description: "Penyusunan dokumen konstruksi lengkap dan pengurusan izin mendirikan bangunan." },
+  { year: "Bulan 13+", title: "Ereksi & Penyelesaian", description: "Pengawasan konstruksi aktif hingga serah terima karya yang sempurna." },
 ];
 
 export default function ProcessPage() {
   return (
     <>
+      <JsonLdScript data={createWebPageSchema({
+        name: "Metodologi Desain Arsitektur — PT Karya Nusantara Realty",
+        description: "Proses desain arsitektur dari konsultasi awal, eksplorasi konsep, pengembangan desain, dokumentasi konstruksi, hingga pengawasan pembangunan.",
+        url: "/process",
+      })} id="webpage-schema" />
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Proses" },
+      ])} id="breadcrumb-schema" />
       <ProcessSteps
-        title="Cara Kami Bekerja"
-        description="Proses teruji kami memastikan setiap proyek diantarkan dengan standar kualitas dan perhatian terhadap detail tertinggi."
+        title="Tahapan Karya"
+        description="Setiap mahakarya melalui rangkaian proses yang terukur — dari percakapan pertama hingga sentuhan terakhir."
         steps={steps}
       />
       <Timeline
-        title="Jadwal Proyek"
+        title="Cakrawala Waktu"
         events={timelineEvents}
       />
       <ConsultationProcess
-        title="Proses Konsultasi"
-        description="Proses konsultasi kami memastikan setiap detail tertangkap sebelum kami memulai perjalanan desain."
+        title="Tata Cara Konsultasi"
+        description="Kami percaya bahwa desain agung lahir dari pemahaman yang utuh. Konsultasi awal adalah fondasi dari segalanya."
         steps={[
-          { step: 1, title: "Permintaan Awal", description: "Hubungi kami melalui formulir kontak atau telepon untuk menyatakan minat Anda." },
-          { step: 2, title: "Panggilan Penemuan", description: "Panggilan 30 menit untuk memahami lingkup proyek, visi, dan anggaran Anda." },
-          { step: 3, title: "Kunjungan Lahan", description: "Tim kami mengunjungi lahan Anda untuk menilai kondisi dan mengumpulkan pengukuran." },
-          { step: 4, title: "Proposal", description: "Kami memberikan proposal yang disesuaikan dengan lingkup, jadwal, dan struktur biaya." },
+          { step: 1, title: "Minat & Pengantar", description: "Sampaikan niat Anda melalui kanal kontak kami. Tim kami akan merespons dalam 24 jam." },
+          { step: 2, title: "Dialog Penjajakan", description: "Percakapan intensif selama 30–60 menit untuk menggali visi, lingkup, serta kisaran anggaran Anda." },
+          { step: 3, title: "Ekspedisi Tapak", description: "Arsitek kami melakukan visitasi langsung ke lahan untuk merasakan karakter dan potensi tapak." },
+          { step: 4, title: "Proposal Khusus", description: "Kami menghadirkan proposal yang dirancang khusus — mencakup lingkup, jadwal, dan struktur honorarium." },
         ]}
       />
       <ConstructionFlow
-        title="Alur Konstruksi"
-        description="Pendekatan bertahap kami terhadap konstruksi memastikan kualitas di setiap tahap."
+        title="Alur Pelaksanaan"
+        description="Setiap fase konstruksi dikelola dengan presisi tinggi dan pengendalian mutu yang ketat."
       />
       <ProjectLifecycle
-        title="Siklus Hidup Proyek"
-        description="Dari awal hingga penyelesaian, kami memandu proyek Anda melalui setiap fase."
+        title="Perjalanan Karya"
+        description="Dari aspirasi awal hingga penghunian, kami mendampingi setiap langkah dengan dedikasi penuh."
       />
     </>
   );

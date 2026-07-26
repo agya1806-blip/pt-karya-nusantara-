@@ -4,6 +4,7 @@ import { useState, useMemo } from "react";
 import { AnimatedSection } from "@/components/animation";
 import { FeaturedProjects, ProjectCategories, StatisticsShowcase, CTADefault, SectionHeader } from "@/sections";
 import { FilterBar } from "@/filters";
+import { JsonLdScript } from "@/seo";
 import type { FilterState, SortField, SortDirection } from "@/filters";
 import type { PortfolioItem, StatItem } from "@/sections";
 
@@ -17,10 +18,10 @@ const projects: PortfolioItem[] = [
 ];
 
 const stats: StatItem[] = [
-  { value: "200", label: "Proyek Terselesaikan", suffix: "+" },
-  { value: "50", label: "Penghargaan Desain", suffix: "+" },
-  { value: "15", label: "Tahun Berpraktek" },
-  { value: "8", label: "Negara Terjangkau" },
+  { value: "200", label: "Proyek Terwujud", suffix: "+" },
+  { value: "50", label: "Penghargaan Bergengsi", suffix: "+" },
+  { value: "15", label: "Tahun Dedikasi" },
+  { value: "8", label: "Negara Jangkauan" },
 ];
 
 const categoryOptions = [
@@ -88,11 +89,27 @@ export default function PortfolioPage() {
 
   return (
     <>
+      <JsonLdScript data={{
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        name: "Portofolio Arsitektur — PT Karya Nusantara Realty",
+        description: "Jelajahi portofolio arsitektur residensial mewah, komersial, hospitality, dan master plan dari PT Karya Nusantara Realty — lebih dari 200 proyek di Indonesia dan Asia Tenggara.",
+        url: `${typeof window !== "undefined" ? window.location.origin : ""}/portfolio`,
+        isPartOf: { "@type": "WebSite", "@id": `${typeof window !== "undefined" ? window.location.origin : ""}` },
+      }} id="collection-schema" />
+      <JsonLdScript data={{
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Beranda", item: typeof window !== "undefined" ? window.location.origin : "" },
+          { "@type": "ListItem", position: 2, name: "Portofolio" },
+        ],
+      }} id="breadcrumb-schema" />
       <div className="bg-surface pt-32 pb-8">
         <div className="container-site">
           <SectionHeader
-            title="Portofolio"
-            description="Setiap proyek memiliki cerita. Jelajahi karya kami — dari hunian pribadi hingga landmark komersial — masing-masing cerminan desain yang matang."
+            title="Rangkaian Karya"
+            description="Sebuah kurasi perjalanan arsitektur yang melampaui batas geografis dan tipologis. Setiap proyek adalah pernyataan desain yang lahir dari dialog mendalam antara konteks, material, dan visi."
           />
         </div>
       </div>
@@ -113,35 +130,35 @@ export default function PortfolioPage() {
       </section>
       <AnimatedSection>
         <FeaturedProjects
-          title="Karya Terpilih"
-          description="Perjalanan terkurasi melalui proyek-proyek yang mendefinisikan praktik kami dan mengungkap keluasan kemampuan kami."
+          title="Karya Unggulan"
+          description="Menyusuri spektrum praktik kami melalui proyek-proyek yang menjadi tonggak — setiap karya mewakili sintesis antara ambisi, konteks, dan ketepatan material."
           projects={filteredProjects}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.2}>
         <ProjectCategories
-          title="Jelajahi Berdasarkan Disiplin"
-          description="Setiap kategori mencerminkan bahasa desain yang berbeda dan kedalaman keahlian yang telah kami kembangkan dari waktu ke waktu."
-          categories={[
-            { label: "Residensial", href: "/services" },
-            { label: "Komersial", href: "/services" },
-            { label: "Hospitality", href: "/services" },
-            { label: "Master Plan", href: "/services" },
+            title="Jelajahi Menurut Ranah Desain"
+            description="Empat disiplin yang masing-masing mewadahi pendekatan khas — dari skala intim residensial hingga cakupan visioner master plan."
+            categories={[
+            { label: "Arsitektur Residensial", href: "/services/residential" },
+            { label: "Arsitektur Komersial", href: "/services/commercial" },
+            { label: "Desain Hospitality", href: "/services/hospitality" },
+            { label: "Master Plan", href: "/services/master-planning" },
           ]}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
         <StatisticsShowcase
-          title="Dalam Angka"
-          description="Ukuran kepercayaan yang diberikan klien kepada kami."
+          title="Tolok Ukur"
+          description="Angka-angka yang merekam jejak perjalanan, komitmen, dan kepercayaan yang diamanatkan kepada kami."
           stats={stats}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.4}>
         <CTADefault
-          title="Visi Anda, Keahlian Kami"
-          description="Bagikan aspirasi proyek Anda dengan kami dan temukan apa yang dapat kami ciptakan bersama."
-          primaryCta={{ label: "Jadwalkan Konsultasi", href: "/contact" }}
+          title="Visi Anda, Ketajaman Kami"
+          description="Setiap mahakarya bermula dari percakapan. Bagikan aspirasi Anda dan mari kita rumuskan wujud yang melampaui ekspektasi."
+          primaryCta={{ label: "Mulai Perbincangan", href: "/contact" }}
         />
       </AnimatedSection>
     </>

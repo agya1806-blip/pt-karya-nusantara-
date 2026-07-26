@@ -1,20 +1,25 @@
 import { CTADefault } from "@/sections";
-import { createMetadata } from "@/seo";
+import { createMetadata, createWebPageSchema, JsonLdScript } from "@/seo";
 import { SearchClient } from "./search-client";
 
 export const metadata = createMetadata({
-  title: "Search",
-  description: "Search our website for projects, services, articles, and more.",
+  title: "Cari — Temukan Inspirasi",
+  description: "Telusuri proyek arsitektur, layanan desain, artikel wawasan, dan referensi dari Karya Nusantara Realty.",
 });
 
 export default function SearchPage() {
   return (
     <>
+      <JsonLdScript data={createWebPageSchema({
+        name: "Cari — Karya Nusantara Realty",
+        description: "Telusuri proyek, layanan, artikel, dan inspirasi dari Karya Nusantara Realty.",
+        url: "/search",
+      })} id="webpage-schema" />
       <SearchClient />
       <CTADefault
-        title="Did Not Find What You Were Looking For?"
-        description="Contact our team directly and we will be happy to assist you."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        title="Tak Menemukan yang Dicari?"
+        description="Hubungi tim kami langsung — kami akan dengan senang hati membantu Anda."
+        primaryCta={{ label: "Hubungi Langsung", href: "/contact" }}
       />
     </>
   );

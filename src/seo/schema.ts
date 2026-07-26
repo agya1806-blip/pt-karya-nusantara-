@@ -37,6 +37,27 @@ export function createOrganizationSchema(): JsonLd {
       },
     ],
     sameAs: siteConfig.social.map((s) => s.url).filter(Boolean),
+    knowsAbout: [
+      "Architecture",
+      "Interior Design",
+      "Master Planning",
+      "Construction Management",
+      "Property Development",
+      "Sustainable Design",
+    ],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Architecture & Design Services",
+      itemListElement: siteConfig.businessFields.map((field, i) => ({
+        "@type": "Offer",
+        itemOffered: {
+          "@type": "Service",
+          name: field.name,
+          description: field.description,
+        },
+        position: i + 1,
+      })),
+    },
   };
 }
 
@@ -85,6 +106,14 @@ export function createLocalBusinessSchema(): JsonLd {
       latitude: siteConfig.coordinates.lat,
       longitude: siteConfig.coordinates.lng,
     },
+    areaServed: [
+      { "@type": "City", name: "Banda Aceh" },
+      { "@type": "State", name: "Aceh" },
+      { "@type": "Country", name: "Indonesia" },
+      { "@type": "Continent", name: "Asia Tenggara" },
+    ],
+    priceRange: "$$$$",
+    currenciesAccepted: "IDR, USD",
     openingHoursSpecification: siteConfig.businessHours.map((hours) => ({
       "@type": "OpeningHoursSpecification",
       dayOfWeek: hours.day,
@@ -116,8 +145,12 @@ export function createArticleSchema(params: {
   description: string;
   image: string;
   datePublished: string;
+  dateModified?: string;
   author: string;
   url: string;
+  wordCount?: number;
+  articleSection?: string;
+  inLanguage?: string;
 }): JsonLdArticle {
   return {
     "@context": "https://schema.org",
@@ -126,7 +159,7 @@ export function createArticleSchema(params: {
     description: params.description,
     image: `${siteConfig.url}${params.image}`,
     datePublished: params.datePublished,
-    dateModified: params.datePublished,
+    dateModified: params.dateModified ?? params.datePublished,
     author: { "@type": "Person", name: params.author },
     publisher: {
       "@type": "Organization",
@@ -134,6 +167,9 @@ export function createArticleSchema(params: {
       logo: { "@type": "ImageObject", url: `${siteConfig.url}${siteConfig.logo}` },
     },
     mainEntityOfPage: { "@type": "WebPage", "@id": `${siteConfig.url}${params.url}` },
+    ...(params.wordCount ? { wordCount: params.wordCount } : {}),
+    ...(params.articleSection ? { articleSection: params.articleSection } : {}),
+    ...(params.inLanguage ? { inLanguage: params.inLanguage } : {}),
   };
 }
 
@@ -154,6 +190,69 @@ export function createProjectSchema(params: {
     category: params.category,
     ...(params.location ? { location: params.location } : {}),
     ...(params.year ? { dateCreated: params.year } : {}),
+  };
+}
+
+export function createReviewSchema(params: {
+  itemName: string;
+  reviewBody: string;
+  authorName: string;
+  reviewRating: number;
+  bestRating?: number;
+  datePublished?: string;
+  url?: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "Project",
+      name: params.itemName,
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: params.reviewRating,
+      bestRating: params.bestRating ?? 5,
+    },
+    reviewBody: params.reviewBody,
+    author: { "@type": "Person", name: params.authorName },
+    ...(params.datePublished ? { datePublished: params.datePublished } : {}),
+    ...(params.url ? { url: params.url } : {}),
+  };
+}
+
+export function createWebPageSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  breadcrumb?: string;
+  isPartOf?: string;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: params.name,
+    description: params.description,
+    url: `${siteConfig.url}${params.url}`,
+    ...(params.breadcrumb ? { breadcrumb: { "@type": "BreadcrumbList", "@id": params.breadcrumb } } : {}),
+    ...(params.isPartOf ? { isPartOf: { "@type": "WebSite", "@id": params.isPartOf } } : {}),
+  };
+}
+
+export function createCollectionPageSchema(params: {
+  name: string;
+  description: string;
+  url: string;
+  numberOfItems?: number;
+}): JsonLd {
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: params.name,
+    description: params.description,
+    url: `${siteConfig.url}${params.url}`,
+    ...(params.numberOfItems ? { numberOfItems: params.numberOfItems } : {}),
+    isPartOf: { "@type": "WebSite", "@id": `${siteConfig.url}` },
   };
 }
 
