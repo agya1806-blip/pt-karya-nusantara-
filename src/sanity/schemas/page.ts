@@ -13,9 +13,9 @@ export default defineType({
       title: "Page Sections",
       type: "array",
       of: [
-        { type: "reference", to: [{ type: "hero" }] },
-        { type: "reference", to: [{ type: "service" }] },
-        { type: "reference", to: [{ type: "project" }] },
+        { name: "heroRef", type: "reference", to: [{ type: "hero" }] },
+        { name: "serviceRef", type: "reference", to: [{ type: "service" }] },
+        { name: "projectRef", type: "reference", to: [{ type: "project" }] },
       ],
     }),
   ],
