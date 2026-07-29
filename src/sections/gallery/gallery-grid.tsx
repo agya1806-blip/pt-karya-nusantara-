@@ -13,6 +13,7 @@ interface GalleryGridProps {
   title: string;
   description?: string;
   items: GalleryItem[];
+  layout?: "grid" | "masonry";
   columns?: 2 | 3 | 4;
   aspectRatio?: "square" | "4/3" | "3/4" | "16/9" | "auto";
   lightbox?: boolean;
@@ -38,6 +39,7 @@ export function GalleryGrid({
   title,
   description,
   items,
+  layout = "grid",
   columns = 3,
   aspectRatio = "4/3",
   lightbox = true,
@@ -63,34 +65,66 @@ export function GalleryGrid({
           title={title}
           description={description}
         />
-        <Stagger className={cn("mt-20 grid gap-5", gridCols[columns])}>
-          {items.map((item, i) => (
-            <StaggerItem key={i}>
-              <button
-                type="button"
-                onClick={() => lightbox && setLightboxIndex(i)}
-                className={cn(
-                  "group relative w-full overflow-hidden bg-surface-secondary",
-                  aspectRatio !== "auto" && aspectClasses[aspectRatio],
-                )}
-                aria-label={`View ${item.alt}`}
-              >
-                <ImageReveal
-                  src={item.src}
-                  alt={item.alt}
-                  fill
-                  className="h-full w-full transition-transform duration-700 ease-luxury group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-brand-900/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-                {item.caption && (
-                  <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-brand-900/60 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
-                    <p className="text-body-sm text-white">{item.caption}</p>
-                  </div>
-                )}
-              </button>
-            </StaggerItem>
-          ))}
-        </Stagger>
+        {layout === "masonry" ? (
+          <div
+            className={cn("mt-20 grid gap-5", gridCols[columns])}
+            style={{ alignItems: "start" }}
+          >
+            {Array.from({ length: columns }, (_, colIdx) => (
+              <div key={colIdx} className="flex flex-col gap-5">
+                {items
+                  .filter((_, i) => i % columns === colIdx)
+                  .map((item, imgIdx) => (
+                    <button
+                      key={`${colIdx}-${imgIdx}`}
+                      type="button"
+                      onClick={() => lightbox && setLightboxIndex(items.indexOf(item))}
+                      className="group relative w-full overflow-hidden bg-surface-secondary"
+                      aria-label={`View ${item.alt}`}
+                    >
+                      <ImageReveal
+                        src={item.src}
+                        alt={item.alt}
+                        fill
+                        zoomOnHover
+                      />
+                      <div className="absolute inset-0 bg-brand-900/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                    </button>
+                  ))}
+              </div>
+            ))}
+          </div>
+        ) : (
+          <Stagger className={cn("mt-20 grid gap-5", gridCols[columns])}>
+            {items.map((item, i) => (
+              <StaggerItem key={i}>
+                <button
+                  type="button"
+                  onClick={() => lightbox && setLightboxIndex(i)}
+                  className={cn(
+                    "group relative w-full overflow-hidden bg-surface-secondary",
+                    aspectRatio !== "auto" && aspectClasses[aspectRatio],
+                  )}
+                  aria-label={`View ${item.alt}`}
+                >
+                  <ImageReveal
+                    src={item.src}
+                    alt={item.alt}
+                    fill
+                    className="h-full w-full"
+                    zoomOnHover
+                  />
+                  <div className="absolute inset-0 bg-brand-900/20 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  {item.caption && (
+                    <div className="absolute inset-x-0 bottom-0 translate-y-full bg-gradient-to-t from-brand-900/60 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
+                      <p className="text-body-sm text-white">{item.caption}</p>
+                    </div>
+                  )}
+                </button>
+              </StaggerItem>
+            ))}
+          </Stagger>
+        )}
       </div>
 
       {lightbox && lightboxIndex !== null && (

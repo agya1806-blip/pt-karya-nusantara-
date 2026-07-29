@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/sections/shared/section-header";
 import { Fade } from "@/components/animation/Fade";
 import { Stagger, StaggerItem } from "@/components/animation/Stagger";
+import { AnimatedCounter } from "@/components/animation/AnimatedCounter";
 import type { StatItem } from "@/sections/types";
 
 interface StatisticsShowcaseProps {
@@ -45,8 +46,7 @@ export function StatisticsShowcase({
                 <div key={stat.label} className="text-center">
                   <p className="font-serif text-display font-light text-text-primary tabular-nums">
                     {stat.prefix}
-                    {stat.value}
-                    {stat.suffix}
+                    <AnimatedCounter value={Number(stat.value)} suffix={stat.suffix} />
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
                     {stat.label}
@@ -72,11 +72,10 @@ export function StatisticsShowcase({
           <Stagger className={cn("mt-20 grid gap-6", gridCols[columns])}>
             {stats.map((stat) => (
               <StaggerItem key={stat.label}>
-                <div className="border border-border-light/60 bg-surface p-8 text-center transition-all duration-300 hover:border-border-default hover:shadow-elevation-1">
+                <div className="rounded-2xl border border-gold-500/5 bg-surface p-8 text-center shadow-elevation-1 transition-all duration-500 ease-luxury hover:shadow-elevation-3">
                   <p className="font-serif text-display font-light text-text-primary tabular-nums">
                     {stat.prefix}
-                    {stat.value}
-                    {stat.suffix}
+                    <AnimatedCounter value={Number(stat.value)} suffix={stat.suffix} />
                   </p>
                   <p className="mt-2 text-body-sm text-text-secondary">
                     {stat.label}
@@ -103,8 +102,7 @@ export function StatisticsShowcase({
             <StaggerItem key={stat.label}>
               <p className="font-serif text-display font-light text-text-primary tabular-nums">
                 {stat.prefix}
-                {stat.value}
-                {stat.suffix}
+                <AnimatedCounter value={Number(stat.value)} suffix={stat.suffix} />
               </p>
               <p className="mt-2 text-body-sm text-text-secondary">
                 {stat.label}

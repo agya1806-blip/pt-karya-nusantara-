@@ -3,6 +3,7 @@
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/sections/shared/section-header";
 import { Stagger, StaggerItem } from "@/components/animation/Stagger";
+import { Card } from "@/components/ui/Card";
 import type { ValueItem } from "@/sections/types";
 
 interface ValuesProps {
@@ -31,7 +32,7 @@ export function Values({
         <Stagger className="mt-20 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value) => (
             <StaggerItem key={value.title}>
-              <div className="group border border-border-light/60 bg-surface p-8 lg:p-10 transition-all duration-300 hover:border-brand-200/80 hover:shadow-elevation-2">
+              <Card variant="elevated" hover="tilt" padding="lg" className="group">
                 {value.icon && (
                   <div className="mb-5 flex h-10 w-10 items-center justify-center bg-brand-50 text-brand-600 transition-colors duration-300 group-hover:bg-brand-100">
                     {value.icon}
@@ -43,7 +44,7 @@ export function Values({
                 <p className="mt-3 text-body-sm text-text-secondary leading-relaxed">
                   {value.description}
                 </p>
-              </div>
+              </Card>
             </StaggerItem>
           ))}
         </Stagger>

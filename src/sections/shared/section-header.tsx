@@ -7,6 +7,7 @@ interface SectionHeaderProps {
   description?: string;
   align?: "left" | "center" | "right";
   className?: string;
+  accent?: boolean;
 }
 
 export function SectionHeader({
@@ -15,6 +16,7 @@ export function SectionHeader({
   description,
   align = "center",
   className,
+  accent = true,
 }: SectionHeaderProps) {
   return (
     <Fade direction="up" className={cn(className)}>
@@ -32,6 +34,15 @@ export function SectionHeader({
       >
         {title}
       </h2>
+      {accent && (
+        <span
+          className={cn(
+            "mt-4 block accent-line",
+            align === "center" && "mx-auto",
+            align === "right" && "ml-auto",
+          )}
+        />
+      )}
       {description && (
         <p
           className={cn(

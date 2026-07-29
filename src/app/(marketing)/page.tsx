@@ -84,6 +84,9 @@ export default function HomePage() {
           stats={stats}
         />
       </AnimatedSection>
+      <div className="container-site py-8">
+        <div className="section-divider" />
+      </div>
       <AnimatedSection delay={0.2}>
         <ServicesGrid
           title="Layanan Kami"
@@ -91,6 +94,9 @@ export default function HomePage() {
           services={services}
         />
       </AnimatedSection>
+      <div className="container-site py-8">
+        <div className="section-divider" />
+      </div>
       <AnimatedSection delay={0.3}>
         <ProcessSteps
           title="Metodologi Kami"
@@ -98,6 +104,9 @@ export default function HomePage() {
           steps={steps}
         />
       </AnimatedSection>
+      <div className="container-site py-8">
+        <div className="section-divider" />
+      </div>
       <AnimatedSection delay={0.4}>
         <Values
           label="Mengapa Memilih Kami"
@@ -106,6 +115,9 @@ export default function HomePage() {
           values={trustValues}
         />
       </AnimatedSection>
+      <div className="container-site py-8">
+        <div className="section-divider" />
+      </div>
       <AnimatedSection delay={0.5}>
         <ClientReviews
           title="Kata Mereka"
@@ -113,6 +125,9 @@ export default function HomePage() {
           testimonials={testimonials}
         />
       </AnimatedSection>
+      <div className="container-site py-8">
+        <div className="section-divider" />
+      </div>
       <AnimatedSection delay={0.6}>
         <CTADefault
           title="Mulailah Perjalanan Arsitektur Anda"

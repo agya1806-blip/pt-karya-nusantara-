@@ -14,6 +14,7 @@ import {
   THEME_COLOR_LIGHT,
 } from "@/constants";
 import { PageTransitionWrapper } from "@/components/animation";
+import { BackToTop } from "@/components/ui/BackToTop";
 import { siteConfig } from "@/config";
 import "@/styles/globals.css";
 
@@ -63,6 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
         <Providers>
           <PageTransitionWrapper>{children}</PageTransitionWrapper>
         </Providers>
+        <BackToTop />
       </body>
     </html>
   );

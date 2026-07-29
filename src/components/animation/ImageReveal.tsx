@@ -16,6 +16,7 @@ interface ImageRevealProps {
   className?: string;
   imgClassName?: string;
   priority?: boolean;
+  zoomOnHover?: boolean;
 }
 
 export function ImageReveal({
@@ -27,6 +28,7 @@ export function ImageReveal({
   className,
   imgClassName,
   priority,
+  zoomOnHover = false,
 }: ImageRevealProps) {
   const [loaded, setLoaded] = useState(false);
   const [fallback, setFallback] = useState(false);
@@ -62,7 +64,8 @@ export function ImageReveal({
             alt={alt}
             fill
             className={cn(
-              "object-cover",
+              "object-cover transition-transform duration-700 ease-luxury",
+              zoomOnHover && "group-hover:scale-110",
               imgClassName,
             )}
             onLoad={() => setLoaded(true)}
@@ -75,7 +78,8 @@ export function ImageReveal({
             width={width ?? 800}
             height={height ?? 600}
             className={cn(
-              "object-cover",
+              "object-cover transition-transform duration-700 ease-luxury",
+              zoomOnHover && "group-hover:scale-110",
               imgClassName,
             )}
             onLoad={() => setLoaded(true)}

@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/sections/shared/section-header";
 import { Stagger, StaggerItem } from "@/components/animation/Stagger";
@@ -76,6 +77,14 @@ export function ClientReviews({
 }: ClientReviewsProps) {
   const [current, setCurrent] = useState(0);
 
+  useEffect(() => {
+    if (variant !== "carousel" || testimonials.length <= 1) return;
+    const timer = setInterval(() => {
+      setCurrent((p) => (p + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [variant, testimonials.length]);
+
   if (variant === "carousel" && testimonials.length > 0) {
     const visible = testimonials[current];
     if (!visible) return null;
@@ -89,7 +98,15 @@ export function ClientReviews({
             description={description}
           />
           <div className="mx-auto mt-16 max-w-3xl">
-            <ReviewCard testimonial={visible} />
+            <motion.div
+              key={current}
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
+            >
+              <ReviewCard testimonial={visible} />
+            </motion.div>
             {testimonials.length > 1 && (
               <div className="mt-8 flex items-center justify-center gap-4">
                 <button

@@ -52,7 +52,8 @@ export function FeaturedProjects({
                     src={project.image.src}
                     alt={project.image.alt}
                     fill
-                    className="h-full w-full transition-transform duration-700 ease-luxury group-hover:scale-105"
+                    zoomOnHover
+                    className="h-full w-full"
                   />
                 </div>
                 <div className={cn(i % 2 === 1 && "lg:order-1", "lg:px-6")}>
