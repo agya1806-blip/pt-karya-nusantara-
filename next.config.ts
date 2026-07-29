@@ -59,6 +59,8 @@ const nextConfig: NextConfig = {
       exclude: ["error", "warn"],
     },
   },
+
+  serverExternalPackages: ["sanity"],
 };
 
 export default nextConfig;
