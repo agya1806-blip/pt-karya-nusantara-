@@ -35,17 +35,19 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <html
       lang="id"
       className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable}`}
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
         <meta charSet={DEFAULT_CHARSET} />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="apple-touch-icon" sizes="180x180" href="/icons/icon-192x192.png" />
+        <link rel="icon" type="image/svg+xml" href="/icons/icon.svg" />
         <script dangerouslySetInnerHTML={{
-          __html: `(function(){var e=localStorage.getItem("theme-mode");if(!e&&(e=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),e))document.documentElement.setAttribute("data-theme",e)})()`,
+          __html: `(function(){var e=localStorage.getItem("theme-mode");if(!e&&(e=window.matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light"),e)document.documentElement.setAttribute("data-theme",e)})()`,
         }} />
         <JsonLdScript data={createOrganizationSchema()} id="organization-schema" />
         <JsonLdScript data={createWebsiteSchema()} id="website-schema" />

@@ -54,7 +54,7 @@ export function ImageReveal({
           duration: durations.slower,
           ease: easings.easeOut,
         }}
-        className="h-full w-full"
+        className="relative h-full w-full"
       >
         {fill ? (
           <Image

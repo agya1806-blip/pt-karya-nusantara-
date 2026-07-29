@@ -46,7 +46,7 @@ export function ProjectGallery({
                   i === 0 && columns === 3 && "sm:col-span-2 sm:row-span-2",
                 )}
               >
-                <div className="aspect-[4/3] w-full">
+                <div className="relative aspect-[4/3] w-full">
                   <ImageReveal
                     src={image.src}
                     alt={image.alt}
