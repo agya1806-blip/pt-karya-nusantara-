@@ -32,6 +32,8 @@ export {
   BeforeAfter,
   RelatedProjects,
   ProjectCategories,
+  ProjectStatistics,
+  ProjectAwards,
 } from "./portfolio";
 
 // Testimonials
