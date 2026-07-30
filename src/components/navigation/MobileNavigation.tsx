@@ -69,7 +69,7 @@ export function MobileNavigation({
               <button
                 type="button"
                 onClick={onClose}
-                className="flex items-center justify-center p-2 text-text-secondary transition-colors duration-300 hover:text-text"
+                className="flex items-center justify-center p-2 text-text-secondary transition-colors duration-300 hover:text-brand-400"
                 aria-label="Close menu"
               >
                 <X size={24} />
@@ -86,8 +86,8 @@ export function MobileNavigation({
                       className={cn(
                         "block py-3 text-heading-sm font-light tracking-tight transition-colors duration-300",
                         link.active
-                          ? "text-text"
-                          : "text-text-secondary hover:text-text",
+                          ? "text-brand-400"
+                          : "text-text-secondary hover:text-brand-400",
                       )}
                     >
                       {link.label}

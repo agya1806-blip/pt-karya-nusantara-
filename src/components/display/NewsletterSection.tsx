@@ -43,7 +43,7 @@ export function NewsletterSection({
   return (
     <section className={cn("py-20", className)}>
       <div className="container-site">
-        <div className="mx-auto max-w-xl text-center">
+        <div className="mx-auto max-w-xl rounded-xl border border-brand-500/20 bg-surface p-8 text-center">
           <h2 className="text-heading-xl font-light tracking-tight text-text">
             {title}
           </h2>
@@ -63,13 +63,13 @@ export function NewsletterSection({
                   placeholder={placeholder}
                   required
                   disabled={status === "loading"}
-                  className="w-full rounded-lg border border-border-muted bg-surface px-4 py-3 text-body text-text placeholder:text-text-muted transition-colors duration-300 focus:border-text focus:outline-none disabled:opacity-50"
+                  className="w-full rounded-lg border border-border-muted bg-surface-secondary px-4 py-3 text-body text-text placeholder:text-text-muted transition-colors duration-300 focus:border-brand-500 focus:outline-none disabled:opacity-50"
                 />
               </div>
               <button
                 type="submit"
                 disabled={status === "loading" || !email.trim()}
-                className="inline-flex items-center gap-2 rounded-lg bg-text px-6 py-3 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90 disabled:opacity-50"
+                className="inline-flex items-center gap-2 rounded-lg bg-brand-500 px-6 py-3 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:bg-brand-500/90 disabled:opacity-50"
               >
                 {buttonLabel}
                 <Send size={16} />

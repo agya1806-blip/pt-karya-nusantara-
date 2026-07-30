@@ -9,6 +9,7 @@ interface FormRecord {
   is_active: boolean;
   created_at: string;
   updated_at: string;
+  [key: string]: unknown;
 }
 
 interface FormSubmissionRecord {
@@ -19,6 +20,7 @@ interface FormSubmissionRecord {
   user_agent: string | null;
   is_read: boolean;
   created_at: string;
+  [key: string]: unknown;
 }
 
 export class FormRepository {

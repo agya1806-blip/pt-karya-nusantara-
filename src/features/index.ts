@@ -6,5 +6,5 @@ export { findRelatedProjects } from "./related-projects-engine";
 export type {
   LightboxImage, LightboxConfig, ZoomState,
   BeforeAfterItem, BeforeAfterConfig, FullscreenConfig,
-  RelatedProject,
 } from "./feature-types";
+export type { RelatedProject } from "./related-projects-engine";

@@ -52,7 +52,7 @@ export function Dropdown({
         {open && (
           <motion.div
             className={cn(
-              "absolute z-dropdown mt-1 min-w-[10rem] rounded-lg border border-border-default bg-surface py-1 shadow-elevation-4",
+              "absolute z-dropdown mt-1 min-w-[10rem] rounded-lg border border-brand-500/20 bg-surface py-1 shadow-elevation-4",
               align === "start" ? "left-0" : "right-0",
               className,
             )}
@@ -74,7 +74,7 @@ export function Dropdown({
                   "flex w-full items-center px-4 py-2 text-left text-body-sm leading-relaxed transition-colors duration-150",
                   item.disabled
                     ? "cursor-not-allowed text-text-muted"
-                    : "text-text-primary hover:bg-surface-secondary",
+                    : "text-text-primary hover:bg-brand-500/10 hover:text-brand-400",
                 )}
                 role="menuitem"
               >

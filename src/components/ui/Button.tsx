@@ -5,21 +5,18 @@ import { cn } from "@/lib/utils";
 import { Loader2 } from "lucide-react";
 import type { ButtonVariant, ButtonSize } from "./types";
 
-interface ButtonProps {
+interface ButtonProps extends React.ComponentPropsWithoutRef<"button"> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   loading?: boolean;
-  disabled?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-  type?: "button" | "submit" | "reset";
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-neutral-900 text-text-inverse hover:bg-neutral-800 active:bg-neutral-700",
-  secondary: "bg-surface-muted text-text hover:bg-neutral-200 active:bg-neutral-300",
-  ghost: "text-text hover:bg-surface-muted active:bg-neutral-200",
-  outline: "border border-border text-text hover:bg-surface-muted active:bg-neutral-200",
+  primary: "bg-brand-500 text-text-inverse hover:bg-brand-600 active:bg-brand-700",
+  secondary: "bg-surface-tertiary text-text-primary hover:bg-neutral-800 active:bg-neutral-700",
+  ghost: "text-text-secondary hover:text-text-primary hover:bg-surface-tertiary",
+  outline: "border border-border-default text-text-primary hover:bg-surface-tertiary active:bg-neutral-800",
+  gold: "bg-gradient-to-r from-brand-400 to-brand-500 text-text-inverse hover:from-brand-500 hover:to-brand-600 active:from-brand-600 active:to-brand-700",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -30,14 +27,13 @@ const sizeStyles: Record<ButtonSize, string> = {
 };
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = "primary", size = "md", loading = false, disabled, className, children, type = "button", ...rest }, ref) => {
+  ({ variant = "primary", size = "md", loading = false, disabled, className, children, ...rest }, ref) => {
     return (
       <button
         ref={ref}
-        type={type}
         disabled={disabled || loading}
         className={cn(
-          "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-300 ease-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2",
+          "inline-flex items-center justify-center gap-2 rounded-lg font-medium transition-all duration-300 ease-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2",
           variantStyles[variant],
           sizeStyles[size],
           (disabled || loading) && "opacity-50 pointer-events-none cursor-not-allowed",

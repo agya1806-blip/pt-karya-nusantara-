@@ -35,8 +35,8 @@ export function Skeleton({
       aria-hidden="true"
     >
       {animation === "shimmer" && (
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-brand-500/10 to-transparent"
           animate={{ x: ["-100%", "100%"] }}
           transition={{ duration: 1.5, repeat: Infinity, ease: "linear" }}
         />

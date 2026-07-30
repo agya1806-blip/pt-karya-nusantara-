@@ -41,11 +41,14 @@ export function Navbar({
       className={cn(
         "fixed inset-x-0 top-0 z-navbar transition-all duration-300 ease-luxury",
         !isTransparent || isScrolled
-          ? "bg-surface shadow-elevation-2"
+          ? "bg-surface/90 backdrop-blur-lg border-b border-border-muted"
           : "bg-transparent",
         className,
       )}
     >
+      {isScrolled && (
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-brand-400/50 to-transparent" />
+      )}
       <div className="container-site flex h-16 items-center justify-between md:h-20">
         <div className="flex-shrink-0">{logo}</div>
 
@@ -57,15 +60,15 @@ export function Navbar({
               className={cn(
                 "relative px-4 py-2 text-body-sm font-medium tracking-tight transition-colors duration-300",
                 link.active
-                  ? "text-text"
-                  : "text-text-secondary hover:text-text",
+                  ? "text-brand-400"
+                  : "text-text-secondary hover:text-brand-400",
               )}
             >
               {link.label}
               {link.active && (
                 <motion.span
                   layoutId="navbar-active"
-                  className="absolute inset-x-4 -bottom-0.5 h-px bg-text"
+                  className="absolute inset-x-4 -bottom-0.5 h-px bg-brand-400"
                 />
               )}
             </Link>
@@ -98,7 +101,7 @@ export function Navbar({
                   onClick={() => setMobileOpen(false)}
                   className={cn(
                     "block py-2 text-body-lg font-light tracking-tight transition-colors duration-300",
-                    link.active ? "text-text" : "text-text-secondary",
+                    link.active ? "text-brand-400" : "text-text-secondary",
                   )}
                 >
                   {link.label}

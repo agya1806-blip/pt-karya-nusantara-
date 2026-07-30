@@ -47,7 +47,7 @@ export function Logo({
         sizes="100vw"
         className={cn(
           "h-full w-auto object-contain",
-          mono && "grayscale",
+          mono && "grayscale opacity-70 hover:opacity-100",
         )}
       />
     </div>

@@ -60,10 +60,10 @@ export function Footer({
   return (
     <footer
       className={cn(
-        "border-t transition-colors duration-300",
+        "border-t border-border-muted transition-colors duration-300",
         variant === "dark"
-          ? "border-border-muted bg-surface-dark text-text-inverse"
-          : "border-border-muted bg-surface text-text",
+          ? "bg-surface-secondary text-text-primary"
+          : "bg-surface-secondary text-text-primary",
         className,
       )}
     >
@@ -73,12 +73,7 @@ export function Footer({
             {logo && <div className="mb-4">{logo}</div>}
             {description && (
               <p
-                className={cn(
-                  "text-body-sm leading-relaxed",
-                  variant === "dark"
-                    ? "text-text-muted"
-                    : "text-text-secondary",
-                )}
+                className="text-body-sm leading-relaxed text-text-secondary"
               >
                 {description}
               </p>
@@ -91,12 +86,7 @@ export function Footer({
                     href={link.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={cn(
-                      "text-body-sm font-medium tracking-tight transition-colors duration-300",
-                      variant === "dark"
-                        ? "text-text-muted hover:text-text-inverse"
-                        : "text-text-secondary hover:text-text",
-                    )}
+                    className="text-body-sm font-medium tracking-tight text-text-secondary transition-colors duration-300 hover:text-brand-400"
                   >
                     {link.label}
                   </Link>
@@ -107,7 +97,7 @@ export function Footer({
 
           {footerColumns.map((column) => (
             <div key={column.title}>
-              <p className="mb-4 text-caption font-semibold tracking-widest uppercase text-text-muted">
+              <p className="mb-4 text-caption font-semibold tracking-widest uppercase text-brand-400">
                 {column.title}
               </p>
               <ul className="space-y-3">
@@ -117,12 +107,7 @@ export function Footer({
                       href={link.href}
                       target={link.isExternal ? "_blank" : undefined}
                       rel={link.isExternal ? "noopener noreferrer" : undefined}
-                      className={cn(
-                        "text-body-sm font-light leading-relaxed transition-colors duration-300",
-                        variant === "dark"
-                          ? "text-text-muted hover:text-text-inverse"
-                          : "text-text-secondary hover:text-text",
-                      )}
+                      className="text-body-sm font-light leading-relaxed text-text-secondary transition-colors duration-300 hover:text-brand-400"
                     >
                       {link.label}
                     </Link>
@@ -137,7 +122,7 @@ export function Footer({
       {copyright && (
         <div className="border-t border-border-muted py-6">
           <div className="container-site">
-            <p className="text-caption text-text-muted">{copyright}</p>
+            <p className="text-caption text-text-tertiary">{copyright}</p>
           </div>
         </div>
       )}

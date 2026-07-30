@@ -4,18 +4,11 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "./Label";
 
-interface InputProps {
+interface InputProps extends Omit<React.ComponentPropsWithoutRef<"input">, "onChange"> {
   label?: string;
   error?: string;
   hint?: string;
-  id?: string;
-  className?: string;
-  value?: string;
-  onChange?: React.ChangeEvent<HTMLInputElement>;
-  placeholder?: string;
-  type?: string;
-  required?: boolean;
-  disabled?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
 }
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
@@ -28,8 +21,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           ref={ref}
           id={inputId}
           className={cn(
-            "w-full border-b bg-transparent pb-2 pt-1 text-text placeholder:text-text-muted outline-none transition-colors duration-300 ease-luxury",
-            error ? "border-red-500 focus:border-red-600" : "border-border focus:border-neutral-900",
+            "w-full border-b bg-transparent pb-2 pt-1 text-text-primary placeholder:text-text-tertiary outline-none transition-colors duration-300 ease-luxury",
+            error ? "border-red-500 focus:border-red-600" : "border-border-muted focus:border-brand-500",
             className,
           )}
           aria-invalid={error ? true : undefined}
@@ -37,7 +30,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           {...rest}
         />
         {error && <p id={`${inputId}-error`} className="text-xs text-red-500" role="alert">{error}</p>}
-        {hint && !error && <p id={`${inputId}-hint`} className="text-xs text-text-muted">{hint}</p>}
+        {hint && !error && <p id={`${inputId}-hint`} className="text-xs text-text-tertiary">{hint}</p>}
       </div>
     );
   },

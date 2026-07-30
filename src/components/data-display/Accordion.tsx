@@ -33,7 +33,7 @@ function Accordion({ items, allowMultiple = false, className }: AccordionProps) 
   }
 
   return (
-    <div className={cn("divide-y divide-border-muted", className)}>
+    <div className={cn("divide-y divide-border-muted text-text", className)}>
       {items.map((item) => {
         const isOpen = openIds.has(item.id);
         return (
@@ -45,14 +45,14 @@ function Accordion({ items, allowMultiple = false, className }: AccordionProps) 
             >
               {item.title}
               {isOpen ? (
-                <Minus className="h-5 w-5 shrink-0 text-text-muted" />
+                <Minus className="h-5 w-5 shrink-0 text-brand-400" />
               ) : (
                 <Plus className="h-5 w-5 shrink-0 text-text-muted" />
               )}
             </button>
             <div
               className={cn(
-                "grid transition-[grid-template-rows] duration-300 ease-luxury",
+                "grid border-b border-brand-500/30 transition-[grid-template-rows] duration-300 ease-luxury",
                 isOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]",
               )}
             >

@@ -6,5 +6,4 @@ export { ProjectDetailHeader } from "./project-detail-header";
 export { BeforeAfter } from "./before-after";
 export { RelatedProjects } from "./related-projects";
 export { ProjectCategories } from "./project-categories";
-export { ProjectAwards } from "./awards";
-export { ProjectStatistics } from "../statistics/statistics-showcase";
+

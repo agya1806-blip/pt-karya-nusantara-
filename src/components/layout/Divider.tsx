@@ -11,7 +11,7 @@ interface DividerProps extends React.HTMLAttributes<HTMLHRElement> {
 }
 
 const variantClasses: Record<DividerVariant, string> = {
-  default: "border-border",
+  default: "border-brand-400/20",
   muted: "border-border-muted",
   light: "border-border/30",
 };

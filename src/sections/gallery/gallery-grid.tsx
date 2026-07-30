@@ -129,13 +129,13 @@ export function GalleryGrid({
           )}
           <div className="flex max-h-full max-w-full flex-col items-center">
             <img
-              src={items[lightboxIndex].src}
-              alt={items[lightboxIndex].alt}
+              src={items[lightboxIndex]?.src}
+              alt={items[lightboxIndex]?.alt}
               className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
             />
-            {items[lightboxIndex].caption && (
+            {items[lightboxIndex]?.caption && (
               <p className="mt-4 text-body-sm text-white/80">
-                {items[lightboxIndex].caption}
+                {items[lightboxIndex]?.caption}
               </p>
             )}
           </div>

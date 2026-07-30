@@ -12,6 +12,7 @@ interface PageRecord {
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
+  [key: string]: unknown;
 }
 
 export class PageRepository extends BaseRepository<PageRecord> {

@@ -102,10 +102,10 @@ export function Drawer({
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
         >
-          <div className="absolute inset-0 bg-black/50" onClick={onClose} />
+          <div             className="absolute inset-0 bg-black/80" onClick={onClose} />
           <motion.div
             className={cn(
-              "absolute bg-surface shadow-elevation-5",
+              "absolute bg-surface shadow-elevation-5 border-l border-brand-500/20",
               sideClasses[side],
               sizeClasses[side][size],
               className,
@@ -120,13 +120,13 @@ export function Drawer({
             aria-label={title}
           >
             {title && (
-              <div className="flex items-center justify-between border-b border-border-default px-6 py-4">
+              <div className="flex items-center justify-between border-b border-brand-500/20 px-6 py-4">
                 <h2 className="text-lg font-medium text-text-primary">
                   {title}
                 </h2>
                 <button
                   onClick={onClose}
-                  className="rounded p-1 text-text-secondary transition-colors duration-300 ease-architectural hover:text-text-primary"
+                  className="rounded p-1 text-text-secondary transition-colors duration-300 ease-architectural hover:text-brand-400"
                   aria-label="Close"
                 >
                   <X className="h-5 w-5" />

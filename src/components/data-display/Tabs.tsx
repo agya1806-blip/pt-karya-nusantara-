@@ -33,17 +33,17 @@ function getTabTriggerStyles(
     return cn(
       base,
       "pb-3 border-b-2 border-transparent",
-      isActive && "border-brand-500 text-text",
-      isDisabled && "text-text-muted cursor-not-allowed",
-      !isActive && !isDisabled && "text-text-secondary hover:text-text",
+      isActive && "border-brand-500 text-brand-400",
+      isDisabled && "text-text-tertiary cursor-not-allowed",
+      !isActive && !isDisabled && "text-text-secondary hover:text-text-primary",
     );
   }
   return cn(
     base,
     "px-4 py-2 rounded-lg",
-    isActive && "bg-surface text-text",
-    isDisabled && "text-text-muted cursor-not-allowed",
-    !isActive && !isDisabled && "text-text-secondary hover:text-text hover:bg-surface-muted",
+    isActive && "bg-brand-500/10 text-brand-400",
+    isDisabled && "text-text-tertiary cursor-not-allowed",
+    !isActive && !isDisabled && "text-text-secondary hover:text-text-primary hover:bg-surface-tertiary",
   );
 }
 

@@ -10,6 +10,7 @@ interface GalleryItemRecord {
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
+  [key: string]: unknown;
 }
 
 export class GalleryRepository extends BaseRepository<GalleryItemRecord> {

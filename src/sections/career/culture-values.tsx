@@ -21,7 +21,7 @@ interface CultureValuesProps extends SectionBaseProps {
 export function CultureValues({ id, className, title, description, values }: CultureValuesProps) {
   return (
     <Section id={id} variant="muted" className={className} aria-label="Company culture and values">
-      <SectionHeader title={title} description={description} alignment="center" />
+      <SectionHeader title={title} description={description} align="center" />
       <Stagger className="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {values.map((v, i) => (
           <StaggerItem key={v.title} className="border border-border bg-surface p-8 transition-all duration-300 ease-luxury hover:border-text-muted hover:bg-surface-muted">

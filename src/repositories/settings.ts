@@ -6,6 +6,7 @@ interface GlobalSettingRecord {
   value: Record<string, unknown>;
   created_at: string;
   updated_at: string;
+  [key: string]: unknown;
 }
 
 export class SettingsRepository {

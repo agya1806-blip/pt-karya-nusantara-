@@ -27,7 +27,7 @@ export function Sidebar({
   return (
     <nav className={cn("flex flex-col", className)}>
       {title && (
-        <p className="mb-4 px-3 text-caption font-semibold tracking-widest uppercase text-text-muted">
+        <p className="mb-4 px-3 text-caption font-semibold tracking-widest uppercase text-text-tertiary">
           {title}
         </p>
       )}
@@ -40,8 +40,8 @@ export function Sidebar({
               className={cn(
                 "flex items-center gap-3 rounded-lg transition-all duration-300",
                 item.active
-                  ? "bg-surface-muted text-text"
-                  : "text-text-secondary hover:bg-surface-muted hover:text-text",
+                  ? "bg-surface-secondary text-brand-400"
+                  : "text-text-secondary hover:bg-surface-tertiary hover:text-brand-400",
                 variant === "compact" ? "px-3 py-2" : "px-4 py-2.5",
               )}
             >
@@ -57,7 +57,7 @@ export function Sidebar({
                 {item.label}
               </span>
               {item.badge !== undefined && (
-                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-text px-1.5 text-caption font-medium text-text-inverse">
+                <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-500 px-1.5 text-caption font-medium text-text-inverse">
                   {item.badge}
                 </span>
               )}

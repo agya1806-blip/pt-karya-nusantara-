@@ -20,14 +20,14 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           <input ref={ref} type="checkbox" id={id} role="switch" checked={checked} className="peer sr-only" {...rest} />
           <span className={cn(
             "absolute inset-0 rounded-full transition-colors duration-300 ease-luxury",
-            checked ? "bg-neutral-900" : "bg-neutral-300",
+            checked ? "bg-brand-500" : "bg-neutral-700",
           )} aria-hidden="true" />
           <span className={cn(
             "relative z-10 inline-block h-4 w-4 rounded-full bg-white shadow-sm transition-transform duration-300 ease-luxury",
             checked && "translate-x-4",
           )} aria-hidden="true" />
         </span>
-        {label && <span className="text-sm text-text">{label}</span>}
+        {label && <span className="text-sm text-text-primary">{label}</span>}
       </label>
     );
   },

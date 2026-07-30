@@ -5,17 +5,12 @@ import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { Label } from "./Label";
 
-interface SelectProps {
+interface SelectProps extends Omit<React.ComponentPropsWithoutRef<"select">, "onChange"> {
   label?: string;
   error?: string;
   hint?: string;
-  id?: string;
-  className?: string;
-  value?: string;
-  onChange?: React.ChangeEvent<HTMLSelectElement>;
   placeholder?: string;
-  required?: boolean;
-  disabled?: boolean;
+  onChange?: React.ChangeEventHandler<HTMLSelectElement>;
   options: { value: string; label: string }[];
 }
 
@@ -30,8 +25,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
             ref={ref}
             id={inputId}
             className={cn(
-              "w-full appearance-none border-b bg-transparent pb-2 pt-1 pr-8 text-text outline-none transition-colors duration-300 ease-luxury",
-              error ? "border-red-500 focus:border-red-600" : "border-border focus:border-neutral-900",
+            "w-full appearance-none border-b bg-transparent pb-2 pt-1 pr-8 text-text-primary placeholder:text-text-tertiary outline-none transition-colors duration-300 ease-luxury",
+            error ? "border-red-500 focus:border-red-600" : "border-border-muted focus:border-brand-500",
               className,
             )}
             aria-invalid={error ? true : undefined}
@@ -42,10 +37,10 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>(
               <option key={opt.value} value={opt.value}>{opt.label}</option>
             ))}
           </select>
-          <ChevronDown className="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-text-muted" aria-hidden="true" />
+          <ChevronDown className="pointer-events-none absolute right-1 top-1/2 h-4 w-4 -translate-y-1/2 text-text-tertiary" aria-hidden="true" />
         </div>
         {error && <p id={`${inputId}-error`} className="text-xs text-red-500" role="alert">{error}</p>}
-        {hint && !error && <p id={`${inputId}-hint`} className="text-xs text-text-muted">{hint}</p>}
+        {hint && !error && <p id={`${inputId}-hint`} className="text-xs text-text-tertiary">{hint}</p>}
       </div>
     );
   },

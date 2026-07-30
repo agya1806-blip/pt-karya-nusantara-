@@ -49,7 +49,7 @@ export function MegaMenu({ trigger, groups, className }: MegaMenuProps) {
       <button
         type="button"
         onClick={() => setIsOpen((v) => !v)}
-        className="flex items-center gap-1 text-body-sm font-medium tracking-tight text-text-secondary transition-colors duration-300 hover:text-text"
+        className="flex items-center gap-1 text-body-sm font-medium tracking-tight text-text-secondary transition-colors duration-300 hover:text-brand-400"
       >
         {trigger}
         <ChevronDown
@@ -73,7 +73,7 @@ export function MegaMenu({ trigger, groups, className }: MegaMenuProps) {
             <div className="grid grid-cols-2 gap-8">
               {groups.map((group) => (
                 <div key={group.label}>
-                  <p className="mb-3 text-caption font-semibold tracking-widest uppercase text-text-muted">
+                  <p className="mb-3 text-caption font-semibold tracking-widest uppercase text-brand-400">
                     {group.label}
                   </p>
                   <ul className="space-y-2">
@@ -82,13 +82,13 @@ export function MegaMenu({ trigger, groups, className }: MegaMenuProps) {
                         <Link
                           href={item.href}
                           onClick={() => setIsOpen(false)}
-                          className="group block rounded-md p-2 transition-colors duration-300 hover:bg-surface-muted"
+                          className="group block rounded-md p-2 transition-colors duration-300 hover:bg-surface-secondary"
                         >
-                          <span className="text-body-sm font-medium text-text transition-colors duration-300 group-hover:text-text">
+                          <span className="text-body-sm font-medium text-text-primary transition-colors duration-300 group-hover:text-brand-400">
                             {item.label}
                           </span>
                           {item.description && (
-                            <span className="mt-0.5 block text-caption leading-relaxed text-text-muted">
+                            <span className="mt-0.5 block text-caption leading-relaxed text-text-tertiary">
                               {item.description}
                             </span>
                           )}

@@ -15,6 +15,7 @@ interface TestimonialRecord {
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
+  [key: string]: unknown;
 }
 
 export class TestimonialRepository extends BaseRepository<TestimonialRecord> {

@@ -18,9 +18,10 @@ function PortfolioCard({ image, title, category, href, className }: PortfolioCar
         className="h-full w-full object-cover transition-transform duration-300 ease-luxury group-hover:scale-105"
       />
       <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 opacity-0 transition-opacity duration-300 ease-luxury group-hover:opacity-100">
+        <div className="absolute left-0 top-0 h-1 w-0 bg-brand-500 transition-all duration-300 ease-luxury group-hover:w-full" />
         <h3 className="text-heading-sm text-text-inverse">{title}</h3>
-        <p className="text-body-sm text-text-inverse/80 mt-1">{category}</p>
-        {href && <ArrowUpRight className="absolute right-4 top-4 h-6 w-6 text-text-inverse" />}
+        <p className="text-body-sm text-brand-400/80 mt-1">{category}</p>
+        {href && <ArrowUpRight className="absolute right-4 top-4 h-6 w-6 text-brand-400" />}
       </div>
     </div>
   );

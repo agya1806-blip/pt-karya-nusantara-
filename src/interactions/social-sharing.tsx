@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Linkedin, Twitter, Facebook } from "lucide-react";
+import { Mail, Link2, MessageCircle } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface SocialSharingProps {
@@ -12,9 +12,9 @@ interface SocialSharingProps {
 }
 
 const platforms = [
-  { id: "linkedin", icon: Linkedin, label: "LinkedIn", getUrl: (u: string, t: string) => `https://linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(u)}` },
-  { id: "twitter", icon: Twitter, label: "X (Twitter)", getUrl: (u: string, t: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(u)}&text=${encodeURIComponent(t)}` },
-  { id: "facebook", icon: Facebook, label: "Facebook", getUrl: (u: string) => `https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(u)}` },
+  { id: "linkedin", icon: Link2, label: "LinkedIn", getUrl: (u: string, t: string) => `https://linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(u)}` },
+  { id: "twitter", icon: MessageCircle, label: "X (Twitter)", getUrl: (u: string, t: string) => `https://twitter.com/intent/tweet?url=${encodeURIComponent(u)}&text=${encodeURIComponent(t)}` },
+  { id: "facebook", icon: Link2, label: "Facebook", getUrl: (u: string) => `https://facebook.com/sharer/sharer.php?u=${encodeURIComponent(u)}` },
   { id: "email", icon: Mail, label: "Email", getUrl: (u: string, t: string, d?: string) => `mailto:?subject=${encodeURIComponent(t)}&body=${encodeURIComponent(d || t)}%0A%0A${encodeURIComponent(u)}` },
 ];
 

@@ -43,7 +43,7 @@ export function FloatingNavigation({
       <button
         type="button"
         onClick={scrollToTop}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-text text-text-inverse shadow-elevation-4 transition-all duration-300 hover:scale-105"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-brand-500 text-text-inverse shadow-elevation-4 transition-all duration-300 hover:scale-105 hover:bg-brand-400"
         aria-label="Scroll to top"
       >
         <ArrowUp size={20} />

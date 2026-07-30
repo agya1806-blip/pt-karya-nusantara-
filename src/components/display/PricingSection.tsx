@@ -23,12 +23,12 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
       className={cn(
         "relative flex flex-col rounded-xl border bg-surface p-8 transition-all duration-300",
         plan.highlighted
-          ? "border-text shadow-elevation-4 scale-105"
-          : "border-border-muted hover:border-border hover:shadow-elevation-3",
+          ? "border-brand-500 shadow-elevation-4 scale-105"
+          : "border-border-muted hover:border-brand-500/40 hover:shadow-elevation-3",
       )}
     >
       {plan.highlighted && (
-        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-text px-4 py-1 text-caption font-semibold tracking-widest uppercase text-text-inverse">
+        <span className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-brand-500 px-4 py-1 text-caption font-semibold tracking-widest uppercase text-text-inverse">
           Featured
         </span>
       )}
@@ -51,7 +51,7 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
       <ul className="mb-8 flex-1 space-y-3">
         {plan.features.map((feature) => (
           <li key={feature} className="flex items-start gap-3">
-            <Check size={18} className="mt-0.5 flex-shrink-0 text-text" />
+            <Check size={18} className="mt-0.5 flex-shrink-0 text-brand-400" />
             <span className="text-body-sm leading-relaxed text-text-secondary">
               {feature}
             </span>
@@ -64,8 +64,8 @@ function PricingCard({ plan }: { plan: PricingPlan }) {
         className={cn(
           "inline-flex w-full items-center justify-center rounded-lg px-6 py-3 text-body-sm font-medium tracking-tight transition-all duration-300",
           plan.highlighted
-            ? "bg-text text-text-inverse hover:opacity-90"
-            : "border border-border text-text hover:bg-surface-muted",
+            ? "bg-brand-500 text-text-inverse hover:bg-brand-500/90"
+            : "border border-brand-500/30 text-text hover:bg-brand-500/10",
         )}
       >
         {plan.ctaLabel ?? "Get Started"}

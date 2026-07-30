@@ -45,7 +45,7 @@ function ProjectCard({ image, title, category, location, year, href, className }
       <a
         href={href}
         className={cn(
-          "group block rounded-2xl bg-surface overflow-hidden transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+          "group block rounded-2xl bg-surface overflow-hidden border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
           className,
         )}
       >
@@ -56,10 +56,10 @@ function ProjectCard({ image, title, category, location, year, href, className }
 
   return (
     <div
-      className={cn(
-        "group rounded-2xl bg-surface overflow-hidden transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
-        className,
-      )}
+        className={cn(
+          "group rounded-2xl bg-surface overflow-hidden border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
+          className,
+        )}
     >
       {shared}
     </div>

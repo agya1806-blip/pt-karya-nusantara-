@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -12,7 +12,7 @@ interface RevealOnScrollProps {
   duration?: number;
   threshold?: number;
   once?: boolean;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
 }
 
 const variants = {

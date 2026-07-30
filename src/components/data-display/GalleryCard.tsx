@@ -14,7 +14,7 @@ function GalleryCard({ image, alt, onClick, className }: GalleryCardProps) {
       type="button"
       onClick={onClick}
       className={cn(
-        "group relative aspect-square overflow-hidden rounded-2xl bg-surface-muted",
+        "group relative aspect-square overflow-hidden rounded-2xl bg-surface-muted border border-transparent transition-all duration-300 hover:border-brand-500/30",
         className,
       )}
     >

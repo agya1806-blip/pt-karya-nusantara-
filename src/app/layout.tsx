@@ -15,7 +15,7 @@ export const viewport: Viewport = {
   width: DEFAULT_VIEWPORT,
   initialScale: 1,
   themeColor: THEME_COLOR_LIGHT,
-  colorScheme: "light dark",
+  colorScheme: "dark light",
 };
 
 interface RootLayoutProps {
@@ -26,7 +26,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html
       lang="en"
-      data-theme="light"
+      data-theme="dark"
       className={`${fontSans.variable} ${fontSerif.variable} ${fontMono.variable}`}
       suppressHydrationWarning
     >

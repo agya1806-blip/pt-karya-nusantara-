@@ -49,7 +49,7 @@ export function LightboxWrapper({
   return createPortal(
     <div
       className={cn(
-        "fixed inset-0 z-modal flex items-center justify-center bg-black/90",
+        "fixed inset-0 z-modal flex items-center justify-center bg-black/95",
         className,
       )}
       role="dialog"
@@ -58,14 +58,14 @@ export function LightboxWrapper({
     >
       <button
         onClick={onClose}
-        className="absolute right-4 top-4 z-10 rounded-full bg-black/50 p-2 text-white transition-colors duration-300 ease-architectural hover:bg-black/70"
+        className="absolute right-4 top-4 z-10 rounded-full bg-brand-500/80 p-2 text-text-inverse transition-colors duration-300 ease-architectural hover:bg-brand-500"
         aria-label="Close lightbox"
       >
         <X className="h-6 w-6" />
       </button>
       <button
         onClick={onPrev}
-        className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors duration-300 ease-architectural hover:bg-black/70"
+        className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-brand-500/80 p-2 text-text-inverse transition-colors duration-300 ease-architectural hover:bg-brand-500"
         aria-label="Previous image"
       >
         <ChevronLeft className="h-8 w-8" />
@@ -75,12 +75,12 @@ export function LightboxWrapper({
       </div>
       <button
         onClick={onNext}
-        className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-black/50 p-2 text-white transition-colors duration-300 ease-architectural hover:bg-black/70"
+        className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-brand-500/80 p-2 text-text-inverse transition-colors duration-300 ease-architectural hover:bg-brand-500"
         aria-label="Next image"
       >
         <ChevronRight className="h-8 w-8" />
       </button>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-body-sm text-white">
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 text-body-sm text-brand-400">
         {currentIndex + 1} / {totalCount}
       </div>
     </div>,

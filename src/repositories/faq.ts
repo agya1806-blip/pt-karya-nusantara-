@@ -9,6 +9,7 @@ interface FAQRecord {
   is_published: boolean;
   created_at: string;
   updated_at: string;
+  [key: string]: unknown;
 }
 
 export class FAQRepository extends BaseRepository<FAQRecord> {

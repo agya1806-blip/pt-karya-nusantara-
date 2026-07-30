@@ -4,7 +4,7 @@ import { slugSchema, contentStatusSchema, seoSchema } from "./common";
 export const pageSchema = z.object({
   title: z.string().min(1).max(200),
   slug: slugSchema,
-  content: z.record(z.unknown()).optional(),
+  content: z.record(z.string(), z.unknown()).optional(),
   status: contentStatusSchema.default("draft"),
   template: z.string().max(100).optional(),
   seo: seoSchema.optional(),

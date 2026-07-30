@@ -29,7 +29,7 @@ function calculateRelevance(current: ProjectItem, candidate: ProjectItem): numbe
 
   if (current.category === candidate.category) score += 30;
   if (current.location && candidate.location && current.location === candidate.location) score += 20;
-  if (current.year && candidate.year && Math.abs(current.year - candidate.year) <= 2) score += 15;
+  if (current.year && candidate.year && Math.abs(Number(current.year) - Number(candidate.year)) <= 2) score += 15;
   if (current.awards && candidate.awards) {
     const sharedAwards = current.awards.filter((a) => candidate.awards?.includes(a));
     score += sharedAwards.length * 10;
@@ -50,6 +50,6 @@ function getMatchReasons(current: ProjectItem, candidate: ProjectItem): string[]
   const reasons: string[] = [];
   if (current.category === candidate.category) reasons.push(`Same category: ${current.category}`);
   if (current.location && candidate.location && current.location === candidate.location) reasons.push(`Same location: ${current.location}`);
-  if (current.year && candidate.year && Math.abs(current.year - candidate.year) <= 2) reasons.push("Similar timeline");
+  if (current.year && candidate.year && Math.abs(Number(current.year) - Number(candidate.year)) <= 2) reasons.push("Similar timeline");
   return reasons;
 }

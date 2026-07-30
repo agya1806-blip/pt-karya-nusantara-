@@ -36,7 +36,7 @@ export function StatsSection({
       >
         {stats.map((stat) => (
           <div key={stat.label} className="text-center">
-            <p className="text-display-lg font-light tracking-tight text-text">
+            <p className="text-display-lg font-light tracking-tight text-brand-400">
               {stat.prefix}{stat.value}{stat.suffix}
             </p>
             <p className="text-body-sm text-text-secondary">{stat.label}</p>
@@ -53,7 +53,7 @@ export function StatsSection({
           key={stat.label}
           className="rounded-xl border border-border-muted bg-surface p-8 text-center transition-colors duration-300"
         >
-          <p className="text-display font-light tracking-tight text-text">
+          <p className="text-display font-light tracking-tight text-brand-400">
             {stat.prefix}{stat.value}{stat.suffix}
           </p>
           <p className="mt-2 text-body-sm leading-relaxed text-text-secondary">

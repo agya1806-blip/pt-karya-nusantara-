@@ -16,6 +16,7 @@ interface CareerPositionRecord {
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
+  [key: string]: unknown;
 }
 
 export class CareerRepository extends BaseRepository<CareerPositionRecord> {

@@ -11,6 +11,7 @@ interface UserRecord {
   last_login_at: string | null;
   created_at: string;
   updated_at: string;
+  [key: string]: unknown;
 }
 
 export class UserRepository extends BaseRepository<UserRecord> {

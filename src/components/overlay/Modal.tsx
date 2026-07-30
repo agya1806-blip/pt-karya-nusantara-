@@ -62,12 +62,12 @@ export function Modal({
           transition={{ duration: 0.2 }}
         >
           <div
-            className="absolute inset-0 bg-black/50"
+            className="absolute inset-0 bg-black/80"
             onClick={closeOnOverlay ? onClose : undefined}
           />
           <motion.div
             className={cn(
-              "relative z-10 w-full rounded-lg bg-surface p-6 shadow-elevation-5",
+              "relative z-10 w-full rounded-lg bg-surface p-6 shadow-elevation-5 border-t-2 border-brand-500",
               sizeClasses[size],
               className,
             )}
@@ -86,7 +86,7 @@ export function Modal({
                 </h2>
                 <button
                   onClick={onClose}
-                  className="rounded p-1 text-text-secondary transition-colors duration-300 ease-architectural hover:text-text-primary"
+                  className="rounded p-1 text-text-secondary transition-colors duration-300 ease-architectural hover:text-brand-400"
                   aria-label="Close"
                 >
                   <X className="h-5 w-5" />
@@ -96,7 +96,7 @@ export function Modal({
             {!title && (
               <button
                 onClick={onClose}
-                className="absolute right-4 top-4 rounded p-1 text-text-secondary transition-colors duration-300 ease-architectural hover:text-text-primary"
+                className="absolute right-4 top-4 rounded p-1 text-text-secondary transition-colors duration-300 ease-architectural hover:text-brand-400"
                 aria-label="Close"
               >
                 <X className="h-5 w-5" />

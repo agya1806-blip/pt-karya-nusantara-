@@ -21,7 +21,6 @@ export function BlogSearch({ onSearch, isLoading, query = "", config }: BlogSear
         onChange={(e) => onSearch(e.target.value)}
         placeholder={config?.placeholder ?? "Search articles..."}
         className="w-full border-border bg-surface pl-12 py-3 text-body-md placeholder:text-text-muted"
-        isLoading={isLoading}
         aria-label="Search articles"
       />
     </div>

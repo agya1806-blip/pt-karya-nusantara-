@@ -5,7 +5,7 @@ export const notificationSchema = z.object({
   type: z.enum(["info", "success", "warning", "error"]).default("info"),
   title: z.string().min(1).max(200),
   message: z.string().max(2000).optional(),
-  data: z.record(z.unknown()).optional(),
+  data: z.record(z.string(), z.unknown()).optional(),
 });
 
 export const notificationUpdateSchema = z.object({

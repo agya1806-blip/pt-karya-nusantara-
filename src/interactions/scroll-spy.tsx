@@ -1,13 +1,13 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 interface ScrollSpyProps {
   sectionIds: string[];
   offset?: number;
   onChange?: (activeId: string) => void;
   children?: (activeId: string) => React.ReactNode;
-  as?: keyof JSX.IntrinsicElements;
+  as?: keyof React.JSX.IntrinsicElements;
 }
 
 export function ScrollSpy({ sectionIds, offset = 100, onChange, children }: ScrollSpyProps) {

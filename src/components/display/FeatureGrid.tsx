@@ -34,10 +34,10 @@ export function FeatureGrid({
       {features.map((feature) => (
         <div
           key={feature.title}
-          className="group rounded-xl border border-border-muted bg-surface p-6 transition-all duration-300 hover:border-border hover:shadow-elevation-3"
+          className="group rounded-xl border border-border-muted bg-surface p-6 transition-all duration-300 hover:border-brand-500/40 hover:shadow-elevation-3"
         >
           {feature.icon && (
-            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-surface-muted text-text-secondary transition-colors duration-300 group-hover:bg-surface-dark group-hover:text-text">
+            <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-surface-muted text-text-secondary transition-colors duration-300 group-hover:bg-brand-500/20 group-hover:text-brand-400">
               {feature.icon}
             </div>
           )}

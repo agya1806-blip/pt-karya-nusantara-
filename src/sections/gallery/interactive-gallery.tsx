@@ -70,8 +70,8 @@ export function InteractiveGallery({
           </button>
           <div className="flex flex-col items-center">
             <img
-              src={images[activeIndex].src}
-              alt={images[activeIndex].alt}
+              src={images[activeIndex]?.src}
+              alt={images[activeIndex]?.alt}
               className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
             />
           </div>

@@ -12,7 +12,7 @@ interface ReviewCardProps {
 
 function ReviewCard({ content, author, role, company, avatar, className }: ReviewCardProps) {
   return (
-    <div className={cn("bg-surface rounded-2xl p-8", className)}>
+    <div className={cn("bg-surface rounded-2xl p-8 border border-brand-500/20", className)}>
       <Quote className="h-8 w-8 text-brand-500/30 mb-4" />
       <blockquote className="text-body text-text-secondary leading-relaxed">&ldquo;{content}&rdquo;</blockquote>
       <div className="mt-6 flex items-center gap-4">

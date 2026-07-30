@@ -42,7 +42,7 @@ export function PartnersSection({
           {partners.map((partner) => (
             <div
               key={partner.name}
-              className="flex flex-col items-center rounded-xl border border-border-muted bg-surface p-8 text-center transition-all duration-300 hover:shadow-elevation-3"
+              className="flex flex-col items-center rounded-xl border border-border-muted bg-surface p-8 text-center transition-all duration-300 hover:border-brand-500/40 hover:shadow-elevation-3"
             >
               {partner.logo && (
                 <div className="mb-4">

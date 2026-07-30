@@ -28,8 +28,8 @@ function PricingCard({
       className={cn(
         "rounded-2xl p-8 transition-all duration-300 ease-luxury",
         highlighted
-          ? "bg-brand-500 text-text-inverse scale-105 shadow-elevation-4"
-          : "bg-surface text-text",
+          ? "bg-surface text-text border-2 border-brand-500 scale-105 shadow-elevation-4"
+          : "bg-surface text-text border border-border-muted",
         className,
       )}
     >
@@ -39,7 +39,7 @@ function PricingCard({
         <span
           className={cn(
             "text-body",
-            highlighted ? "text-text-inverse/80" : "text-text-muted",
+            highlighted ? "text-brand-400/80" : "text-text-muted",
           )}
         >
           /{period}
@@ -51,7 +51,7 @@ function PricingCard({
             <Check
               className={cn(
                 "mt-0.5 h-4 w-4 shrink-0",
-                highlighted ? "text-text-inverse" : "text-brand-500",
+                highlighted ? "text-brand-400" : "text-brand-500",
               )}
             />
             {feature}

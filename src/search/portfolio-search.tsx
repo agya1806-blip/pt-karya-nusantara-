@@ -21,7 +21,6 @@ export function PortfolioSearch({ onSearch, isLoading, query = "", config }: Por
         onChange={(e) => onSearch(e.target.value)}
         placeholder={config?.placeholder ?? "Search projects..."}
         className="w-full border-border bg-surface pl-12 py-3 text-body-md placeholder:text-text-muted"
-        isLoading={isLoading}
         aria-label="Search portfolio"
       />
     </div>

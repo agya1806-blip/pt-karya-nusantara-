@@ -12,7 +12,7 @@ interface TeamCardProps {
 function TeamCard({ avatar, name, role, bio, href, className }: TeamCardProps) {
   const shared = (
     <>
-      <div className="overflow-hidden rounded-2xl">
+      <div className="overflow-hidden rounded-2xl ring-1 ring-transparent transition-all duration-300 group-hover:ring-brand-500/40">
         <img
           src={avatar}
           alt={name}

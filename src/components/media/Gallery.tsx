@@ -21,7 +21,7 @@ export function GalleryCard({ image, onClick, className }: GalleryCardProps) {
   return (
     <motion.button
       onClick={onClick}
-      className={cn("group relative aspect-[4/3] w-full overflow-hidden rounded-lg", className)}
+      className={cn("group relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-brand-500/30", className)}
       whileHover={{ scale: 1.02 }}
       transition={{ duration: 0.3 }}
       type="button"

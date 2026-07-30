@@ -16,8 +16,8 @@ interface CTASectionProps {
 
 const sectionVariants: Record<string, string> = {
   default: "bg-surface text-text",
-  brand: "bg-brand-500 text-text-inverse",
-  dark: "bg-surface-dark text-text-inverse",
+  brand: "bg-gradient-to-br from-brand-500/90 to-brand-500/70 text-text-inverse",
+  dark: "bg-surface border-y border-brand-500/20 text-text",
 };
 
 export function CTASection({
@@ -61,10 +61,10 @@ export function CTASection({
                   className={cn(
                     "inline-flex items-center justify-center rounded-lg px-8 py-3 text-body-sm font-medium tracking-tight transition-all duration-300",
                     action.variant === "primary" || !action.variant
-                      ? "bg-text text-text-inverse hover:opacity-90"
+                      ? "bg-brand-500 text-text-inverse hover:bg-brand-500/90"
                       : action.variant === "secondary"
-                        ? "bg-surface text-text hover:bg-surface-muted"
-                        : "border border-border text-text hover:bg-surface-muted",
+                        ? "border border-brand-500/40 text-text hover:bg-brand-500/10"
+                        : "border border-brand-500/30 text-text hover:bg-brand-500/10",
                   )}
                 >
                   {action.label}

@@ -48,7 +48,7 @@ export class BaseRepository<T extends Record<string, unknown>> {
       });
     }
 
-    return data as T | null;
+    return data as unknown as T | null;
   }
 
   async findBySlug(slug: string, select = this.defaultSelect): Promise<T | null> {
@@ -103,7 +103,7 @@ export class BaseRepository<T extends Record<string, unknown>> {
       });
     }
 
-    return (data ?? []) as T[];
+    return (data ?? []) as unknown as T[];
   }
 
   async findPaginated(
@@ -155,7 +155,7 @@ export class BaseRepository<T extends Record<string, unknown>> {
     }
 
     return {
-      data: (data ?? []) as T[],
+      data: (data ?? []) as unknown as T[],
       total: count ?? 0,
       page,
       limit,

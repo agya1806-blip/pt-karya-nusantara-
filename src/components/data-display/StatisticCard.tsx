@@ -17,7 +17,7 @@ function StatisticCard({ value, label, prefix, suffix, trend, className }: Stati
     <div className={cn("bg-surface rounded-2xl p-6 text-center", className)}>
       <div className="flex items-baseline justify-center gap-1">
         {prefix && <span className="text-heading text-text-muted">{prefix}</span>}
-        <span className="text-display text-text font-light tracking-tight">{value}</span>
+        <span className="text-display text-brand-400 font-light tracking-tight">{value}</span>
         {suffix && <span className="text-heading text-text-muted">{suffix}</span>}
         {trend && trend !== "neutral" && (
           <span

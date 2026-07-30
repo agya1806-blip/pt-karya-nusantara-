@@ -101,6 +101,8 @@ export interface ProcessStep {
   description: string;
   icon?: React.ReactNode;
   image?: MediaItem;
+  step?: number;
+  duration?: string;
 }
 
 export interface ValueItem {

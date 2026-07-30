@@ -52,7 +52,7 @@ export function Popover({
         {open && (
           <motion.div
             className={cn(
-              "absolute z-dropdown rounded-lg border border-border-default bg-surface p-4 shadow-elevation-4",
+              "absolute z-dropdown rounded-lg border border-brand-500/20 bg-surface p-4 shadow-elevation-4",
               placementClasses[placement],
               className,
             )}

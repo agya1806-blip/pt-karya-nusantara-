@@ -6,7 +6,7 @@ export function generateWhatsAppMessage(template: "consultation" | "project-inqu
     callback: `Hi, my name is ${params.name}. Please call me back at ${params.phone}.`,
   };
 
-  return templates[template] || templates.consultation;
+  return (templates[template] ?? templates.consultation) ?? "";
 }
 
 export function openWhatsApp(phoneNumber: string, message: string): void {

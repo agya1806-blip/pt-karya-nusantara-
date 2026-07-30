@@ -17,7 +17,7 @@ export class AuditRepository {
       entity_id: input.entityId ?? null,
       changes: input.changes ?? null,
       ip_address: input.ipAddress ?? null,
-    });
+    } as any);
 
     if (error) {
       console.error("Failed to create audit log:", error);
@@ -34,7 +34,7 @@ export class AuditRepository {
       user_id: input.userId ?? null,
       action: input.action,
       details: input.details ?? null,
-    });
+    } as any);
 
     if (error) {
       console.error("Failed to create activity log:", error);
@@ -53,7 +53,7 @@ export class AuditRepository {
       action: input.action,
       ip_address: input.ipAddress ?? null,
       user_agent: input.userAgent ?? null,
-    });
+    } as any);
 
     if (error) {
       console.error("Failed to create auth log:", error);

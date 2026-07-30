@@ -81,7 +81,7 @@ export function Toast({
       )}
       role="alert"
     >
-      <Icon className="h-5 w-5 shrink-0 text-text-primary" aria-hidden="true" />
+      <Icon className={cn("h-5 w-5 shrink-0", variant === "success" ? "text-brand-400" : "text-text-primary")} aria-hidden="true" />
       <p className="flex-1 text-sm leading-relaxed text-text-primary">
         {message}
       </p>

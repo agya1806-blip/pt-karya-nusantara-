@@ -16,7 +16,7 @@ const TableWrapper = forwardRef<HTMLDivElement, TableWrapperProps>(
       <div ref={ref} className={cn("w-full overflow-x-auto", className)} {...props}>
         <table className="w-full caption-bottom">
           {caption && (
-            <caption className="text-caption text-text-muted mt-2 text-left">
+              <caption className="text-caption text-text-tertiary mt-2 text-left">
               {caption}
             </caption>
           )}
@@ -32,7 +32,7 @@ const TableHead = forwardRef<
   HTMLTableSectionElement,
   HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => {
-  return <thead ref={ref} className={cn("bg-surface-muted", className)} {...props} />;
+  return <thead ref={ref} className={cn("bg-surface-tertiary border-b border-border-muted", className)} {...props} />;
 });
 TableHead.displayName = "TableHead";
 
@@ -41,7 +41,7 @@ const TableBody = forwardRef<
   HTMLAttributes<HTMLTableSectionElement>
 >(({ className, ...props }, ref) => {
   return (
-    <tbody ref={ref} className={cn("divide-y divide-border-muted", className)} {...props} />
+    <tbody ref={ref} className={cn("divide-y divide-border-muted bg-surface-secondary", className)} {...props} />
   );
 });
 TableBody.displayName = "TableBody";
@@ -52,7 +52,7 @@ const TableRow = forwardRef<HTMLTableRowElement, HTMLAttributes<HTMLTableRowElem
       <tr
         ref={ref}
         className={cn(
-          "transition-colors duration-300 hover:bg-surface-muted",
+          "transition-colors duration-300 hover:bg-surface-tertiary",
           className,
         )}
         {...props}
@@ -70,7 +70,7 @@ const TableHeader = forwardRef<
     <th
       ref={ref}
       className={cn(
-        "text-left text-caption tracking-widest text-text-muted font-medium px-4 py-3",
+        "text-left text-caption tracking-widest text-text-secondary font-medium px-4 py-3",
         className,
       )}
       {...props}
@@ -86,7 +86,7 @@ const TableCell = forwardRef<
   return (
     <td
       ref={ref}
-      className={cn("px-4 py-3 text-body-sm text-text-secondary", className)}
+      className={cn("px-4 py-3 text-body-sm text-text-primary", className)}
       {...props}
     />
   );

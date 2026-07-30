@@ -19,7 +19,7 @@ export function useIntersectionObserver({ threshold = 0.1, rootMargin = "0px", t
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry?.isIntersecting) {
           setIsIntersecting(true);
           onIntersect?.();
           if (triggerOnce) observer.unobserve(el);

@@ -26,7 +26,7 @@ export function Spinner({
   return (
     <div className={cn("flex items-center justify-center", className)} role="status">
       <Loader2
-        className={cn("animate-spin text-text-primary", sizeClasses[size])}
+        className={cn("animate-spin text-brand-500", sizeClasses[size])}
       />
       {label && <span className="sr-only">{label}</span>}
     </div>

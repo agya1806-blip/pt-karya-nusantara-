@@ -22,7 +22,7 @@ const barSize: Record<ProgressSize, string> = {
 };
 
 const barVariant: Record<ProgressVariant, string> = {
-  default: "bg-text-primary",
+  default: "bg-brand-500",
   success: "bg-green-500",
   warning: "bg-yellow-500",
   error: "bg-red-500",

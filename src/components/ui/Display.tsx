@@ -5,6 +5,7 @@ import type { DisplaySize } from "./types";
 interface DisplayProps {
   size?: DisplaySize;
   serif?: boolean;
+  gold?: boolean;
   as?: "h1" | "h2" | "h3" | "span" | "div";
   className?: string;
   children?: React.ReactNode;
@@ -19,9 +20,9 @@ const sizeStyles: Record<DisplaySize, string> = {
 };
 
 export const Display = forwardRef<HTMLElement, DisplayProps>(
-  ({ size = "lg", serif = false, as: Tag = "h2", className, children, ...rest }, ref) => {
+  ({ size = "lg", serif = false, gold, as: Tag = "h2", className, children, ...rest }, ref) => {
     return (
-      <Tag ref={ref as any} className={cn("text-text font-light tracking-tight", serif && "font-serif", sizeStyles[size], className)} {...rest}>
+      <Tag ref={ref as any} className={cn("text-text-primary font-serif font-light tracking-tight", gold && "text-brand-400", sizeStyles[size], className)} {...rest}>
         {children}
       </Tag>
     );

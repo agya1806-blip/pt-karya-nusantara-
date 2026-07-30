@@ -20,12 +20,12 @@ export function Breadcrumb({
 }: BreadcrumbProps) {
   return (
     <nav aria-label="Breadcrumb" className={cn("flex items-center", className)}>
-      <ol className="flex items-center gap-1.5 text-body-sm text-text-muted">
+      <ol className="flex items-center gap-1.5 text-body-sm text-text-tertiary">
         {showHome && (
           <li>
             <Link
               href="/"
-              className="flex items-center gap-1 transition-colors duration-300 hover:text-text"
+              className="flex items-center gap-1 transition-colors duration-300 hover:text-brand-400"
             >
               <Home size={14} />
               <span className="sr-only">Home</span>
@@ -35,7 +35,7 @@ export function Breadcrumb({
 
         {showHome && items.length > 0 && (
           <li className="flex items-center">
-            <ChevronRight size={14} />
+              <ChevronRight size={14} className="text-brand-400/70" />
           </li>
         )}
 
@@ -47,20 +47,20 @@ export function Breadcrumb({
               {item.href && !isLast ? (
                 <Link
                   href={item.href}
-                  className="transition-colors duration-300 hover:text-text"
+                  className="transition-colors duration-300 hover:text-brand-400"
                 >
                   {item.label}
                 </Link>
               ) : (
                 <span
-                  className={cn(isLast ? "text-text" : "text-text-muted")}
+                  className={cn(isLast ? "text-brand-400" : "text-text-tertiary")}
                   aria-current={isLast ? "page" : undefined}
                 >
                   {item.label}
                 </span>
               )}
 
-              {!isLast && <ChevronRight size={14} />}
+              {!isLast && <ChevronRight size={14} className="text-brand-400/70" />}
             </li>
           );
         })}

@@ -21,7 +21,6 @@ export function ServiceSearch({ onSearch, isLoading, query = "", config }: Servi
         onChange={(e) => onSearch(e.target.value)}
         placeholder={config?.placeholder ?? "Search services..."}
         className="w-full border-border bg-surface pl-12 py-3 text-body-md placeholder:text-text-muted"
-        isLoading={isLoading}
         aria-label="Search services"
       />
     </div>

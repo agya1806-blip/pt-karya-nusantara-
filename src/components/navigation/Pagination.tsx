@@ -75,7 +75,7 @@ export function Pagination({
         type="button"
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage <= 1}
-        className="flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary transition-colors duration-300 hover:bg-surface-muted hover:text-text disabled:pointer-events-none disabled:opacity-40"
+        className="flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary transition-colors duration-300 hover:bg-surface-tertiary hover:text-brand-400 disabled:pointer-events-none disabled:opacity-40"
         aria-label="Previous page"
       >
         <ChevronLeft size={18} />
@@ -85,7 +85,7 @@ export function Pagination({
         page === "ellipsis" ? (
           <span
             key={`ellipsis-${index}`}
-            className="flex h-10 w-10 items-center justify-center text-text-muted"
+            className="flex h-10 w-10 items-center justify-center text-text-tertiary"
           >
             &hellip;
           </span>
@@ -97,8 +97,8 @@ export function Pagination({
             className={cn(
               "flex h-10 w-10 items-center justify-center rounded-lg text-body-sm font-medium transition-colors duration-300",
               page === currentPage
-                ? "bg-text text-text-inverse"
-                : "text-text-secondary hover:bg-surface-muted hover:text-text",
+                ? "border border-brand-400 bg-surface text-brand-400"
+                : "text-text-secondary hover:bg-surface-tertiary hover:text-brand-400",
             )}
             aria-current={page === currentPage ? "page" : undefined}
           >
@@ -111,7 +111,7 @@ export function Pagination({
         type="button"
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage >= totalPages}
-        className="flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary transition-colors duration-300 hover:bg-surface-muted hover:text-text disabled:pointer-events-none disabled:opacity-40"
+        className="flex h-10 w-10 items-center justify-center rounded-lg text-text-secondary transition-colors duration-300 hover:bg-surface-tertiary hover:text-brand-400 disabled:pointer-events-none disabled:opacity-40"
         aria-label="Next page"
       >
         <ChevronRight size={18} />

@@ -25,7 +25,7 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
   const rating = testimonial.rating;
 
   return (
-    <div className="flex flex-col rounded-xl border border-border-muted bg-surface p-8 transition-all duration-300 hover:shadow-elevation-3">
+    <div className="flex flex-col rounded-xl border border-brand-500/20 bg-surface p-8 transition-all duration-300 hover:border-brand-500/40 hover:shadow-elevation-3">
       {rating !== undefined && (
         <div className="mb-4 flex items-center gap-1">
           {Array.from({ length: 5 }, (_, i) => (
@@ -33,7 +33,7 @@ function ReviewCard({ testimonial }: { testimonial: Testimonial }) {
               key={i}
               size={16}
               className={cn(
-                i < rating ? "fill-current text-text" : "text-border",
+                i < rating ? "fill-current text-brand-400" : "text-border-muted",
               )}
             />
           ))}
@@ -114,7 +114,7 @@ export function Testimonials({
                       p === 0 ? testimonials.length - 1 : p - 1,
                     )
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors duration-300 hover:bg-surface-muted hover:text-text"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-500/30 text-text-secondary transition-colors duration-300 hover:bg-brand-500/10 hover:text-brand-400"
                   aria-label="Previous testimonial"
                 >
                   <ChevronLeft size={18} />
@@ -129,8 +129,8 @@ export function Testimonials({
                       className={cn(
                         "h-2 rounded-full transition-all duration-300",
                         i === current
-                          ? "w-8 bg-text"
-                          : "w-2 bg-border hover:bg-text-muted",
+                          ? "w-8 bg-brand-500"
+                          : "w-2 bg-border-muted hover:bg-brand-500/50",
                       )}
                       aria-label={`Go to testimonial ${i + 1}`}
                     />
@@ -144,7 +144,7 @@ export function Testimonials({
                       p === testimonials.length - 1 ? 0 : p + 1,
                     )
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-text-secondary transition-colors duration-300 hover:bg-surface-muted hover:text-text"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-500/30 text-text-secondary transition-colors duration-300 hover:bg-brand-500/10 hover:text-brand-400"
                   aria-label="Next testimonial"
                 >
                   <ChevronRight size={18} />

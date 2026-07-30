@@ -24,11 +24,11 @@ function BlogCard({ image, category, date, author, title, excerpt, href, classNa
       </div>
       <div className="p-6">
         <div className="flex items-center gap-4 text-caption tracking-widest text-text-muted">
-          <span>{category}</span>
-          <span className="flex items-center gap-1">
+          <span className="rounded-full bg-brand-500/15 px-3 py-0.5 text-caption font-medium text-brand-400">{category}</span>
+          <span className="flex items-center gap-1 text-brand-400">
             <Calendar className="h-3.5 w-3.5" />
-            {date}
-          </span>
+          {date}
+            </span>
         </div>
         <h3 className="text-heading-sm text-text mt-3">{title}</h3>
         <p className="text-body text-text-secondary mt-2 leading-relaxed">{excerpt}</p>
@@ -50,7 +50,7 @@ function BlogCard({ image, category, date, author, title, excerpt, href, classNa
       <a
         href={href}
         className={cn(
-          "group block bg-surface rounded-2xl overflow-hidden transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+          "group block bg-surface rounded-2xl overflow-hidden border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
           className,
         )}
       >
@@ -61,10 +61,10 @@ function BlogCard({ image, category, date, author, title, excerpt, href, classNa
 
   return (
     <div
-      className={cn(
-        "group bg-surface rounded-2xl overflow-hidden transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
-        className,
-      )}
+        className={cn(
+          "group bg-surface rounded-2xl overflow-hidden border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
+          className,
+        )}
     >
       {shared}
     </div>

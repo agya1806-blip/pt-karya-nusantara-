@@ -19,9 +19,9 @@ const sizeStyles: Record<TextSize, string> = {
 };
 
 const colorStyles: Record<TextColor, string> = {
-  default: "text-text",
+  default: "text-text-primary",
   secondary: "text-text-secondary",
-  muted: "text-text-muted",
+  muted: "text-text-tertiary",
 };
 
 export const Text = forwardRef<HTMLElement, TextProps>(

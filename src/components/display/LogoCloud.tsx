@@ -39,7 +39,7 @@ export function LogoCloud({
               <img
                 src={logo.src}
                 alt={logo.alt}
-                className="h-8 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-80 hover:grayscale-0"
+                className="h-8 w-auto opacity-40 grayscale transition-all duration-300 hover:opacity-100 hover:grayscale-0"
               />
             </div>
           ))}

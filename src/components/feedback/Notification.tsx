@@ -46,7 +46,7 @@ export function Notification({
       className={cn(
         "relative flex gap-3 rounded-lg border p-4 transition-colors duration-300 ease-architectural",
         unread
-          ? "border-border-default bg-surface"
+          ? "border-brand-500/30 bg-surface"
           : "border-transparent bg-surface-secondary",
         className,
       )}

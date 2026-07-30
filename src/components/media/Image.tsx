@@ -28,7 +28,7 @@ export function Image({
 
   return (
     <motion.div
-      className={cn("relative overflow-hidden", className)}
+      className={cn("relative overflow-hidden rounded-sm ring-1 ring-brand-500/10", className)}
       initial={reveal ? { opacity: 0, scale: 1.05 } : undefined}
       animate={reveal && loaded ? { opacity: 1, scale: 1 } : undefined}
       transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}

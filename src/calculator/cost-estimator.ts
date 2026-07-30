@@ -27,8 +27,8 @@ export function calculateEstimate(
   input: BuildingInput,
   config: CalculatorConfig = defaultConfig
 ): EstimateResult {
-  const rates = config.baseRates[input.type];
-  const complexityMultiplier = config.complexityMultipliers[input.complexity];
+  const rates = config.baseRates[input.type] ?? { design: 0, construction: 0 };
+  const complexityMultiplier = config.complexityMultipliers[input.complexity] ?? 1;
   const locationMultiplier = config.locationMultipliers[input.location] ?? 1;
   const floorMultiplier = 1 + (input.floors - 1) * config.floorMultiplier;
 
@@ -38,7 +38,7 @@ export function calculateEstimate(
   const designFee = input.totalArea * baseDesignRate;
   const constructionCost = input.totalArea * baseConstructionRate;
 
-  const allocation = serviceAllocation[input.type];
+  const allocation = serviceAllocation[input.type] ?? { architecture: 0, interior: 0, landscape: 0, structural: 0, mep: 0 };
   const included = input.includedServices;
 
   const architectureCost = included.includes("architecture") ? constructionCost * (allocation.architecture / 100) : 0;

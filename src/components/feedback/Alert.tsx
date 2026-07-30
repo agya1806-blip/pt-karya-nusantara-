@@ -40,7 +40,7 @@ export function Alert({
       )}
     >
       <IconComponent
-        className="mt-0.5 h-5 w-5 shrink-0 text-text-primary"
+        className="mt-0.5 h-5 w-5 shrink-0 text-brand-400"
         aria-hidden="true"
       />
       <div className="flex-1">

@@ -7,6 +7,7 @@ interface SubscriberRecord {
   is_active: boolean;
   subscribed_at: string;
   unsubscribed_at: string | null;
+  [key: string]: unknown;
 }
 
 export class NewsletterRepository {

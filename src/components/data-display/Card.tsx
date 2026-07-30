@@ -13,13 +13,13 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 function getVariantStyles(variant: CardVariant): string {
   switch (variant) {
     case "muted":
-      return "bg-surface-muted";
+      return "bg-surface-tertiary";
     case "elevated":
-      return "bg-surface shadow-elevation-2";
+      return "bg-surface-secondary shadow-elevation-2";
     case "bordered":
-      return "bg-surface border border-border";
+      return "bg-surface-secondary border border-border-muted";
     default:
-      return "bg-surface";
+      return "bg-surface-secondary";
   }
 }
 
@@ -47,7 +47,7 @@ const Card = forwardRef<HTMLDivElement, CardProps>(
           "rounded-2xl",
           getVariantStyles(variant),
           getPaddingStyles(padding),
-          hover && "transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+          hover && "transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3 hover:border-brand-500/30",
           className,
         )}
         {...props}

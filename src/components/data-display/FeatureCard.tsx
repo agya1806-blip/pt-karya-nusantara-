@@ -12,7 +12,7 @@ function FeatureCard({ title, description, icon, index, className }: FeatureCard
   return (
     <div
       className={cn(
-        "bg-surface rounded-2xl p-6 transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+        "bg-surface rounded-2xl p-6 border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
         className,
       )}
     >

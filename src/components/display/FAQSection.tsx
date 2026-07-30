@@ -51,7 +51,12 @@ export function FAQSection({
           {items.map((item, index) => (
             <div
               key={index}
-              className="rounded-xl border border-border-muted bg-surface transition-colors duration-300"
+              className={cn(
+                "rounded-xl border bg-surface transition-colors duration-300",
+                openIndex === index
+                  ? "border-brand-500/40"
+                  : "border-border-muted",
+              )}
             >
               <button
                 type="button"
@@ -64,8 +69,10 @@ export function FAQSection({
                 <ChevronDown
                   size={18}
                   className={cn(
-                    "flex-shrink-0 text-text-muted transition-transform duration-300",
-                    openIndex === index && "rotate-180",
+                    "flex-shrink-0 transition-transform duration-300",
+                    openIndex === index
+                      ? "rotate-180 text-brand-400"
+                      : "text-text-muted",
                   )}
                 />
               </button>
@@ -79,7 +86,7 @@ export function FAQSection({
                     transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
                     className="overflow-hidden"
                   >
-                    <div className="border-t border-border-muted px-6 py-5">
+                    <div className="border-t border-brand-500/20 px-6 py-5">
                       <p className="text-body-sm leading-relaxed text-text-secondary">
                         {item.answer}
                       </p>

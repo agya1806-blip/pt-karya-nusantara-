@@ -42,7 +42,7 @@ export function Avatar({
     return (
       <div
         className={cn(
-          "relative overflow-hidden rounded-full",
+          "relative overflow-hidden rounded-full ring-1 ring-brand-500/30",
           sizeClasses[size],
           className,
         )}

@@ -19,6 +19,7 @@ interface ProjectRecord {
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
+  [key: string]: unknown;
 }
 
 interface ProjectCategoryRecord {
@@ -30,6 +31,7 @@ interface ProjectCategoryRecord {
   created_at: string;
   updated_at: string;
   deleted_at: string | null;
+  [key: string]: unknown;
 }
 
 export class ProjectRepository extends BaseRepository<ProjectRecord> {

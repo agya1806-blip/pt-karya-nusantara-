@@ -39,7 +39,7 @@ function ServiceCard({ icon, title, description, features, href, className }: Se
       <a
         href={href}
         className={cn(
-          "group block bg-surface rounded-2xl p-6 transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
+          "group block bg-surface rounded-2xl p-6 border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
           className,
         )}
       >
@@ -50,10 +50,10 @@ function ServiceCard({ icon, title, description, features, href, className }: Se
 
   return (
     <div
-      className={cn(
-        "bg-surface rounded-2xl p-6 transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3",
-        className,
-      )}
+        className={cn(
+          "bg-surface rounded-2xl p-6 border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
+          className,
+        )}
     >
       {shared}
     </div>

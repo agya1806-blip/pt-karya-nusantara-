@@ -13,7 +13,7 @@ interface ChipProps {
 }
 
 const variantStyles: Record<ChipVariant, string> = {
-  default: "border border-border-default bg-surface text-text-primary",
+  default: "border border-brand-500/30 bg-surface text-text-primary hover:border-brand-500/60",
   muted: "bg-surface-secondary text-text-secondary",
   dark: "bg-neutral-900 text-text-inverse",
   success: "bg-green-50 text-green-700",

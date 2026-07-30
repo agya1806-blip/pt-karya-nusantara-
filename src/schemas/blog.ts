@@ -20,7 +20,7 @@ export const blogPostSchema = z.object({
   title: z.string().min(1).max(200),
   slug: slugSchema,
   excerpt: z.string().max(500).optional(),
-  content: z.record(z.unknown()),
+  content: z.record(z.string(), z.unknown()),
   imageId: z.string().uuid().nullable().optional(),
   authorId: z.string().uuid().nullable().optional(),
   categoryId: z.string().uuid().nullable().optional(),
