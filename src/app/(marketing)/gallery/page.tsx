@@ -56,7 +56,7 @@ export default function GalleryPage() {
           label="Kurasi Khusus"
           title="Mahakarya Pilihan"
           description="Sorotan dari proyek-proyek yang mendefinisikan kembali kemewahan arsitektur Nusantara."
-          images={featuredImages}
+          items={featuredImages}
         />
       </AnimatedSection>
       <AnimatedSection delay={0.3}>
