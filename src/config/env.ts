@@ -13,9 +13,6 @@ class EnvironmentConfig {
   get siteUrl(): string {
     return (
       process.env.NEXT_PUBLIC_SITE_URL ??
-      (process.env.VERCEL_URL
-        ? `https://${process.env.VERCEL_URL}`
-        : undefined) ??
       (process.env.NEXT_PUBLIC_VERCEL_URL
         ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
         : undefined) ??
@@ -24,42 +21,39 @@ class EnvironmentConfig {
   }
 
   get siteName(): string {
-    return process.env.NEXT_PUBLIC_SITE_NAME ?? "PT Karya Nusantara Realty";
+    return "PT Karya Nusantara Realty";
   }
 
   get siteDescription(): string {
-    return (
-      process.env.NEXT_PUBLIC_SITE_DESCRIPTION ??
-      "World-class luxury architecture firm"
-    );
+    return "World-class luxury architecture firm crafting timeless spaces";
   }
 
   get companyPhone(): string {
-    return process.env.NEXT_PUBLIC_COMPANY_PHONE ?? "";
+    return "+62 21 1234 5678";
   }
 
   get companyEmail(): string {
-    return process.env.NEXT_PUBLIC_COMPANY_EMAIL ?? "";
+    return "hello@karyanusantara.com";
   }
 
   get companyAddress(): string {
-    return process.env.NEXT_PUBLIC_COMPANY_ADDRESS ?? "";
+    return "Jakarta, Indonesia";
   }
 
   get socialInstagram(): string {
-    return process.env.NEXT_PUBLIC_SOCIAL_INSTAGRAM ?? "";
+    return "https://instagram.com/karyanusantara";
   }
 
   get socialLinkedin(): string {
-    return process.env.NEXT_PUBLIC_SOCIAL_LINKEDIN ?? "";
+    return "https://linkedin.com/company/karyanusantara";
   }
 
   get nib(): string {
-    return process.env.NEXT_PUBLIC_NIB ?? "2407260005341";
+    return "2407260005341";
   }
 
   get googleSiteVerification(): string {
-    return process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "";
+    return "";
   }
 
   get isProduction(): boolean {
