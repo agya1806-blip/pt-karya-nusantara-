@@ -7,4 +7,4 @@ export type {
   LightboxImage, LightboxConfig, ZoomState,
   BeforeAfterItem, BeforeAfterConfig, FullscreenConfig,
 } from "./feature-types";
-export type { RelatedProject } from "./related-projects-engine";
+
