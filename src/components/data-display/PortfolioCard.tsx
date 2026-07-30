@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { ArrowUpRight } from "lucide-react";
 
 interface PortfolioCardProps {
@@ -11,33 +13,32 @@ interface PortfolioCardProps {
 
 function PortfolioCard({ image, title, category, href, className }: PortfolioCardProps) {
   const shared = (
-    <div className="relative aspect-[4/5] overflow-hidden rounded-2xl">
+    <div className="relative aspect-[4/5] overflow-hidden">
       <img
         src={image}
         alt={title}
-        className="h-full w-full object-cover transition-transform duration-300 ease-luxury group-hover:scale-105"
+        className="h-full w-full object-cover transition-transform duration-700 ease-luxury group-hover:scale-105"
       />
-      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-6 opacity-0 transition-opacity duration-300 ease-luxury group-hover:opacity-100">
-        <div className="absolute left-0 top-0 h-1 w-0 bg-brand-500 transition-all duration-300 ease-luxury group-hover:w-full" />
-        <h3 className="text-heading-sm text-text-inverse">{title}</h3>
-        <p className="text-body-sm text-brand-400/80 mt-1">{category}</p>
-        {href && <ArrowUpRight className="absolute right-4 top-4 h-6 w-6 text-brand-400" />}
+      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-brand-900/80 via-brand-900/40 to-transparent p-8 opacity-0 transition-opacity duration-500 ease-architectural group-hover:opacity-100">
+        <h3 className="font-serif text-heading-sm text-text-inverse font-medium">{title}</h3>
+        <p className="text-body-sm text-text-inverse/70 mt-1.5">{category}</p>
+        {href && <ArrowUpRight className="absolute right-6 top-6 h-5 w-5 text-text-inverse" />}
       </div>
     </div>
   );
 
   if (href) {
     return (
-      <a href={href} className={cn("group block", className)}>
+      <motion.a href={href} className={cn("group block", className)} whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }} transition={cardHoverTransition}>
         {shared}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <div className={cn("group", className)}>
+    <motion.div className={cn("group", className)} whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }} transition={cardHoverTransition}>
       {shared}
-    </div>
+    </motion.div>
   );
 }
 

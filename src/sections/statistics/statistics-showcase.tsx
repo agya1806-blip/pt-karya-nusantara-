@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { SectionHeader } from "@/sections/shared/section-header";
 import { Fade } from "@/components/animation/Fade";
 import { Stagger, StaggerItem } from "@/components/animation/Stagger";
+import { AnimatedCounter } from "@/components/animation/AnimatedCounter";
 import type { StatItem } from "@/sections/types";
 
 interface StatisticsShowcaseProps {
@@ -32,7 +33,7 @@ export function StatisticsShowcase({
 }: StatisticsShowcaseProps) {
   if (variant === "row") {
     return (
-      <section className={cn("bg-surface-secondary py-24", className)}>
+      <section className={cn("bg-surface-secondary py-24 lg:py-28", className)}>
         <div className="container-site">
           <SectionHeader
             label={label}
@@ -43,12 +44,11 @@ export function StatisticsShowcase({
             <div className="flex flex-wrap justify-center gap-12 md:gap-16 lg:gap-24">
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="text-display font-light text-text-primary tabular-nums">
+                  <p className="font-serif text-display font-light text-text-primary tabular-nums">
                     {stat.prefix}
-                    {stat.value}
-                    {stat.suffix}
+                    <AnimatedCounter value={Number(stat.value)} suffix={stat.suffix} />
                   </p>
-                  <p className="mt-1 text-body-sm text-text-secondary">
+                  <p className="mt-2 text-body-sm text-text-secondary">
                     {stat.label}
                   </p>
                 </div>
@@ -62,23 +62,22 @@ export function StatisticsShowcase({
 
   if (variant === "cards") {
     return (
-      <section className={cn("bg-surface-secondary py-24", className)}>
+      <section className={cn("bg-surface-secondary py-24 lg:py-28", className)}>
         <div className="container-site">
           <SectionHeader
             label={label}
             title={title}
             description={description}
           />
-          <Stagger className={cn("mt-16 grid gap-6", gridCols[columns])}>
+          <Stagger className={cn("mt-20 grid gap-6", gridCols[columns])}>
             {stats.map((stat) => (
               <StaggerItem key={stat.label}>
-                <div className="rounded-xl border border-border-light bg-surface p-8 text-center transition-all duration-300 hover:shadow-elevation-1">
-                  <p className="text-display font-light text-text-primary tabular-nums">
+                <div className="rounded-2xl border border-gold-500/5 bg-surface p-8 text-center shadow-elevation-1 transition-all duration-500 ease-luxury hover:shadow-elevation-3">
+                  <p className="font-serif text-display font-light text-text-primary tabular-nums">
                     {stat.prefix}
-                    {stat.value}
-                    {stat.suffix}
+                    <AnimatedCounter value={Number(stat.value)} suffix={stat.suffix} />
                   </p>
-                  <p className="mt-1 text-body-sm text-text-secondary">
+                  <p className="mt-2 text-body-sm text-text-secondary">
                     {stat.label}
                   </p>
                 </div>
@@ -91,22 +90,21 @@ export function StatisticsShowcase({
   }
 
   return (
-    <section className={cn("bg-surface-secondary py-24", className)}>
+    <section className={cn("bg-surface-secondary py-24 lg:py-28", className)}>
       <div className="container-site">
         <SectionHeader
           label={label}
           title={title}
           description={description}
         />
-        <Stagger className={cn("mt-16 grid gap-8 text-center", gridCols[columns])}>
+        <Stagger className={cn("mt-20 grid gap-8 text-center", gridCols[columns])}>
           {stats.map((stat) => (
             <StaggerItem key={stat.label}>
-              <p className="text-display font-light text-text-primary tabular-nums">
+              <p className="font-serif text-display font-light text-text-primary tabular-nums">
                 {stat.prefix}
-                {stat.value}
-                {stat.suffix}
+                <AnimatedCounter value={Number(stat.value)} suffix={stat.suffix} />
               </p>
-              <p className="mt-1 text-body-sm text-text-secondary">
+              <p className="mt-2 text-body-sm text-text-secondary">
                 {stat.label}
               </p>
             </StaggerItem>

@@ -72,7 +72,6 @@ export interface Project extends BaseEntity, SoftDeletable {
   category?: ProjectCategory;
   tags?: Tag[];
 }
-
 export interface BlogCategory extends BaseEntity {
   name: string;
   slug: string;

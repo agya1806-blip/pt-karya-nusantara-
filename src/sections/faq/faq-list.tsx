@@ -31,7 +31,7 @@ export function FAQList({
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const filteredItems = activeCategory && categories
-    ? items
+    ? items.filter((item) => item.category === activeCategory)
     : items;
 
   const toggle = (index: number) => {

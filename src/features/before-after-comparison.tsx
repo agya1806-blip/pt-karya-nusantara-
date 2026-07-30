@@ -72,7 +72,12 @@ export function BeforeAfterComparison({
         className="absolute inset-0 overflow-hidden"
         style={{ [isHorizontal ? "width" : "height"]: `${position}%` }}
       >
-        <Image src={before.src} alt={before.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" style={{ [isHorizontal ? "width" : "height"]: `${100 / (position / 100)}%` }} />
+        <div
+          className="relative h-full"
+          style={{ [isHorizontal ? "width" : "height"]: `${100 / ((position || 50) / 100)}%` }}
+        >
+          <Image src={before.src} alt={before.alt} fill className="object-cover" sizes="(max-width: 768px) 100vw, 50vw" />
+        </div>
       </div>
 
       <div

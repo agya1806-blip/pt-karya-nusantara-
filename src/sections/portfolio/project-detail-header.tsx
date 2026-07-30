@@ -23,7 +23,7 @@ export function ProjectDetailHeader({
             alt={project.thumbnail.alt}
             className="h-full w-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-900/80 via-brand-800/30 to-transparent" />
         </div>
       )}
       <div className="container-site relative z-10 pb-16">

@@ -51,12 +51,12 @@ export function VideoGallery({
                   <span className="text-text-tertiary">No thumbnail</span>
                 </div>
               )}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/20 transition-colors group-hover:bg-black/30">
+              <div className="absolute inset-0 flex items-center justify-center bg-brand-900/30 transition-colors group-hover:bg-brand-900/50">
                 <span className="flex h-14 w-14 items-center justify-center rounded-full bg-white/90 text-neutral-900 shadow-lg transition-transform group-hover:scale-110">
                   <Play size={22} className="ml-1" />
                 </span>
               </div>
-              <div className="absolute right-0 bottom-0 left-0 p-4 bg-gradient-to-t from-black/60 to-transparent">
+              <div className="absolute right-0 bottom-0 left-0 p-4 bg-gradient-to-t from-brand-900/60 to-transparent">
                 <p className="text-body-sm font-medium text-white">{video.title}</p>
               </div>
             </button>

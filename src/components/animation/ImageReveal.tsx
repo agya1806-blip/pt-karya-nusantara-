@@ -1,9 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface ImageRevealProps {
@@ -12,10 +13,10 @@ interface ImageRevealProps {
   width?: number;
   height?: number;
   fill?: boolean;
-  duration?: number;
-  delay?: number;
-  once?: boolean;
   className?: string;
+  imgClassName?: string;
+  priority?: boolean;
+  zoomOnHover?: boolean;
 }
 
 export function ImageReveal({
@@ -24,67 +25,65 @@ export function ImageReveal({
   width,
   height,
   fill,
-  duration = 1,
-  delay = 0,
-  once = true,
   className,
+  imgClassName,
+  priority,
+  zoomOnHover = false,
 }: ImageRevealProps) {
   const [loaded, setLoaded] = useState(false);
+  const [fallback, setFallback] = useState(false);
   const reduced = useReducedMotion();
 
-  if (reduced) {
-    return (
-      <div className={cn("relative overflow-hidden", className)}>
-        {fill ? (
-          <Image src={src} alt={alt} fill className="object-cover" />
-        ) : (
-          <Image
-            src={src}
-            alt={alt}
-            width={width}
-            height={height}
-            className="object-cover"
-          />
-        )}
-      </div>
-    );
-  }
+  useEffect(() => {
+    const timer = setTimeout(() => setFallback(true), 3000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  const ready = loaded || fallback || reduced;
 
   return (
-    <div
-      className={cn(
-        "relative overflow-hidden",
-        !loaded && "bg-surface-muted",
-        className,
-      )}
-    >
+    <div className={cn("relative overflow-hidden bg-surface-muted", className)}>
       <motion.div
-        initial={{ clipPath: "inset(0 100% 0 0)", scale: 1.1 }}
-        whileInView={{ clipPath: "inset(0 0 0 0)", scale: 1 }}
-        viewport={{ once, margin: "-50px" }}
+        initial={
+          reduced ? {} : { clipPath: "inset(0 100% 0 0)", scale: 1.05 }
+        }
+        animate={
+          ready
+            ? { clipPath: "inset(0 0% 0 0)", scale: 1 }
+            : {}
+        }
         transition={{
-          duration,
-          delay,
-          ease: [0.25, 0.1, 0.25, 1],
+          duration: durations.slower,
+          ease: easings.easeOut,
         }}
-        className="h-full w-full"
+        className="relative h-full w-full"
       >
         {fill ? (
           <Image
             src={src}
             alt={alt}
             fill
+            className={cn(
+              "object-cover transition-transform duration-700 ease-luxury",
+              zoomOnHover && "group-hover:scale-110",
+              imgClassName,
+            )}
             onLoad={() => setLoaded(true)}
-            className="object-cover"
+            priority={priority ?? true}
           />
         ) : (
           <Image
             src={src}
             alt={alt}
-            width={width}
-            height={height}
+            width={width ?? 800}
+            height={height ?? 600}
+            className={cn(
+              "object-cover transition-transform duration-700 ease-luxury",
+              zoomOnHover && "group-hover:scale-110",
+              imgClassName,
+            )}
             onLoad={() => setLoaded(true)}
-            className="object-cover"
+            priority={priority ?? true}
           />
         )}
       </motion.div>

@@ -24,6 +24,11 @@ export interface BusinessHours {
   isClosed?: boolean;
 }
 
+export interface BusinessField {
+  name: string;
+  description: string;
+}
+
 export interface ContactInfo {
   phone: string;
   email: string;
@@ -43,4 +48,11 @@ export interface SiteConfig {
   navigation: NavigationItem[];
   footer: FooterSection[];
   businessHours: BusinessHours[];
+  nib: string;
+  director: string;
+  coordinates: {
+    lat: number;
+    lng: number;
+  };
+  businessFields: BusinessField[];
 }

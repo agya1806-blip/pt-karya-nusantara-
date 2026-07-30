@@ -1,9 +1,33 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/config";
 import { METADATA, DEFAULT_LOCALE } from "@/constants";
+import { env } from "@/config/env";
 
 export function createMetadata(override?: Partial<Metadata>): Metadata {
-  return {
+  const keywords = [
+    "arsitek Aceh",
+    "arsitek Banda Aceh",
+    "jasa arsitek rumah mewah",
+    "desain vila mewah Indonesia",
+    "arsitektur komersial premium",
+    "desain interior mewah",
+    "kontraktor rumah mewah Aceh",
+    "master plan kawasan terpadu",
+    "desain resor mewah",
+    "arsitek bangunan komersial",
+    "konsultan properti Aceh",
+    "jasa desain arsitektur",
+    "arsitektur tropis modern",
+    "desain rumah minimalis mewah",
+    "arsitek profesional Indonesia",
+    "perencanaan konstruksi Aceh",
+    "desain bangunan hijau",
+    "arsitektur berkelanjutan",
+    "pembangunan vila mewah",
+    "konsultan arsitek terpercaya",
+  ];
+
+  const metadata: Metadata = {
     title: {
       default: METADATA.DEFAULT_TITLE,
       template: METADATA.TITLE_TEMPLATE,
@@ -11,17 +35,8 @@ export function createMetadata(override?: Partial<Metadata>): Metadata {
     description: siteConfig.description,
     metadataBase: new URL(siteConfig.url),
     applicationName: siteConfig.name,
-    generator: "Next.js",
     referrer: "origin-when-cross-origin",
-    keywords: [
-      "architecture",
-      "luxury architecture",
-      "architectural design",
-      "Jakarta architect",
-      "Indonesia architecture",
-      "residential architecture",
-      "commercial architecture",
-    ],
+    keywords,
     authors: [{ name: siteConfig.name }],
     creator: siteConfig.name,
     publisher: siteConfig.name,
@@ -69,4 +84,14 @@ export function createMetadata(override?: Partial<Metadata>): Metadata {
     },
     ...override,
   };
+
+  const gsv = env.googleSiteVerification;
+  if (gsv) {
+    metadata.other = {
+      ...metadata.other,
+      "google-site-verification": gsv,
+    };
+  }
+
+  return metadata;
 }

@@ -8,7 +8,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getTestimonials(options?: { featured?: boolean }) {
@@ -38,7 +38,7 @@ export async function createTestimonial(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const testimonial = await testimonialRepository.create(parsed.data as any);
+    const testimonial = await testimonialRepository.create(validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "create",
@@ -64,7 +64,7 @@ export async function updateTestimonial(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const testimonial = await testimonialRepository.update(id, parsed.data as any);
+    const testimonial = await testimonialRepository.update(id, validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "update",

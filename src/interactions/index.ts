@@ -2,7 +2,6 @@ export { BackToTop } from "./back-to-top";
 export { StickyCTA } from "./sticky-cta";
 export { ReadingProgress } from "./reading-progress";
 export { ScrollSpy } from "./scroll-spy";
-export { SmoothScroll } from "./smooth-scroll";
 export { RevealOnScroll } from "./reveal-on-scroll";
 export { useIntersectionObserver } from "./intersection-observer";
 export { CopyLink } from "./copy-link";

@@ -46,7 +46,7 @@ export function ProjectGallery({
                   i === 0 && columns === 3 && "sm:col-span-2 sm:row-span-2",
                 )}
               >
-                <div className="aspect-[4/3] w-full">
+                <div className="relative aspect-[4/3] w-full">
                   <ImageReveal
                     src={image.src}
                     alt={image.alt}
@@ -55,7 +55,7 @@ export function ProjectGallery({
                   />
                 </div>
                 {image.caption && (
-                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-neutral-950/60 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <div className="absolute inset-0 flex items-end bg-gradient-to-t from-brand-900/70 to-transparent p-6 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                     <p className="text-body-sm text-white">
                       {image.caption}
                     </p>

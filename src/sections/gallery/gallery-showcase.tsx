@@ -28,7 +28,7 @@ export function GalleryShowcase({
 
   if (images.length === 0) return null;
 
-  const hero = images[heroIndex];
+  const hero = images[heroIndex]!;
   const thumbs = images.filter((_, i) => i !== heroIndex);
 
   const openLightbox = (index: number) => {
@@ -127,11 +127,13 @@ export function GalleryShowcase({
             </>
           )}
           <div className="flex max-h-full max-w-full flex-col items-center">
-            <img
-              src={images[heroIndex].src}
-              alt={images[heroIndex].alt}
-              className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
-            />
+            {images[heroIndex] && (
+              <img
+                src={images[heroIndex]!.src}
+                alt={images[heroIndex]!.alt}
+                className="max-h-[80vh] w-auto max-w-full rounded-lg object-contain"
+              />
+            )}
           </div>
         </div>
       )}

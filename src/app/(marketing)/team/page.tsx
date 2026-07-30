@@ -1,38 +1,76 @@
-import { TeamGrid } from "@/sections";
-import { createMetadata } from "@/seo";
-import type { TeamMember } from "@/sections";
+import { Breadcrumb } from "@/components";
+import { AnimatedSection } from "@/components/animation";
+import { TeamGrid, StatisticsShowcase, CTADefault } from "@/sections";
+import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
+import type { TeamMember, StatItem } from "@/sections";
 
 export const metadata = createMetadata({
-  title: "Our Team",
-  description: "Meet the visionary architects, designers, and experts behind PT Karya Nusantara Realty's award-winning projects.",
+  title: "Tim — Arsitek & Visioner",
+  description: "Kenali para arsitek visioner, desainer interior, dan ahli teknik di balik mahakarya Karya Nusantara Realty.",
 });
 
+const stats: StatItem[] = [
+  { value: "200", label: "Proyek Terwujud", suffix: "+" },
+  { value: "50", label: "Penghargaan Bergengsi", suffix: "+" },
+  { value: "14", label: "Arsitek & Desainer" },
+  { value: "8", label: "Negara Jangkauan" },
+];
+
 const allMembers: TeamMember[] = [
-  { name: "Ardi Wicaksono", role: "Founder & Principal Architect", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "25+ years of experience in luxury architecture across Southeast Asia." },
-  { name: "Sari Dewi", role: "Co-Founder & Design Director", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Award-winning designer specializing in luxury residential and hospitality projects." },
-  { name: "Budi Santoso", role: "Managing Partner", image: { src: "/images/team/budi.jpg", alt: "Budi Santoso" }, bio: "Oversees firm operations, client relationships, and strategic growth initiatives." },
-  { name: "Rina Wijaya", role: "Creative Director", image: { src: "/images/team/rina.jpg", alt: "Rina Wijaya" }, bio: "Leads the creative vision across all projects, ensuring design excellence and innovation." },
-  { name: "Dimas Prayogo", role: "Senior Architect", image: { src: "/images/team/dimas.jpg", alt: "Dimas Prayogo" }, bio: "Specializes in residential and mixed-use developments." },
-  { name: "Maya Putri", role: "Senior Architect", image: { src: "/images/team/maya.jpg", alt: "Maya Putri" }, bio: "Expert in sustainable design and green building certification." },
-  { name: "Alex Hartono", role: "Project Architect", image: { src: "/images/team/alex.jpg", alt: "Alex Hartono" }, bio: "Focuses on hospitality and commercial projects." },
-  { name: "Dewi Lestari", role: "Project Architect", image: { src: "/images/team/dewi.jpg", alt: "Dewi Lestari" }, bio: "Passionate about residential design and interior architecture." },
-  { name: "Rizky Hidayat", role: "Junior Architect", image: { src: "/images/team/rizky.jpg", alt: "Rizky Hidayat" }, bio: "Rising talent with expertise in 3D visualization and BIM." },
-  { name: "Nadia Kusuma", role: "Junior Architect", image: { src: "/images/team/nadia.jpg", alt: "Nadia Kusuma" }, bio: "Specializes in master planning and urban design." },
-  { name: "Dr. Hendra Gunawan", role: "Structural Engineer", image: { src: "/images/team/hendra.jpg", alt: "Dr. Hendra Gunawan" }, bio: "PhD in Structural Engineering, 20+ years of experience." },
-  { name: "Lisa Tanudjaja", role: "Interior Designer", image: { src: "/images/team/lisa.jpg", alt: "Lisa Tanudjaja" }, bio: "Award-winning interior designer with a passion for luxury spaces." },
-  { name: "Fajar Prasetyo", role: "Landscape Architect", image: { src: "/images/team/fajar.jpg", alt: "Fajar Prasetyo" }, bio: "Creates harmonious outdoor environments that complement architectural designs." },
-  { name: "Dr. Ani Rahmawati", role: "Sustainability Consultant", image: { src: "/images/team/ani.jpg", alt: "Dr. Ani Rahmawati" }, bio: "Leads our green architecture initiatives and net-zero strategy." },
+  { name: "Ardi Wicaksono", role: "Pendiri & Arsitek Utama", image: { src: "/images/team/ardi.jpg", alt: "Ardi Wicaksono" }, bio: "Lebih dari 25 tahun menorehkan jejak dalam arsitektur premium di Asia Tenggara. Visioner di balik setiap mahakarya studio." },
+  { name: "Sari Dewi", role: "Rekan Pendiri & Direktur Desain", image: { src: "/images/team/sari.jpg", alt: "Sari Dewi" }, bio: "Desainer pemenang penghargaan yang menghadirkan kepekaan estetika tinggi pada setiap proyek residensial dan hospitality." },
+  { name: "Budi Santoso", role: "Mitra Pengelola", image: { src: "/images/team/budi.jpg", alt: "Budi Santoso" }, bio: "Mengemudikan operasional studio, hubungan klien, dan arah pertumbuhan strategis dengan integritas." },
+  { name: "Rina Wijaya", role: "Direktur Kreatif", image: { src: "/images/team/rina.jpg", alt: "Rina Wijaya" }, bio: "Memimpin visi kreatif lintas proyek, memastikan setiap desain mencapai puncak keunggulan dan inovasi." },
+  { name: "Dimas Prayogo", role: "Arsitek Senior", image: { src: "/images/team/dimas.jpg", alt: "Dimas Prayogo" }, bio: "Keahlian dalam pengembangan residensial dan mixed-use dengan pendekatan kontekstual yang mendalam." },
+  { name: "Maya Putri", role: "Arsitek Senior", image: { src: "/images/team/maya.jpg", alt: "Maya Putri" }, bio: "Pakar desain berkelanjutan dan sertifikasi bangunan hijau yang mengintegrasikan ekologi ke dalam estetika." },
+  { name: "Alex Hartono", role: "Arsitek Proyek", image: { src: "/images/team/alex.jpg", alt: "Alex Hartono" }, bio: "Fokus pada proyek hospitality dan komersial dengan ketelitian yang tak kenal kompromi." },
+  { name: "Dewi Lestari", role: "Arsitek Proyek", image: { src: "/images/team/dewi.jpg", alt: "Dewi Lestari" }, bio: "Bergairah pada desain residensial dan arsitektur interior yang menghangatkan jiwa." },
+  { name: "Rizky Hidayat", role: "Arsitek Muda", image: { src: "/images/team/rizky.jpg", alt: "Rizky Hidayat" }, bio: "Talenta muda dengan penguasaan visualisasi 3D dan BIM yang melampaui usianya." },
+  { name: "Nadia Kusuma", role: "Arsitek Muda", image: { src: "/images/team/nadia.jpg", alt: "Nadia Kusuma" }, bio: "Keahlian dalam master plan dan desain urban yang memandang kota sebagai kanvas." },
+  { name: "Dr. Hendra Gunawan", role: "Insinyur Struktur", image: { src: "/images/team/hendra.jpg", alt: "Dr. Hendra Gunawan" }, bio: "PhD Teknik Struktur, 20+ tahun pengalaman — memastikan setiap karya berdiri kokoh dan abadi." },
+  { name: "Lisa Tanudjaja", role: "Desainer Interior", image: { src: "/images/team/lisa.jpg", alt: "Lisa Tanudjaja" }, bio: "Desainer interior pemenang penghargaan yang merayakan kemewahan melalui detail tak terduga." },
+  { name: "Fajar Prasetyo", role: "Arsitek Lansekap", image: { src: "/images/team/fajar.jpg", alt: "Fajar Prasetyo" }, bio: "Menciptakan harmoni antara ruang luar dan arsitektur — alam sebagai mitra desain." },
+  { name: "Dr. Ani Rahmawati", role: "Konsultan Keberlanjutan", image: { src: "/images/team/ani.jpg", alt: "Dr. Ani Rahmawati" }, bio: "Memimpin inisiatif arsitektur hijau dan strategi net-zero yang menjadi standar baru studio." },
 ];
 
 export default function TeamPage() {
   return (
     <>
-      <TeamGrid
-        title="Our Team"
-        description="Meet the visionary architects, designers, and experts behind PT Karya Nusantara Realty's award-winning projects."
-        members={allMembers}
-        columns={4}
-      />
+      <JsonLdScript data={createWebPageSchema({
+        name: "Tim — Arsitek & Visioner Karya Nusantara Realty",
+        description: "Tim profesional arsitektur, desain interior, dan teknik yang dipimpin Ardi Wicaksono dan Sari Dewi — lebih dari 200 proyek prestisius.",
+        url: "/team",
+      })} id="webpage-schema" />
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Tim" },
+      ])} id="breadcrumb-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <Breadcrumb items={[{ label: "Tim" }]} />
+        </div>
+      </section>
+      <AnimatedSection>
+        <TeamGrid
+          title="Insan Studio"
+          description="Kenali para arsitek visioner, desainer, dan ahli di balik mahakarya Karya Nusantara Realty."
+          members={allMembers}
+          columns={4}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <StatisticsShowcase
+          title="Tolok Ukur"
+          description="Angka-angka yang merekam jejak perjalanan, komitmen, dan kepercayaan yang diamanatkan kepada kami."
+          stats={stats}
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <CTADefault
+          title="Berminat Berkolaborasi?"
+          description="Setiap mahakarya bermula dari percakapan. Tim kami siap mendengar visi Anda dan menerjemahkannya menjadi arsitektur yang abadi."
+          primaryCta={{ label: "Mulai Percakapan", href: "/contact" }}
+        />
+      </AnimatedSection>
     </>
   );
 }

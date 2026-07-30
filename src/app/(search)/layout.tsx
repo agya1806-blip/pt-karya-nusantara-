@@ -1,7 +1,5 @@
-import { Navbar } from "@/components/navigation/Navbar";
-import { Footer } from "@/components/navigation/Footer";
+import { Navbar, Footer, PageWrapper, WhatsAppButton } from "@/components";
 import { siteConfig } from "@/config";
-import { PageWrapper } from "@/components/layout/PageWrapper";
 
 interface SearchLayoutProps {
   children: React.ReactNode;
@@ -10,13 +8,16 @@ interface SearchLayoutProps {
 export default function SearchLayout({ children }: SearchLayoutProps) {
   return (
     <>
-      <Navbar items={siteConfig.navigation} />
+      <Navbar links={siteConfig.navigation} />
       <PageWrapper>{children}</PageWrapper>
       <Footer
-        sections={siteConfig.footer}
-        social={siteConfig.social}
+        columns={siteConfig.footer}
+        socialLinks={siteConfig.social}
         contact={siteConfig.contact}
+        businessHours={siteConfig.businessHours}
+        copyright={`© ${new Date().getFullYear()} ${siteConfig.name}. All rights reserved.`}
       />
+      <WhatsAppButton phone={siteConfig.contact.phone} />
     </>
   );
 }

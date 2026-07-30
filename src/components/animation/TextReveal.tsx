@@ -2,51 +2,49 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface TextRevealProps {
-  text: string;
-  duration?: number;
+  children: string;
+  as?: "h1" | "h2" | "h3" | "p" | "span";
   delay?: number;
-  once?: boolean;
   className?: string;
 }
 
 export function TextReveal({
-  text,
-  duration = 0.6,
+  children,
+  as: Tag = "h1",
   delay = 0,
-  once = true,
   className,
 }: TextRevealProps) {
   const reduced = useReducedMotion();
 
-  const words = text.split(" ");
-
   if (reduced) {
-    return <span className={cn(className)}>{text}</span>;
+    return <Tag className={cn(className)}>{children}</Tag>;
   }
 
+  const words = children.split(" ");
+
   return (
-    <span className={cn("inline-flex flex-wrap", className)}>
+    <Tag className={cn("overflow-hidden", className)}>
       {words.map((word, index) => (
-        <span key={index} className="relative overflow-hidden">
+        <span key={index} className="inline-block overflow-hidden mr-[0.25em] last:mr-0">
           <motion.span
             initial={{ y: "100%" }}
             whileInView={{ y: 0 }}
-            viewport={{ once, margin: "-50px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             transition={{
-              duration,
-              delay: delay + index * 0.05,
-              ease: [0.25, 0.1, 0.25, 1],
+              duration: durations.slow,
+              delay: delay + index * 0.08,
+              ease: easings.easeOut,
             }}
             className="inline-block"
           >
             {word}
           </motion.span>
-          {index < words.length - 1 && <>&nbsp;</>}
         </span>
       ))}
-    </span>
+    </Tag>
   );
 }

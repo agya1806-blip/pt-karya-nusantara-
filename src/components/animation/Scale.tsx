@@ -2,11 +2,11 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 interface ScaleProps {
   children: React.ReactNode;
-  initialScale?: number;
   duration?: number;
   delay?: number;
   once?: boolean;
@@ -15,8 +15,7 @@ interface ScaleProps {
 
 export function Scale({
   children,
-  initialScale = 0.9,
-  duration = 0.6,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -29,13 +28,13 @@ export function Scale({
 
   return (
     <motion.div
-      initial={{ opacity: 0, scale: initialScale }}
+      initial={{ opacity: 0, scale: 0.95 }}
       whileInView={{ opacity: 1, scale: 1 }}
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: viewportMargin }}
       transition={{
-        duration,
+        duration: duration ?? durations.slow,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: easings.easeOut,
       }}
       className={cn(className)}
     >

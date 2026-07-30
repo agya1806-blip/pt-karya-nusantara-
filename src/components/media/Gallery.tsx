@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { durations, easings } from "@/lib/animation";
 
 interface GalleryImage {
   src: string;
@@ -11,19 +12,19 @@ interface GalleryImage {
   height?: number;
 }
 
-interface GalleryCardProps {
+interface MediaGalleryCardProps {
   image: GalleryImage;
   onClick?: () => void;
   className?: string;
 }
 
-export function GalleryCard({ image, onClick, className }: GalleryCardProps) {
+export function MediaGalleryCard({ image, onClick, className }: MediaGalleryCardProps) {
   return (
     <motion.button
       onClick={onClick}
       className={cn("group relative aspect-[4/3] w-full overflow-hidden rounded-lg border border-transparent transition-colors duration-300 hover:border-brand-500/30", className)}
       whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: durations.fast, ease: easings.easeOut }}
       type="button"
     >
       <Image
@@ -59,7 +60,7 @@ export function Gallery({
   return (
     <div className={cn("grid gap-4", gridClasses[columns], className)}>
       {images.map((image, i) => (
-        <GalleryCard
+        <MediaGalleryCard
           key={i}
           image={image}
           onClick={onImageClick ? () => onImageClick(i) : undefined}

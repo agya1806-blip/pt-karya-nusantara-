@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 
@@ -24,37 +26,41 @@ function PricingCard({
   className,
 }: PricingCardProps) {
   return (
-    <div
+    <motion.div
       className={cn(
-        "rounded-2xl p-8 transition-all duration-300 ease-luxury",
+        "rounded-xl p-8 transition-all duration-500 ease-architectural",
         highlighted
-          ? "bg-surface text-text border-2 border-brand-500 scale-105 shadow-elevation-4"
-          : "bg-surface text-text border border-border-muted",
+          ? "bg-brand-500 text-text-inverse shadow-elevation-5"
+          : "bg-surface text-text border border-border-light hover:border-border-default",
         className,
       )}
+      whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+      transition={cardHoverTransition}
     >
-      <h3 className="text-heading-sm">{name}</h3>
-      <div className="mt-4 flex items-baseline gap-1">
+      <h3 className="text-heading-sm leading-snug">{name}</h3>
+      <div className="mt-5 flex items-baseline gap-1.5">
         <span className="text-display font-light tracking-tight">{price}</span>
         <span
           className={cn(
             "text-body",
-            highlighted ? "text-brand-400/80" : "text-text-muted",
+            highlighted ? "text-text-inverse/70" : "text-text-tertiary",
           )}
         >
           /{period}
         </span>
       </div>
-      <ul className="mt-6 space-y-3">
+      <ul className="mt-8 space-y-3">
         {features.map((feature, index) => (
           <li key={index} className="flex items-start gap-3 text-body-sm">
             <Check
               className={cn(
                 "mt-0.5 h-4 w-4 shrink-0",
-                highlighted ? "text-brand-400" : "text-brand-500",
+                highlighted ? "text-text-inverse" : "text-brand-500",
               )}
             />
-            {feature}
+            <span className={cn(highlighted ? "text-text-inverse/90" : "text-text-secondary")}>
+              {feature}
+            </span>
           </li>
         ))}
       </ul>
@@ -67,7 +73,7 @@ function PricingCard({
           <Button>{ctaText}</Button>
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

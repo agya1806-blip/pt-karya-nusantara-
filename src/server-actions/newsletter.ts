@@ -7,7 +7,7 @@ import {
   success,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function subscribeToNewsletter(
@@ -24,7 +24,7 @@ export async function subscribeToNewsletter(
       return { success: false, error: "This email is already subscribed" };
     }
 
-    const subscriber = await newsletterRepository.subscribe(parsed.data as any);
+    const subscriber = await newsletterRepository.subscribe(validatedInput(parsed.data));
     return success(subscriber);
   } catch (error) {
     return handleServerError(error);

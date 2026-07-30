@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type FadeDirection = "up" | "down" | "left" | "right" | "none";
@@ -15,18 +16,10 @@ interface FadeProps {
   className?: string;
 }
 
-const directionVariants: Record<FadeDirection, { x?: number; y?: number }> = {
-  up: { y: 40 },
-  down: { y: -40 },
-  left: { x: 40 },
-  right: { x: -40 },
-  none: {},
-};
-
 export function Fade({
   children,
   direction = "up",
-  duration = 0.6,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -37,17 +30,25 @@ export function Fade({
     return <div className={cn(className)}>{children}</div>;
   }
 
-  const offset = directionVariants[direction];
+  const offsets: Record<FadeDirection, Record<string, number>> = {
+    up: { y: 32 },
+    down: { y: -32 },
+    left: { x: 32 },
+    right: { x: -32 },
+    none: {},
+  };
+
+  const offset = offsets[direction];
 
   return (
     <motion.div
       initial={{ opacity: 0, ...offset }}
       whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: viewportMargin }}
       transition={{
-        duration,
+        duration: duration ?? (direction === "none" ? durations.normal : durations.slow),
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: easings.easeOut,
       }}
       className={cn(className)}
     >

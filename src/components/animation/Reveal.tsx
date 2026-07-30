@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type RevealDirection = "left" | "right" | "top" | "bottom";
@@ -15,30 +16,17 @@ interface RevealProps {
   className?: string;
 }
 
-const clipPaths: Record<RevealDirection, { hidden: string; visible: string }> =
-  {
-    left: {
-      hidden: "inset(0 100% 0 0)",
-      visible: "inset(0 0 0 0)",
-    },
-    right: {
-      hidden: "inset(0 0 0 100%)",
-      visible: "inset(0 0 0 0)",
-    },
-    top: {
-      hidden: "inset(0 0 100% 0)",
-      visible: "inset(0 0 0 0)",
-    },
-    bottom: {
-      hidden: "inset(100% 0 0 0)",
-      visible: "inset(0 0 0 0)",
-    },
-  };
+const clipPaths: Record<RevealDirection, { hidden: string; visible: string }> = {
+  left: { hidden: "inset(0 100% 0 0)", visible: "inset(0 0% 0 0)" },
+  right: { hidden: "inset(0 0 0 100%)", visible: "inset(0 0 0 0%)" },
+  top: { hidden: "inset(0 0 100% 0)", visible: "inset(0 0 0% 0)" },
+  bottom: { hidden: "inset(100% 0 0 0)", visible: "inset(0% 0 0 0)" },
+};
 
 export function Reveal({
   children,
   direction = "left",
-  duration = 1,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -54,11 +42,11 @@ export function Reveal({
     <motion.div
       initial={{ clipPath: clip.hidden }}
       whileInView={{ clipPath: clip.visible }}
-      viewport={{ once, margin: "-50px" }}
+      viewport={{ once, margin: viewportMargin }}
       transition={{
-        duration,
+        duration: duration ?? durations.slower,
         delay,
-        ease: [0.25, 0.1, 0.25, 1],
+        ease: easings.easeOut,
       }}
       className={cn(className)}
     >

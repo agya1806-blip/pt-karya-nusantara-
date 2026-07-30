@@ -10,7 +10,7 @@ export class AuditRepository {
     ipAddress?: string;
   }) {
     const client = await getSupabaseAdminClient();
-    const { error } = await client.from("audit_logs").insert({
+    const { error } = await (client.from("audit_logs") as any).insert({
       user_id: input.userId ?? null,
       action: input.action,
       entity_type: input.entityType,
@@ -30,7 +30,7 @@ export class AuditRepository {
     details?: Record<string, unknown>;
   }) {
     const client = await getSupabaseAdminClient();
-    const { error } = await client.from("activity_logs").insert({
+    const { error } = await (client.from("activity_logs") as any).insert({
       user_id: input.userId ?? null,
       action: input.action,
       details: input.details ?? null,
@@ -48,7 +48,7 @@ export class AuditRepository {
     userAgent?: string;
   }) {
     const client = await getSupabaseAdminClient();
-    const { error } = await client.from("auth_logs").insert({
+    const { error } = await (client.from("auth_logs") as any).insert({
       email: input.email,
       action: input.action,
       ip_address: input.ipAddress ?? null,
@@ -64,8 +64,7 @@ export class AuditRepository {
     const client = await getSupabaseAdminClient();
     const offset = (page - 1) * limit;
 
-    const { data, count, error } = await client
-      .from("audit_logs")
+    const { data, count, error } = await (client.from("audit_logs") as any)
       .select("*, user:user_id(id, name, email)", { count: "exact" })
       .order("created_at", { ascending: false })
       .range(offset, offset + limit - 1);

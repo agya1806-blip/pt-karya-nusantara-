@@ -1,6 +1,6 @@
 "use client";
 
-import { Plus, Search, Folder } from "lucide-react";
+import { Plus, Search, FolderOpen } from "lucide-react";
 import { Heading } from "@/components/ui/Heading";
 import { Text } from "@/components/ui/Text";
 import { Input } from "@/components/ui/Input";
@@ -41,7 +41,7 @@ export function ProjectsPage({ projects = [], onCreateNew }: ProjectsPageProps) 
 
       {projects.length === 0 ? (
         <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-border bg-surface-muted py-20">
-          <Folder className="h-12 w-12 text-text-muted mb-4" />
+          <FolderOpen className="h-12 w-12 text-text-muted mb-4" />
           <Heading as="h3" size="md" weight="light">No projects yet</Heading>
           <Text size="sm" color="secondary" className="mt-2">Create your first project to showcase your work.</Text>
           <button onClick={onCreateNew} className="mt-6 rounded-lg bg-text px-5 py-2.5 text-body-sm font-medium text-text-inverse hover:opacity-90 transition-opacity">

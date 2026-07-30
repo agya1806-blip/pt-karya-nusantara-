@@ -52,8 +52,6 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules",
-    "src/components",
-    "src/sections"
+    "node_modules"
   ]
 }

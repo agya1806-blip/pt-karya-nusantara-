@@ -24,6 +24,11 @@ export function findRelatedProjects(
   return scored;
 }
 
+function yearDiff(a: string | undefined, b: string | undefined): number | undefined {
+  if (!a || !b) return undefined;
+  return Math.abs(Number(a) - Number(b));
+}
+
 function calculateRelevance(current: ProjectItem, candidate: ProjectItem): number {
   let score = 0;
 

@@ -54,8 +54,8 @@ export function VideoWrapper({
           className="absolute inset-0 flex items-center justify-center bg-black/30 transition-opacity duration-300 ease-architectural hover:bg-black/40"
           aria-label="Play video"
         >
-          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-brand-500 shadow-lg transition-transform duration-300 ease-architectural hover:scale-105">
-            <Play className="ml-0.5 h-8 w-8 text-text-inverse" />
+          <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 shadow-lg transition-transform duration-300 ease-architectural hover:scale-105">
+            <Play className="ml-0.5 h-8 w-8 text-brand-900" />
           </span>
         </button>
       )}

@@ -106,7 +106,7 @@ export function VideoShowcase({
                 </div>
               )}
               {overlay && (
-                <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/30" />
+                <div className="absolute inset-0 bg-brand-900/30 transition-colors duration-300 group-hover:bg-brand-900/50" />
               )}
               <div className="absolute inset-0 flex items-center justify-center">
                 <span className="flex h-16 w-16 items-center justify-center rounded-full bg-white/90 text-neutral-900 shadow-lg transition-transform duration-300 group-hover:scale-110 md:h-20 md:w-20">

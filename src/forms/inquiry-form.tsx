@@ -66,22 +66,16 @@ export function InquiryForm({ onSubmit, isSubmitting = false, isSuccess = false,
           </div>
           <div>
             <label htmlFor="inquiry-project" className="mb-1.5 block text-body-sm font-medium text-text">Project Type *</label>
-            <Select
-              id="inquiry-project"
-              {...register("projectType")}
-              error={errors.projectType?.message}
-              options={[
-                { value: "", label: "Select project type" },
-                { value: "residential", label: "Residential" },
-                { value: "commercial", label: "Commercial" },
-                { value: "hospitality", label: "Hospitality" },
-                { value: "cultural", label: "Cultural / Public" },
-                { value: "educational", label: "Educational" },
-                { value: "mixed-use", label: "Mixed-Use" },
-                { value: "interior", label: "Interior Design" },
-                { value: "landscape", label: "Landscape Architecture" },
-              ]}
-            />
+            <Select id="inquiry-project" {...register("projectType")} error={errors.projectType?.message} placeholder="Select project type" options={[
+              { value: "residential", label: "Residential" },
+              { value: "commercial", label: "Commercial" },
+              { value: "hospitality", label: "Hospitality" },
+              { value: "cultural", label: "Cultural / Public" },
+              { value: "educational", label: "Educational" },
+              { value: "mixed-use", label: "Mixed-Use" },
+              { value: "interior", label: "Interior Design" },
+              { value: "landscape", label: "Landscape Architecture" },
+            ]} />
           </div>
           <div>
             <label htmlFor="inquiry-area" className="mb-1.5 block text-body-sm font-medium text-text">Estimated Area</label>
@@ -89,19 +83,14 @@ export function InquiryForm({ onSubmit, isSubmitting = false, isSuccess = false,
           </div>
           <div>
             <label htmlFor="inquiry-budget" className="mb-1.5 block text-body-sm font-medium text-text">Budget Range</label>
-            <Select
-              id="inquiry-budget"
-              {...register("budget")}
-              options={[
-                { value: "", label: "Select budget range" },
-                { value: "under-500k", label: "Under $500K" },
-                { value: "500k-1m", label: "$500K – $1M" },
-                { value: "1m-5m", label: "$1M – $5M" },
-                { value: "5m-10m", label: "$5M – $10M" },
-                { value: "10m-50m", label: "$10M – $50M" },
-                { value: "over-50m", label: "Over $50M" },
-              ]}
-            />
+            <Select id="inquiry-budget" {...register("budget")} placeholder="Select budget range" options={[
+              { value: "under-500k", label: "Under $500K" },
+              { value: "500k-1m", label: "$500K \u2013 $1M" },
+              { value: "1m-5m", label: "$1M \u2013 $5M" },
+              { value: "5m-10m", label: "$5M \u2013 $10M" },
+              { value: "10m-50m", label: "$10M \u2013 $50M" },
+              { value: "over-50m", label: "Over $50M" },
+            ]} />
           </div>
         </div>
 

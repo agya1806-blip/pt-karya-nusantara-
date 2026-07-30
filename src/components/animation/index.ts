@@ -7,3 +7,8 @@ export { TextReveal } from "./TextReveal";
 export { ImageReveal } from "./ImageReveal";
 export { PageTransition } from "./PageTransition";
 export { ScrollReveal } from "./ScrollReveal";
+export { PageTransitionWrapper } from "./PageTransitionWrapper";
+export { AnimatedSection } from "./AnimatedSection";
+export { AnimatedCounter } from "./AnimatedCounter";
+export { ParallaxSection } from "./ParallaxSection";
+export { TiltCard } from "./TiltCard";

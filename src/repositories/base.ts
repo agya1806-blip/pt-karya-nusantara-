@@ -17,7 +17,7 @@ export interface PaginatedResult<T> {
   totalPages: number;
 }
 
-export class BaseRepository<T extends Record<string, unknown>> {
+export class BaseRepository<T extends object> {
   protected tableName: string;
   protected defaultSelect: string;
 
@@ -65,7 +65,7 @@ export class BaseRepository<T extends Record<string, unknown>> {
       });
     }
 
-    return data as T | null;
+    return data as unknown as T | null;
   }
 
   async findAll(
@@ -177,7 +177,7 @@ export class BaseRepository<T extends Record<string, unknown>> {
       });
     }
 
-    return data as T;
+    return data as unknown as T;
   }
 
   async update(id: string, input: Partial<T>): Promise<T> {
@@ -195,7 +195,7 @@ export class BaseRepository<T extends Record<string, unknown>> {
       });
     }
 
-    return data as T;
+    return data as unknown as T;
   }
 
   async softDelete(id: string): Promise<void> {

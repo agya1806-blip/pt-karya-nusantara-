@@ -1,5 +1,7 @@
 "use client";
 
+import { Button } from "@/components/ui/Button";
+
 interface ErrorPageProps {
   error: Error & { digest?: string };
   reset: () => void;
@@ -16,17 +18,17 @@ export default function ErrorPage({ reset }: ErrorPageProps) {
           500
         </span>
         <h1 className="mb-4 text-2xl font-light text-neutral-900">
-          Unexpected Error
+          Terjadi Kesalahan
         </h1>
         <p className="mb-8 text-neutral-500">
-          An unexpected error occurred. Please try again or contact us if the
-          problem persists.
+          Terjadi kesalahan yang tidak terduga. Silakan coba lagi atau hubungi
+          kami jika masalah berlanjut.
         </p>
         <button
           onClick={reset}
-          className="inline-flex items-center justify-center border border-neutral-900 bg-neutral-900 px-8 py-3 text-sm font-medium tracking-wider text-white transition-colors hover:bg-neutral-800 focus:outline-none focus:ring-2 focus:ring-neutral-900 focus:ring-offset-2 uppercase"
+          className="inline-flex items-center justify-center border border-gold-500 bg-gold-500 px-8 py-3 text-sm font-medium tracking-wider text-white transition-colors hover:bg-gold-600 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:ring-offset-2 uppercase"
         >
-          Try Again
+          Coba Lagi
         </button>
       </div>
     </div>

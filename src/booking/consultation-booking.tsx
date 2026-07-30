@@ -166,18 +166,14 @@ export function ConsultationBooking({ onComplete, config: configPartial, consult
             </div>
             <div>
               <label className="mb-1.5 block text-body-sm font-medium text-text">Project Type (optional)</label>
-              <Select
-                {...register("projectType")}
-                options={[
-                  { value: "", label: "Select project type" },
-                  { value: "residential", label: "Residential" },
-                  { value: "commercial", label: "Commercial" },
-                  { value: "hospitality", label: "Hospitality" },
-                  { value: "cultural", label: "Cultural" },
-                  { value: "educational", label: "Educational" },
-                  { value: "mixed-use", label: "Mixed-Use" },
-                ]}
-              />
+              <Select {...register("projectType")} placeholder="Select project type" options={[
+                { value: "residential", label: "Residential" },
+                { value: "commercial", label: "Commercial" },
+                { value: "hospitality", label: "Hospitality" },
+                { value: "cultural", label: "Cultural" },
+                { value: "educational", label: "Educational" },
+                { value: "mixed-use", label: "Mixed-Use" },
+              ]} />
             </div>
             <div>
               <label className="mb-1.5 block text-body-sm font-medium text-text">Duration *</label>

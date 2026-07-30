@@ -9,7 +9,7 @@ import {
   failure,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getServices(options?: {
@@ -43,7 +43,7 @@ export async function createService(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const service = await serviceRepository.create(parsed.data as any);
+    const service = await serviceRepository.create(validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "create",
@@ -69,7 +69,7 @@ export async function updateService(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const service = await serviceRepository.update(id, parsed.data as any);
+    const service = await serviceRepository.update(id, validatedInput(parsed.data));
 
     await auditRepository.log({
       action: "update",

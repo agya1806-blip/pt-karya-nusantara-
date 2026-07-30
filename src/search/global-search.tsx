@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useLockBody, useMediaQuery, useReducedMotion } from "@/hooks";
 import { Input } from "@/components/ui/Input";
 import { cn } from "@/lib/utils";
+import { easings } from "@/lib/animation";
 import { SearchSuggestions } from "./search-suggestions";
 import type { SearchResult, SearchSuggestion, SearchConfig } from "./search-types";
 
@@ -37,7 +38,7 @@ export function GlobalSearch({
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const isMobile = useMediaQuery("(max-width: 768px)");
   const reducedMotion = useReducedMotion();
-  const debounceRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useLockBody(isOpen);
 
@@ -89,13 +90,13 @@ export function GlobalSearch({
           aria-modal="true"
           aria-label="Search"
         >
-          <div className="fixed inset-0 bg-black/60 backdrop-blur-sm" onClick={onClose} />
+          <div className="fixed inset-0 bg-brand-900/70 backdrop-blur-sm" onClick={onClose} />
           <div className={cn("fixed left-1/2 top-[15%] w-full max-w-2xl -translate-x-1/2 px-4", isMobile && "top-0 px-0")}>
             <motion.div
               initial={reducedMotion ? {} : { y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={reducedMotion ? {} : { y: -20, opacity: 0 }}
-              transition={{ duration: reducedMotion ? 0 : 0.3, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: reducedMotion ? 0 : 0.3, ease: easings.easeOut }}
               className="overflow-hidden rounded-2xl bg-surface shadow-luxury-xl"
             >
               <div className="relative flex items-center border-b border-border px-6">

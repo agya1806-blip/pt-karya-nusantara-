@@ -4,7 +4,7 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Label } from "./Label";
 
-interface TextareaProps extends Omit<React.ComponentPropsWithoutRef<"textarea">, "onChange"> {
+interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, "onChange"> {
   label?: string;
   error?: string;
   hint?: string;
@@ -22,16 +22,18 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           id={inputId}
           rows={rows}
           className={cn(
-            "w-full resize-y border-b bg-transparent pb-2 pt-1 text-text-primary placeholder:text-text-tertiary outline-none transition-colors duration-300 ease-luxury",
-            error ? "border-red-500 focus:border-red-600" : "border-border-muted focus:border-brand-500",
+            "w-full resize-y rounded-lg border px-4 py-3 text-body text-text placeholder:text-input-placeholder outline-none transition-all duration-300 ease-architectural",
+            error
+              ? "border-red-400 bg-red-50/50 focus:border-red-500 focus:ring-1 focus:ring-red-500"
+              : "border-input-border bg-surface focus:border-input-border-hover focus:ring-1 focus:ring-input-ring",
             className,
           )}
           aria-invalid={error ? true : undefined}
           aria-describedby={error ? `${inputId}-error` : hint ? `${inputId}-hint` : undefined}
           {...rest}
         />
-        {error && <p id={`${inputId}-error`} className="text-xs text-red-500" role="alert">{error}</p>}
-        {hint && !error && <p id={`${inputId}-hint`} className="text-xs text-text-tertiary">{hint}</p>}
+        {error && <p id={`${inputId}-error`} className="text-caption text-red-500" role="alert">{error}</p>}
+        {hint && !error && <p id={`${inputId}-hint`} className="text-caption text-text-tertiary">{hint}</p>}
       </div>
     );
   },

@@ -1,5 +1,4 @@
-import { Navbar } from "@/components/navigation/Navbar";
-import { Footer } from "@/components/navigation/Footer";
+import { Navbar, Footer, PageWrapper, WhatsAppButton } from "@/components";
 import { siteConfig } from "@/config";
 
 interface ContentLayoutProps {
@@ -9,13 +8,16 @@ interface ContentLayoutProps {
 export default function ContentLayout({ children }: ContentLayoutProps) {
   return (
     <>
-      <Navbar items={siteConfig.navigation} />
-      <main className="min-h-screen">{children}</main>
+      <Navbar links={siteConfig.navigation} />
+      <PageWrapper>{children}</PageWrapper>
       <Footer
-        sections={siteConfig.footer}
-        social={siteConfig.social}
+        columns={siteConfig.footer}
+        socialLinks={siteConfig.social}
         contact={siteConfig.contact}
+        businessHours={siteConfig.businessHours}
+        copyright={`© ${new Date().getFullYear()} ${siteConfig.name}. All rights reserved.`}
       />
+      <WhatsAppButton phone={siteConfig.contact.phone} />
     </>
   );
 }

@@ -16,8 +16,8 @@ interface CTASectionProps {
 
 const sectionVariants: Record<string, string> = {
   default: "bg-surface text-text",
-  brand: "bg-gradient-to-br from-brand-500/90 to-brand-500/70 text-text-inverse",
-  dark: "bg-surface border-y border-brand-500/20 text-text",
+  brand: "bg-brand-800 text-text-inverse",
+  dark: "bg-surface-dark text-text-inverse",
 };
 
 export function CTASection({
@@ -30,20 +30,20 @@ export function CTASection({
   return (
     <section
       className={cn(
-        "py-20 transition-colors duration-300",
+        "py-24 lg:py-28 transition-colors duration-500",
         sectionVariants[variant],
         className,
       )}
     >
       <div className="container-site">
-        <div className="mx-auto max-w-2xl text-center">
-          <h2 className="text-heading-xl font-light tracking-tight">
+        <div className="mx-auto max-w-3xl text-center">
+          <h2 className="font-serif text-heading-xl font-light leading-tight tracking-tight">
             {title}
           </h2>
           {description && (
             <p
               className={cn(
-                "mt-4 text-body-lg leading-relaxed",
+                "mt-6 text-body-lg leading-relaxed",
                 variant === "default"
                   ? "text-text-secondary"
                   : "text-text-inverse/80",
@@ -53,18 +53,18 @@ export function CTASection({
             </p>
           )}
           {actions && actions.length > 0 && (
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <div className="mt-10 flex flex-wrap items-center justify-center gap-5">
               {actions.map((action) => (
                 <a
                   key={action.href}
                   href={action.href}
                   className={cn(
-                    "inline-flex items-center justify-center rounded-lg px-8 py-3 text-body-sm font-medium tracking-tight transition-all duration-300",
+                    "inline-flex items-center justify-center px-8 py-3.5 text-caption font-medium tracking-widest uppercase transition-all duration-300",
                     action.variant === "primary" || !action.variant
-                      ? "bg-brand-500 text-text-inverse hover:bg-brand-500/90"
+                      ? "bg-gold-500 text-white hover:bg-gold-600"
                       : action.variant === "secondary"
-                        ? "border border-brand-500/40 text-text hover:bg-brand-500/10"
-                        : "border border-brand-500/30 text-text hover:bg-brand-500/10",
+                        ? "bg-surface text-text hover:bg-surface-muted"
+                        : "border border-gold-500/30 text-gold-700 hover:bg-gold-50",
                   )}
                 >
                   {action.label}

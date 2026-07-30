@@ -1,66 +1,85 @@
-import { CareerHero, Benefits, OpenPositions, CultureValues, RecruitmentProcess } from "@/sections";
-import { createMetadata } from "@/seo";
+import { Breadcrumb } from "@/components";
+import { CareerHero, Benefits, OpenPositions, CultureValues, RecruitmentProcess, CTADefault } from "@/sections";
+import { createMetadata, createBreadcrumbSchema, createWebPageSchema, JsonLdScript } from "@/seo";
 
 export const metadata = createMetadata({
-  title: "Career",
-  description: "Join PT Karya Nusantara Realty and be part of a team shaping the future of luxury architecture in Southeast Asia.",
+  title: "Karier — Bergabung dengan Studio",
+  description: "Gabung bersama Karya Nusantara Realty. Kami mencari arsitek visioner, desainer interior, dan profesional untuk menciptakan arsitektur bermakna di Asia Tenggara.",
 });
 
 const positions: Array<{
   id: string; title: string; department: string; location: string; type: "Full-time" | "Contract"; description: string; postedDate: string;
 }> = [
-  { id: "1", title: "Senior Architect", department: "Design", location: "Jakarta", type: "Full-time", description: "Lead complex architectural projects from concept through construction administration.", postedDate: "2025-06-01" },
-  { id: "2", title: "Junior Architect", department: "Design", location: "Jakarta", type: "Full-time", description: "Support senior architects in design development, documentation, and site coordination.", postedDate: "2025-06-01" },
-  { id: "3", title: "Interior Designer", department: "Interior", location: "Jakarta", type: "Full-time", description: "Develop interior design concepts and specifications for luxury residential and hospitality projects.", postedDate: "2025-05-15" },
-  { id: "4", title: "BIM Specialist", department: "Technology", location: "Jakarta", type: "Contract", description: "Manage BIM workflows, create detailed models, and support project coordination.", postedDate: "2025-05-15" },
-  { id: "5", title: "Marketing Manager", department: "Marketing", location: "Jakarta", type: "Full-time", description: "Lead marketing strategy, brand development, and business development initiatives.", postedDate: "2025-04-20" },
-  { id: "6", title: "Project Manager", department: "Operations", location: "Jakarta", type: "Full-time", description: "Oversee project timelines, budgets, and client communications across multiple projects.", postedDate: "2025-04-20" },
+  { id: "1", title: "Arsitek Senior", department: "Desain", location: "Jakarta", type: "Full-time", description: "Memandu proyek arsitektur kompleks dari tahap konsepsi hingga pengawasan konstruksi — sebagai ujung tombak kualitas studio.", postedDate: "2025-06-01" },
+  { id: "2", title: "Arsitek Junior", department: "Desain", location: "Jakarta", type: "Full-time", description: "Mendampingi arsitek senior dalam pengembangan desain, dokumentasi teknis, dan koordinasi lapangan dengan antusiasme tinggi.", postedDate: "2025-06-01" },
+  { id: "3", title: "Desainer Interior", department: "Interior", location: "Jakarta", type: "Full-time", description: "Merumuskan konsep dan spesifikasi interior untuk proyek residensial dan hospitality bercita rasa tinggi.", postedDate: "2025-05-15" },
+  { id: "4", title: "Spesialis BIM", department: "Teknologi", location: "Jakarta", type: "Contract", description: "Mengelola alur kerja BIM tingkat lanjut, menyusun model presisi, dan mendukung koordinasi proyek multidisiplin.", postedDate: "2025-05-15" },
+  { id: "5", title: "Kepala Pemasaran", department: "Pemasaran", location: "Jakarta", type: "Full-time", description: "Memimpin strategi komunikasi merek, pengembangan bisnis, dan kurasi portofolio studio.", postedDate: "2025-04-20" },
+  { id: "6", title: "Manajer Proyek", department: "Operasional", location: "Jakarta", type: "Full-time", description: "Mengelola jadwal, anggaran, dan hubungan klien di seluruh portofolio proyek studio.", postedDate: "2025-04-20" },
 ];
 
 export default function CareerPage() {
   return (
     <>
+      <JsonLdScript data={createWebPageSchema({
+        name: "Karier — Karya Nusantara Realty",
+        description: "Lowongan untuk arsitek, desainer interior, spesialis BIM, dan profesional arsitektur di Banda Aceh dan Jakarta.",
+        url: "/career",
+      })} id="webpage-schema" />
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Karier" },
+      ])} id="breadcrumb-schema" />
+      <section className="bg-surface pt-32 pb-8">
+        <div className="container-site">
+          <Breadcrumb items={[{ label: "Karier" }]} />
+        </div>
+      </section>
       <CareerHero
-        title="Join Our Team"
-        subtitle="PT Karya Nusantara Realty"
-        description="Shape the future of luxury architecture with Indonesia's premier design firm."
-        image={{ src: "/images/career/hero.jpg", alt: "Career at Karya Nusantara Realty" }}
-        cta={{ label: "View Open Positions", href: "#positions" }}
-      />
-      <Benefits
-        title="Why Work With Us"
-        description="We believe in nurturing talent and providing an environment where creativity thrives."
-        benefits={[
-          { title: "Creative Freedom", description: "We empower our team to explore innovative design solutions and push boundaries.", icon: "lightbulb" },
-          { title: "Competitive Compensation", description: "Attractive salary packages, performance bonuses, and comprehensive benefits.", icon: "dollar-sign" },
-          { title: "Professional Growth", description: "Continuous learning opportunities, workshops, and international exposure.", icon: "trending-up" },
-          { title: "Collaborative Culture", description: "Work alongside Indonesia's most talented architects and designers in a supportive studio environment.", icon: "users" },
-        ]}
-      />
-      <OpenPositions
-        title="Open Positions"
-        description="Explore current opportunities to join our growing team."
-        positions={positions}
+        title="Bangun Karier, Ciptakan Warisan"
+        subtitle="Karya Nusantara Realty"
+        description="Jadilah bagian dari studio yang menciptakan arsitektur bermakna dan abadi di Asia Tenggara."
+        image={{ src: "/images/career/hero.jpg", alt: "Suasana studio Karya Nusantara Realty" }}
+        cta={{ label: "Eksplorasi Posisi", href: "#positions" }}
       />
       <CultureValues
-        title="Our Culture"
-        description="We foster a culture of excellence, collaboration, and continuous innovation."
+        title="Nilai & Kultur"
+        description="Budaya studio yang bertumpu pada kejujuran desain, rasa ingin tahu, dan saling menghargai."
         values={[
-          { title: "Innovation", description: "We push boundaries and explore new design frontiers." },
-          { title: "Collaboration", description: "Great ideas emerge from teamwork and open dialogue." },
-          { title: "Excellence", description: "We hold ourselves to the highest standards." },
+          { title: "Inovasi", description: "Kami terus mendorong batas dalam desain, materialitas, dan metode pendekatan." },
+          { title: "Kolaborasi", description: "Gagasan agung lahir dari dialog terbuka dan beragam perspektif." },
+          { title: "Keunggulan", description: "Standar tertinggi bukanlah target — melainkan kebiasaan." },
+        ]}
+      />
+      <Benefits
+        title="Mengapa Bergabung?"
+        description="Kami merawat bakat dan menyediakan ekosistem tempat kreativitas tumbuh dan karier dibangun."
+        benefits={[
+          { title: "Kebebasan Berkarya", description: "Otonomi penuh untuk mengeksplorasi solusi desain inovatif tanpa sekat.", icon: "💡" },
+          { title: "Kompensasi Premium", description: "Paket kompensasi kompetitif, bonus kinerja, dan tunjangan menyeluruh.", icon: "💰" },
+          { title: "Perkembangan Profesional", description: "Pembelajaran berkelanjutan, lokakarya eksklusif, dan paparan internasional.", icon: "📈" },
+          { title: "Lingkungan Suportif", description: "Berkarya bersama arsitek dan desainer terbaik dalam studio yang saling menginspirasi.", icon: "👥" },
         ]}
       />
       <RecruitmentProcess
-        title="Recruitment Process"
-        description="Our hiring process is designed to find the best talent while providing a great candidate experience."
+        title="Proses Seleksi"
+        description="Proses yang dirancang untuk menemukan kecocokan sejati — antara bakat Anda dan visi studio."
         steps={[
-          { title: "Application Review", description: "Our HR team reviews your application and portfolio." },
-          { title: "Initial Interview", description: "A conversation with HR to discuss your background and aspirations." },
-          { title: "Portfolio Presentation", description: "Present your work to our design leadership team." },
-          { title: "Final Interview", description: "Meet with senior leadership to discuss the role and fit." },
-          { title: "Offer", description: "Successful candidates receive an offer to join our team." },
+          { title: "Tinjauan Lamaran", description: "Tim kami menelaah portofolio dan surat lamaran Anda secara saksama." },
+          { title: "Dialog Awal", description: "Percakapan ringan untuk mengenal latar belakang dan aspirasi Anda." },
+          { title: "Presentasi Karya", description: "Paparkan portofolio terbaik Anda di hadapan pimpinan desain studio." },
+          { title: "Wawancara Akhir", description: "Bertemu dengan mitra senior untuk diskusi peran, nilai, dan visi." },
+          { title: "Penawaran", description: "Kandidat terpilih akan menerima tawaran untuk bergabung dalam perjalanan studio." },
         ]}
+      />
+      <OpenPositions
+        title="Posisi yang Tersedia"
+        description="Kesempatan terkini untuk menjadi bagian dari pertumbuhan studio kami."
+        positions={positions}
+      />
+      <CTADefault
+        title="Belum Menemukan Peran yang Sesuai?"
+        description="Kami selalu terbuka untuk talenta luar biasa. Kirimkan portofolio Anda dan kami akan mengingat Anda untuk kesempatan mendatang."
+        primaryCta={{ label: "Kirim Portofolio", href: "/contact" }}
       />
     </>
   );

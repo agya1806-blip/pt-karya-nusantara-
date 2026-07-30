@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { Maximize2 } from "lucide-react";
 
 interface GalleryCardProps {
@@ -10,23 +12,25 @@ interface GalleryCardProps {
 
 function GalleryCard({ image, alt, onClick, className }: GalleryCardProps) {
   return (
-    <button
+    <motion.button
       type="button"
       onClick={onClick}
       className={cn(
-        "group relative aspect-square overflow-hidden rounded-2xl bg-surface-muted border border-transparent transition-all duration-300 hover:border-brand-500/30",
+        "group relative aspect-square overflow-hidden rounded-xl bg-surface-muted",
         className,
       )}
+      whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+      transition={cardHoverTransition}
     >
       <img
         src={image}
         alt={alt}
-        className="h-full w-full object-cover transition-transform duration-300 ease-luxury group-hover:scale-105"
+        className="h-full w-full object-cover transition-transform duration-500 ease-architectural group-hover:scale-105"
       />
-      <div className="absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 ease-luxury group-hover:opacity-100">
-        <Maximize2 className="h-8 w-8 text-text-inverse" />
+      <div className="absolute inset-0 flex items-center justify-center bg-brand-900/60 opacity-0 transition-opacity duration-500 ease-architectural group-hover:opacity-100">
+        <Maximize2 className="h-7 w-7 text-text-inverse" />
       </div>
-    </button>
+    </motion.button>
   );
 }
 

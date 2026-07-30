@@ -1,4 +1,6 @@
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
 import { ArrowUpRight, Calendar, User } from "lucide-react";
 
 interface BlogCardProps {
@@ -19,26 +21,26 @@ function BlogCard({ image, category, date, author, title, excerpt, href, classNa
         <img
           src={image}
           alt={title}
-          className="h-48 w-full object-cover transition-transform duration-300 ease-luxury group-hover:scale-105"
+          className="h-64 w-full object-cover transition-transform duration-700 ease-luxury group-hover:scale-105"
         />
       </div>
-      <div className="p-6">
-        <div className="flex items-center gap-4 text-caption tracking-widest text-text-muted">
-          <span className="rounded-full bg-brand-500/15 px-3 py-0.5 text-caption font-medium text-brand-400">{category}</span>
-          <span className="flex items-center gap-1 text-brand-400">
+      <div className="p-8">
+        <div className="flex items-center gap-5 text-overline tracking-widest text-text-tertiary">
+          <span className="text-text-secondary">{category}</span>
+          <span className="flex items-center gap-1.5">
             <Calendar className="h-3.5 w-3.5" />
-          {date}
-            </span>
+            {date}
+          </span>
         </div>
-        <h3 className="text-heading-sm text-text mt-3">{title}</h3>
-        <p className="text-body text-text-secondary mt-2 leading-relaxed">{excerpt}</p>
-        <div className="mt-4 flex items-center gap-2 text-body-sm text-text-secondary">
+        <h3 className="font-serif text-heading-sm text-text mt-4 leading-snug">{title}</h3>
+        <p className="text-body text-text-secondary mt-3 leading-relaxed">{excerpt}</p>
+        <div className="mt-6 flex items-center gap-2 text-body-sm text-text-secondary">
           <User className="h-3.5 w-3.5" />
           {author}
         </div>
         {href && (
-          <div className="mt-4 flex items-center gap-1 text-body-sm font-medium text-brand-500 group-hover:underline">
-            Read More <ArrowUpRight className="h-4 w-4" />
+          <div className="mt-6 flex items-center gap-1.5 text-caption font-medium tracking-widest uppercase text-brand-500 transition-colors duration-300 group-hover:text-brand-600">
+            Baca Selengkapnya <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-0.5" />
           </div>
         )}
       </div>
@@ -47,27 +49,31 @@ function BlogCard({ image, category, date, author, title, excerpt, href, classNa
 
   if (href) {
     return (
-      <a
+      <motion.a
         href={href}
         className={cn(
-          "group block bg-surface rounded-2xl overflow-hidden border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
+          "group block bg-surface rounded-xl overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
           className,
         )}
+        whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+        transition={cardHoverTransition}
       >
         {shared}
-      </a>
+      </motion.a>
     );
   }
 
   return (
-    <div
-        className={cn(
-          "group bg-surface rounded-2xl overflow-hidden border border-transparent transition-all duration-300 ease-luxury hover:-translate-y-1 hover:border-brand-500/30 hover:shadow-elevation-3",
-          className,
-        )}
+    <motion.div
+      className={cn(
+        "group bg-surface rounded-xl overflow-hidden transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:shadow-elevation-4",
+        className,
+      )}
+      whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+      transition={cardHoverTransition}
     >
       {shared}
-    </div>
+    </motion.div>
   );
 }
 

@@ -8,7 +8,7 @@ interface SearchProps {
   id?: string;
   className?: string;
   value?: string;
-  onChange?: React.ChangeEvent<HTMLInputElement>;
+  onChange?: React.ChangeEventHandler<HTMLInputElement>;
   placeholder?: string;
   disabled?: boolean;
 }
@@ -24,7 +24,7 @@ export const Search = forwardRef<HTMLInputElement, SearchProps>(
           type="search"
           placeholder={placeholder}
           className={cn(
-            "w-full rounded-lg border border-border bg-surface py-2 pl-10 pr-3 text-text placeholder:text-text-muted outline-none transition-colors duration-300 ease-luxury focus:border-neutral-900",
+            "w-full rounded-lg border border-border bg-surface py-2 pl-10 pr-3 text-text placeholder:text-text-muted outline-none transition-colors duration-300 ease-luxury focus:border-brand-900",
             className,
           )}
           {...rest}

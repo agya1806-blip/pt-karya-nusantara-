@@ -1,9 +1,12 @@
 "use client";
 
+import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import { TextReveal } from "@/components/animation/TextReveal";
 import { Button } from "@/components/ui/Button";
+import Link from "next/link";
+import { durations, easings } from "@/lib/animation";
 import type { ButtonAction, MediaItem } from "@/sections/types";
 
 interface HeroSectionProps {
@@ -51,36 +54,43 @@ export function HeroSection({
         className,
       )}
     >
-      <div
+      <motion.div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${background.src})` }}
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: durations.slowest, ease: easings.easeOut }}
         role="img"
         aria-label={background.alt}
       />
       {overlay === "gradient" && (
-        <div className="absolute inset-0 bg-gradient-to-b from-neutral-950/60 via-neutral-950/30 to-neutral-950/70" />
+        <>
+          <div className="absolute inset-0 bg-gradient-to-t from-brand-900/70 via-brand-900/30 to-brand-800/40" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-900/20 to-transparent" />
+        </>
       )}
       {overlay === "solid" && (
-        <div className="absolute inset-0 bg-neutral-950/50" />
+        <div className="absolute inset-0 bg-brand-900/60" />
       )}
-      <div className="container-site relative z-10 flex flex-col justify-center py-24">
+      <div className="container-site relative z-10 flex flex-col justify-center py-36">
         {subtitle && (
           <Fade direction="up" delay={0.1}>
-            <span className="mb-4 inline-block text-caption font-semibold tracking-widest text-neutral-300 uppercase">
+            <span className="mb-8 inline-block text-overline tracking-[0.2em] text-gold-300/90">
               {subtitle}
             </span>
           </Fade>
         )}
         <TextReveal
-          text={title}
-          className="text-display-xl font-light tracking-tight text-white"
+          className="font-serif text-display-xl font-light leading-[0.95] -tracking-[0.03em] text-white"
           delay={0.2}
-        />
+        >
+          {title}
+        </TextReveal>
         {description && (
           <Fade direction="up" delay={0.4}>
             <p
               className={cn(
-                "mt-6 max-w-2xl text-body-lg text-neutral-300 leading-relaxed",
+                "mt-8 max-w-xl text-body-lg font-light text-brand-200/80 leading-relaxed tracking-[0.02em]",
                 align === "center" && "mx-auto",
               )}
             >
@@ -92,22 +102,30 @@ export function HeroSection({
           <Fade direction="up" delay={0.6}>
             <div
               className={cn(
-                "mt-8 flex flex-wrap gap-4",
+                "mt-10 flex flex-wrap gap-5",
                 align === "center" && "justify-center",
                 align === "right" && "justify-end",
               )}
             >
-              {actions.map((action) => (
-                <Button
-                  key={action.label}
-                  variant={action.variant ?? "primary"}
-                  onClick={action.onClick}
-                  className={action.variant === "primary" ? "bg-white text-neutral-900 hover:bg-neutral-100" : "border-white text-white hover:bg-white/10"}
-                >
-                  {action.icon}
-                  {action.label}
-                </Button>
-              ))}
+              {actions.map((action) => {
+  const button = (
+    <Button
+      key={action.label}
+      variant={action.variant ?? "primary"}
+      onClick={action.href ? undefined : action.onClick}
+      className={action.variant === "primary" ? "bg-gold-500 text-white hover:bg-gold-600 shadow-luxury-lg shadow-gold-500/15" : "border-gold-500/30 text-gold-300/90 hover:text-gold-300 hover:border-gold-500/60 hover:bg-gold-500/5"}
+    >
+      {action.icon}
+      {action.label}
+    </Button>
+  );
+
+  if (action.href && !action.onClick) {
+    return <Link key={action.label} href={action.href}>{button}</Link>;
+  }
+
+  return button;
+})}
             </div>
           </Fade>
         )}

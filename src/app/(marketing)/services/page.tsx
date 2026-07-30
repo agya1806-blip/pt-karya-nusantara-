@@ -1,44 +1,80 @@
-import { ServicesGrid, ProcessSteps, ConsultationCTA, CTADefault } from "@/sections";
-import { createMetadata } from "@/seo";
+import { AnimatedSection } from "@/components/animation";
+import { ServiceOverview, ServicesGrid, ProcessSteps, ConsultationCTA, CTADefault } from "@/sections";
+import { createMetadata, createBreadcrumbSchema, createServiceSchema, createWebPageSchema, JsonLdScript } from "@/seo";
+import { siteConfig } from "@/config";
 import type { ServiceItem, ProcessStep } from "@/sections";
+import { Search, Lightbulb, PenTool, FileText, HardHat } from "lucide-react";
 
 export const metadata = createMetadata({
-  title: "Services",
-  description: "Comprehensive luxury architecture services — from residential design to master planning. PT Karya Nusantara Realty delivers world-class solutions.",
+  title: "Layanan Arsitektur & Desain",
+  description: "Kami menjembatani visi dan wujud — setiap layanan adalah perjalanan dari gagasan menjadi ruang yang hidup, bernapas, dan dikenang sepanjang masa.",
 });
 
 const services: ServiceItem[] = [
-  { title: "Residential Architecture", description: "Luxury custom homes, villas, and apartments designed to reflect your unique lifestyle and vision.", features: ["Custom Home Design", "Renovation & Expansion", "Interior Architecture", "Landscape Integration"], image: { src: "/images/services/residential.jpg", alt: "Luxury residential architecture" } },
-  { title: "Commercial Architecture", description: "Innovative office spaces, retail environments, and mixed-use developments that elevate brands.", features: ["Office Buildings", "Retail & Hospitality", "Mixed-Use Developments", "Workplace Strategy"], image: { src: "/images/services/commercial.jpg", alt: "Commercial architecture" } },
-  { title: "Hospitality Design", description: "Resorts, hotels, and restaurants that deliver unforgettable guest experiences through exceptional design.", features: ["Resort Design", "Hotel Architecture", "Restaurant & Bar", "Spa & Wellness"], image: { src: "/images/services/hospitality.jpg", alt: "Hospitality design" } },
-  { title: "Master Planning", description: "Comprehensive site planning and urban design for large-scale developments and communities.", features: ["Site Analysis", "Urban Design", "Infrastructure Planning", "Sustainability Strategy"], image: { src: "/images/services/master-planning.jpg", alt: "Master planning" } },
-  { title: "Interior Design", description: "Sophisticated interior spaces that seamlessly blend aesthetics, comfort, and functionality.", features: ["Spatial Planning", "Material Selection", "Custom Furniture", "Lighting Design"], image: { src: "/images/services/interior.jpg", alt: "Interior design" } },
-  { title: "Sustainable Design", description: "Eco-conscious architecture that minimizes environmental impact without compromising luxury.", features: ["Passive Design", "Energy Modeling", "Material Sourcing", "Green Certification"], image: { src: "/images/services/sustainable.jpg", alt: "Sustainable architecture" } },
+  { title: "Arsitektur Residensial", description: "Rumah bukan sekadar tempat berteduh — ia adalah cermin jiwa penghuninya, perpanjangan dari cara kita mencintai dan dihidupi. Kami merancang hunian, vila, dan kediaman pribadi yang lahir dari dialog intim antara Anda, lahan, dan cahaya. Setiap ruang adalah puisi yang ditulis dalam bahan, proporsi, dan keheningan.", features: ["Desain Hunian yang Dipersonalisasi", "Renovasi & Restorasi Penuh Kepekaan", "Interior Arsitektural yang Menyatu", "Dialog dengan Lansekap & Tapak"], image: { src: "/images/services/residential.jpg", alt: "Arsitektur residensial mewah" }, href: "/services/residential" },
+  { title: "Arsitektur Komersial", description: "Sebuah bangunan komersial adalah pernyataan diam tentang nilai dan karakter merek Anda. Kami merancang kantor, ritel, dan kawasan mixed-use yang bukan hanya fungsional — tetapi juga mengundang, menginspirasi, dan dikenang. Di setiap persimpangan lalu lintas manusia, kami menempatkan keindahan yang meladeni.", features: ["Gedung & Kantor Korporat", "Ritel & Pengalaman Berbelanja", "Kawasan Mixed-Use Terpadu", "Strategi Tempat Kerja Masa Depan"], image: { src: "/images/services/commercial.jpg", alt: "Arsitektur komersial" }, href: "/services/commercial" },
+  { title: "Desain Hospitality", description: "Kami percaya bahwa sebuah resor atau hotel sejati bukanlah tempat menginap — melainkan tujuan yang mengubah cara kita merasakan waktu. Dari lobi hingga kamar terakhir, setiap detail dirancang untuk membelai indra, merawat kelelahan, dan menyisakan kenangan yang tak mudah pudar.", features: ["Destinasi Resor Eksklusif", "Hotel Butik & Bertema", "Restoran & Ruang Sosial", "Spa & Pusat Kebugaran"], image: { src: "/images/services/hospitality.jpg", alt: "Desain hospitality" }, href: "/services/hospitality" },
+  { title: "Master Plan", description: "Membangun bukan sekadar menata massa di atas lahan — melainkan menghidupi tanah dengan cara yang beradab. Kami merencanakan kawasan, komunitas, dan kota kecil dengan pendekatan yang menghormati ekologi, sejarah, dan dinamika sosial. Sebuah master plan yang baik adalah janji pada generasi yang belum lahir.", features: ["Analisis Tapak & Konteks", "Desain Urban yang Manusiawi", "Infrastruktur & Konektivitas", "Strategi Keberlanjutan Jangka Panjang"], image: { src: "/images/services/master-planning.jpg", alt: "Master plan" }, href: "/services/master-planning" },
+  { title: "Desain Interior", description: "Interior adalah panggung kehidupan sehari-hari. Kami menciptakan ruang dalam yang berbicara dalam bahasa bahan, cahaya, dan proporsi — ruang yang terasa seperti pelukan, bukan sekadar latar. Dari pemilihan material hingga kurasi furnitur, setiap elemen adalah catatan dalam simfoni visual yang utuh.", features: ["Tata Ruang yang Mengalir", "Materialitas & Tekstur Kuratorial", "Furnitur & Elemen Kustom", "Cahaya sebagai Bahan Desain"], image: { src: "/images/services/interior.jpg", alt: "Desain interior" }, href: "/services/interior" },
+  { title: "Desain Berkelanjutan", description: "Bagi kami, keberlanjutan bukanlah sekadar label atau sertifikasi — melainkan sikap dasar terhadap kehidupan. Kami mengintegrasikan strategi pasif, material rendah karbon, dan sistem hemat energi sebagai fondasi, bukan tempelan. Merancang untuk umur panjang adalah bentuk tanggung jawab tertinggi seorang arsitek.", features: ["Strategi Desain Pasif", "Pemodelan & Simulasi Energi", "Material dengan Jejak Karbon Rendah", "Sertifikasi Bangunan Hijau"], image: { src: "/images/services/sustainable.jpg", alt: "Arsitektur berkelanjutan" }, href: "/services/sustainable" },
 ];
 
 const workflowSteps: ProcessStep[] = [
-  { title: "Discovery", description: "We learn about your vision, needs, and site conditions through in-depth consultation." },
-  { title: "Concept Design", description: "Our team develops initial design concepts, sketches, and mood boards for your review." },
-  { title: "Design Development", description: "We refine the chosen concept with detailed drawings, material selections, and budgets." },
-  { title: "Construction Documents", description: "Comprehensive technical drawings and specifications are prepared for permitting and bidding." },
-  { title: "Construction Administration", description: "We oversee construction to ensure the design vision is executed to perfection." },
+  { title: "Penemuan", description: "Kami memulai dengan keheningan — menyimak visi, mimpi, dan karakter unik lahan Anda. Pertemuan pertama ini adalah fondasi di mana seluruh perjalanan desain dibangun, dengan rasa ingin tahu yang tak terbatas.", icon: <Search size={20} /> },
+  { title: "Desain Konsep", description: "Gagasan mulai merangkai wujud. Melalui sketsa, mood board, dan model studi, kami menerjemahkan aspirasi menjadi narasi spasial yang dapat Anda lihat, rasakan, dan sempurnakan bersama kami.", icon: <Lightbulb size={20} /> },
+  { title: "Pengembangan Desain", description: "Ketika esensi telah ditangkap, kami mengukir detail dengan ketelitian seorang pengrajin — material, proporsi, sistem, dan anggaran diselaraskan dalam harmoni yang penuh kesadaran.", icon: <PenTool size={20} /> },
+  { title: "Dokumen Konstruksi", description: "Setiap keputusan desain didokumentasikan dalam gambar dan spesifikasi yang presisi — bahasa teknis yang menjembatani visi dengan realitas, memastikan tidak ada nuansa yang hilang dalam penerjemahan.", icon: <FileText size={20} /> },
+  { title: "Administrasi Konstruksi", description: "Kami hadir di setiap tahap pembangunan — mengawal dengan saksama agar setiap material terpasang dengan benar, setiap detail terwujud sesuai janji desain, hingga kunci diserahkan pada pemiliknya.", icon: <HardHat size={20} /> },
 ];
 
 export default function ServicesPage() {
   return (
     <>
-      {/* ServiceOverview commented out — component not available */}
-      <ServicesGrid title="Our Services" description="From concept to completion, we provide end-to-end architectural services that bring your vision to life. Each project receives the highest level of attention and expertise." services={services} />
-      <ProcessSteps title="How We Work" steps={workflowSteps} />
-      <ConsultationCTA
-        title="Book a Consultation"
-        description="Schedule a complimentary consultation with our team to discuss your project requirements."
-      />
-      <CTADefault
-        title="Let's Create Something Extraordinary"
-        description="Ready to begin? Contact us to discuss your project and discover how we can bring your vision to life."
-        primaryCta={{ label: "Get in Touch", href: "/contact" }}
-      />
+      <JsonLdScript data={createWebPageSchema({
+        name: "Layanan Arsitektur & Desain",
+        description: "Perjalanan dari gagasan menjadi ruang yang hidup — spektrum penuh layanan arsitektur, desain interior, dan konsultasi properti.",
+        url: "/services",
+      })} id="webpage-schema" />
+      <JsonLdScript data={createBreadcrumbSchema([
+        { name: "Layanan" },
+      ])} id="breadcrumb-schema" />
+      {services.map((service, index) => (
+        <JsonLdScript
+          key={service.title}
+          data={createServiceSchema({
+            name: service.title,
+            description: service.description,
+            image: service.image?.src,
+            providerName: siteConfig.name,
+          })}
+          id={`service-schema-${index}`}
+        />
+      ))}
+      <AnimatedSection>
+        <ServiceOverview
+          title="Layanan Kami"
+          description="Dari bisikan pertama hingga kunci terakhir — setiap komisi mendapat kedalaman perhatian yang utuh dari studio kami. Sebuah dedikasi yang tak terlihat, namun terasa dalam setiap sentuhan akhir."
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.1}>
+        <ServicesGrid title="Layanan Kami" description="Spektrum penuh kemampuan arsitektur dan desain — diantarkan dengan standar keunggulan yang tidak pernah kami tawar." services={services} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.2}>
+        <ProcessSteps title="Metodologi Kami" steps={workflowSteps} />
+      </AnimatedSection>
+      <AnimatedSection delay={0.3}>
+        <ConsultationCTA
+          title="Jadwalkan Percakapan"
+          description="Ceritakan tentang proyek Anda dalam pertemuan yang dirancang khusus untuk mendengar — bukan menjual."
+        />
+      </AnimatedSection>
+      <AnimatedSection delay={0.4}>
+        <CTADefault
+          title="Bingung Hendak Memulai?"
+          description="Sampaikan garis besar proyek Anda, dan kami akan merekomendasikan pendekatan yang paling bermakna — tanpa biaya, tanpa tekanan."
+          primaryCta={{ label: "Jadwalkan Konsultasi", href: "/contact" }}
+        />
+      </AnimatedSection>
     </>
   );
 }

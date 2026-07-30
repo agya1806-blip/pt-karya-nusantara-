@@ -82,12 +82,14 @@ export async function listFiles(
     throw new StorageError("List failed", { cause: error });
   }
 
-  return data.map((file: Record<string, unknown>) => ({
-    name: file.name as string,
-    size: (file.metadata as Record<string, unknown>)?.size as number ?? 0,
-    mimeType: (file.metadata as Record<string, unknown>)?.mimetype as string ?? "unknown",
-    created_at: file.created_at as string,
-    updated_at: file.updated_at as string,
+  if (!data) return [];
+
+  return data.map((file: { name: string; metadata?: { size?: number; mimetype?: string }; created_at?: string; updated_at?: string }) => ({
+    name: file.name,
+    size: file.metadata?.size ?? 0,
+    mimeType: file.metadata?.mimetype ?? "unknown",
+    created_at: file.created_at,
+    updated_at: file.updated_at,
     url: client.storage.from(bucket).getPublicUrl(`${folder}/${file.name}`)
       .data.publicUrl,
   }));

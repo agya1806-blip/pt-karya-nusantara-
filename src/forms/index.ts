@@ -4,6 +4,8 @@ export { DownloadProfile } from "./download-profile";
 export { LeadMagnet } from "./lead-magnet";
 export { NewsletterSignup } from "./newsletter-signup";
 export { FloatingConsultation } from "./floating-consultation";
+export { AssetDownload } from "./asset-download";
+export { InquiryTracker } from "./inquiry-tracker";
 export type {
   InquiryFormData, CallbackFormData, DownloadFormData,
   LeadMagnetFormData, NewsletterFormData, FloatingConsultationFormData,

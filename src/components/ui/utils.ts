@@ -24,5 +24,5 @@ export function truncate(className?: string) {
 }
 
 export function safeArea(className?: string) {
-  return cn("px-gutter py-section", className);
+  return cn("px-6 py-24", className);
 }

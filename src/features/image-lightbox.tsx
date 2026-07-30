@@ -46,7 +46,7 @@ export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigat
   }, [isOpen, onClose, navigate]);
 
   const handleShare = async () => {
-    if (navigator.share && current) {
+    if (typeof navigator.share === "function" && current) {
       await navigator.share({ title: current.caption || "Project Image", url: current.src }).catch(() => {});
     }
   };
@@ -89,7 +89,7 @@ export function ImageLightbox({ images, currentIndex, isOpen, onClose, onNavigat
                   <ZoomIn className="h-5 w-5" />
                 </button>
               )}
-              {shareEnabled && typeof navigator?.share === "function" && (
+              {shareEnabled && typeof navigator.share === "function" && (
                 <button onClick={handleShare} className="p-2 text-white/70 hover:text-white transition-colors" aria-label="Share image">
                   <Share2 className="h-5 w-5" />
                 </button>

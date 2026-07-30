@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 interface HeroDefaultProps {
   title: string;
@@ -29,45 +30,39 @@ export function HeroDefault({
       {image && (
         <div className="absolute inset-0">
           <img src={image.src} alt={image.alt} className="h-full w-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30" />
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-900/80 to-brand-800/30" />
         </div>
       )}
       <div className="container-site relative z-10 py-32">
-        <Fade direction="up" className="max-w-3xl">
+        <Fade direction="up" className="max-w-4xl">
           {subtitle && (
-            <p className="text-caption font-semibold tracking-widest text-brand-500 uppercase mb-4">
+            <p className={cn("text-overline tracking-widest mb-8", image ? "text-gold-300" : "text-text-tertiary")}>
               {subtitle}
             </p>
           )}
-          <h1 className={cn("text-display font-light tracking-tight", image ? "text-white" : "text-text-primary")}>
+          <h1 className={cn("font-serif text-display-lg font-light leading-[1.05] tracking-tight", image ? "text-white" : "text-text-primary")}>
             {title}
           </h1>
           {description && (
-            <p className={cn("mt-4 text-body-lg max-w-xl leading-relaxed", image ? "text-white/80" : "text-text-secondary")}>
+            <p className={cn("mt-8 text-body-lg max-w-2xl leading-relaxed", image ? "text-white/80" : "text-text-secondary")}>
               {description}
             </p>
           )}
-          <div className="mt-8 flex flex-wrap gap-4">
+          <div className="mt-12 flex flex-wrap gap-5">
             {primaryCta && (
-              <Link
-                href={primaryCta.href}
-                className="inline-flex items-center gap-2 rounded-lg bg-text-primary px-8 py-3.5 text-body-sm font-medium text-text-inverse transition-all duration-300 hover:opacity-90"
-              >
-                {primaryCta.label} <ArrowRight size={16} />
-              </Link>
+              <Button asChild size="lg" className={cn(image ? "bg-gold-500 text-white hover:bg-gold-600" : "")}>
+                <Link href={primaryCta.href}>
+                  {primaryCta.label} <ArrowRight size={16} />
+                </Link>
+              </Button>
             )}
             {secondaryCta && (
-              <Link
-                href={secondaryCta.href}
-                className={cn(
-                  "inline-flex items-center gap-2 rounded-lg border px-8 py-3.5 text-body-sm font-medium transition-all duration-300",
-                  image
-                    ? "border-white/30 text-white hover:bg-white/10"
-                    : "border-border-light text-text-primary hover:bg-surface",
-                )}
-              >
-                {secondaryCta.label}
-              </Link>
+              <Button asChild variant="outline" size="lg"
+                className={cn(image ? "border-gold-500/40 text-gold-300 hover:bg-gold-500/10" : "")}>
+                <Link href={secondaryCta.href}>
+                  {secondaryCta.label}
+                </Link>
+              </Button>
             )}
           </div>
         </Fade>

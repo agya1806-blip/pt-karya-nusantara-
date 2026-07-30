@@ -1,10 +1,12 @@
 import { cn } from "@/lib/utils";
-import { forwardRef, type HTMLAttributes } from "react";
+import { motion } from "framer-motion";
+import { cardHoverTransition } from "@/lib/animation";
+import { forwardRef, type ComponentPropsWithoutRef, type HTMLAttributes } from "react";
 
 type CardVariant = "default" | "muted" | "elevated" | "bordered";
 type CardPadding = "none" | "sm" | "md" | "lg" | "xl";
 
-interface CardProps extends HTMLAttributes<HTMLDivElement> {
+interface CardProps extends ComponentPropsWithoutRef<typeof motion.div> {
   variant?: CardVariant;
   padding?: CardPadding;
   hover?: boolean;
@@ -13,13 +15,13 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 function getVariantStyles(variant: CardVariant): string {
   switch (variant) {
     case "muted":
-      return "bg-surface-tertiary";
+      return "bg-surface-muted";
     case "elevated":
-      return "bg-surface-secondary shadow-elevation-2";
+      return "bg-surface shadow-elevation-2 hover:shadow-elevation-4";
     case "bordered":
-      return "bg-surface-secondary border border-border-muted";
+      return "bg-surface border border-border-light hover:border-border-default";
     default:
-      return "bg-surface-secondary";
+      return "bg-surface";
   }
 }
 
@@ -41,19 +43,21 @@ function getPaddingStyles(padding: CardPadding): string {
 const Card = forwardRef<HTMLDivElement, CardProps>(
   ({ className, variant = "default", padding = "md", hover = false, children, ...props }, ref) => {
     return (
-      <div
+      <motion.div
         ref={ref}
         className={cn(
-          "rounded-2xl",
+          "border border-border-light/60",
           getVariantStyles(variant),
           getPaddingStyles(padding),
-          hover && "transition-all duration-300 ease-luxury hover:-translate-y-1 hover:shadow-elevation-3 hover:border-brand-500/30",
+          hover && "cursor-pointer transition-all duration-500 ease-architectural hover:-translate-y-0.5 hover:border-border-default hover:shadow-elevation-2",
           className,
         )}
+        whileHover={{ y: -4, boxShadow: "0 12px 40px rgba(0,0,0,0.08)" }}
+        transition={cardHoverTransition}
         {...props}
       >
         {children}
-      </div>
+      </motion.div>
     );
   },
 );

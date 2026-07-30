@@ -21,12 +21,12 @@ interface BadgeProps {
 
 const variantStyles: Record<BadgeVariant, string> = {
   default:
-    "border border-brand-500/20 bg-brand-500/10 text-brand-400",
+    "border border-border-default bg-surface text-text-primary",
   muted: "bg-surface-secondary text-text-secondary",
-  dark: "bg-neutral-900 text-text-inverse",
-  success: "border border-green-500/30 bg-green-500/10 text-green-400",
-  warning: "border border-yellow-500/30 bg-yellow-500/10 text-yellow-400",
-  error: "border border-red-500/30 bg-red-500/10 text-red-400",
+  dark: "bg-brand-800 text-text-inverse",
+  success: "border border-green-500/30 bg-green-50 text-green-700",
+  warning: "border border-yellow-500/30 bg-yellow-50 text-yellow-700",
+  error: "border border-red-500/30 bg-red-50 text-red-700",
 };
 
 const sizeStyles: Record<BadgeSize, string> = {

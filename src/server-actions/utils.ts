@@ -34,11 +34,17 @@ export async function requireAuth() {
   return user;
 }
 
+interface UserWithRole {
+  role?: string;
+  [key: string]: unknown;
+}
+
 export async function requireRole(minimumRole: string) {
   const user = await requireAuth();
 
   const roleHierarchy = ["author", "marketing", "editor", "admin", "super_admin"];
-  const userRoleIndex = roleHierarchy.indexOf((user as any).role ?? "author");
+  const userWithRole = user as unknown as UserWithRole;
+  const userRoleIndex = roleHierarchy.indexOf(userWithRole.role ?? "author");
   const requiredRoleIndex = roleHierarchy.indexOf(minimumRole);
 
   if (userRoleIndex < requiredRoleIndex) {
@@ -75,4 +81,8 @@ export function handleServerError(error: unknown): ActionResult {
 
   console.error("Server action error:", error);
   return { success: false, error: "An unexpected error occurred" };
+}
+
+export function validatedInput<T>(data: unknown): Partial<T> {
+  return data as Partial<T>;
 }

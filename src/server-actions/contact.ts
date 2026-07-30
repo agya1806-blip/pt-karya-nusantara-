@@ -5,7 +5,7 @@ import {
   ActionResult,
   success,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getContactInfo() {
@@ -47,7 +47,7 @@ export async function getCompanyMilestones() {
 export async function createMilestone(input: unknown): Promise<ActionResult> {
   try {
     await requireRole("admin");
-    const milestone = await contactRepository.createMilestone(input as any);
+    const milestone = await contactRepository.createMilestone(validatedInput(input));
     return success(milestone);
   } catch (error) {
     return handleServerError(error);
@@ -60,7 +60,7 @@ export async function updateMilestone(
 ): Promise<ActionResult> {
   try {
     await requireRole("admin");
-    const milestone = await contactRepository.updateMilestone(id, input as any);
+    const milestone = await contactRepository.updateMilestone(id, validatedInput(input));
     return success(milestone);
   } catch (error) {
     return handleServerError(error);

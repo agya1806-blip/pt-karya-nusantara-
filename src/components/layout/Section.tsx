@@ -2,34 +2,35 @@ import { forwardRef } from "react";
 import { cn } from "@/lib/utils";
 import { Container } from "./Container";
 
-type SectionVariant = "default" | "dark" | "muted";
+type SectionVariant = "default" | "muted" | "warm" | "dark" | "accent";
 type SectionSpacing = "sm" | "md" | "lg" | "xl" | "none";
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   variant?: SectionVariant;
   spacing?: SectionSpacing;
   container?: boolean;
-  accent?: boolean;
 }
 
 const variantClasses: Record<SectionVariant, string> = {
   default: "bg-surface",
-  dark: "bg-surface-secondary",
-  muted: "bg-surface-tertiary",
+  muted: "bg-surface-secondary",
+  warm: "bg-surface-warm",
+  dark: "bg-surface-dark text-text-inverse",
+  accent: "bg-brand-800 text-text-inverse",
 };
 
 const spacingClasses: Record<SectionSpacing, string> = {
-  sm: "py-12",
-  md: "py-16 md:py-20",
-  lg: "py-20 md:py-28",
-  xl: "py-28 md:py-36",
+  sm: "py-16",
+  md: "py-20 md:py-24",
+  lg: "py-24 md:py-28",
+  xl: "py-32 md:py-40",
   none: "py-0",
 };
 
 const Section = forwardRef<HTMLElement, SectionProps>(
-  ({ className, variant = "default", spacing = "lg", container = false, accent = false, children, ...props }, ref) => {
+  ({ className, variant = "default", spacing = "lg", container = false, children, ...props }, ref) => {
     return (
-      <section ref={ref} className={cn(variantClasses[variant], spacingClasses[spacing], accent && "border-t border-brand-400/20", className)} {...props}>
+      <section ref={ref} className={cn(variantClasses[variant], spacingClasses[spacing], className)} {...props}>
         {container ? <Container>{children}</Container> : children}
       </section>
     );

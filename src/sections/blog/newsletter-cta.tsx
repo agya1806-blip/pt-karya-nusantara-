@@ -4,6 +4,8 @@ import { useState, type FormEvent } from "react";
 import { cn } from "@/lib/utils";
 import { Fade } from "@/components/animation/Fade";
 import { Send } from "lucide-react";
+import { Input } from "@/components/ui/Input";
+import { Button } from "@/components/ui/Button";
 
 interface NewsletterCTAProps {
   title?: string;
@@ -59,21 +61,21 @@ export function NewsletterCTA({
   };
 
   return (
-    <section className={cn("py-24", variantClasses[variant], className)}>
+    <section className={cn("py-24 lg:py-28", variantClasses[variant], className)}>
       <div className="container-site">
         <Fade direction="up" className="mx-auto max-w-2xl text-center">
-          <h2 className={cn("text-display font-light tracking-tight", headingClasses[variant])}>
+          <h2 className={cn("font-serif text-display font-light tracking-tight", headingClasses[variant])}>
             {title}
           </h2>
           {description && (
-            <p className={cn("mt-4 text-body-lg leading-relaxed", descriptionClasses[variant])}>
+            <p className={cn("mt-6 text-body-lg leading-relaxed", descriptionClasses[variant])}>
               {description}
             </p>
           )}
-          <form onSubmit={handleSubmit} className="mt-8">
+          <form onSubmit={handleSubmit} className="mt-10">
             <div className="mx-auto flex max-w-md items-center gap-3">
               <div className="relative flex-1">
-                <input
+                <Input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -81,26 +83,25 @@ export function NewsletterCTA({
                   required
                   disabled={status === "loading"}
                   className={cn(
-                    "w-full rounded-lg border px-4 py-3 text-body transition-colors duration-300 focus:outline-none disabled:opacity-50",
-                    variant === "default"
-                      ? "border-border-light bg-surface text-text-primary placeholder:text-text-tertiary focus:border-text-primary"
-                      : "border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-white",
+                    variant === "brand" || variant === "dark"
+                      ? "border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-white focus:ring-white/30"
+                      : "",
                   )}
                 />
               </div>
-              <button
+              <Button
                 type="submit"
                 disabled={status === "loading" || !email.trim()}
+                loading={status === "loading"}
                 className={cn(
-                  "inline-flex items-center gap-2 rounded-lg px-6 py-3 text-body-sm font-medium transition-all duration-300 disabled:opacity-50",
-                  variant === "default"
-                    ? "bg-text-primary text-text-inverse hover:opacity-90"
-                    : "bg-white text-neutral-900 hover:bg-neutral-100",
+                  variant === "brand" || variant === "dark"
+                    ? "bg-white text-neutral-900 hover:bg-neutral-100"
+                    : "",
                 )}
               >
                 {buttonLabel}
                 <Send size={16} />
-              </button>
+              </Button>
             </div>
             {status === "success" && (
               <p className={cn("mt-3 text-body-sm", variant === "default" ? "text-text-secondary" : "text-neutral-300")}>

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://karya-nusantara-realty.com";
+const siteUrl = siteConfig.url;
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,6 +10,19 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: ["/search", "/api/"],
+        crawlDelay: 10,
+      },
+      {
+        userAgent: "GPTBot",
+        disallow: "/",
+      },
+      {
+        userAgent: "CCBot",
+        disallow: "/",
+      },
+      {
+        userAgent: "anthropic-ai",
+        disallow: "/",
       },
     ],
     sitemap: `${siteUrl}/sitemap.xml`,

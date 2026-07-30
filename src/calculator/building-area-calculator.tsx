@@ -64,7 +64,7 @@ export function BuildingAreaCalculator({ onAreaCalculated, initialRooms }: Build
               <label className="mb-1 block text-body-xs text-text-muted">Width (m)</label>
               <Input
                 type="number"
-                value={room.width || ""}
+                value={room.width != null ? String(room.width) : ""}
                 onChange={(e) => updateRoom(room.id, "width", Number(e.target.value))}
                 min={0}
                 step={0.5}
@@ -75,7 +75,7 @@ export function BuildingAreaCalculator({ onAreaCalculated, initialRooms }: Build
               <label className="mb-1 block text-body-xs text-text-muted">Length (m)</label>
               <Input
                 type="number"
-                value={room.length || ""}
+                value={room.length != null ? String(room.length) : ""}
                 onChange={(e) => updateRoom(room.id, "length", Number(e.target.value))}
                 min={0}
                 step={0.5}
@@ -86,7 +86,7 @@ export function BuildingAreaCalculator({ onAreaCalculated, initialRooms }: Build
               <label className="mb-1 block text-body-xs text-text-muted">Floors</label>
               <Input
                 type="number"
-                value={room.count || ""}
+                value={room.count != null ? String(room.count) : ""}
                 onChange={(e) => updateRoom(room.id, "count", Number(e.target.value))}
                 min={1}
                 className="py-2 text-body-sm"

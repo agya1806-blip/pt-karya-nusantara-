@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useReducedMotion } from "@/hooks";
+import { durations, easings, viewportMargin } from "@/lib/animation";
 import { cn } from "@/lib/utils";
 
 type SlideDirection = "up" | "down" | "left" | "right";
@@ -25,7 +26,7 @@ const translateMap: Record<SlideDirection, string> = {
 export function Slide({
   children,
   direction = "up",
-  duration = 0.8,
+  duration,
   delay = 0,
   once = true,
   className,
@@ -36,16 +37,18 @@ export function Slide({
     return <div className={cn(className)}>{children}</div>;
   }
 
+  const translate = translateMap[direction];
+
   return (
     <div className={cn("overflow-hidden", className)}>
       <motion.div
-        initial={{ translate: translateMap[direction] }}
-        whileInView={{ translate: "0px" }}
-        viewport={{ once, margin: "-50px" }}
+        initial={{ [direction === "up" || direction === "down" ? "y" : "x"]: translate }}
+        whileInView={{ y: 0, x: 0 }}
+        viewport={{ once, margin: viewportMargin }}
         transition={{
-          duration,
+          duration: duration ?? durations.slower,
           delay,
-          ease: [0.25, 0.1, 0.25, 1],
+          ease: easings.easeOut,
         }}
       >
         {children}

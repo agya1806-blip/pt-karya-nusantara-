@@ -27,23 +27,23 @@ export function ContactInformation({
   className,
 }: ContactInformationProps) {
   return (
-    <section className={cn("bg-surface py-24", className)}>
+    <section className={cn("bg-surface py-24 lg:py-28", className)}>
       <div className="container-site">
         <SectionHeader title={title} description={description} />
-        <Fade direction="up" className="mx-auto mt-16 grid max-w-4xl gap-6 md:grid-cols-2">
+        <Fade direction="up" className="mx-auto mt-20 grid max-w-4xl gap-6 md:grid-cols-2">
           {contacts.map((item) => {
             const content = (
-              <div className="flex items-start gap-4 rounded-xl border border-border-light bg-surface-secondary p-6 transition-all duration-300 hover:shadow-elevation-1">
+              <div className="flex items-start gap-5 border border-border-light/60 bg-surface-secondary p-6 lg:p-8 transition-all duration-300 hover:border-border-default hover:shadow-elevation-1">
                 {item.icon && iconMap[item.icon] ? (
-                  <span className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-brand-500/10 text-brand-600">
+                  <span className="mt-0.5 flex h-10 w-10 flex-shrink-0 items-center justify-center bg-brand-500/10 text-brand-600">
                     {iconMap[item.icon]}
                   </span>
                 ) : null}
                 <div>
-                  <p className="text-caption font-medium tracking-widest text-text-tertiary uppercase">
+                  <p className="text-overline tracking-widest text-text-tertiary">
                     {item.label}
                   </p>
-                  <p className="mt-1 text-body text-text-primary">{item.value}</p>
+                  <p className="mt-2 text-body text-text-primary">{item.value}</p>
                 </div>
               </div>
             );

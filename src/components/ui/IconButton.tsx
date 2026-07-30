@@ -15,10 +15,10 @@ interface IconButtonProps {
 }
 
 const variantStyles: Record<ButtonVariant, string> = {
-  primary: "bg-neutral-900 text-text-inverse hover:bg-neutral-800",
-  secondary: "bg-surface-muted text-text hover:bg-neutral-200",
-  ghost: "text-text hover:bg-surface-muted",
-  outline: "border border-border text-text hover:bg-surface-muted",
+  primary: "bg-gold-500 text-white hover:bg-gold-600",
+  secondary: "bg-brand-800 text-text-inverse hover:bg-brand-700",
+  ghost: "text-text-secondary hover:text-text hover:bg-surface-muted",
+  outline: "border border-border-default text-text-secondary hover:text-text hover:bg-surface-muted",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
@@ -37,7 +37,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(
         aria-label={ariaLabel}
         disabled={disabled}
         className={cn(
-          "inline-flex items-center justify-center rounded-lg transition-all duration-300 ease-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-neutral-900 focus-visible:ring-offset-2",
+          "inline-flex items-center justify-center rounded-lg transition-all duration-300 ease-luxury focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-500 focus-visible:ring-offset-2",
           variantStyles[variant],
           sizeStyles[size],
           disabled && "opacity-50 pointer-events-none cursor-not-allowed",

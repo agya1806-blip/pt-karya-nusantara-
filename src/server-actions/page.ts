@@ -8,7 +8,7 @@ import {
   failure,
   validationError,
   handleServerError,
-  requireRole,
+  requireRole, validatedInput,
 } from "./utils";
 
 export async function getPageBySlug(slug: string) {
@@ -39,7 +39,7 @@ export async function createPage(input: unknown): Promise<ActionResult> {
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const page = await pageRepository.create(parsed.data as any);
+    const page = await pageRepository.create(validatedInput(parsed.data));
     return success(page);
   } catch (error) {
     return handleServerError(error);
@@ -58,7 +58,7 @@ export async function updatePage(
       return validationError(parsed.error.flatten().fieldErrors);
     }
 
-    const page = await pageRepository.update(id, parsed.data as any);
+    const page = await pageRepository.update(id, validatedInput(parsed.data));
     return success(page);
   } catch (error) {
     return handleServerError(error);

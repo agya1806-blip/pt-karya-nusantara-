@@ -28,9 +28,9 @@ export function FloatingConsultation({ onSubmit, isSubmitting = false, isSuccess
     await onSubmit(data);
     reset();
     if (phoneNumber) {
-      const whatsappNumber = phoneNumber.replace(/\D/g, "");
+      const cleanPhone = phoneNumber.replace(/\D/g, "");
       const message = `Hi, I would like a consultation. My name is ${data.name}.`;
-      window.open(`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`, "_blank");
+      window.open(`https://wa.me/${cleanPhone}?text=${encodeURIComponent(message)}`, "_blank");
     }
   };
 
